@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Ian Grubb Portoflio`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Ian Grubb`,
+    description: `A developer portfolio and blog.`,
+    author: `@iangrubb`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,6 +31,20 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects/`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

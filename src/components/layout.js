@@ -9,10 +9,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Shapes from "../components/paperCraft/shapes"
+
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, minimal }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,9 +25,11 @@ const Layout = ({ children }) => {
     }
   `)
 
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {minimal ? null : <Header siteTitle={data.site.siteMetadata.title} />}
+      <Shapes />
       <div
         style={{
           margin: `0 auto`,
