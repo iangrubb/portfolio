@@ -3,8 +3,16 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
+:root {
+  --text-color: #3b383f;
+  --background-color: #F0ECE0;
+}
+
 body {
   margin: 0;
+  background: var(--background-color);
+  color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,11 +49,17 @@ template {
 }
 a {
   background-color: transparent;
+  text-decoration: none;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
 a:hover {
   outline-width: 0;
+}
+a:active,
+a:hover,
+a:visited {
+  color: inherit;
 }
 abbr[title] {
   border-bottom: none;
