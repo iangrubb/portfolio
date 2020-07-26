@@ -26,7 +26,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        excerpt_separator: `<!-- end -->`
+      }
+    },
     // Configure this when ready
     // {
     //   resolve: `gatsby-plugin-manifest`,

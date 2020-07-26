@@ -6,19 +6,19 @@ import shapeData from './shapeData'
 const determineHexColor = color => {
     switch(color) {
         case "red":
-            return "#e83535"
+            return "#F93939"
         case "orange":
-            return "#de4f24"
+            return "#FD8721"
         case "yellow":
-            return "#FFB91D"
+            return "#ffd334"
         case "green":
-            return "#7EB90C"
+            return "#72cc3c"
         case "blue":
-            return "#56B6C5"
+            return "#266bb3"
         case "purple":
-            return "#453d77"
+            return "#3f3d5f"
         case "pink":
-            return "#e84682"
+            return "#d43c82"
         case "tan":
             return "#E9DEBE"
         default:
@@ -29,7 +29,7 @@ const determineHexColor = color => {
 const Paper = ({className, children, shape, color, proportional}) => {
     const shapeDatum = shapeData.find(s => s.name === shape)
     return (
-        <Container className={className} width={shapeDatum.width} height={shapeDatum.height}>
+        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional}>
             {proportional ?
             <Spacer>
                 <ProportionalBody shape={shape} color={determineHexColor(color)} >
@@ -47,8 +47,8 @@ export default Paper
 
 const Container = styled.div`
     width: ${props => props.width}px;
-    height: ${props => props.height}px;
-    filter: drop-shadow(2px 2px 1px #322F3755);
+    height: ${props => props.proportional ? "auto" : `${props.height}px`};
+    filter: drop-shadow(2px 2px 0.5px #55555566);
 `;
 
 const BodyBase = styled.div`

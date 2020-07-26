@@ -21,9 +21,6 @@ const Exterior = styled(Paper)`
     width: fit-content;
     height: fit-content;
 
-
-    
-
 `
 
 const Interior = styled(Paper)`
