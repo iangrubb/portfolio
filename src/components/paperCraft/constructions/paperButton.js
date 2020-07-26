@@ -21,17 +21,13 @@ const Exterior = styled(Paper)`
     width: fit-content;
     height: fit-content;
 
-    &:hover {
-        transform: scale(1.1);
-        filter: drop-shadow(4px 4px 4px #322F3744);
-    }
 
-    cursor: pointer;
+    
 
 `
 
 const Interior = styled(Paper)`
-    margin: 16px;
+    margin: 12px;
     width: fit-content;
     height: fit-content;
     

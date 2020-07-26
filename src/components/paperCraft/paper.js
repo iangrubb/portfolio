@@ -6,19 +6,19 @@ import shapeData from './shapeData'
 const determineHexColor = color => {
     switch(color) {
         case "red":
-            return "#DC3840"
+            return "#e83535"
         case "orange":
-            return "#E35C26"
+            return "#de4f24"
         case "yellow":
-            return "#ECD725"
+            return "#FFB91D"
         case "green":
-            return "#65D71D"
+            return "#7EB90C"
         case "blue":
-            return "#1DAAE2"
+            return "#56B6C5"
         case "purple":
-            return "#68288F"
+            return "#453d77"
         case "pink":
-            return "#D12E9B"
+            return "#e84682"
         case "tan":
             return "#E9DEBE"
         default:
@@ -48,13 +48,15 @@ export default Paper
 const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.height}px;
-    filter: drop-shadow(4px 4px 2px #322F3744);
+    filter: drop-shadow(2px 2px 1px #322F3755);
 `;
 
 const BodyBase = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: 100%;
 
     clip-path: url(#${props => props.shape});
     shape-outside: url(#${props => props.shape});
@@ -73,15 +75,15 @@ const BodyBase = styled.div`
         ),
         repeating-linear-gradient(
         rgba(160, 160, 160, 0.1),
-        rgba(80, 80, 80, 0.1) 2px,
+        rgba(120, 120, 120, 0.1) 2px,
         rgba(180, 180, 180, 0.1) 6px,
-        rgba(100, 100, 100, 0.1) 11px,
+        rgba(120, 120, 120, 0.1) 11px,
         rgba(160, 160, 160, 0.1) 14px,
-        rgba(100, 100, 100, 0.1) 22px,
+        rgba(120, 120, 120, 0.1) 22px,
         rgba(180, 180, 180, 0.1) 25px,
-        rgba(80, 80, 80, 0.1) 34px,
+        rgba(120, 120, 120, 0.1) 34px,
         rgba(180, 180, 180, 0.1) 38px,
-        rgba(100, 100, 100, 0.1) 44px,
+        rgba(120, 120, 120, 0.1) 44px,
         rgba(160, 160, 160, 0.1) 50px
         ),
         ${props => props.color};
@@ -93,10 +95,10 @@ const ProportionalBody = styled(BodyBase)`
     bottom: 0;
     left: 0;
     right: 0;
+    
 `
 
 const StretchBody = styled(BodyBase)`
-    width: 100%;
     height: 100%;
 `
 

@@ -1,39 +1,57 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/projects">Projects</Link>
-      </h1>
-    </div>
-  </header>
+import Paper from '../paperCraft/paper'
+import PaperButton from '../paperCraft/constructions/paperButton'
+
+const Header = () => (
+  <Container>  
+
+    <Paper color="purple" shape="home" >
+        <StyledLink to="/"></StyledLink>
+    </Paper>
+
+    <PaperButton color="purple">
+        <StyledLink to="/blog">Blog</StyledLink>
+    </PaperButton>
+    <PaperButton color="purple">
+        <StyledLink to="/projects">Projects</StyledLink>
+    </PaperButton>
+    <PaperButton color="purple">
+        <StyledLink to="/beef">About</StyledLink>
+    </PaperButton>
+    <PaperButton color="purple">
+        <StyledLink to="/beef">Contact</StyledLink>
+    </PaperButton>
+
+
+
+    {/* <Link to="/">Home</Link>
+      <Link to="/blog">Blog</Link>
+      <Link to="/projects">Projects</Link> */}
+  </Container>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Container = styled.header`
+  margin: 2rem;
+  width: 800px;
+  height: 80px;
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+  position: relative;
+ 
+  display: flex;
+  justify-content: center;
+`
+
+const StyledLink = styled(Link)`
+  padding: 12px 24px;
+  font-family: "Vollkorn";
+  font-weight: 700;
+  font-size: 1.4rem;
+`
+
+
+
 
 export default Header

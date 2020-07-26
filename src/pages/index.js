@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 
 import Layout from "../components/siteStructure/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 import Paper from "../components/paperCraft/paper"
@@ -15,25 +14,25 @@ const IndexPage = () => {
   <Layout minimal>
     <SEO title="Home" />
     <CenteredContent>
+      <Seaweed color="green" shape="seaweed" proportional/>
       <Info>
         <Name>Ian Grubb</Name>
-        <Paper color="red" shape="spacer"/>
+        <Paper color="pink" shape="spacer"/>
         <Title>Full Stack Developer</Title>
       </Info>
       <Links>
-        <PaperButton color="red">
+        <PaperButton color="yellow">
           <StyledLink to="/blog">Blog</StyledLink>
         </PaperButton>
-        <PaperButton color="red">
+        <PaperButton color="purple">
           <StyledLink to="/projects">Projects</StyledLink>
         </PaperButton>
-        <PaperButton color="red">
-          <StyledLink>About</StyledLink>
+        <PaperButton color="blue">
+          <StyledLink to="/beef">About</StyledLink>
         </PaperButton>
-        <PaperButton color="red">
-          <StyledLink>Contact</StyledLink>
+        <PaperButton color="purple">
+          <StyledLink to="/beef">Contact</StyledLink>
         </PaperButton>
-        
       </Links>
     </CenteredContent>
   </Layout>
@@ -44,17 +43,28 @@ const CenteredContent = styled.div`
   flex-direction: column;
   align-items: center;
 
+
   position: fixed;
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
 `
 
+const Seaweed = styled(Paper)`
+  position: absolute;
+  z-index: -1;
+  top: -20%;
+  right: -14%;
+  width: 240px;
+`
+
 const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `
+
 
 const Name = styled.h1`
   margin: 0;
@@ -72,9 +82,8 @@ const Title = styled.h2`
 
 const Links = styled.div`
   margin: 2em 0 0 0;
-  
   display: flex;
-  
+  position: relative;
 `
 
 const StyledLink = styled(Link)`
@@ -82,7 +91,8 @@ const StyledLink = styled(Link)`
   font-family: "Vollkorn";
   font-weight: 900;
   font-size: 1.6rem;
-
 `
+
+
 
 export default IndexPage
