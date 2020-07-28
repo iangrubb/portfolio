@@ -21,11 +21,11 @@ const BlogTemplate = ({ data }) => {
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-        <div className="blog-post">
+        <div className="project-posts">
             <h1>{frontmatter.title}</h1>
             <h2>{frontmatter.date}</h2>
             <div
-            className="blog-post-content"
+            className="project-main-content"
             dangerouslySetInnerHTML={{ __html: html }}
             />
         </div>

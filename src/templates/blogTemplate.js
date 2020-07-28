@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import styled from 'styled-components'
+
 import Layout from '../components/siteStructure/layout'
 
 export const pageQuery = graphql`
@@ -24,8 +26,7 @@ const BlogTemplate = ({ data }) => {
         <div className="blog-post">
             <h1>{frontmatter.title}</h1>
             <h2>{frontmatter.date}</h2>
-            <div
-            className="blog-post-content"
+            <MainContent
             dangerouslySetInnerHTML={{ __html: html }}
             />
         </div>
@@ -33,5 +34,9 @@ const BlogTemplate = ({ data }) => {
 
   )
 }
+
+const MainContent = styled.section`
+  width: 65ch;
+`
 
 export default BlogTemplate
