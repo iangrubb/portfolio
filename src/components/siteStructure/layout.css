@@ -6,7 +6,7 @@ html {
 
 :root {
   --text-color: #4e4b52;
-  --background-color: #F1EFE9;
+  --background-color: #f0efea;
 }
 
 body {
@@ -15,6 +15,10 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.auto-anchor {
+  color: var(--text-color);
 }
 
 

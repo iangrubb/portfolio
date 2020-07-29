@@ -30,7 +30,19 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        excerpt_separator: `<!-- end -->`
+        excerpt_separator: `<!-- end -->`,
+        plugins: [
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `16`,
+              className: `auto-anchor`,
+              elements: [`h2`, `h3`],
+            }
+          }
+        ]
       }
     },
     // Configure this when ready
@@ -54,7 +66,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Vollkorn:400,700,900', 'Open Sans:400, 400i, 700']
+          families: ['Vollkorn:400,400i,700,900', 'Open Sans:400, 400i, 700']
         }
       }
     }
