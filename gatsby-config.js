@@ -32,16 +32,9 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
+          `gatsby-remark-component`,
           `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-prismjs`,
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              offsetY: `16`,
-              className: `auto-anchor`,
-              elements: [`h2`, `h3`],
-            }
-          }
+          `gatsby-remark-prismjs`
         ]
       }
     },

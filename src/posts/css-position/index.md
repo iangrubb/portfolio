@@ -2,14 +2,14 @@
 slug: "/blog/a-pragmatic-guide-to-css-position"
 date: "2020-07-27"
 title: "A Pragmatic Guide to CSS Position"
-subtitle: "What it Does, When to Use it, and How to Get the Most Out of it"
+subtitle: "What it Does, When to Use it, and How to Use it Well"
 ---
 
 Getting a website's layout exactly right can be a serious challenge. A layout needs to work for 
 
 We can use the CSS position property to customize our website layouts. It's a powerful tool, but one that's easy to misunderstood and misuse. 
 
-## Ways to Set Position
+## Possible Values for Position
 
 Let's start with the basics: what options are there 
 

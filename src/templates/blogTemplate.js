@@ -1,16 +1,19 @@
 import React from "react"
+import rehypeReact from "rehype-react"
 import { graphql } from "gatsby"
 
 import styled from 'styled-components'
 
 import Layout from '../components/siteStructure/layout'
-
+import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
+import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
+import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
 import Paper from '../components/paperCraft/paper'
 
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         slug
@@ -21,9 +24,18 @@ export const pageQuery = graphql`
   }
 `
 
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    iframe: iframeWrapper,
+    h2: sectionHeader,
+    h3: subSectionHeader
+    }
+}).Compiler
+
 const BlogTemplate = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, htmlAst } = markdownRemark
   return (
     <Layout>
         <BlogContent>
@@ -32,7 +44,7 @@ const BlogTemplate = ({ data }) => {
           </DateWrapper>
           <Title>{frontmatter.title}</Title>
           <SubTitle>{frontmatter.subtitle}</SubTitle>
-          <MainContent dangerouslySetInnerHTML={{ __html: html }} />
+          <MainContent>{renderAst(htmlAst)}</MainContent>
         </BlogContent>
     </Layout>
 
@@ -51,7 +63,6 @@ const DateWrapper = styled(Paper)`
 
 const Date = styled.h2`
   font-size: 1.2rem;
-  font-weight: 900;
   letter-spacing: 1px;
   color: var(--background-color);
   margin: 0.6rem 1rem;
