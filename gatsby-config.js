@@ -28,13 +28,25 @@ module.exports = {
     },
     `gatsby-plugin-catch-links`,
     {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -24
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
           `gatsby-remark-component`,
           `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-prismjs`
+          `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-remark-smartypants",
+            options: {
+              quotes: false,
+            },
+          }
         ]
       }
     },

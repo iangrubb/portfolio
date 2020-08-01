@@ -1,39 +1,42 @@
 import React from 'react'
-
 import styled from 'styled-components'
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import Paper from '../paper'
 
-const sectionHeader = ({ children }) => {
-
+const sectionHeader = ({ children, counter }) => {
     return (        
-        <HeadingWrapper color="purple" shape="frame">
+        <HeadingWrapper >
+            <Hex color="purple" shape="hex">{counter}</Hex>
             <Heading>{children}</Heading>
         </HeadingWrapper>
     )
 }
 
-const HeadingWrapper = styled(Paper)`
+const HeadingWrapper = styled.div`
 
     position: relative;
+    left: -3rem;
+    width: calc(100% + 3rem);
 
-    left: -1rem;
-
-    margin: 2rem 0;
-
-    width: fit-content;
-    height: fit-content;
+    margin: 0.8rem 0;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+`
 
+const Hex = styled(Paper)`
+    width: 4.4rem;
+    height: 4.4rem;
     color: var(--background-color);
+    font-family: "Vollkorn";
+    font-size: 2rem;
+    font-weight: 700;
 `
 
 const Heading = styled.h2`
-    margin: 0.6rem 1rem 0.3rem 1rem;
-    letter-spacing: 0.6px;
+    margin: 0;
+    font-size: 1.8rem;
 `
 
 
