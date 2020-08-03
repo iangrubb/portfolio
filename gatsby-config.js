@@ -27,12 +27,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-catch-links`,
-    {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -24
-      }
-    },
+    // {
+    //   resolve: "gatsby-plugin-anchor-links",
+    //   options: {
+    //     offset: 0
+    //   }
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

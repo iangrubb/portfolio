@@ -59,7 +59,7 @@ const addNumbersToHeaderProps = (ast, slug) => {
             return {...node, props: {...node.props, counter: h2Counter, path: slug + "#" + h2path}}
           case "h3":
             h3Counter++
-            return {...node, props: {...node.props, counter: h3Counter}}
+            return {...node, props: {...node.props, counter: h3Counter, path: slug + "#" + h2path + "-" + slugify(node.props.children[0])}}
           default:
             return node
         }
@@ -102,7 +102,7 @@ const DateWrapper = styled(Paper)`
 `
 
 const Date = styled.h2`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   letter-spacing: 0.4px;
   color: var(--background-color);
   margin: 0.8rem 1.2rem 0.7rem 1.2rem;

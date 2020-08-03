@@ -4,10 +4,13 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import Paper from '../paper'
 
-const sectionHeader = ({ children, counter }) => {
+const sectionHeader = ({ children, counter, path }) => {
+
+    const navId = path.split("#")[1]
+
     return (        
-        <HeadingWrapper >
-            <Hex color="purple" shape="hex">{counter}</Hex>
+        <HeadingWrapper id={navId} >
+            <Hex color="purple" shape="hex"><a href={"#" + navId} title={children[0]}>{counter}</a></Hex>
             <Heading>{children}</Heading>
         </HeadingWrapper>
     )
@@ -23,6 +26,8 @@ const HeadingWrapper = styled.div`
 
     display: flex;
     align-items: center;
+
+    scroll-margin-top: 16px;
 `
 
 const Hex = styled(Paper)`

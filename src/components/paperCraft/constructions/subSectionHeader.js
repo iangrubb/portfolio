@@ -4,11 +4,12 @@ import styled from 'styled-components'
 
 import Paper from '../paper'
 
-const subSectionHeader = ({ children, counter }) => {
+const subSectionHeader = ({ children, counter, path }) => {
+    console.log(path)
+    const navId = path.split("#")[1]
     return (
-
-        <SubHeadingWrapper>
-            <Rectangle color="purple" shape="rectangle"><Letter>{String.fromCharCode(counter + 96)}</Letter></Rectangle>
+        <SubHeadingWrapper id={navId}>
+            <Rectangle color="purple" shape="rectangle"><Letter href={"#" + navId}>{String.fromCharCode(counter + 96)}</Letter></Rectangle>
             <SubHeading>{children}</SubHeading>
         </SubHeadingWrapper>
     )
@@ -24,6 +25,8 @@ const SubHeadingWrapper = styled.div`
 
     display: flex;
     align-items: center;
+
+    scroll-margin-top: 16px;
 `
 
 const Rectangle = styled(Paper)`
@@ -37,7 +40,7 @@ const Rectangle = styled(Paper)`
 
 `
 
-const Letter = styled.span`
+const Letter = styled.a`
     margin: 0;
     color: var(--background-color);
     font-family: "Vollkorn";
@@ -46,6 +49,14 @@ const Letter = styled.span`
 
     position: relative;
     top: 1px;
+
+    &:hover {
+        color: var(--background-color);
+    }
+
+    &:visited {
+        color: var(--background-color);
+    }
 
 `
 

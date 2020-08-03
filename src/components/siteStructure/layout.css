@@ -13,6 +13,7 @@ body {
   margin: 0;
   background: var(--background-color);
   color: var(--text-color);
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
