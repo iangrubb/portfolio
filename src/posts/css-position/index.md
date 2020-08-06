@@ -105,7 +105,7 @@ This means we can center an element within its parent by determining location in
 
 The first purple square has position absolute, but it's just in its default position of top and left 0. The second purple square has top and left values of 50%, putting its top-left corner at its parent's center. That means we've gone a bit too far, but we can move back a bit with a translation. The third purple square has the same top and left values, but has been given a transformation to translate it back and up 50% of its own proportions, centering it perfectly within its parent.
 
-### Determine Size with Top + Bottom or Left + Right
+### Determining Size with Top + Bottom or Left + Right
 
 You'll sometimes want a positioned child to span across some portion of its parent. For instance, in the example below we want a child to extend across its parent leaving 8px to the left, 16px to the right, 8px to the top, and half of the parent's height to the bottom. This can be done by setting top and left to 8px each, and then setting width and height using the appropriate calculations. But there's an easier way: we can set width by combining top and bottom, and we can set width by combining left and right. Here are both ways of achieving the same effect:
 
@@ -131,65 +131,102 @@ A slightly more subtle problem is that if you use anchor links, the links will s
 
 The trick is to apply a scroll-margin to the top of each heading that you use as an anchor link. In this case, I added enough margin to account for the navigation bar and the natural margin of each of my headings.
 
-### Control Overlap through HTML Structure
+### Controlling Overlap through HTML Structure
 
+The next technique helps control how elements overlap when you use the z-index property. We can't always force one element above another just by setting the z-index values of the elements. The reason is that z-index values don't get compared across the whole document, only within specific *stacking contexts*.
 
+This actually gets pretty complicated, so lets just start with an example. Below, we have a single bar with z-index 2 and two pairs of elements. For each pair, the larger square has a z-index of 1 and the smaller square has a z-index of 3. I've set the squares to move past the bar when hovered over. We'd expect that for each pair, the large square would go under the bar and while the small square would go over. But that's not the behavior we actually get.
 
 <iframe height="358" style="width: 100%;" scrolling="no" title="Working With Stacking Contexts" src="https://codepen.io/iangrubb/embed/QWyeXaz?height=358&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/QWyeXaz'>Working With Stacking Contexts</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Ok, so what's going on? The key difference here is HTML structure. In the first example, the large square contains the smaller square as a child. This ensures that when the hover translation causes the large square to move, the small square moves along with it. But because there's a z-index on the large square it starts a new stacking context. This means that anything above the large square will automatically be above any of its children.
 
+This is a surprising and potentially frustrating rule. But the rule can also be quite valuable, since its good to have safeguards against an element showing up where it shouldn't be if given the wrong z-index. We just need to know how to work around the rule when we want certain kinds of behavior.
 
-
-
-
+The trick to getting the pair to split in the second example above is to introduce an additional div. The large square in the original example serves double duty--it's both the thing that gets moved on hover and the thing that places a square under the bar. So we just need to restructure our HTML so that the parent div is only responsible for the movement, and contains two children that each render one of the squares. Now that the squares are siblings they're part of a broader stacking context that includes the bar, allowing their z-index values to have the intended effect.
 
 ## When to Use Positioned Elements
 
-Most of the type, you should go with the static default
+While these positioning options give you a lot of freedom, most layouts should consist mainly of static elements. The unnecessary use of positioned elements can lead to longer CSS files, more brittle code, and less predictable styling. All of this makes your code harder for others to understand and harder to change in the future. Positioned elements can have a positive, powerful effect when used in targeted ways, but the layout of a page as a whole should nearly always be built with static elements arranged through a system like Flexbox or Grid.
 
-Examples of Uses
+That being said, let's look at some cases where it *does* make sense to deviate from static positioning. I'll go over some of the common use cases that I keep coming back to, but this certainly isn't an exhaustive list. If you have your own favorite uses, let me know!
 
-### Visually Indicating Important Information
+### Make Important Elements More Prominent
+
+This is a pretty broad category, but the basic idea is that if we have especially important information, buttons, or forms, we can make them more obvious and easier to access if we move them out of the normal flow of the document. One example is making navigation options easier to access by giving them a fixed position. Another is making headers stand out by giving them a small nudge out of the normal flow with relative positioning.
+
+Let's consider a slightly more advanced variation on the idea of a fixed header. In this case, we have a table of data with column names and a search bar at the top. Ideally, the names and search bar will be visible to the user *whenever* they see the table. But since the table might not always be on the screen, we can't just give it a fixed position. The right approach involves sticky positioning:
+
+<iframe height="355" style="width: 100%;" scrolling="no" title="Sticky Table Header" src="https://codepen.io/iangrubb/embed/poyzmWw?height=355&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/poyzmWw'>Sticky Table Header</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The one notable trick to getting this working is using multiple sticky elements. This is necessary in order to write the table using the semantically appropriate HTML tags. The sticky property wasn't working on any of the table row elements, so I had to apply it to each table header element. Also, since the title and search bar can't be in the table itself, they have to be in a separate div tag that's also sticky. Everything behaves as a single sticky element because I gave the div a determinate height and set the top value on the headers so that they stick just below the end of the header div.
+ 
+### Arrange Irregular Shapes
+
+Both the normal flow and layout tools like Flexbox and Grid assume that your website's elements are rectangles. That's typically an accurate assumption, but not always. When you work with non-rectangular shapes, static positioning sometimes results in the wrong distribution of white space between elements. In that case it can make sense to use positioned elements to create a more aesthetically satisfying layout.
+
+Here's a simple example involving some buttons meant to emulate a video game controller. The buttons have a wedge created with a clip-path, so to fit them together compactly I made them position absolute elements inside a position relative parent.
+
+<iframe height="322" style="width: 100%;" scrolling="no" title="Positioning Irregular Elements" src="https://codepen.io/iangrubb/embed/gOrOaoR?height=322&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/gOrOaoR'>Positioning Irregular Elements</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+The arrangement uses a rotation to get each button in the right spot. I started by placing the left button, and then placed the rest of the elements by rotating them from that starting point. This works because I've set the set the buttons to transform relative to middle of their right side. You *could* position the buttons without a rotation, but this saves lots of calculations and lines of CSS.
+
+### Stack Groups of Elements
 
 
-Sticky headers for easier access to table info and local control panel.
 
 
-### Compact Layouts with Irregular Shapes
-
-Static positioning treats elements as boxes, but the visible shape of your elements may not be boxes. Can lead to excessive white space. Possible to get around this by using absolute positioning.
-
-( game pad buttons packed together )
-
-### Animation
+<iframe height="355" style="width: 100%;" scrolling="no" title="Stacked Cards" src="https://codepen.io/iangrubb/embed/wvGvrpM?height=355&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/wvGvrpM'>Stacked Cards</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 Transition performance
 
-### Overlay
 
 
-(scrolling bars on computer screen)
+
+### Apply a Partially Transparent Overlay
+
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Monitor Overlay" src="https://codepen.io/iangrubb/embed/ExKxLgK?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/ExKxLgK'>Monitor Overlay</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+
+Case where we benefit from stacking contexts
 
    
-### Modals
+### Add Tool Tips on Hover
+
+  <iframe height="392" style="width: 100%;" scrolling="no" title="Tool Tip on Hover" src="https://codepen.io/iangrubb/embed/xxVxJKM?height=392&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/xxVxJKM'>Tool Tip on Hover</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+  </iframe>
 
 
-### Tool Tips 
+### Locate Markers on a Map or Image
 
+<iframe height="265" style="width: 100%;" scrolling="no" title="CSS Graph Movement" src="https://codepen.io/iangrubb/embed/YzqzjOG?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/YzqzjOG'>CSS Graph</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
-  Great because we don't want these to break the normal flow of the document.
+  
 
-  These typically can be dismissed, so less concern about blocking content.
+### Implement a Responsive Aspect Ratio
 
-### Map With Markers
-
-  Another spacial case
-
-    Add points on images or map
-
-
-
-### Responsive Aspect Ratio
+<iframe height="265" style="width: 100%;" scrolling="no" title="Responsive Aspect Ratio" src="https://codepen.io/iangrubb/embed/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/OJNPPWE'>Responsive Aspect Ratio</a> by Ian Grubb
+  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>

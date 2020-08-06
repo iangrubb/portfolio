@@ -22,12 +22,14 @@ const HeadingWrapper = styled.div`
     left: -3rem;
     width: calc(100% + 3rem);
 
-    margin: 0.8rem 0;
+    margin: 2rem 0 0.6rem 0;
 
     display: flex;
     align-items: center;
 
     scroll-margin-top: 16px;
+
+    
 `
 
 const Hex = styled(Paper)`

@@ -94,12 +94,7 @@ const ProportionalBody = styled(BodyBase)`
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    
-`
-
-const StretchBody = styled(BodyBase)`
-    height: 100%;
+    right: 0;    
 `
 
 const Spacer = styled.div`
@@ -107,3 +102,8 @@ const Spacer = styled.div`
     padding-top: 100%;
     position: relative;
 `
+
+const StretchBody = styled(BodyBase)`
+    height: 100%;
+`
+

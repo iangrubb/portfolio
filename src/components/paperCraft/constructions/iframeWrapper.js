@@ -23,6 +23,7 @@ const Spacer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem 0;
 `
 
 const Title = styled.p`

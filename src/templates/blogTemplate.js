@@ -34,9 +34,7 @@ const renderAst = new rehypeReact({
     }
 }).Compiler
 
-
 const slugify = string => string.toLowerCase().split(" ").join("-")
-
 
 const addNumbersToHeaderProps = (ast, slug) => {
 
@@ -68,12 +66,11 @@ const addNumbersToHeaderProps = (ast, slug) => {
       }
     }
   })
-
   return {...ast, props: {...ast.props, children: updatedList }}
 }
 
 const BlogTemplate = ({ data }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
 
   return (
@@ -102,10 +99,10 @@ const DateWrapper = styled(Paper)`
 `
 
 const Date = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.4px;
   color: var(--background-color);
-  margin: 0.8rem 1.2rem 0.7rem 1.2rem;
+  margin: 0.6rem 1rem 0.6rem 1rem;
 `
 
 const Title = styled.h1`
