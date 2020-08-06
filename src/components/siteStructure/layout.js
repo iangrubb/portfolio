@@ -24,16 +24,21 @@ const Layout = ({ children, minimal }) => {
 
 const Page = styled.div`
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 `
 
 const Main = styled.main`
   width: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  flex-grow: 1;
 
 `
 

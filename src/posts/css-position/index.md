@@ -29,7 +29,7 @@ Relative positioning keeps an element within the normal flow, but allows us to p
 
 Here's an example of how it works. We have five squares aligned by a flex parent, one of which has been given a class with relative positioning:
 
-<iframe height="310" style="width: 100%;" scrolling="no" title="Relative Position" src="https://codepen.io/iangrubb/embed/yLemEEE?height=310&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="310" style="width: 100%;" scrolling="no" title="Relative Position" src="https://codepen.io/iangrubb/embed/preview/yLemEEE?height=310&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/yLemEEE'>Relative Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -42,7 +42,7 @@ Elements with fixed position are taken out of the flow of the document entirely,
 
 Elements in the normal flow can be made to scroll under or over fixed elements. In this example, the green squares scroll over a fixed background div and under a fixed header:
 
-<iframe height="344" style="width: 100%;" scrolling="no" title="Fixed Position" src="https://codepen.io/iangrubb/embed/VweodNa?height=344&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="344" style="width: 100%;" scrolling="no" title="Fixed Position" src="https://codepen.io/iangrubb/embed/preview/VweodNa?height=344&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/VweodNa'>Fixed Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -55,7 +55,7 @@ Like fixed positioning, absolute positioning places an element in relation to a 
 
 Let's clear up one potential point of confusion--an absolutely positioned element that's placed in relation to the body of the document isn't the same thing as an element with fixed positioning. They look the same in certain cases, but they behave differently when the body of the document is taller than the user's viewport:
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Absolute vs Fixed Position" src="https://codepen.io/iangrubb/embed/wvMbNzr?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="265" style="width: 100%;" scrolling="no" title="Absolute vs Fixed Position" src="https://codepen.io/iangrubb/embed/preview/wvMbNzr?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/wvMbNzr'>Absolute vs Fixed Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -68,7 +68,7 @@ Sticky is a relatively new kind of positioning, which functions as a kind of hyb
 
 A sticky element scrolls into the user's viewport as though it has a relative position. But once it reaches the top of the viewport it temporarily behaves as though it has a fixed position. It only scrolls off of the screen once its parent starts to scroll off of the screen as well. Here's the effect in action: 
 
-<iframe height="289" style="width: 100%;" scrolling="no" title="Sticky Position" src="https://codepen.io/iangrubb/embed/ExPqpdy?height=289&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="289" style="width: 100%;" scrolling="no" title="Sticky Position" src="https://codepen.io/iangrubb/embed/preview/ExPqpdy?height=289&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/ExPqpdy'>Sticky Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -85,7 +85,7 @@ We often want to place a child element at a certain position within its parent e
 
 To start, we give the child position absolute and whatever top, bottom, left, or right attributes we want to place it within the parent. But that's not enough, since an absolute element gets placed in relation to the document or its nearest parent with non-static positioning. That might seem like a problem--what if we want the parent to have static positioning? The trick is to just give the parent a position of relative. Here's the combination in action:
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Absolute Child, Relative Parent" src="https://codepen.io/iangrubb/embed/jOWoGKX?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="265" style="width: 100%;" scrolling="no" title="Absolute Child, Relative Parent" src="https://codepen.io/iangrubb/embed/preview/jOWoGKX?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/jOWoGKX'>Absolute Child, Relative Parent</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -98,7 +98,7 @@ Suppose we have an absolutely positioned child that we want perfectly centered w
 
 This means we can center an element within its parent by determining location in *both* ways. Here are the stages in the process:
 
-<iframe height="312" style="width: 100%;" scrolling="no" title="Centering with Position" src="https://codepen.io/iangrubb/embed/VwaZYwy?height=312&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="312" style="width: 100%;" scrolling="no" title="Centering with Position" src="https://codepen.io/iangrubb/embed/preview/VwaZYwy?height=312&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/VwaZYwy'>Centering with Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -109,7 +109,7 @@ The first purple square has position absolute, but it's just in its default posi
 
 You'll sometimes want a positioned child to span across some portion of its parent. For instance, in the example below we want a child to extend across its parent leaving 8px to the left, 16px to the right, 8px to the top, and half of the parent's height to the bottom. This can be done by setting top and left to 8px each, and then setting width and height using the appropriate calculations. But there's an easier way: we can set width by combining top and bottom, and we can set width by combining left and right. Here are both ways of achieving the same effect:
 
-<iframe height="248" style="width: 100%;" scrolling="no" title="Setting Dimensions through Position Attributes" src="https://codepen.io/iangrubb/embed/KKzPpzm?height=248&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="248" style="width: 100%;" scrolling="no" title="Setting Dimensions through Position Attributes" src="https://codepen.io/iangrubb/embed/preview/KKzPpzm?height=248&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/KKzPpzm'>Setting Dimensions through Position Attributes</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -124,7 +124,7 @@ A nice place to start is applying a margin to the top of the element that contai
 
 A slightly more subtle problem is that if you use anchor links, the links will scroll the page so that the fixed navigation ends up on top of whenever header you were linking to. That's a bit sloppy and not the best user experience. But here's an example where the problem is solved:
 
-<iframe height="294" style="width: 100%;" scrolling="no" title="Fixed Clearance with Scroll Margin" src="https://codepen.io/iangrubb/embed/JjXPdNx?height=294&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="294" style="width: 100%;" scrolling="no" title="Fixed Clearance with Scroll Margin" src="https://codepen.io/iangrubb/embed/preview/JjXPdNx?height=294&theme-id=light&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/JjXPdNx'>Fixed Clearance with Scroll Margin</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -137,7 +137,7 @@ The next technique helps control how elements overlap when you use the z-index p
 
 This actually gets pretty complicated, so lets just start with an example. Below, we have a single bar with z-index 2 and two pairs of elements. For each pair, the larger square has a z-index of 1 and the smaller square has a z-index of 3. I've set the squares to move past the bar when hovered over. We'd expect that for each pair, the large square would go under the bar and while the small square would go over. But that's not the behavior we actually get.
 
-<iframe height="358" style="width: 100%;" scrolling="no" title="Working With Stacking Contexts" src="https://codepen.io/iangrubb/embed/QWyeXaz?height=358&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="358" style="width: 100%;" scrolling="no" title="Working With Stacking Contexts" src="https://codepen.io/iangrubb/embed/preview/QWyeXaz?height=358&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/QWyeXaz'>Working With Stacking Contexts</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -160,7 +160,7 @@ This is a pretty broad category, but the basic idea is that if we have especiall
 
 Let's consider a slightly more advanced variation on the idea of a fixed header. In this case, we have a table of data with column names and a search bar at the top. Ideally, the names and search bar will be visible to the user *whenever* they see the table. But since the table might not always be on the screen, we can't just give it a fixed position. The right approach involves sticky positioning:
 
-<iframe height="355" style="width: 100%;" scrolling="no" title="Sticky Table Header" src="https://codepen.io/iangrubb/embed/poyzmWw?height=355&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="355" style="width: 100%;" scrolling="no" title="Sticky Table Header" src="https://codepen.io/iangrubb/embed/preview/poyzmWw?height=355&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/poyzmWw'>Sticky Table Header</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -173,7 +173,7 @@ Both the normal flow and layout tools like Flexbox and Grid assume that your web
 
 Here's a simple example involving some buttons meant to emulate a video game controller. The buttons have a wedge created with a clip-path, so to fit them together compactly I made them position absolute elements inside a position relative parent.
 
-<iframe height="322" style="width: 100%;" scrolling="no" title="Positioning Irregular Elements" src="https://codepen.io/iangrubb/embed/gOrOaoR?height=322&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="322" style="width: 100%;" scrolling="no" title="Positioning Irregular Elements" src="https://codepen.io/iangrubb/embed/preview/gOrOaoR?height=322&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/gOrOaoR'>Positioning Irregular Elements</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -185,7 +185,7 @@ The arrangement uses a rotation to get each button in the right spot. I started 
 
 
 
-<iframe height="355" style="width: 100%;" scrolling="no" title="Stacked Cards" src="https://codepen.io/iangrubb/embed/wvGvrpM?height=355&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="355" style="width: 100%;" scrolling="no" title="Stacked Cards" src="https://codepen.io/iangrubb/embed/preview/wvGvrpM?height=355&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/wvGvrpM'>Stacked Cards</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -198,7 +198,7 @@ Transition performance
 ### Apply a Partially Transparent Overlay
 
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Monitor Overlay" src="https://codepen.io/iangrubb/embed/ExKxLgK?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="265" style="width: 100%;" scrolling="no" title="Monitor Overlay" src="https://codepen.io/iangrubb/embed/preview/ExKxLgK?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/ExKxLgK'>Monitor Overlay</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -209,7 +209,7 @@ Case where we benefit from stacking contexts
    
 ### Add Tool Tips on Hover
 
-  <iframe height="392" style="width: 100%;" scrolling="no" title="Tool Tip on Hover" src="https://codepen.io/iangrubb/embed/xxVxJKM?height=392&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  <iframe height="392" style="width: 100%;" scrolling="no" title="Tool Tip on Hover" src="https://codepen.io/iangrubb/embed/preview/xxVxJKM?height=392&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/xxVxJKM'>Tool Tip on Hover</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
   </iframe>
@@ -217,7 +217,7 @@ Case where we benefit from stacking contexts
 
 ### Locate Markers on a Map or Image
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="CSS Graph Movement" src="https://codepen.io/iangrubb/embed/YzqzjOG?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="265" style="width: 100%;" scrolling="no" title="CSS Graph Movement" src="https://codepen.io/iangrubb/embed/preview/YzqzjOG?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/YzqzjOG'>CSS Graph</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -226,7 +226,7 @@ Case where we benefit from stacking contexts
 
 ### Implement a Responsive Aspect Ratio
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Responsive Aspect Ratio" src="https://codepen.io/iangrubb/embed/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="265" data-preview="true" style="width: 100%;" scrolling="no" title="Responsive Aspect Ratio" src="https://codepen.io/iangrubb/embed/preview/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/OJNPPWE'>Responsive Aspect Ratio</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

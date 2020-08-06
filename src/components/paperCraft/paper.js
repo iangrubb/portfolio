@@ -12,15 +12,15 @@ const determineHexColor = color => {
         case "yellow":
             return "#f7e384"
         case "green":
-            return "#72cc3c"
+            return "#78d242"
         case "blue":
             return "#266bb3"
         case "purple":
-            return "#3f3d5f"
+            return "#524e67"
         case "pink":
-            return "#d43c82"
+            return "#f36961"
         case "tan":
-            return "#ffe9aa"
+            return "#efd5bd"
         default:
             return "#333"
     }
@@ -63,28 +63,28 @@ const BodyBase = styled.div`
 
     background: repeating-linear-gradient(
         30deg,
-        rgba(200, 200, 200, 0.1),
-        rgba(175, 175, 175, 0.1) 20px,
-        rgba(200, 200, 200, 0.1) 40px
+        rgba(200, 200, 200, 0.06),
+        rgba(175, 175, 175, 0.06) 20px,
+        rgba(200, 200, 200, 0.06) 40px
         ),
         repeating-linear-gradient(
         -30deg,
-        rgba(200, 200, 200, 0.1),
-        rgba(175, 175, 175, 0.1) 20px,
-        rgba(200, 200, 200, 0.1) 40px
+        rgba(200, 200, 200, 0.06),
+        rgba(175, 175, 175, 0.06) 20px,
+        rgba(200, 200, 200, 0.06) 40px
         ),
         repeating-linear-gradient(
-        rgba(160, 160, 160, 0.1),
-        rgba(120, 120, 120, 0.1) 2px,
-        rgba(180, 180, 180, 0.1) 6px,
-        rgba(120, 120, 120, 0.1) 11px,
-        rgba(160, 160, 160, 0.1) 14px,
-        rgba(120, 120, 120, 0.1) 22px,
-        rgba(180, 180, 180, 0.1) 25px,
-        rgba(120, 120, 120, 0.1) 34px,
-        rgba(180, 180, 180, 0.1) 38px,
-        rgba(120, 120, 120, 0.1) 44px,
-        rgba(160, 160, 160, 0.1) 50px
+        rgba(160, 160, 160, 0.15),
+        rgba(120, 120, 120, 0.15) 2px,
+        rgba(180, 180, 180, 0.15) 6px,
+        rgba(120, 120, 120, 0.15) 11px,
+        rgba(160, 160, 160, 0.15) 14px,
+        rgba(120, 120, 120, 0.15) 22px,
+        rgba(180, 180, 180, 0.15) 25px,
+        rgba(120, 120, 120, 0.15) 34px,
+        rgba(180, 180, 180, 0.15) 38px,
+        rgba(120, 120, 120, 0.15) 44px,
+        rgba(160, 160, 160, 0.15) 50px
         ),
         ${props => props.color};
 `
