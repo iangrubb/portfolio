@@ -8,12 +8,23 @@ import GatsbyLogo from '../paperCraft/constructions/logos/gatsby'
 const Footer = () => {
     return (
         <Container>
-          {/* © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> */}
-          <PlacedLogo/>
-          {/* <BackgroundDark color="purple" shape="box" /> */}
-          {/* <BackgroundLight color="tan" shape="box" /> */}
+          <Spacer color="green" shape="spacer"/>
+          
+
+
+          <BuildInfo>
+            <Copywrite color="pink" shape="frame">
+              <CopyText>
+                © {new Date().getFullYear()}
+              </CopyText>
+            </Copywrite>
+            <GatsbyLink href="https://www.gatsbyjs.org">
+              <MadeWith color="purple" shape="frame">
+                <Text>built with</Text>
+              </MadeWith>
+              <PlacedLogo />
+            </GatsbyLink>
+          </BuildInfo>
         </Container>
     )
 }
@@ -21,35 +32,70 @@ const Footer = () => {
 const Container = styled.footer`
   margin: 2rem 0 0 0;
   position: relative;
-  height: 100px;
   width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Spacer = styled(Paper)`
+  margin: 1rem;
+  width: 400px;
+  max-width: 90%;
+`
+
+const BuildInfo = styled.div`
+  position: relative;
+  margin: 1rem;
+  padding: 16px 16px 0 0;
+`
+
+const Copywrite = styled(Paper)`
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  width: fit-content;
+  height: fit-content;
+`
+
+const CopyText = styled.span`
+  margin: 2px 8px;
+  color: var(--background-color);
+  font-family: "Vollkorn";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+`
+
+const GatsbyLink = styled.a`
+  display: flex;
+  align-items: center;
+`
+
+const MadeWith = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  z-index: 1;
+  transform: translate(32px, 24%);
+`
+
+const Text = styled.span`
+  margin: 6px 32px 4px 16px;
+  color: var(--background-color);
+  font-family: "Vollkorn";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
 `
 
 const PlacedLogo = styled(GatsbyLogo)`
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  width: 90px;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-`
-
-const BackgroundDark = styled(Paper)`
-  position: absolute;
-  bottom: 40%;
-  left: -10%;
-  width: 120%;
+  position: relative;
   z-index: 2;
-  height: 15%;
-`
-
-const BackgroundLight = styled(Paper)`
-  position: absolute;
-  bottom: 0;
-  left: -10%;
-  width: 120%;
-  z-index: 1;
-  height: 60%;
+  width: 70px;
 `
 
 export default Footer
