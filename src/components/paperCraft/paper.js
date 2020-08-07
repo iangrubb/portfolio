@@ -14,11 +14,11 @@ const determineHexColor = color => {
         case "green":
             return "#64b732"
         case "blue":
-            return "#266bb3"
+            return "#399ab3"
         case "purple":
             return "#3d3752"
         case "pink":
-            return "#ea5249"
+            return "#ea4964"
         case "tan":
             return "#efe1d7"
         default:

@@ -25,9 +25,7 @@ const IndexPage = () => {
         <Apple color="pink" shape="apple" proportional/>
         <NavLink path="/projects" text="Projects" />
         <Apple color="pink" shape="apple" proportional/>
-        <NavLink path="/beef" text="About" />
-        <Apple color="pink" shape="apple" proportional/>
-        <NavLink path="/beef" text="Contact" />          
+        <NavLink path="/beef" text="About" />       
       </Links>
     </CenteredContent>
   </Layout>

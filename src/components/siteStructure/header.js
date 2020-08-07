@@ -10,7 +10,6 @@ const Header = () => (
   
     <Links>
       <NameRegion>
-        {/* <Seaweed color="green" shape="seaweed" proportional/> */}
         <Name color="purple" shape="hHex">
             <LandingLink to="/">Ian Grubb</LandingLink>
         </Name>
@@ -28,10 +27,6 @@ const Header = () => (
         <Dot color="pink" shape="dot" proportional/>
 
         <NavLink path="/beef" text="About" />
-
-        <Dot color="pink" shape="dot" proportional/>
-
-        <NavLink path="/beef" text="Contact" />
       </MainRegion>
     </Links>
 
@@ -77,13 +72,6 @@ const StyledLink = styled(Link)`
   font-weight: 900;
   font-size: 1.2rem;
   letter-spacing: 1px;
-`
-
-const Surface = styled(Paper)`
-  color: var(--background-color);
-  width: fit-content;
-  height: fit-content;
-  margin: 0 0.4rem;
 `
 
 const BottomDivider = styled(Paper)`
