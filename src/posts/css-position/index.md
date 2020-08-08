@@ -1,15 +1,13 @@
 ---
 slug: "/blog/a-practical-guide-to-css-position"
-date: "2020-07-27"
+date: "2020-08-08"
 title: "A Practical Guide to CSS Position"
 subtitle: "What it Does, When to Use it, and How to Use it Well"
 ---
 
 Building a website's layout can be a serious challenge. A layout needs to orchestrate the interactions of different kinds of content and work on different screen sizes. It should be immediately intelligible to the user, conveying an sense of what can be done with the site. It should be visually interesting and invite the user in.
 
-Given the importance of a good website layout, CSS provides us many tools for arranging HTML elements. Here, I'll be looking at one of them--the position property.
-
-Position is a powerful tool, but one that's easy to misunderstand and misuse. There's so much I wish I had known when I was getting started and I'm going to try to share as much of that as I can. Let's get started!
+Given the importance of a good website layout, CSS provides us many tools for arranging HTML elements. Here, I'll be looking at one of them--the position property. Position is a powerful tool, but one that's easy to misunderstand and misuse. There's so much I wish I had known when I was getting started and I'm going to try to share as much of that as I can. Let's get started!
 
 ## Ways to Position with CSS
 
@@ -256,4 +254,3 @@ Setting the width and height of an element using percentages is a simple way to 
 This trick depends on a peculiar property about vertical padding--vertical padding done with percentages is based on the percentage of the parent element's *width*. This means that if we give an element a padding-top value of 100% and give in no height, the overall height of the element (including the padding) will be the same as the width of its parent. The child can also be given a width of 100%, making it a perfect square. If we want a different aspect ratio, we can just use calc to set the required amount of padding.
 
 The issue now is that if we put content inside this element, its height will increase beyond 0 and ruin the effect. The solution is to make yet another child element that has both height and the same overall dimensions as its parent. We do this with absolute positioning, having the top, bottom, left, and right values of the child all set to 0 so it covers the entirety of its parent. So the solution ultimately involves nesting three elements. We adjust the width of the whole by adjusting the width of the outermost element and we add children to the whole by adding them to the innermost element.
-

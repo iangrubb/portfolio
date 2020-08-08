@@ -12,27 +12,30 @@ const iframeWrapper = ({title, src, children}) => {
                     {children}
                 </iframe>
             </Container>
+            
             <Title>{title}</Title>
+            
         </Spacer>
     )
 }
 
 export default iframeWrapper
 
-const Spacer = styled.div`
+const Spacer = styled.figure`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1.5rem 0 0.5rem 0;
+    margin: 1.6rem 0;
 `
 
-const Title = styled.p`
+const Title = styled.figcaption`
     font-style: italic;
 `
 
 const Container = styled(Paper)`
     height: 420px;
-    width: 100%;
+    width: 120%;
+    max-width: var(--full-screen);
 
     display: flex;
     justify-content: center;

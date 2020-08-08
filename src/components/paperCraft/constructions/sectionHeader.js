@@ -9,20 +9,24 @@ const sectionHeader = ({ children, counter, path }) => {
     const navId = path.split("#")[1]
 
     return (        
-        <HeadingWrapper id={navId} >
-            <Hex color="purple" shape="hex"><a href={"#" + navId} title={children[0]}>{counter}</a></Hex>
+        <HeadingWrapper id={navId} color="purple" shape="frame" >
+            {/* <Hex color="purple" shape="hex"><a href={"#" + navId} title={children[0]}>{counter}</a></Hex> */}
             <Heading>{children}</Heading>
         </HeadingWrapper>
+
+        
     )
 }
 
-const HeadingWrapper = styled.div`
-
+const HeadingWrapper = styled(Paper)`
+/* 
     position: relative;
-    left: -3rem;
-    width: calc(100% + 3rem);
+    left: -1rem; */
 
-    margin: 2rem 0 0.6rem 0;
+    width: 100%;
+    height: fit-content;
+
+    margin: 1.5rem 0 0.6rem 0;
 
     display: flex;
     align-items: center;
@@ -42,8 +46,9 @@ const Hex = styled(Paper)`
 `
 
 const Heading = styled.h2`
-    margin: 0;
-    font-size: 1.8rem;
+    margin: 0.5rem 0 0.3rem 0;
+    color: var(--background-color);
+    
 `
 
 

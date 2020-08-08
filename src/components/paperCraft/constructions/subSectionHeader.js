@@ -17,10 +17,6 @@ const subSectionHeader = ({ children, counter, path }) => {
 
 const SubHeadingWrapper = styled.div`
 
-    position: relative;
-    left: -1rem;
-    width: calc(100% + 2rem);
-
     margin: 2rem 0 1rem 0;
 
     display: flex;
