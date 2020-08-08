@@ -15,9 +15,9 @@ const Footer = () => {
 
 
           <ContactInfo>
-            <ContactHeading color="pink" shape="rectangle">
+            {/* <ContactHeading color="pink" shape="rectangle">
               <ContactText>Find me online!</ContactText>
-            </ContactHeading>
+            </ContactHeading> */}
             <LogoLink href="https://github.com/iangrubb" target="_blank" title="Github">
               <PlacedGithubLogo />
             </LogoLink>
@@ -64,7 +64,6 @@ const Container = styled.footer`
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    
   }
 `
 
@@ -81,7 +80,7 @@ const Spacer = styled(Paper)`
 const ContactInfo = styled.div`
   position: relative;
   display: flex;
-  padding: 2.5rem 0 0.5rem 0;
+  padding: 1rem 0 0.5rem 0;
   width: fit-content;
 `
 
@@ -129,7 +128,7 @@ const BuildInfo = styled.div`
 const Copywrite = styled(Paper)`
   position: absolute;
   left: 28%;
-  top: 58%;
+  top: 62%;
   width: fit-content;
   height: fit-content;
 `

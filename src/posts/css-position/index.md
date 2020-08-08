@@ -178,55 +178,82 @@ Here's a simple example involving some buttons meant to emulate a video game con
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The arrangement uses a rotation to get each button in the right spot. I started by placing the left button, and then placed the rest of the elements by rotating them from that starting point. This works because I've set the set the buttons to transform relative to middle of their right side. You *could* position the buttons without a rotation, but this saves lots of calculations and lines of CSS.
+The arrangement uses a rotation to get each button in the right spot. I started by placing the left button, and then placed the rest of the elements by rotating them from that starting point. This works because I've set the set the buttons to transform relative to middle of their right side. You *could* position the buttons without a rotation, but placing elements radially simplifies the calculations and minimizes lines of CSS.
 
 ### Stack Groups of Elements
 
+In some cases it makes sense to stack groups of elements on top of each other. Stacking elements results in a more compact layout, saving valuable space on the screen. It can also lead to more visually engaging content, as long as the technique is used on the right kinds of elements and in moderation.
 
+The difficulty with stacking elements is ensuring that the hidden content is always accessible to the user. In some cases you can do this with pure CSS--as long as some portion of each element is revealed, it might be enough to set up a transition that reveals each element whenever the user hovers over that element. In the remaining cases you'll need to use JS to give the user the ability to rearrange elements by manipulating the DOM.
 
+Here's an example involving a stack of numbered cards. I'm using JS so that the user can click a button to move the top card to the back of the stack. On click, a CSS animation gets applied to the top card, moving it out and then behind the rest of the cards. For simplicity, this version of the example assumes a stack of five cards, but we could remove this limit with more JS if necessary.
 
 <iframe height="355" style="width: 100%;" scrolling="no" title="Stacked Cards" src="https://codepen.io/iangrubb/embed/preview/wvGvrpM?height=355&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/wvGvrpM'>Stacked Cards</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Transition performance
+The cards are position absolute and are placed in a container that's position relative. They're rendered through JS and are assigned bottom, left, and z-index values based on their distance from the bottom of the stack. This is how the stack shifts slightly up and to the right. I applied a very slight box-shadow on each of the cards to add to this effect.
 
-
-
+The animation I'm using is defined in the CSS file but applied in the JS file. Using transitions in CSS is usually sufficient for most basic animations, but in this case I had to use keyframes since the top card needs to go out and then back. Note that I'm giving the animation an animation-fill-mode of forwards, so that it retains the CSS applied by the last frame. Also, I'm applying a transitioned change in bottom, left, and z-index values on the other cards, so they all slide slightly up while the top card shifts to the back.
 
 ### Apply a Partially Transparent Overlay
 
+Sometimes the easiest way to achieve a desired aesthetic through CSS is to build it up using multiple overlapping layers. This could involve stacking elements with fully transparent portions or perhaps even stacking partially transparent, colored elements that uniformly tint whatever is under them.
+
+In this example, I used a partially transparent overly to make a simple monitor with animated scan lines that partially cover anything on the monitor screen:
 
 <iframe height="265" style="width: 100%;" scrolling="no" title="Monitor Overlay" src="https://codepen.io/iangrubb/embed/preview/ExKxLgK?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/ExKxLgK'>Monitor Overlay</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+The overlay is a repeating linear gradient, which makes some fully transparent regions and some slightly opaque regions. To animate the overlay, I wrapped it in another div that covers the monitor screen and hides any overflowing content. The overlay itself is twice as tall as the monitor and is animated to move up gradually and loop back around when its bottom reaches the bottom of the overlay wrapper. The wrapper div and the div for the monitor's contents are placed in the same stack through absolute positioning and setting their z-index values.
 
-Case where we benefit from stacking contexts
+By the way, this demo provides a nice example of how stacking contexts can be a benefit, rather than an annoyance. I *never* want the contents of the monitor to show up on top of the scan lines. However, I *may* want to use different z-index values within the monitor to control how those elements overlap. The risk is that I might try placing something on top of the green square, but accidentally give that thing a z-index value that pops it out above the scan lines. However, I don't have to worry about that in this case, since the z-index value on the monitor contents div creates a new stacking context. That allows me to freely assign whatever z-index values I want to elements in that div and know that they'll always end up below the scan lines.
 
-   
 ### Add Tool Tips on Hover
 
-  <iframe height="392" style="width: 100%;" scrolling="no" title="Tool Tip on Hover" src="https://codepen.io/iangrubb/embed/preview/xxVxJKM?height=392&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/iangrubb/pen/xxVxJKM'>Tool Tip on Hover</a> by Ian Grubb
-  (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
-  </iframe>
+Another great use for positioned elements is temporarily showing the user some informative content without breaking the normal flow of the document. When user behavior prompts the display of elements like modal windows, error and alert messages, and tool tips, you don't want them to push around the rest of your content. Instead, you can position them on top of your content and allow the user to dismiss them if that content needs to be accessed.
 
+In this example, I use absolute positioning to display a tool tip on hover:
+
+<iframe height="392" style="width: 100%;" scrolling="no" title="Tool Tip on Hover" src="https://codepen.io/iangrubb/embed/preview/xxVxJKM?height=392&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+See the Pen <a href='https://codepen.io/iangrubb/pen/xxVxJKM'>Tool Tip on Hover</a> by Ian Grubb
+(<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+Since tool tips can be used for many kinds of elements, I designed this to be pretty versatile--to use it, you just have to apply the tip-able class to the element you want to have the tool tip, then put the tip' content in a span with the class tool-tip. I use the before and after pseudo-elements to minimize the need to write out any extra HTML.
+
+You might notice that I've put a thin transparent rectangle into the element using .tool-tip::before. The point of this element is to help make the hover work right. Ideally the tool tip would display when the user hovers over the base element *or* the tool tip itself. However, I also wanted a small margin between the tip and the base element. Implementing this directly as a margin means that if the user moves their cursor from the base element to the tool tip, it stops existing before they can get to the tool tip. The transparent rectangle acts like a margin but also bridges the base element and the tool tip.
+
+The animation is just a matter of transitioning between transformations that scale the tool tip to 1 or 0 depending on whether the user hovers over the element or not. It doesn't look quite right by default, but the animation feels much more natural with the transform-origin changed to start from the bottom center of the element.
 
 ### Locate Markers on a Map or Image
+
+You can sometimes use overlapping content to help visualize the data handled by your website. For instance, you might have images with annotations that target specific coordinates on the image or maps with pointers that target specific locations on the map. Using absolute positioning, you can visually display your coordinate data.
+ 
+Here's a demo that takes graph data and uses it to display a map and a character that can move around the map (click a node to move the character to that node):
 
 <iframe height="265" style="width: 100%;" scrolling="no" title="CSS Graph Movement" src="https://codepen.io/iangrubb/embed/preview/YzqzjOG?height=265&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/YzqzjOG'>CSS Graph</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-  
+My node data has x and y coordinates built in, and I use these to display the nodes at the right spots on the map. I'm using percentages as units for the top and left properties, which allows the map to be resized if necessary. To render an edges, I start by placing it coming out of the right side of one of the nodes it connects. I do a bit of math to calculate its length and angle to the second node, and I then use these values to set the width of the edge element and rotate it enough so that it connects.
 
-### Implement a Responsive Aspect Ratio
+The CSS aspect of the character movement is actually pretty straightforward--it's just a matter of setting the character component's top and left values appropriately and adding a transition to move it from one point to the next. The JS aspect of the demo is a bit more complicated, since it involves graph traversal and a fair amount of conditional logic to make sure the character always behaves as expected. To get the character to move progressively through different points, I'm chaining together multiple CSS transitions. I do this by listening for the end of a transition and then initiating another if the character isn't yet at its destination.
+
+### Implement a Fixed Aspect Ratio
+
+Setting the width and height of an element using percentages is a simple way to make your elements more responsive. This approach works well most of the time, but has a significant limitation--it doesn't allow the responsive element to have a fixed aspect ratio. What you sometimes need is an element that's responsive to the width of its parent, but has a height that scales in some proportion with its width. There's actually a trick to get this to work, and it requires the use of positioned elements. Here's a basic setup (hover to change the width of the rectangle):
 
 <iframe height="265" data-preview="true" style="width: 100%;" scrolling="no" title="Responsive Aspect Ratio" src="https://codepen.io/iangrubb/embed/preview/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/OJNPPWE'>Responsive Aspect Ratio</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+This trick depends on a peculiar property about vertical padding--vertical padding done with percentages is based on the percentage of the parent element's *width*. This means that if we give an element a padding-top value of 100% and give in no height, the overall height of the element (including the padding) will be the same as the width of its parent. The child can also be given a width of 100%, making it a perfect square. If we want a different aspect ratio, we can just use calc to set the required amount of padding.
+
+The issue now is that if we put content inside this element, its height will increase beyond 0 and ruin the effect. The solution is to make yet another child element that has both height and the same overall dimensions as its parent. We do this with absolute positioning, having the top, bottom, left, and right values of the child all set to 0 so it covers the entirety of its parent. So the solution ultimately involves nesting three elements. We adjust the width of the whole by adjusting the width of the outermost element and we add children to the whole by adding them to the innermost element.
+
