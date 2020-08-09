@@ -19,6 +19,7 @@ export const pageQuery = graphql`
         slug
         title
         subtitle
+        abstract
       }
     }
   }
@@ -92,6 +93,12 @@ const BlogTemplate = ({ data }) => {
 
           <TitleBar color="purple" shape="frame" />
 
+          <Abstract>
+            {frontmatter.abstract}
+          </Abstract>
+
+          <Divider color="green" shape="spacer" />
+
           <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
         </BlogContent>
     </Layout>
@@ -101,30 +108,26 @@ const BlogTemplate = ({ data }) => {
 
 const BlogContent = styled.section`
 
-  width: calc(100% - 24px);
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: 768px) {
-    width: auto;
-
-    & p {
-      width: 65ch;
-    }
+    padding: 0;
+    width: 700px;
   }
-  
-  
-
-  /* & > * {
-    outline: 1px solid red;
-  } */
 
 `
 
 const DateWrapper = styled(Paper)`
   margin: 0 0 0.8rem 0.8rem;
+  align-self: flex-start;
   height: fit-content;
   width: fit-content;
   @media (min-width: 768px) {
-    margin: 0 0 0.8rem 1.8rem;
+    margin: 0 0 1.4rem 1.8rem;
   }
 `
 
@@ -142,49 +145,80 @@ const Date = styled.time`
 `
 
 const TitleBar = styled(Paper)`
-  width: 100%;
-  height: 10px;
-  margin: 0 0 1rem 0;
+  width: 95%;
+  height: 8px;
+  margin: 0 0 0.2rem 0;
 
   @media (min-width: 768px) {
-    height: 12px;
-    margin: 0 0 1.4rem 0;
+    height: 10px;
+    width: 100%;
+    margin: 0 0 0.4rem 0;
   }
   
 `
 
 const Title = styled.h2`
-  margin: 1rem 0 0.6rem 0.5rem;
+  margin: 1rem 0 0.6rem 0;
   font-size: 32px;
   max-width: 100%;
+  text-align: center;
 
   @media (min-width: 768px) {
-    margin: 1rem 0 0.6rem 2rem;
+    margin: 1rem 0 0.6rem 0;
     font-size: 44px;
     max-width: 680px;
   }
 `
 
 const SubTitle = styled.h2`
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 1rem 0;
   font-weight: 400;
   font-style: italic;
   font-size: 22px;
+  text-align: center;
+
   @media (min-width: 768px) {
-    margin: 0 0 1rem 3rem;
+    margin: 0 0 1rem 0;
     font-size: 30px;
   }
 `
 
+const Abstract = styled.p`
+  font-size: 20px;
+  line-height: 1.8rem;
+  margin: 1.2rem auto 1.5rem auto;
+  width: 85%;
+  @media (min-width: 768px) {
+    margin: 1.2rem auto 2rem auto;
+    width: 70%;
+    font-size: 22px;
+  }
+`
 
+
+const Divider = styled(Paper)`
+  width: 50%;
+  height: 32px;
+  margin: 0 0 1.5rem 0;
+  @media (min-width: 768px) {
+    width: 40%;
+    height: 40px;
+    margin: 0 0 2rem 0;
+  }
+`
 
 const MainContent = styled.article`
-
-  margin: 2.5rem 0 0 0;
 
   & p {
     margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    & p {
+      width: 62ch;
+    }
   }
 
 

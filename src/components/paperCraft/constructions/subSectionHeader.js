@@ -4,61 +4,62 @@ import styled from 'styled-components'
 
 import Paper from '../paper'
 
-const subSectionHeader = ({ children, counter, path }) => {
+const subSectionHeader = ({ children, path }) => {
     console.log(path)
     const navId = path.split("#")[1]
     return (
         <SubHeadingWrapper id={navId}>
-            <Rectangle color="purple" shape="rectangle"><Letter href={"#" + navId}>{String.fromCharCode(counter + 96)}</Letter></Rectangle>
-            <SubHeading>{children}</SubHeading>
+            <OuterPaper color="pink" shape="frame">
+                <InnerPaper color="tan" shape="frame">
+                    <Link href={"#" + navId}>
+                        <SubHeading>{children}</SubHeading>
+                    </Link>
+                </InnerPaper>
+            </OuterPaper>
         </SubHeadingWrapper>
     )
 }
 
 const SubHeadingWrapper = styled.div`
-
-    margin: 2rem 0 1rem 0;
-
+    margin: 3rem 0 1.5rem 0;
     display: flex;
-    align-items: center;
-
-    scroll-margin-top: 16px;
-`
-
-const Rectangle = styled(Paper)`
-    width: 2.2rem;
-    height: 2.2rem;
-    
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-
+    align-items: center;
+    scroll-margin-top: 16px;
+    @media (min-width: 768px) {
+        margin: 2rem 0 1rem 0;
+    }
 `
 
-const Letter = styled.a`
+const OuterPaper = styled(Paper)`
+    width: fit-content;
+    height: fit-content;
+`
+
+const InnerPaper = styled(Paper)`
+    margin: 4px;
+    width: fit-content;
+    height: fit-content;
+    @media (min-width: 768px) {
+        margin: 6px;
+    }
+`
+
+const Link = styled.a`
+    margin: 0.3rem 0.6rem 0.1rem 0.6rem;
+    @media (min-width: 768px) {
+        margin: 0.5rem 1rem 0.3rem 1rem;
+    }
+`
+
+const SubHeading = styled.h4`
+    font-size: 20px;
     margin: 0;
-    color: var(--background-color);
-    font-family: "Vollkorn";
-    font-size: 1.4rem;
-    font-weight: 700;
+    text-align: center;
 
-    position: relative;
-    top: 1px;
-
-    &:hover {
-        color: var(--background-color);
+    @media (min-width: 768px) {
+        font-size: 22px;
     }
-
-    &:visited {
-        color: var(--background-color);
-    }
-
-`
-
-const SubHeading = styled.h2`
-    margin: 0.2rem 0 0 0.8rem;
-    font-size: 1.5rem;
 `
 
 

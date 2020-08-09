@@ -34,11 +34,15 @@ const Title = styled.figcaption`
 
 const Container = styled(Paper)`
     height: 420px;
-    width: 120%;
+    width: 100%;
     max-width: var(--full-screen);
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 768px) {
+        width: 120%;
+    }
 
 `

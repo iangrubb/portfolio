@@ -49,8 +49,8 @@ const Footer = () => {
 }
 
 const Container = styled.footer`
-  margin: 4rem 0 0 0;
-  padding: 0 0 1rem 0;
+  margin: 6rem 0 0 0;
+  padding: 1rem 0 2rem 0;
   position: relative;
   width: 100vw;
 
