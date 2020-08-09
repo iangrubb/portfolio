@@ -6,7 +6,7 @@ html {
 
 :root {
   --text-color: #322e3a;
-  --background-color: #f5eee9;
+  --background-color: #f5f0ed;
 
   --full-screen: calc(100vw - 32px);
 }

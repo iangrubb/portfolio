@@ -97,7 +97,7 @@ const BlogTemplate = ({ data }) => {
             {frontmatter.abstract}
           </Abstract>
 
-          <Divider color="green" shape="spacer" />
+          <TitleBar color="purple" shape="frame" />
 
           <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
         </BlogContent>
@@ -184,10 +184,10 @@ const SubTitle = styled.h2`
 `
 
 const Abstract = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.8rem;
   margin: 1.2rem auto 1.5rem auto;
-  width: 85%;
+  width: 95%;
   @media (min-width: 768px) {
     margin: 1.2rem auto 2rem auto;
     width: 70%;
@@ -196,18 +196,9 @@ const Abstract = styled.p`
 `
 
 
-const Divider = styled(Paper)`
-  width: 50%;
-  height: 32px;
-  margin: 0 0 1.5rem 0;
-  @media (min-width: 768px) {
-    width: 40%;
-    height: 40px;
-    margin: 0 0 2rem 0;
-  }
-`
-
 const MainContent = styled.article`
+
+  margin: 2rem 0 0 0;
 
   & p {
     margin: 0 auto 0.8rem auto;
@@ -220,7 +211,6 @@ const MainContent = styled.article`
       width: 62ch;
     }
   }
-
 
   
 `

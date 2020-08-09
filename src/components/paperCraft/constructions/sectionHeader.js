@@ -4,17 +4,21 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import Paper from '../paper'
 
-const sectionHeader = ({ children, path }) => {
+const sectionHeader = ({ children, counter, path }) => {
 
     const navId = path.split("#")[1]
 
     return (        
         <HeadingWrapper id={navId} >
-            <OuterPaper color="purple" shape="frame">
-                <InnerPaper color="tan" shape="frame">
-                    <Link href={"#" + navId}><Heading>{children}</Heading></Link>
-                </InnerPaper>
-            </OuterPaper>
+
+            <Decorations>
+                <Bar color="pink" shape="rectangle" />
+                <Hex color="pink" shape="hHex" proportional>{counter}</Hex>
+                <Bar color="pink" shape="rectangle" />
+            </Decorations>
+
+            <Link href={"#" + navId}><Heading>{children}</Heading></Link>
+
         </HeadingWrapper>
 
         
@@ -22,51 +26,58 @@ const sectionHeader = ({ children, path }) => {
 }
 
 const HeadingWrapper = styled.div`
-
+    
     width: 100%;
     height: fit-content;
 
-    margin: 3rem 0 1.4rem 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    margin: 32px 0 0 0;
     scroll-margin-top: 16px;
 
-    @media (min-width: 768px) {
-        margin: 2rem 0 1.4rem 0;
-    }
-    
-`
-
-const OuterPaper = styled(Paper)`
-    width: fit-content;
-    height: fit-content;
-`
-
-const InnerPaper = styled(Paper)`
-    margin: 8px;
-    width: fit-content;
-    height: fit-content;
 `
 
 const Link = styled.a`
-    margin: 0.4rem 0.6rem 0.2rem 0.6rem;
-    @media (min-width: 768px) {
-        margin: 0.5rem 1rem 0.3rem 1rem;
-    }
 `
 
 const Heading = styled.h3`
     margin: 0;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
-
+    
     @media (min-width: 768px) {
-        font-size: 26px;
+        font-size: 34px;
     }
 `
+
+const Decorations = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 16px 0;
+`
+
+const Bar = styled(Paper)`
+  width: 100px;
+  height: 8px;
+
+  @media (min-width: 768px) {
+        height: 10px;
+    }
+`
+
+const Hex = styled(Paper)`
+    width: 38px;
+    margin: 0 8px;
+    color: var(--background-color);
+    /* font-family: "Vollkorn"; */
+    font-weight: 700;
+    font-size: 24px;
+
+    @media (min-width: 768px) {
+        width: 44px;
+        font-size: 28px;
+    }
+`
+
 
 
 
