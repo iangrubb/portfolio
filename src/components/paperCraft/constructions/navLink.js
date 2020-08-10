@@ -16,15 +16,23 @@ const Container = styled(Paper)`
   color: var(--background-color);
   width: fit-content;
   height: fit-content;
-  margin: 0 0.4rem;
+  margin: 0 0.2rem;
+  @media (min-width: 768px) {
+    margin: 0 0.4rem;
+  }
 `
 
 const StyledLink = styled(Link)`
-  margin: 0.6rem 1rem 0.4rem 1rem;
+  margin: 0.4rem 1rem 0.3rem 1rem;
   font-family: "Vollkorn";
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: 1.5px;
+
+  @media (min-width: 768px) {
+    margin: 0.6rem 1rem 0.4rem 1rem;
+    font-size: 1.2rem;
+  }
 `
 
 

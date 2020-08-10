@@ -49,7 +49,7 @@ const Footer = () => {
 }
 
 const Container = styled.footer`
-  margin: 6rem 0 0 0;
+  margin: 0 0 0 0;
   padding: 1rem 0 2rem 0;
   position: relative;
   width: 100vw;
@@ -69,12 +69,13 @@ const Container = styled.footer`
 
 const Spacer = styled(Paper)`
   position: absolute;
-  top: -3rem;
+  top: -2rem;
   left: 50%;
   transform: translateX(-50%);
   
-  width: 400px;
+  width: 300px;
   max-width: 90%;
+  height: 40px;
 `
 
 const ContactInfo = styled.div`

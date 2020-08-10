@@ -9,15 +9,13 @@ const Header = () => (
   <Container>
   
     <Links>
-      <NameRegion>
+      {/* <NameRegion>
         <Name color="purple" shape="hHex">
             <LandingLink to="/">Ian Grubb</LandingLink>
         </Name>
-      </NameRegion>
+      </NameRegion> */}
 
       <MainRegion>
-        <Dot color="pink" shape="dot" proportional/>
-
         <NavLink path="/blog" text="Blog" />
 
         <Dot color="pink" shape="dot" proportional/>
@@ -36,8 +34,9 @@ const Header = () => (
 )
 
 const Container = styled.header`
-  margin: 1rem 0 2rem 0;
-  width: 800px;
+  margin: 16px 0 16px 0;
+
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -48,7 +47,6 @@ const Container = styled.header`
 const Links = styled.div`
   position: relative;
 
-  padding: 0 2rem;
   margin: 1rem 0;
 
   display: flex;
@@ -72,11 +70,14 @@ const StyledLink = styled(Link)`
   font-weight: 900;
   font-size: 1.2rem;
   letter-spacing: 1px;
+
+  
 `
 
 const BottomDivider = styled(Paper)`
 
   width: 50%;
+  max-width: 300px;
   height: 30px;
 
   position: relative;
@@ -85,8 +86,13 @@ const BottomDivider = styled(Paper)`
 `
 
 const Dot = styled(Paper)`
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
+
+  @media (min-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `
 
 const NameRegion = styled.div`

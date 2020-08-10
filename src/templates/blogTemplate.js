@@ -4,6 +4,8 @@ import { graphql } from "gatsby"
 
 import styled from 'styled-components'
 
+import SEO from '../components/seo'
+
 import Layout from '../components/siteStructure/layout'
 import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
@@ -80,9 +82,12 @@ const BlogTemplate = ({ data }) => {
 
   return (
     <Layout>
+
+        <SEO title="Blog" />  
+        
         <BlogContent>
 
-          <DateWrapper color="pink" shape="rectangle">
+          <DateWrapper color="purple" shape="rectangle">
             <Date>{formatedDate}</Date>
           </DateWrapper>
 
@@ -97,7 +102,7 @@ const BlogTemplate = ({ data }) => {
             {frontmatter.abstract}
           </Abstract>
 
-          <TitleBar color="purple" shape="frame" />
+          <Spacer color="green" shape="spacer" />
 
           <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
         </BlogContent>
@@ -135,8 +140,8 @@ const Date = styled.time`
   font-family: "Vollkorn";
   font-weight: 700;
   color: var(--background-color);
-  font-size: 20px;
-  margin: 0.5rem 0.8rem 0.4rem 0.8rem;
+  font-size: 18px;
+  margin: 0.3rem 0.8rem 0.2rem 0.8rem;
 
   @media (min-width: 768px) {
     font-size: 24px;
@@ -155,6 +160,12 @@ const TitleBar = styled(Paper)`
     margin: 0 0 0.4rem 0;
   }
   
+`
+
+const Spacer = styled(Paper)`
+  min-width: 128px;
+  width: 30%;
+  height: 24px;
 `
 
 const Title = styled.h2`
@@ -187,7 +198,7 @@ const Abstract = styled.p`
   font-size: 18px;
   line-height: 1.8rem;
   margin: 1.2rem auto 1.5rem auto;
-  width: 95%;
+  width: 90%;
   @media (min-width: 768px) {
     margin: 1.2rem auto 2rem auto;
     width: 70%;
@@ -203,7 +214,7 @@ const MainContent = styled.article`
   & p {
     margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
-    width: 100%;
+    width: 96%;
   }
 
   @media (min-width: 768px) {
