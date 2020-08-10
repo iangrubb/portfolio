@@ -8,7 +8,7 @@ const iframeWrapper = ({title, src, children}) => {
     return (
         <Spacer>
             <Container color="green" shape="frame" >
-                <iframe style={{width: "calc(100% - 42px)", height: "calc(100% - 42px)", margin: "0"}} src={src} title={title} frameBorder="no" scrolling="no" >
+                <iframe style={{width: "calc(100% - 36px)", height: "calc(100% - 36px)", margin: "0", borderRadius: "8px"}} src={src} title={title} frameBorder="no" scrolling="no" >
                     {children}
                 </iframe>
             </Container>

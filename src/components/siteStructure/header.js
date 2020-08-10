@@ -8,124 +8,107 @@ import NavLink from '../paperCraft/constructions/navLink'
 const Header = () => (
   <Container>
   
-    <Links>
-      {/* <NameRegion>
-        <Name color="purple" shape="hHex">
-            <LandingLink to="/">Ian Grubb</LandingLink>
-        </Name>
-      </NameRegion> */}
 
-      <MainRegion>
+    <MainContent>
+
+      <NameContainer color="purple" shape="frame">
+        <Link href="/">
+          <Name>
+            Ian Grubb
+          </Name>
+        </Link>
+      </NameContainer>
+
+      <Links>
+        
         <NavLink path="/blog" text="Blog" />
 
-        <Dot color="pink" shape="dot" proportional/>
+        <Apple color="pink" shape="apple" proportional/>
 
         <NavLink path="/projects" text="Projects" />
 
-        <Dot color="pink" shape="dot" proportional/>
+        <Apple color="pink" shape="apple" proportional/>
 
         <NavLink path="/beef" text="About" />
-      </MainRegion>
-    </Links>
-
-    <BottomDivider color="green" shape="spacer"/>
+      
+      </Links>
+    </MainContent>
+    <BottomDivider color="green" shape="frame"/>
     
   </Container>
 )
 
 const Container = styled.header`
-  margin: 16px 0 16px 0;
+
+  background: var(--background-color);
 
   width: 100%;
+  max-width: 800px;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
   
 `
 
-const Links = styled.div`
-  position: relative;
-
-  margin: 1rem 0;
-
+const Links = styled.nav`
+  margin: 16px 0;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-`
-
-const MainRegion = styled.div`
-  display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0.5rem 0;
-`
-
-const StyledLink = styled(Link)`
-  position: relative;
-
-  margin: 0.6rem 0.8rem;
-  
-  font-family: "Vollkorn";
-  font-weight: 900;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-
-  
 `
 
 const BottomDivider = styled(Paper)`
-
-  width: 50%;
-  max-width: 300px;
-  height: 30px;
-
-  position: relative;
-  top: -20px;
-
+  width: 90%;
+  height: 10px;
 `
 
-const Dot = styled(Paper)`
-  width: 10px;
-  height: 10px;
+const Apple = styled(Paper)`
+  width: 16px;
 
   @media (min-width: 768px) {
-    width: 15px;
-    height: 15px;
+    width: 20px;
   }
 `
 
-const NameRegion = styled.div`
+const MainContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
-  position: relative;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    height: 80px;
+  }
 
 `
 
-const Name = styled(Paper)`
+const NameContainer = styled(Paper)`
+  width: fit-content;
   height: fit-content;
-  margin: 0 0.4rem;
+  margin: 32px 0 0 0;
+  @media (min-width: 768px) {
+    margin: 0 32px 0 0;
+  }
+`
+
+
+const Name = styled.h1`
+  margin: 10px 32px 6px 32px;
+  font-size: 34px;
   color: var(--background-color);
-  position: relative;
-
 `
-
-const Seaweed = styled(Paper)`
-  width: 240px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-20%, -60%);
-`
-
-
-const LandingLink = styled(StyledLink)`
-  padding: 0.2rem 0;
-  font-size: 2rem;
-  text-align: center;
-  line-height: 2rem;
-`
-
-
 
 
 export default Header

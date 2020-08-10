@@ -20,7 +20,7 @@ const determineHexColor = color => {
         case "pink":
             return "#ea4964"
         case "tan":
-            return "#efe1d7"
+            return "#efdfd2"
         default:
             return "#333"
     }
@@ -48,11 +48,12 @@ export default Paper
 const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.proportional ? "auto" : `${props.height}px`};
-    filter: drop-shadow(2px 2px 0.5px #55555566);
+    filter: drop-shadow(1px 1px 1px #302d3888);
 `;
 
 const BodyBase = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -74,17 +75,17 @@ const BodyBase = styled.div`
         rgba(200, 200, 200, 0.06) 40px
         ),
         repeating-linear-gradient(
-        rgba(160, 160, 160, 0.15),
-        rgba(120, 120, 120, 0.15) 2px,
-        rgba(180, 180, 180, 0.15) 6px,
-        rgba(120, 120, 120, 0.15) 11px,
-        rgba(160, 160, 160, 0.15) 14px,
-        rgba(120, 120, 120, 0.15) 22px,
-        rgba(180, 180, 180, 0.15) 25px,
-        rgba(120, 120, 120, 0.15) 34px,
-        rgba(180, 180, 180, 0.15) 38px,
-        rgba(120, 120, 120, 0.15) 44px,
-        rgba(160, 160, 160, 0.15) 50px
+        rgba(160, 160, 160, 0.13),
+        rgba(120, 120, 120, 0.13) 2px,
+        rgba(180, 180, 180, 0.13) 6px,
+        rgba(120, 120, 120, 0.13) 11px,
+        rgba(160, 160, 160, 0.13) 14px,
+        rgba(120, 120, 120, 0.13) 22px,
+        rgba(180, 180, 180, 0.13) 25px,
+        rgba(120, 120, 120, 0.13) 34px,
+        rgba(180, 180, 180, 0.13) 38px,
+        rgba(120, 120, 120, 0.13) 44px,
+        rgba(160, 160, 160, 0.13) 50px
         ),
         ${props => props.color};
 `

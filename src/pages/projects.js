@@ -11,7 +11,6 @@ export const query = graphql`
       nodes {
         id
         frontmatter {
-          date
           slug
           title
         }
@@ -24,7 +23,6 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
     return (
         <Layout>
             <SEO title="Projects" />
-            <h1>Projects</h1>
             {nodes.map(node => (
                 <Post key={node.id}>
                     <h2>{node.frontmatter.title}</h2>

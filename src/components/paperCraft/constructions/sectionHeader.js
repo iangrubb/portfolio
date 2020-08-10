@@ -11,7 +11,6 @@ const sectionHeader = ({ children, counter, path }) => {
     return (        
         <HeadingWrapper id={navId} >
 
-
             <Decorations>
                 <Bar color="purple" shape="rectangle" />
                 <Hex color="purple" shape="hHex" proportional>{counter}</Hex>
@@ -74,7 +73,7 @@ const Bar = styled(Paper)`
 const BottomBar = styled(Paper)`
     width: 250px;
     height: 6px;
-    margin: 0 auto 16px auto;
+    margin: 16px auto;
     @media (min-width: 768px) {
         height: 8px;
     }

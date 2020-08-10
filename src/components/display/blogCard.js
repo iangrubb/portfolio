@@ -15,18 +15,16 @@ const BlogCard = ({ node }) => {
 
   
     return (
-        <Container key={node.id}>
+        <Container color="tan" shape="frame" key={node.id}>
             <DateWrapper color="purple" shape="rectangle">
                 <Date>
                     {formatedDate}
                 </Date>
             </DateWrapper>
             <Link to={slug}><Title>{title}</Title></Link>
-            <SubTitle>{subtitle}</SubTitle>
-            <Spacer color="green" shape="spacer" />
             <Abstract>{abstract}</Abstract>
             <ReadWrapper color="pink" shape="rectangle">
-                <ReadLink to={slug}>Read More <Arrow color="tan" shape="arrow" proportional/></ReadLink>
+                <ReadLink to={slug}><Arrow color="tan" shape="arrow" proportional/></ReadLink>
             </ReadWrapper>
         </Container>
     )
@@ -36,7 +34,14 @@ export default BlogCard
 
 const Container = styled.div`
     margin: 0 16px 80px 16px;
-    max-width: 450px;
+    max-width: 550px;
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 32px;
+    padding: 16px;
+
+    background: var(--background-color-clear);
 
     display: flex;
     flex-direction: column;
@@ -57,7 +62,8 @@ const Date = styled.time`
     font-weight: 700;
     font-family: "Vollkorn";
     font-size: 18px;
-    margin: 5px 12px 4px 12px;
+    letter-spacing: 1px;
+    margin: 4px 12px 2px 12px;
 `
 
 
@@ -68,14 +74,6 @@ const Title = styled.h2`
 `
 
 
-const SubTitle = styled.h3`
-    font-style: italic;
-    font-weight: 400;
-    font-size: 20px;
-    margin: 0 0 8px 16px;
-    line-height: 1.6rem;
-`
-
 const Spacer = styled(Paper)`
   width: 140px;
   height: 24px;
@@ -85,6 +83,11 @@ const Spacer = styled(Paper)`
 
 const Abstract = styled.p`
     margin: 0 8px 12px 0;
+    font-size: 18px;
+    line-height: 1.7rem;
+    
+    width: 80%;
+
 `
 
 const ReadWrapper = styled(Paper)`
@@ -97,19 +100,13 @@ const ReadWrapper = styled(Paper)`
 `
 
 const ReadLink = styled(Link)`
-    font-weight: 700;
-    font-family: "Vollkorn";
-    font-size: 18px;
-    margin: 7px calc(12px + 20px) 5px 12px;
+    width: fit-content;
+    height: fit-content;
+    margin: 8px;
 `
 
 const Arrow = styled(Paper)`
-    position: absolute;
-    top: 50%;
-    right: 7%;
-    transform: translate(0, -50%);
-    display: inline;
-    width: 18px;
+    width: 32px;
 `
 
 

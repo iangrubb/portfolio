@@ -65,7 +65,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Vollkorn:400,400i,700,900', 'Open Sans:400, 400i, 700']
+          families: ['Vollkorn:400,400i,700,900', 'Lato:400, 400i, 700']
         }
       }
     }

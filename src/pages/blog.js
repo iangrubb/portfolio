@@ -19,7 +19,6 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           slug
           title
-          subtitle
           abstract
         }
       }
@@ -33,22 +32,37 @@ const BlogPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
     return (
         <Layout>
             <SEO title="Blog" />
+            <Background color="green" shape="seaweed" proportional/>
             <Columns>
 
               <SideBar>
-                <Bar color="purple" shape="rectangle" />
-                <Blurb>
-                  A place for my thoughts on tech, education, work, and full stack development.
+
+                {/* <Box color="purple" shape="frame">
+                  <Title>Recent Posts</Title>
+                </Box> */}
+
+
+
+                {/* <Bar color="purple" shape="rectangle" /> */}
+
+
+                <Blurb color="purple" shape="frame">
+                  <BlurbText>A blog about</BlurbText>
                 </Blurb>
 
-                <Blurb>
-                  Contact
+                <Blurb color="pink" shape="frame">
+                <BlurbText>code</BlurbText>
                 </Blurb>
 
-                <Bar color="purple" shape="rectangle" />
 
               </SideBar>
               <Posts>
+                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard node={node} />)}
                 {nodes.map(node => <BlogCard node={node} />)}
               </Posts>
             </Columns>
@@ -61,39 +75,71 @@ const Columns = styled.div`
   display: grid;
   grid-template-columns: 100%;
   grid-template-areas: "main";
+  padding: 0 20px;
+
+  position: relative;
 
   @media (min-width: 768px) {
-    width: 750px;
-    grid-template-columns: 275px 450px;
+    width: 800px;
+    max-width: 100%;
+    grid-template-columns: 200px 525px;
     grid-gap: 25px;
     grid-template-areas: "side main";
   }
 `
 
+const Background = styled(Paper)`
+  position: sticky;
+  top: 300px;
+  width: 500px;
+  max-width: 100%;
+
+`
+
 const SideBar = styled.div`
   display: none;
   @media (min-width: 768px) {
+    position: sticky;
+    top: 200px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     grid-area: side;
     height: fit-content;
-    position: sticky;
-    top: 96px;
-    margin: 64px 0 0 0;
+    margin: 32px 0 0 0;
   }
 `
-
 
 const Bar = styled(Paper)`
   width: 50%;
   height: 8px;
 `
 
-const Blurb = styled.p`
-  margin: 16px 8px 16px 16px;
-  font-size: 18px;
+const Blurb = styled(Paper)`
+  margin: 0 0 8px 0;
+  align-self: flex-end;
+  width: fit-content;
+  height: fit-content;
+`
+
+const BlurbText = styled.p`
+  margin: 4px 8px;
+  font-size: 20px;
+  color: var(--background-color);
+  font-family: "Vollkorn";
+  font-weight: 700;
   line-height: 1.6rem;
+`
+
+const Box = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+`
+
+const Title = styled.h2`
+  margin: 6px 8px 4px 8px;
+  color: var(--background-color);
 `
 
 

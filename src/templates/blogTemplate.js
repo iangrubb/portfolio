@@ -20,7 +20,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
-        subtitle
         abstract
       }
     }
@@ -94,12 +93,13 @@ const BlogTemplate = ({ data }) => {
           <TitleBar color="purple" shape="frame" />
           
           <Title>{frontmatter.title}</Title>
-          <SubTitle>{frontmatter.subtitle}</SubTitle>
 
           <TitleBar color="purple" shape="frame" />
 
           <Abstract>
+            <LBracket color="green" shape="frame"></LBracket>
             {frontmatter.abstract}
+            <RBracket color="green" shape="frame"></RBracket>
           </Abstract>
 
           <Spacer color="green" shape="spacer" />
@@ -144,18 +144,18 @@ const Date = styled.time`
   margin: 0.3rem 0.8rem 0.2rem 0.8rem;
 
   @media (min-width: 768px) {
-    font-size: 24px;
-    margin: 0.5rem 1.2rem 0.4rem 1.2rem;
+    font-size: 20px;
+    margin: 0.4rem 1rem 0.3rem 1rem;
   }
 `
 
 const TitleBar = styled(Paper)`
   width: 95%;
-  height: 8px;
+  height: 5px;
   margin: 0 0 0.2rem 0;
 
   @media (min-width: 768px) {
-    height: 10px;
+    height: 6px;
     width: 100%;
     margin: 0 0 0.4rem 0;
   }
@@ -176,25 +176,14 @@ const Title = styled.h2`
 
   @media (min-width: 768px) {
     margin: 1rem 0 0.6rem 0;
-    font-size: 44px;
+    font-size: 40px;
     max-width: 680px;
   }
 `
 
-const SubTitle = styled.h2`
-  margin: 0 0 1rem 0;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 22px;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    margin: 0 0 1rem 0;
-    font-size: 30px;
-  }
-`
 
 const Abstract = styled.p`
+  position: relative;
   font-size: 18px;
   line-height: 1.8rem;
   margin: 1.2rem auto 1.5rem auto;
@@ -202,8 +191,26 @@ const Abstract = styled.p`
   @media (min-width: 768px) {
     margin: 1.2rem auto 2rem auto;
     width: 70%;
-    font-size: 22px;
+    font-size: 20px;
   }
+`
+
+const LBracket = styled(Paper)`
+  width: 10px;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-250%, -50%);
+`
+
+const RBracket = styled(Paper)`
+  width: 10px;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(250%, -50%);
 `
 
 

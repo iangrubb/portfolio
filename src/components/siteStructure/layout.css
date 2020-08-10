@@ -1,12 +1,13 @@
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 :root {
-  --text-color: #322e3a;
-  --background-color: #f5f0ed;
+  --text-color: #302d38;
+  --background-color: #f7f4f1;
+  --background-color-clear: #f7f4f1bb;
 
   --full-screen: calc(100vw - 32px);
 }
@@ -14,7 +15,6 @@ html {
 
 body {
   margin: 0;
-  width: 100vw;
   background: var(--background-color);
   color: var(--text-color);
   scroll-behavior: smooth;
@@ -213,7 +213,6 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 * {
   box-sizing: inherit;
