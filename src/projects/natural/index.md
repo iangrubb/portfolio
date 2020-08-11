@@ -1,7 +1,7 @@
 ---
 slug: "/projects/natural"
-date: "2019-05-04"
 title: "Natural"
+tech: "HTML, CSS, JS, React, Redux, Styled Components, Ruby, Rails"
 ---
 
 A natural description

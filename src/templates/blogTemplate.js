@@ -219,6 +219,7 @@ const MainContent = styled.article`
   margin: 2rem 0 0 0;
 
   & p {
+    font-size: 20px;
     margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
     width: 96%;
@@ -226,7 +227,7 @@ const MainContent = styled.article`
 
   @media (min-width: 768px) {
     & p {
-      width: 62ch;
+      width: 66ch;
     }
   }
 

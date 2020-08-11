@@ -1,9 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import styled from 'styled-components'
+
 import SEO from '../components/seo'
 
 import Layout from '../components/siteStructure/layout'
+
+import Paper from '../components/paperCraft/paper'
 
 export const pageQuery = graphql`
   query($slug: String!) {

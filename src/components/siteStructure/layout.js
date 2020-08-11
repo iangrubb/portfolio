@@ -24,12 +24,12 @@ const Layout = ({ children, minimal }) => {
 
 const Page = styled.div`
   width: 100vw;
+  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 
- 
 `
 
 const Main = styled.main`
@@ -40,6 +40,12 @@ const Main = styled.main`
   align-items: center;
 
   flex-grow: 1;
+
+  margin: 64px 0 0 0;
+
+  @media (min-width: 768px) {
+    margin: calc(100px + 64px) 0 0 0;
+  }
 
 `
 

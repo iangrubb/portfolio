@@ -1,7 +1,7 @@
 ---
 slug: "/projects/word-maze"
-date: "2019-05-04"
 title: "Word Maze"
+tech: "HTML, CSS, Elixir, Phoenix"
 ---
 
 # an h1

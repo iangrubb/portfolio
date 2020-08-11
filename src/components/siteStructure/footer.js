@@ -11,13 +11,24 @@ import MediumLogo from '../paperCraft/constructions/logos/medium'
 const Footer = () => {
     return (
         <Container>
-          <Spacer color="green" shape="spacer"/>
+          <Spacer color="green" shape="frame"/>
+
+          <ContactInfo>
+            <ContactHeading color="pink" shape="rectangle">
+              <ContactText>contact</ContactText>
+            </ContactHeading>
+            <EmailWrapper color="purple" shape="frame">
+              <Email href="mailto:hi@iangrubb.com">hi@iangrubb.com</Email>
+            </EmailWrapper>
+          </ContactInfo>
 
 
           <ContactInfo>
-            {/* <ContactHeading color="pink" shape="rectangle">
-              <ContactText>Find me online!</ContactText>
-            </ContactHeading> */}
+            <ContactHeading color="pink" shape="rectangle">
+              <ContactText>social</ContactText>
+            </ContactHeading>
+
+
             <LogoLink href="https://github.com/iangrubb" target="_blank" title="Github">
               <PlacedGithubLogo />
             </LogoLink>
@@ -49,10 +60,12 @@ const Footer = () => {
 }
 
 const Container = styled.footer`
-  margin: 2rem 0 0 0;
-  padding: 1rem 0 2rem 0;
+  margin: 6rem 0 0 0;
+  padding: 3rem 0 1rem 0;
   position: relative;
-  width: 100vw;
+  
+  width: 100%;
+  max-width: 1000px;
 
   display: flex;
   flex-direction: column;
@@ -63,26 +76,42 @@ const Container = styled.footer`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 `
 
 const Spacer = styled(Paper)`
   position: absolute;
-  top: -2rem;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   
-  width: 300px;
-  max-width: 90%;
-  height: 40px;
+  width: 90%;
+  height: 10px;
+`
+
+const EmailWrapper = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+  margin: 0 0 16px 0;
+`
+
+const Email = styled.a`
+  margin: 6px 12px 5px 12px;
+  color: var(--background-color);
+  font-family: "Vollkorn";
+  font-size: 20px;
+  font-weight: 700;
+
+  &:hover {
+    color: var(--background-color);
+  }
 `
 
 const ContactInfo = styled.div`
   position: relative;
   display: flex;
-  padding: 1rem 0 0.5rem 0;
-  width: fit-content;
+  padding: 3rem 1rem 2rem 1rem;
 `
 
 const ContactHeading = styled(Paper)`
@@ -96,11 +125,11 @@ const ContactHeading = styled(Paper)`
 `
 
 const ContactText = styled.span`
-  padding: 0.4rem 0.8rem 0.1rem 0.8rem;
+  padding: 0.3rem 0.8rem 0.1rem 0.8rem;
   color: var(--background-color);
   font-family: "Vollkorn";
   font-weight: 700;
-  font-size: 18px;
+  font-size: 22px;
 `
 
 const LogoLink = styled.a`
@@ -122,8 +151,9 @@ const PlacedMediumLogo = styled(MediumLogo)`
 
 const BuildInfo = styled.div`
   position: relative;
-  padding: 24px 16px 16px 0;
+  padding: 24px 16px 32px 0;
   width: fit-content;
+  align-self: center;
 `
 
 const Copywrite = styled(Paper)`

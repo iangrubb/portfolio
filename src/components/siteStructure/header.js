@@ -43,7 +43,7 @@ const Container = styled.header`
   background: var(--background-color);
 
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 
   display: flex;
   flex-direction: column;
@@ -53,9 +53,15 @@ const Container = styled.header`
   overflow: hidden;
 
   @media (min-width: 768px) {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 3;
+
+    /* transition: top 0.2s ease;
+
+    &:hover{
+      top: 0;
+    } */
   }
   
 `
@@ -86,10 +92,11 @@ const MainContent = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  
 
   @media (min-width: 768px) {
     flex-direction: row;
-    height: 80px;
+    height: 90px;
   }
 
 `
@@ -105,7 +112,7 @@ const NameContainer = styled(Paper)`
 
 
 const Name = styled.h1`
-  margin: 10px 32px 6px 32px;
+  margin: 8px 24px 4px 24px;
   font-size: 34px;
   color: var(--background-color);
 `

@@ -35,7 +35,7 @@ const HeadingWrapper = styled.div`
     height: fit-content;
 
     margin: 64px 0 32px 0;
-    scroll-margin-top: 16px;
+    scroll-margin-top: calc(100px + 36px);
 
 `
 

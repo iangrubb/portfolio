@@ -16,7 +16,7 @@ const subSectionHeader = ({ children, path }) => {
 
 
 const Link = styled.a`
-    scroll-margin-top: 16px;
+    scroll-margin-top: calc(100px + 24px);
 `
 
 const SubHeading = styled.h4`

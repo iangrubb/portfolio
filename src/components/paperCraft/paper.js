@@ -6,15 +6,15 @@ import shapeData from './shapeData'
 const determineHexColor = color => {
     switch(color) {
         case "red":
-            return "#F93939"
+            return "#da2929"
         case "orange":
-            return "#FD8721"
+            return "#ff881b"
         case "yellow":
-            return "#f7e384"
+            return "#ffbf22"
         case "green":
             return "#64b732"
         case "blue":
-            return "#399ab3"
+            return "#45a7d0"
         case "purple":
             return "#3d3752"
         case "pink":
@@ -48,7 +48,7 @@ export default Paper
 const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.proportional ? "auto" : `${props.height}px`};
-    filter: drop-shadow(1px 1px 1px #302d3888);
+    filter: drop-shadow(1px 1px 1px #302d3833);
 `;
 
 const BodyBase = styled.div`
