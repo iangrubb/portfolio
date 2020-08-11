@@ -11,13 +11,24 @@ const Header = () => (
 
     <MainContent>
 
-      <NameContainer color="purple" shape="frame">
-        <Link href="/">
-          <Name>
-            Ian Grubb
-          </Name>
-        </Link>
-      </NameContainer>
+
+      <LeftContent>
+        {/* <NameContainer color="purple" shape="rectangle"> */}
+          <Link href="/">
+            <Name>
+              Ian Grubb
+            </Name>
+          </Link>
+        {/* </NameContainer> */}
+        <Spacer color="pink" shape="rectangle" />
+        {/* <TitleContainer color="pink" shape="rectangle"> */}
+          <Title>
+            Full Stack Developer
+          </Title>
+        {/* </TitleContainer> */}
+      </LeftContent>
+
+      
 
       <Links>
         
@@ -38,12 +49,34 @@ const Header = () => (
   </Container>
 )
 
+const TitleContainer = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: 24px;
+`
+
+const Title = styled.h3`
+  /* color: var(--background-color); */
+  font-family: "Lato";
+  margin: 8px 16px 6px 16px;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+`
+
+const Spacer = styled(Paper)`
+  width: 60%;
+  height: 6px;
+  margin: 0 0 8px 0;
+`
+
 const Container = styled.header`
 
   background: var(--background-color);
 
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
 
   display: flex;
   flex-direction: column;
@@ -56,8 +89,8 @@ const Container = styled.header`
     position: fixed;
     top: 0;
     z-index: 3;
-
-    /* transition: top 0.2s ease;
+/* 
+    transition: top 0.2s ease;
 
     &:hover{
       top: 0;
@@ -71,6 +104,9 @@ const Links = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    align-self: flex-end;
+  }
 `
 
 const BottomDivider = styled(Paper)`
@@ -92,29 +128,41 @@ const MainContent = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  position: relative;
   
 
   @media (min-width: 768px) {
+    padding: 0 8%;
+    justify-content: space-between;
     flex-direction: row;
-    height: 90px;
+    height: 180px;
   }
 
+`
+
+const LeftContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 32px 0 0 0;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `
 
 const NameContainer = styled(Paper)`
   width: fit-content;
   height: fit-content;
-  margin: 32px 0 0 0;
-  @media (min-width: 768px) {
-    margin: 0 32px 0 0;
-  }
 `
 
 
 const Name = styled.h1`
-  margin: 8px 24px 4px 24px;
-  font-size: 34px;
-  color: var(--background-color);
+  margin: 9px 20px 5px 20px;
+  font-size: 46px;
+  font-weight: 900;
+  margin: 0;
+  /* color: var(--background-color); */
 `
 
 

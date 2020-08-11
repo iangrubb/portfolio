@@ -95,7 +95,7 @@ const LogoDisplay = styled.div`
   width: 120px;
 
   & > div {
-    width: 80px;
+    width: 100px;
   }
 
   & > h4 {
@@ -123,7 +123,7 @@ const Frame = styled.div`
   display: flex;
   flex-wrap: wrap;
   & > * {
-    width: 60px;
+    width: 90px;
   }
 `
 

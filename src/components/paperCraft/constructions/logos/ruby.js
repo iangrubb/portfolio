@@ -20,5 +20,6 @@ export default RubyLogo
 
 const Element = styled(Paper)`
     position: absolute;
+    transform: translate(-5%, -5%);
     width: 55%;
 `

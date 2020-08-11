@@ -65,7 +65,7 @@ const Container = styled.footer`
   position: relative;
   
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
 
   display: flex;
   flex-direction: column;

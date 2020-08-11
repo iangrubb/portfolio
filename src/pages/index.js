@@ -80,7 +80,7 @@ const Name = styled.h1`
 
 const Title = styled.h2`
   margin: 0.6rem 0 0 0;
-  font-family: "Open Sans";
+  font-family: "Lato";
   font-size: 2.8rem;
   font-weight: 400;
 `

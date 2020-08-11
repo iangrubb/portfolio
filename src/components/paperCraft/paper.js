@@ -10,7 +10,7 @@ const determineHexColor = color => {
         case "orange":
             return "#ff881b"
         case "yellow":
-            return "#ffbf22"
+            return "#efbb00"
         case "green":
             return "#64b732"
         case "blue":

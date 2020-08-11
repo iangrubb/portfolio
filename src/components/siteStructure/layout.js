@@ -44,7 +44,7 @@ const Main = styled.main`
   margin: 64px 0 0 0;
 
   @media (min-width: 768px) {
-    margin: calc(100px + 64px) 0 0 0;
+    margin: calc(190px + 64px) 0 0 0;
   }
 
 `

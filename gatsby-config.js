@@ -39,6 +39,12 @@ module.exports = {
             resolve: "gatsby-remark-smartypants",
             options: {
               quotes: false,
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 970,
             },
           }
         ]
