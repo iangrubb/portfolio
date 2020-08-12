@@ -25,7 +25,7 @@ export const query = graphql`
           tech
           hero {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 2400) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -105,6 +105,10 @@ const Post = styled.div`
   overflow: hidden;
 
   position: relative;
+
+  @media (min-width: 768px) {
+    width: 100vw;
+  }
 
 `
 
