@@ -26,10 +26,10 @@ const determineHexColor = color => {
     }
 }
 
-const Paper = ({className, children, shape, color, proportional}) => {
+const Paper = ({className, children, shape, color, proportional, noShadow}) => {
     const shapeDatum = shapeData.find(s => s.name === shape)
     return (
-        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional}>
+        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional} noShadow={noShadow}>
             {proportional ?
             <Spacer>
                 <ProportionalBody shape={shape} color={determineHexColor(color)} >
@@ -48,7 +48,8 @@ export default Paper
 const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.proportional ? "auto" : `${props.height}px`};
-    filter: drop-shadow(1px 1px 1px #302d3833);
+    ${props => props.noShadow ? null : "filter: drop-shadow(1px 1px 1px #302d3877);"}
+    
 `;
 
 const BodyBase = styled.div`

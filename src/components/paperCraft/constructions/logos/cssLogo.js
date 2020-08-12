@@ -8,8 +8,8 @@ import LogoFrame from '../logoFrame'
 const CSSLogo = ({className}) => {
     return (
         <LogoFrame color="blue" className={className}>
-            <Outer color="blue" shape="HTML1" proportional>
-                <Inner color="tan" shape="CSS" proportional/>
+            <Outer color="blue" shape="HTML1" proportional noShadow>
+                <Inner color="tan" shape="CSS" proportional noShadow/>
             </Outer>
         </LogoFrame>  
     )
@@ -18,7 +18,7 @@ const CSSLogo = ({className}) => {
 export default CSSLogo
 
 const Outer = styled(Paper)`
-    width: 75%;
+    width: 65%;
 `
 
 const Inner = styled(Paper)`

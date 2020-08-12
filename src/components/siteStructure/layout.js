@@ -41,10 +41,10 @@ const Main = styled.main`
 
   flex-grow: 1;
 
-  margin: 64px 0 0 0;
+  margin: 40px 0 0 0;
 
   @media (min-width: 768px) {
-    margin: calc(190px + 64px) 0 0 0;
+    margin: calc(190px + 40px) 0 0 0;
   }
 
 `

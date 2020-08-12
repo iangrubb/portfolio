@@ -1,7 +1,9 @@
 ---
 slug: "/projects/natural"
 title: "Natural"
-tech: "HTML, CSS, JS, React, Redux, Styled Components, Ruby, Rails"
+tech: "React, Redux, Styled Components, HTML, CSS, JS, Ruby, Rails"
+hero: ./hero.png
+tagline: "A virtual tutor that helps logic students learn to construct natural deduction proofs."
 ---
 
 A natural description

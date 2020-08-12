@@ -8,13 +8,13 @@ import LogoFrame from '../logoFrame'
 const MediumLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Element color="purple" shape="medium" proportional />
+            <Element color="purple" shape="medium" proportional noShadow/>
         </LogoFrame>
     )
 }
 
 const Element = styled(Paper)`
-    width: 70%;
+    width: 65%;
 `
 
 export default MediumLogo

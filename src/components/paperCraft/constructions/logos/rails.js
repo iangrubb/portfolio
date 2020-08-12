@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const RailsLogo = ({className}) => {
     return (
         <LogoFrame color="red" className={className}>
-            <Element color="red" shape="rails" proportional/>
+            <Element color="red" shape="rails" proportional noShadow/>
         </LogoFrame>  
     )
 }

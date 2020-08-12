@@ -8,9 +8,9 @@ import LogoFrame from '../logoFrame'
 const ReactLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Orbit color="purple" shape="redux" angle={120} proportional/>
-            <Orbit color="purple" shape="redux" angle={0} proportional/>
-            <Orbit color="purple" shape="redux" angle={-120} proportional/>
+            <Orbit color="purple" shape="redux" angle={120} proportional noShadow/>
+            <Orbit color="purple" shape="redux" angle={0} proportional noShadow/>
+            <Orbit color="purple" shape="redux" angle={-120} proportional noShadow/>
         </LogoFrame>  
     )
 }

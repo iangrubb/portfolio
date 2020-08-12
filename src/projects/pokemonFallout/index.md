@@ -1,5 +1,7 @@
 ---
 slug: "/projects/pokemon-fallout"
 title: "Pokemon Fallout"
-tech: "HTML, CSS, JS, Ruby, Rails"
+tech: "Ruby, Rails, HTML, CSS, JS"
+hero: ./hero.png
+tagline: "A game where players breed and raise pokemon in a post-apocalyptic future."
 ---

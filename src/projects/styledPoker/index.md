@@ -1,5 +1,7 @@
 ---
 slug: "/projects/styled-poker"
 title: "Styled Poker"
-tech: "HTML, CSS, JS, React, Styled Components"
+tech: "React, Styled Components, HTML, CSS, JS"
+hero: ./hero.png
+tagline: "A tutorial on 3D transforms in CSS, Styled Components, and React Transition Group."
 ---

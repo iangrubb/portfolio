@@ -8,9 +8,9 @@ import LogoFrame from '../logoFrame'
 const GatsbyLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Circle color="purple" shape="circle" proportional>
-                <Element color="tan" shape="gatsby1" proportional/>
-                <Element color="tan" shape="gatsby2" proportional/>
+            <Circle color="purple" shape="circle" proportional noShadow>
+                <Element color="tan" shape="gatsby1" proportional noShadow/>
+                <Element color="tan" shape="gatsby2" proportional noShadow/>
             </Circle>
         </LogoFrame>  
     )
@@ -19,7 +19,7 @@ const GatsbyLogo = ({className}) => {
 export default GatsbyLogo
 
 const Circle = styled(Paper)`
-    width: 80%;
+    width: 75%;
     position: relative;
 `
 

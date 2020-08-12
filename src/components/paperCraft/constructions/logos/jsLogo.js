@@ -8,9 +8,9 @@ import LogoFrame from '../logoFrame'
 const JSLogo = ({className}) => {
     return (
         <LogoFrame color="yellow" className={className}>
-            <Outer color="yellow" shape="HTML1" proportional>
-                <Inner color="tan" shape="JS1" proportional/>
-                <Inner color="tan" shape="JS2" proportional/>
+            <Outer color="yellow" shape="HTML1" proportional noShadow>
+                <Inner color="tan" shape="JS1" proportional noShadow/>
+                <Inner color="tan" shape="JS2" proportional noShadow/>
             </Outer>
         </LogoFrame>  
     )
@@ -20,7 +20,7 @@ export default JSLogo
 
 const Outer = styled(Paper)`
     position: relative;
-    width: 75%;
+    width: 65%;
 `
 
 const Inner = styled(Paper)`

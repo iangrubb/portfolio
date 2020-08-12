@@ -13,14 +13,14 @@ const Header = () => (
 
 
       <LeftContent>
-        {/* <NameContainer color="purple" shape="rectangle"> */}
-          <Link href="/">
+        {/* <NameContainer color="purple" shape="frame"> */}
+          <Link to="/">
             <Name>
               Ian Grubb
             </Name>
           </Link>
         {/* </NameContainer> */}
-        <Spacer color="pink" shape="rectangle" />
+        {/* <Spacer color="pink" shape="rectangle" /> */}
         {/* <TitleContainer color="pink" shape="rectangle"> */}
           <Title>
             Full Stack Developer
@@ -52,17 +52,16 @@ const Header = () => (
 const TitleContainer = styled(Paper)`
   width: fit-content;
   height: fit-content;
-  position: relative;
-  left: 24px;
 `
 
 const Title = styled.h3`
   /* color: var(--background-color); */
   font-family: "Lato";
-  margin: 8px 16px 6px 16px;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 400;
   margin: 0;
+  margin: 4px 16px 6px 16px;
+  white-space: nowrap;
 `
 
 const Spacer = styled(Paper)`
@@ -154,14 +153,14 @@ const LeftContent = styled.div`
 const NameContainer = styled(Paper)`
   width: fit-content;
   height: fit-content;
+  margin: 0 0 8px 0;
 `
 
 
 const Name = styled.h1`
-  margin: 9px 20px 5px 20px;
-  font-size: 46px;
-  font-weight: 900;
-  margin: 0;
+  margin: 4px 12px -4px 12px;
+  font-size: 50px;
+  white-space: nowrap;
   /* color: var(--background-color); */
 `
 

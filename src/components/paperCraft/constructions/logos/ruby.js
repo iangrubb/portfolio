@@ -8,9 +8,9 @@ import LogoFrame from '../logoFrame'
 const RubyLogo = ({className}) => {
     return (
         <LogoFrame color="red" className={className}>
-            <Element color="red" shape="ruby1" proportional/>
-            <Element color="red" shape="ruby2" proportional/>
-            <Element color="red" shape="ruby3" proportional/>
+            <Element color="red" shape="ruby1" proportional noShadow/>
+            <Element color="red" shape="ruby2" proportional noShadow/>
+            <Element color="red" shape="ruby3" proportional noShadow/>
         </LogoFrame>  
     )
 }

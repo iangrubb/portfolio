@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const ElixirLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Element color="purple" shape="elixirDrop" proportional/>
+            <Element color="purple" shape="elixirDrop" proportional noShadow/>
         </LogoFrame>  
     )
 }

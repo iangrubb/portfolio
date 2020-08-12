@@ -1,5 +1,7 @@
 ---
 slug: "/projects/ruby-enumerator-flashcards"
 title: "Ruby Enumerator Cards"
-tech: "HTML, CSS, JS, React, Styled Components"
+tech: "React, Styled Components, HTML, CSS, JS"
+hero: ./hero.png
+tagline: "Interactive flashcards with details on enumerator methods in Ruby."
 ---

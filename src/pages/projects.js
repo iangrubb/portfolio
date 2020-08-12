@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 
 import Layout from '../components/siteStructure/layout'
@@ -7,18 +8,9 @@ import SEO from "../components/seo"
 
 import Paper from '../components/paperCraft/paper'
 
-import GatsbyLogo from '../components/paperCraft/constructions/logos/gatsby'
-import HTMLLogo from '../components/paperCraft/constructions/logos/htmlLogo'
-import CSSLogo from '../components/paperCraft/constructions/logos/cssLogo'
-import JSLogo from '../components/paperCraft/constructions/logos/jsLogo'
-import ReactLogo from '../components/paperCraft/constructions/logos/reactLogo'
-import ReduxLogo from '../components/paperCraft/constructions/logos/reduxLogo'
-import StyledComponentsLogo from '../components/paperCraft/constructions/logos/styledComponentsLogo'
-import GraphQLLogo from '../components/paperCraft/constructions/logos/graphQLLogo'
-import RubyLogo from '../components/paperCraft/constructions/logos/ruby'
-import RailsLogo from '../components/paperCraft/constructions/logos/rails'
-import ElixirLogo  from '../components/paperCraft/constructions/logos/elixir'
-import PhoenixLogo from '../components/paperCraft/constructions/logos/phoenix'
+
+
+import ToolInfo from '../components/display/toolInfo'
 
 
 export const query = graphql`
@@ -29,11 +21,23 @@ export const query = graphql`
         frontmatter {
           slug
           title
+          tagline
+          tech
+          hero {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
+        
       }
     }
   }
 `
+
+
 
 const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 
@@ -43,38 +47,44 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
         <Layout>
             <SEO title="Projects" />
 
-            <Frame >
-              <GatsbyLogo/>
-              <HTMLLogo />
-              <CSSLogo />
-              <JSLogo />
-              <ReactLogo />
-              <ReduxLogo />
-              <StyledComponentsLogo />
-              <GraphQLLogo />
-              <RubyLogo />
-              <RailsLogo />
-              <ElixirLogo />
-              <PhoenixLogo />
-            </Frame>
+            {projectOrder.map(term => {
+              const node = nodes.find(n => n.frontmatter.title === term)
 
-            {/* <LogoDisplay>
-              <GatsbyLogo/>
-              <h4>Gatsby</h4>
-            </LogoDisplay>
-            <LogoDisplay>
-              <StyledComponentsLogo/>
-              <h4>Styled Components</h4>
-            </LogoDisplay> */}
+              const { title, hero, slug, tagline, tech } = node.frontmatter
 
-            {projectOrder.map(title => {
-              const node = nodes.find(n => n.frontmatter.title === title)
-              
+              const techTerms = tech.split(",").map(string => string.trim())
+
               return (
                 <Post key={node.id}>
-                    <h2>{node.frontmatter.title}</h2>
-                    <small>{node.frontmatter.date}</small>
-                    <Link to={node.frontmatter.slug}>Learn More</Link>
+
+                  <Link to={slug}><Title>{title}</Title></Link>
+
+                  <Accent color="pink" shape="frame" />
+
+                  <Tagline>{tagline}</Tagline>
+
+                  <Bar color="purple" shape="frame" top/>
+                  <Hero fluid={hero.childImageSharp.fluid} alt="hero" />
+                  <Bar color="purple" shape="frame" />
+
+
+
+                  <LogoContainer contentCount={techTerms.length}>
+                    {techTerms.map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
+                  </LogoContainer> 
+
+                  <Tools><span>Tools</span> - {techTerms.join(", ")} </Tools>
+
+                  <Link to={slug}>
+                    <LearnWrapper color="pink" shape="frame"> 
+                      <LearnMore>
+                          learn more
+                      </LearnMore>
+                      <Arrow color="tan" shape="arrow" proportional/>
+                    </LearnWrapper>
+                  </Link>
+                  
+
                 </Post>
               )
             })}
@@ -82,49 +92,112 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
     )
 }
 
-const LogoDisplay = styled.div`
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  border: 1px solid red;
-
-  padding: 16px 8px;
-
-  width: 120px;
-
-  & > div {
-    width: 100px;
-  }
-
-  & > h4 {
-    margin: 8px 0 0 0;
-    text-align: center;
-  }
-
-`
 
 const Post = styled.div`
+
+  margin: 40px 0 40px 0;
   
-  margin: 3em 0;
+  padding: 0 0 40px 0;
 
-  width: 500px;
-  height: 300px;
+  width: 800px;
+  max-width: 100%;
 
-  padding: 24px;
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+
 `
 
-const Frame = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  & > * {
-    width: 90px;
+const Title = styled.h2`
+  margin: 0 8% 8px 8%;
+  font-size: 42px;
+`
+
+const Accent = styled(Paper)`
+  height: 6px;
+  width: 120px;
+  margin: 0 0 16px 8%;
+`
+
+const Tagline = styled.p`
+  margin: 0 8% 16px 8%;
+  font-size: 18px;
+  font-style: italic;
+  max-width: 300px;
+`
+
+
+const Hero = styled(Img)`
+  max-height: 200px;
+  filter: brightness(90%);
+`
+
+const Bar = styled(Paper)`
+  width: 110%;
+  height: 8px;
+  position: relative;
+  top: ${props => props.top ? '1px' : '-1px'};
+  left: -5%;
+  margin: ${props => props.top ? '0 0 0 0' : '0 0 12px 0'};
+`
+
+const Tools = styled.div`
+  margin: 0 8% 16px 8%;
+  max-width: 300px;
+  font-size: 18px;
+
+  & > span {
+    font-size: 20px;
+    font-weight: 700;
   }
+`
+
+
+
+
+const LogoContainer = styled.div`
+  margin: 0 0 12px 8%;
+  width: 84%;
+  max-width: 400px;
+  height: ${props => props.contentCount > 5 ? "29" : "16"}vw;
+  max-height: ${props => props.contentCount > 5 ? "140" : "78"}px;
+
+  position: relative;
+`
+
+const PlacedTool = styled(ToolInfo)`
+  position: absolute;
+  transform: translate(
+    ${props => props.number < 5 ? props.number * 100 : ((props.number - 5) * 100) + 50}%,
+    ${props => props.number < 5 ? 0 : 80}%
+  );
+  width: 19%;
+
+`
+
+
+const LearnWrapper = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+  margin: 0 0 0 8%;
+  position: relative;
+`
+
+const Arrow = styled(Paper)`
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 30px;
+  transform: translateY(-50%);
+`
+
+const LearnMore = styled.span`
+  font-family: "Vollkorn";
+  color: var(--background-color);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 10px calc(32px + 16px) 6px 16px;
 `
 
 

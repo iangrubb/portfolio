@@ -57,13 +57,7 @@ const BlogPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 
               </SideBar>
               <Posts>
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
-                {nodes.map(node => <BlogCard node={node} />)}
+                {nodes.map(node => <BlogCard key={node.id} node={node} />)}
               </Posts>
             </Columns>
         </Layout>
