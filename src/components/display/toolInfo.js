@@ -59,7 +59,7 @@ const ToolInfo = ({ className, tool }) => {
 export default ToolInfo
 
 const Container = styled.div`
-    width: 20%;
+    width: 100px;
 
     & > div {
         width: 100%;

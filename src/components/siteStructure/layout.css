@@ -7,7 +7,8 @@ html {
 :root {
   --text-color: #302d38;
   --background-color: #f7f4f1;
-  --background-color-clear: #f7f4f1bb;
+  --background-color-clear: #f7f4f1f1;
+  --tint: #48415293;
 
   --full-screen: calc(100vw - 32px);
 }

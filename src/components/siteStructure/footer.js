@@ -11,7 +11,7 @@ import MediumLogo from '../paperCraft/constructions/logos/medium'
 const Footer = () => {
     return (
         <Container>
-          <Spacer color="green" shape="frame"/>
+          {/* <Spacer color="green" shape="frame"/> */}
 
           <ContactInfo>
             <ContactHeading color="pink" shape="rectangle">
@@ -60,12 +60,13 @@ const Footer = () => {
 }
 
 const Container = styled.footer`
-  margin: 6rem 0 0 0;
+  margin: 2rem 0 0 0;
   padding: 3rem 0 1rem 0;
   position: relative;
   
+  scroll-snap-align: end;
+
   width: 100%;
-  max-width: 1200px;
 
   display: flex;
   flex-direction: column;
@@ -86,7 +87,7 @@ const Spacer = styled(Paper)`
   left: 50%;
   transform: translateX(-50%);
   
-  width: 90%;
+  width: 110%;
   height: 10px;
 `
 

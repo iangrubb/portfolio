@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
   letter-spacing: 1.4px;
 
   @media (min-width: 768px) {
-    margin: 0.4rem 1rem 0.3rem 1rem;
+    margin: 0.4rem 0.6rem 0.3rem 0.6rem;
     font-weight: 900;
     font-size: 20px;
     letter-spacing: 1.5px;

@@ -6,8 +6,8 @@ import Paper from '../paper'
 
 const LogoFrame = ({children, className, color}) => {
     return (
-        <Container color={color} shape="hex" proportional className={className}>
-            <Interior color="tan" shape="hex">
+        <Container color={color} shape="hHex" proportional className={className}>
+            <Interior color="tan" shape="hHex">
                 {children}
             </Interior>
         </Container>

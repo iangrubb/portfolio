@@ -5,8 +5,11 @@ import styled from 'styled-components'
 import Paper from '../paperCraft/paper'
 import NavLink from '../paperCraft/constructions/navLink'
 
-const Header = () => (
-  <Container>
+const Header = () => {
+
+  
+  return (
+  <Container >
     <MainContent>
       <TopContent>
         <Link to="/">
@@ -26,11 +29,13 @@ const Header = () => (
         <NavLink path="/beef" text="About" />
       </Links>
     </MainContent>
-    <BottomDivider color="green" shape="frame"/>
+    {/* <BottomDivider color="green" shape="frame"/> */}
   </Container>
-)
+  )
+}
 
 const Container = styled.header`
+
 
   background: var(--background-color);
 
@@ -43,12 +48,7 @@ const Container = styled.header`
 
   overflow: hidden;
 
-  @media (min-width: 768px) {
-    position: sticky;
-    top: -120px;
-    z-index: 3;
-  }
-  
+  display: none;
 `
 
 const MainContent = styled.div`
@@ -56,14 +56,23 @@ const MainContent = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  margin: 30px 0 0 0;
+  
+
+  @media (min-width: 768px) {
+    /* flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px; */
+  }
 `
 
 const TopContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0 0 0;
   height: 100px;
+  margin: 0 30px;
 `
 
 const Name = styled.h1`
@@ -80,7 +89,7 @@ const Title = styled.h3`
 `
 
 const Links = styled.nav`
-  margin: 16px 0;
+  margin: 16px 30px;
   display: flex;
   justify-content: center;
   align-items: center;

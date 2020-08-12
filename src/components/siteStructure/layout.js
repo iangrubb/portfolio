@@ -10,13 +10,13 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
-const Layout = ({ children, minimal }) => {
+const Layout = ({ children, minimal, snapDesktop, snapMobile }) => {
 
   return (
-      <Page>
+      <Page snapDesktop={snapDesktop} snapMobile={snapMobile} >
         <Shapes />
         {minimal ? null : <Header />}
-        <Main>{children}</Main>
+        {children}
         {minimal ? null : <Footer />}
       </Page>
   )
@@ -24,27 +24,20 @@ const Layout = ({ children, minimal }) => {
 
 const Page = styled.div`
   width: 100vw;
-  
+
+  scroll-snap-type: y ${props => props.snapMobile ? "mandatory" : "proximity"};
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-`
-
-const Main = styled.main`
-  width: 100%;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  flex-grow: 1;
-
-  margin: 40px 0 0 0;
-
   @media (min-width: 768px) {
-    margin: 40px 0 0 0;
+    scroll-snap-type: y ${props => props.snapDesktop ? "mandatory" : "proximity"};
   }
 
 `
