@@ -18,6 +18,7 @@ export default LogoFrame
 
 const Container = styled(Paper)`
     ${props => props.width ? `width: ${props.width};` : null}
+    max-width: 100%;
 `
 
 const Interior = styled(Paper)`

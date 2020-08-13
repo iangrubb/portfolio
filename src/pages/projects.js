@@ -64,25 +64,22 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
               return (
                 <Post key={node.id}>
 
-                  <TopContent color="purple" innerCSS={topContentInner}>
+                  <Bar color="purple" shape="frame" top/>
+                  <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
+                  <Bar color="purple" shape="frame" />
+
+                  <MainContent color="purple" innerCSS={mainContentInner}>
                     <Link to={slug}><Title>{title}</Title></Link>
                     <Accent color="pink" shape="frame" />
                     <Tagline>{tagline}</Tagline>
                     <Tools>{techTerms.join(", ")}</Tools>
-                  </TopContent>
-
-                  <Bar color="purple" shape="frame" top/>
-                  <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-                  <Bar color="purple" shape="frame" />
+                  </MainContent>
 
                   <LogoContainer >
                       {techTerms.map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
                   </LogoContainer> 
 
-                  
-
-                  <BottomContent >
-
+                  <LinksContainer>
                     <LinkWrapper>
                       <Link to={slug}><LearnLogo width="120px" /></Link>
                       <Link to={slug}>
@@ -112,7 +109,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
                       </LinkWrapper>
                     : null}
 
-                  </BottomContent>
+                  </LinksContainer>
 
 
                 </Post>
@@ -126,50 +123,47 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 const Post = styled.div`
 
   width: 100vw;
-
-  margin: 20px 0 60px 0;
+  margin: 40px 0 0 0;
   padding: 0 0 40px 0;
 
   @media (min-width: 768px) {
-  
     margin: 0;
     padding: 10vh 0 30vh 0;
-
     scroll-snap-align: start;
-
     position: relative;
   }
 
 `
 
-const TopContent = styled(FrameBox)`
+const MainContent = styled(FrameBox)`
 
-  margin: 0 8%;
+  margin: 0 auto;
+  max-width: 90vw;
 
+  position: relative;
+  top: -80px;
 
   @media (min-width: 768px) {
-    
-    max-width: calc(85vw - 120px);
+    max-width: calc(80vw - 120px);
     margin: 0;
     position: absolute;
+    top: auto;
     bottom: 5vh;
-    left: 5vw;
+    left: 10vw;
     z-index: 2;
   }
 `
 
-const topContentInner = css`
+const mainContentInner = css`
 
-  padding: 16px;
-
-  margin: 20px;
-
+  margin: 12px;
+  padding: 32px 16px;
+  
   @media (min-width: 768px) {
+    margin: 20px;
     padding: 7vh 4vw;
   }
-
 `
-
 
 const Title = styled.h2`
   margin: 0 0 8px 0;
@@ -192,8 +186,7 @@ const Accent = styled(Paper)`
 
 const Tagline = styled.p`
   margin: 0 0 16px 0;
-  font-size: 18px;
-  
+  font-size: 20px;
   max-width: 300px;
   @media (min-width: 768px) {
     font-size: 24px;
@@ -207,12 +200,10 @@ const Tools = styled.div`
   font-style: italic;
 
   @media (min-width: 768px) {
-    max-width: 800px;
+    max-width: 300px;
     font-size: 18px;
   }
 `
-
-
 
 const Hero = styled(Img)`
   height: 250px;
@@ -236,13 +227,6 @@ const Bar = styled(Paper)`
   }
 `
 
-
-
-
-
-
-
-
 const LogoContainer = styled.div`
   display: none;
 
@@ -256,42 +240,45 @@ const LogoContainer = styled.div`
     z-index: 2;
 
     width: calc(85vw - 250px);
-    width: 1200px;
   }
 `
-
 
 const PlacedTool = styled(ToolInfo)`
   width: 120px;
   max-width: 10vw;
 `
 
+const LinksContainer = styled.div`
 
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
 
-const BottomContent = styled.div`
-  margin: 0 8%;
-  max-width: 750px;
+  position: relative;
+  top: -60px;
+
   @media (min-width: 768px) {
+    display: block;
     margin: 0 auto;
     position: absolute;
+    top: auto;
     bottom: 5vh;
     right: 5vw;
     z-index: 2;
-
     width: 120px;
-
   }
-
 `
-
 
 const LinkWrapper = styled.div`
+  width: fit-content;
   position: relative;
+  max-width: 30vw;
 
-  margin: 0 0 64px 0;
-
+  @media (min-width: 768px) {
+    margin: 0 0 64px 0;
+    max-width: none;
+  }
 `
-
 
 const CTAWrapper = styled(Paper)`
   width: fit-content;
