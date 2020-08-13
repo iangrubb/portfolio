@@ -10,6 +10,11 @@ import Paper from '../components/paperCraft/paper'
 
 import FrameBox from '../components/display/frameBox'
 
+import GithubLogo from '../components/paperCraft/constructions/logos/github'
+import LiveLogo from '../components/paperCraft/constructions/logos/live'
+import LearnLogo from '../components/paperCraft/constructions/logos/learn'
+
+
 
 
 import ToolInfo from '../components/display/toolInfo'
@@ -25,6 +30,8 @@ export const query = graphql`
           title
           tagline
           tech
+          github
+          live
           hero {
             childImageSharp {
               fluid(maxWidth: 2400) {
@@ -40,7 +47,6 @@ export const query = graphql`
 `
 
 
-
 const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 
   const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerator Cards", "Space Bar", "Pokemon Fallout"]
@@ -51,9 +57,10 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
             <SEO title="Projects" />
             {projectOrder.map(term => {
               const node = nodes.find(n => n.frontmatter.title === term)
-              const { title, hero, slug, tagline, tech } = node.frontmatter
+              const { title, hero, slug, tagline, tech, github, live } = node.frontmatter
               const techTerms = tech.split(",").map(string => string.trim())
 
+              console.log(node.frontmatter)
               return (
                 <Post key={node.id}>
 
@@ -65,37 +72,48 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
                   </TopContent>
 
                   <Bar color="purple" shape="frame" top/>
-                  <Hero fluid={hero.childImageSharp.fluid} alt="hero" />
+                  <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
                   <Bar color="purple" shape="frame" />
 
                   <LogoContainer >
                       {techTerms.map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
                   </LogoContainer> 
 
-                  <BottomContent color="purple" innerCSS={bottomContentInner}>
+                  
+
+                  <BottomContent >
+
+                    <LinkWrapper>
+                      <Link to={slug}><LearnLogo width="120px" /></Link>
+                      <Link to={slug}>
+                        <CTAWrapper color="pink" shape="frame"> 
+                          <CTA>details</CTA>
+                        </CTAWrapper>
+                      </Link>
+                    </LinkWrapper>
+
+                    <LinkWrapper>
+                      <a target="blank" href={github}><GithubLogo width="120px" /></a>
+                      <a target="blank" href={github}>
+                        <CTAWrapper color="pink" shape="frame"> 
+                          <CTA>code</CTA>
+                        </CTAWrapper>
+                      </a>
+                    </LinkWrapper>
                     
-                    <Link to={slug}>
-                      <CTAWrapper color="pink" shape="frame"> 
-                        <CTA>learn more</CTA>
-                        <Arrow color="tan" shape="arrow" proportional/>
-                      </CTAWrapper>
-                    </Link>
-
-                    <Link to={slug}>
-                      <CTAWrapper color="pink" shape="frame"> 
-                        <CTA>view on Github</CTA>
-                        <Arrow color="tan" shape="arrow" proportional/>
-                      </CTAWrapper>
-                    </Link>
-
-                    <Link to={slug}>
-                      <CTAWrapper color="pink" shape="frame"> 
-                        <CTA>try it live</CTA>
-                        <Arrow color="tan" shape="arrow" proportional/>
-                      </CTAWrapper>
-                    </Link>
+                    {live ?
+                      <LinkWrapper>
+                        <a target="blank" href={live}><LiveLogo width="120px" /></a>
+                        <a target="blank" href={live}>
+                          <CTAWrapper color="pink" shape="frame"> 
+                            <CTA>live</CTA>
+                          </CTAWrapper>
+                        </a>
+                      </LinkWrapper>
+                    : null}
 
                   </BottomContent>
+
 
                 </Post>
               )
@@ -115,7 +133,7 @@ const Post = styled.div`
   @media (min-width: 768px) {
   
     margin: 0;
-    padding: 15vh 0;
+    padding: 10vh 0 30vh 0;
 
     scroll-snap-align: start;
 
@@ -128,14 +146,13 @@ const TopContent = styled(FrameBox)`
 
   margin: 0 8%;
 
-  max-width: 750px;
 
   @media (min-width: 768px) {
     
-    /* max-width: 500px; */
+    max-width: calc(85vw - 120px);
     margin: 0;
     position: absolute;
-    top: 5vh;
+    bottom: 5vh;
     left: 5vw;
     z-index: 2;
   }
@@ -200,18 +217,8 @@ const Tools = styled.div`
 const Hero = styled(Img)`
   height: 250px;
   @media (min-width: 768px) {
-    height: calc(70vh - 32px);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      background: var(--tint);
-    }
+    height: calc(60vh - 32px);
+    opacity: 0.5;
   }
 `
 
@@ -231,7 +238,37 @@ const Bar = styled(Paper)`
 
 
 
-const BottomContent = styled(FrameBox)`
+
+
+
+
+
+const LogoContainer = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+
+    position: absolute;
+    left: 5vw;
+    top: calc(10vh + 8px);
+    transform: translateY(-50%);
+    z-index: 2;
+
+    width: calc(85vw - 250px);
+    width: 1200px;
+  }
+`
+
+
+const PlacedTool = styled(ToolInfo)`
+  width: 120px;
+  max-width: 10vw;
+`
+
+
+
+const BottomContent = styled.div`
   margin: 0 8%;
   max-width: 750px;
   @media (min-width: 768px) {
@@ -240,48 +277,30 @@ const BottomContent = styled(FrameBox)`
     bottom: 5vh;
     right: 5vw;
     z-index: 2;
+
+    width: 120px;
+
   }
 
 `
 
-const bottomContentInner = css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 24px 16px;
-  margin: 16px;
+
+const LinkWrapper = styled.div`
+  position: relative;
+
+  margin: 0 0 64px 0;
+
 `
-
-
-
-const LogoContainer = styled.div`
-  display: none;
-
-  @media (min-width: 1100px) {
-    display: flex;
-
-    position: absolute;
-    left: 5vw;
-    top: calc(85vh - 8px);
-    transform: translateY(-50%);
-    z-index: 2;
-
-    width: calc(85vw - 250px);
-    max-width: 1200px;
-  }
-`
-
-
-const PlacedTool = styled(ToolInfo)`
-  max-width: 10%;
-`
-
 
 
 const CTAWrapper = styled(Paper)`
   width: fit-content;
   height: fit-content;
-  position: relative;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 2;
   margin: 8px 0;
 `
 
@@ -289,18 +308,11 @@ const CTA = styled.span`
   font-family: "Vollkorn";
   color: var(--background-color);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: 1px;
-  margin: 8px calc(32px + 16px) 4px 16px;
+  margin: 3px 8px 1px 8px;
 `
 
-const Arrow = styled(Paper)`
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  width: 30px;
-  transform: translateY(-50%);
-`
 
 
 

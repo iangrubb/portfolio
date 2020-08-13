@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 import Paper from '../paper'
 
-const LogoFrame = ({children, className, color}) => {
+const LogoFrame = ({children, className, color, width}) => {
     return (
-        <Container color={color} shape="hHex" proportional className={className}>
+        <Container color={color} shape="hHex" proportional width={width} className={className}>
             <Interior color="tan" shape="hHex">
                 {children}
             </Interior>
@@ -16,7 +16,9 @@ const LogoFrame = ({children, className, color}) => {
 
 export default LogoFrame
 
-const Container = styled(Paper)``
+const Container = styled(Paper)`
+    ${props => props.width ? `width: ${props.width};` : null}
+`
 
 const Interior = styled(Paper)`
     width: 100%;
