@@ -14,9 +14,6 @@ import GithubLogo from '../components/paperCraft/constructions/logos/github'
 import LiveLogo from '../components/paperCraft/constructions/logos/live'
 import LearnLogo from '../components/paperCraft/constructions/logos/learn'
 
-
-
-
 import ToolInfo from '../components/display/toolInfo'
 
 
@@ -60,7 +57,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
               const { title, hero, slug, tagline, tech, github, live } = node.frontmatter
               const techTerms = tech.split(",").map(string => string.trim())
 
-              console.log(node.frontmatter)
+
               return (
                 <Post key={node.id}>
 
@@ -207,9 +204,9 @@ const Tools = styled.div`
 
 const Hero = styled(Img)`
   height: 250px;
+  opacity: 0.5;
   @media (min-width: 768px) {
     height: calc(60vh - 32px);
-    opacity: 0.5;
   }
 `
 

@@ -8,9 +8,9 @@ import LinkedInLogo from '../paperCraft/constructions/logos/linkedIn'
 import GithubLogo from '../paperCraft/constructions/logos/github'
 import MediumLogo from '../paperCraft/constructions/logos/medium'
 
-const Footer = () => {
+const Footer = ({snapDown}) => {
     return (
-        <Container>
+        <Container snapDown={snapDown}>
           {/* <Spacer color="green" shape="frame"/> */}
 
           <ContactInfo>
@@ -64,8 +64,8 @@ const Container = styled.footer`
   padding: 3rem 0 1rem 0;
   position: relative;
   
-  scroll-snap-align: end;
-
+  ${props => props.snapDown ? "scroll-snap-align: end;" : null}
+  
   width: 100%;
 
   display: flex;

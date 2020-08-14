@@ -17,7 +17,7 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile }) => {
         <Shapes />
         {minimal ? null : <Header />}
         {children}
-        {minimal ? null : <Footer />}
+        {minimal ? null : <Footer snapDown={snapMobile || snapDesktop}/>}
       </Page>
   )
 }
