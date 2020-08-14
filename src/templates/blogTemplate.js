@@ -1,8 +1,9 @@
 import React from "react"
 import rehypeReact from "rehype-react"
 import { graphql } from "gatsby"
+import Img from 'gatsby-image'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import SEO from '../components/seo'
 
@@ -11,6 +12,7 @@ import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
 import Paper from '../components/paperCraft/paper'
+import FrameBox from '../components/display/frameBox'
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -21,6 +23,15 @@ export const pageQuery = graphql`
         slug
         title
         abstract
+        hero {
+          childImageSharp {
+            fluid(maxWidth: 2400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        heroSource
+        heroAuthor
       }
     }
   }
@@ -75,6 +86,8 @@ const BlogTemplate = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
 
+  const { hero, title, abstract, heroSource, heroAuthor } = frontmatter
+
   const [month, day, year] = frontmatter.date.split(" ")
   const fixedDay = day[0] === "0" ? day[1] + "," : day
   const formatedDate = [month, fixedDay, year].join(" ")
@@ -82,29 +95,35 @@ const BlogTemplate = ({ data }) => {
   return (
     <Layout>
 
-        <SEO title="Blog" />  
-        
+        <SEO title="Blog" />
+
         <BlogContent>
 
-          <DateWrapper color="purple" shape="rectangle">
-            <Date>{formatedDate}</Date>
-          </DateWrapper>
-
-          <TitleBar color="purple" shape="frame" />
+          <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
+          <Bar color="purple" shape="frame" />
+          <AttributionWrapper color="green" shape="frame">
+            <Attribution target="blank" href={heroSource}>
+              Photo by {heroAuthor}
+            </Attribution>
+          </AttributionWrapper>
           
-          <Title>{frontmatter.title}</Title>
 
-          <TitleBar color="purple" shape="frame" />
 
-          <Abstract>
-            <LBracket color="green" shape="frame"></LBracket>
-            {frontmatter.abstract}
-            <RBracket color="green" shape="frame"></RBracket>
-          </Abstract>
+          <HeaderContent color="purple" innerCSS={headerContentInner}>
+            <Title>{title}</Title>
+            <TitleBar color="pink" shape="frame" />
+            <Date>{formatedDate}</Date>
+            <Abstract>{abstract}</Abstract>
+          </HeaderContent>
+          
+          
 
-          <Spacer color="green" shape="spacer" />
+
+
+
 
           <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
+          
         </BlogContent>
     </Layout>
 
@@ -112,112 +131,152 @@ const BlogTemplate = ({ data }) => {
 }
 
 const BlogContent = styled.section`
+  position: relative;
 
-  width: 100%;
-  margin: 60px 0 0 0;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+`
+
+const Hero = styled(Img)`
+  opacity: 0.5;
+  height: 50vh;
+
+  width: 100vw;
+
+  margin: 0;
 
   @media (min-width: 768px) {
-    padding: 0;
-    width: 700px;
+    
+  }
+`
+
+const AttributionWrapper = styled(Paper)`
+
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  z-index: 2;
+
+  width: fit-content;
+  height: fit-content;
+  color: var(--background-color);
+`
+
+const Attribution = styled.a`
+
+  font-weight: 700;
+  font-size: 16px;
+  margin: 1px 6px 0 6px;
+
+  @media (min-width: 768px) {
+  
+    font-size: 20px;
+    margin: 3px 8px 2px 8px;
   }
 
 `
 
-const DateWrapper = styled(Paper)`
-  margin: 0 0 0.8rem 0.8rem;
-  align-self: flex-start;
-  height: fit-content;
-  width: fit-content;
+const Bar = styled(Paper)`
+  width: 110%;
+  height: 16px;
+  position: relative;
+  top: -1px;
+  left: -5%;
+  margin: 0 0 8vh 0;
+
   @media (min-width: 768px) {
-    margin: 0 0 1.4rem 1.8rem;
+  }
+`
+
+const HeaderContent = styled(FrameBox)`
+
+  position: relative;
+  top: -40vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+
+  margin: 0 0 -40vh 0;
+
+  padding: 0 2vw;
+  
+  max-width: 1000px;
+
+  @media (min-width: 768px) {
+    top: -30vh;
+    margin: 0 0 -30vh 0;
+  }
+`
+
+const headerContentInner = css`
+
+  padding: 40px 16px;
+  margin: 18px;
+  
+  @media (min-width: 768px) {
+    padding: 7vh 4vw 5vh 4vw;
+    margin: 24px;
+  }
+`
+
+
+const Title = styled.h2`
+  margin: 0 0 0.6rem 0;
+  font-size: 36px;
+
+  @media (min-width: 768px) {
+    margin: 1rem 0 0.6rem 0;
+    font-size: 46px;
+  }
+`
+
+const TitleBar = styled(Paper)`
+  height: 6px;
+  width: 120px;
+  margin: 0 0 16px 8px;
+  @media (min-width: 768px) {
+    width: 180px;
+    height: 8px;
   }
 `
 
 const Date = styled.time`
   font-family: "Vollkorn";
   font-weight: 700;
-  color: var(--background-color);
   font-size: 18px;
-  margin: 0.3rem 0.8rem 0.2rem 0.8rem;
 
   @media (min-width: 768px) {
     font-size: 20px;
-    margin: 0.4rem 1rem 0.3rem 1rem;
-  }
-`
-
-const TitleBar = styled(Paper)`
-  width: 95%;
-  height: 5px;
-  margin: 0 0 0.2rem 0;
-
-  @media (min-width: 768px) {
-    height: 6px;
-    width: 100%;
-    margin: 0 0 0.4rem 0;
-  }
-  
-`
-
-const Spacer = styled(Paper)`
-  min-width: 128px;
-  width: 30%;
-  height: 24px;
-`
-
-const Title = styled.h2`
-  margin: 1rem 0 0.6rem 0;
-  font-size: 32px;
-  max-width: 100%;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    margin: 1rem 0 0.6rem 0;
-    font-size: 40px;
-    max-width: 680px;
   }
 `
 
 
 const Abstract = styled.p`
   position: relative;
-  font-size: 18px;
-  line-height: 1.8rem;
-  margin: 1.2rem auto 1.5rem auto;
-  width: 90%;
+  font-size: 20px;
+  line-height: 1.7rem;
+  margin: 16px 0 0 0;
+
   @media (min-width: 768px) {
-    margin: 1.2rem auto 2rem auto;
-    width: 70%;
-    font-size: 20px;
+    max-width: 500px;
+    font-size: 22px;
+    line-height: 1.8rem;
+    margin: 8px 0 0 0;
   }
 `
 
-const LBracket = styled(Paper)`
-  width: 10px;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-250%, -50%);
-`
 
-const RBracket = styled(Paper)`
-  width: 10px;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(250%, -50%);
-`
+
 
 
 const MainContent = styled.article`
 
-  margin: 2rem 0 0 0;
+
+  width: 100%;
+  padding: 0 20px;
+  margin: 2rem auto 0 auto;
+
+
 
   & p {
     font-size: 19px;
@@ -227,6 +286,9 @@ const MainContent = styled.article`
   }
 
   @media (min-width: 768px) {
+
+    padding: 0;
+
     & p {
       width: 64ch;
     }

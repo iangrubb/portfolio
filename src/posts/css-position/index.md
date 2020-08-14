@@ -2,7 +2,10 @@
 slug: "/blog/a-practical-guide-to-css-position"
 date: "2020-08-08"
 title: "A Practical Guide to CSS Position"
-abstract: "Developing an effective layout is one of the biggest challenges involved in styling a website. The position property is often essential to meeting this challenge. I'll show you how to use positioning effectively and demonstrate how you might use it in practice."
+abstract: "Developing an effective layout is one of the biggest challenges involved in styling a website. The position property is often essential to meeting this challenge. I'll show you how to use positioning effectively and provide examples of when you might use it in practice."
+hero: ./hero.jpg
+heroAuthor: "Halacious"
+heroSource: "https://unsplash.com/@halacious"
 ---
 
 Building a website's layout can be a serious challenge. A layout needs to orchestrate the interactions of different kinds of content and work on different screen sizes. It should be immediately intelligible to the user, conveying an sense of what can be done with the site. It should be visually interesting and invite the user in.

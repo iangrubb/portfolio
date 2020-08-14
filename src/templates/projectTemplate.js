@@ -193,17 +193,17 @@ const PlacedTool = styled(ToolInfo)`
 
 const HeaderContent = styled(FrameBox)`
 
-  position: absolute;
-  top: 10vh;
+  position: relative;
+  top: -50vh;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 2;
+
+  margin: 0 0 -50vh 0;
   
   max-width: 95vw;
 
   @media (min-width: 768px) {
-    top: 50vh;
-    transform: translate(-50%, -50%);
   }
 `
 
@@ -214,7 +214,7 @@ const headerContentInner = css`
   
   @media (min-width: 768px) {
     padding: 7vh 4vw 5vh 4vw;
-    margin: 20px;
+    margin: 24px;
   }
 `
 
