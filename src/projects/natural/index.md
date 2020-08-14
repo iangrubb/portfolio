@@ -9,3 +9,11 @@ live: "https://naturalprover.netlify.app/"
 ---
 
 A natural description
+
+## Functionality
+
+### Current
+
+### Future
+
+## Development

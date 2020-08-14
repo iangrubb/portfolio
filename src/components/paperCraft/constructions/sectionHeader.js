@@ -11,17 +11,9 @@ const sectionHeader = ({ children, counter, path }) => {
     return (        
         <HeadingWrapper id={navId} >
 
-            <Decorations>
-                <Bar color="purple" shape="rectangle" />
-                <Hex color="purple" shape="hHex" proportional>{counter}</Hex>
-                <Bar color="purple" shape="rectangle" />
-            </Decorations>
+            <a href={"#" + navId}><Heading>{children}</Heading></a>
 
-            <Link href={"#" + navId}><Heading>{children}</Heading></Link>
-
-            <BottomBar color="purple" shape="rectangle" />
-
-            
+            <BottomBar color="pink" shape="frame" />
 
         </HeadingWrapper>
 
@@ -35,58 +27,34 @@ const HeadingWrapper = styled.div`
     height: fit-content;
 
     margin: 64px 0 32px 0;
-    scroll-margin-top: 100px;
+    scroll-margin-top: 40px;
 
-`
+    @media (min-width: 768px) {
+        position: relative;
+        left: -1rem;
+    }
 
-const Link = styled.a`
-    
 `
 
 const Heading = styled.h3`
-    margin: 0;
-    font-size: 28px;
-    text-align: center;
+    font-size: 32px;
     margin: 8px 0;
     
     @media (min-width: 768px) {
-        font-size: 34px;
-    }
-`
-
-const Decorations = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-`
-
-const Bar = styled(Paper)`
-  width: 100px;
-  height: 6px;
-
-  @media (min-width: 768px) {
-        height: 8px;
+        font-size: 38px;
     }
 `
 
 const BottomBar = styled(Paper)`
-    width: 250px;
     height: 6px;
-    margin: 16px auto;
+    width: 120px;
+    margin: 0 0 16px 8px;
     @media (min-width: 768px) {
+        width: 180px;
         height: 8px;
     }
 `
 
-const Hex = styled(Paper)`
-    width: 32px;
-    margin: 0 8px;
-    color: var(--background-color);
-    font-weight: 700;
-    font-size: 20px;
-
-`
 
 
 

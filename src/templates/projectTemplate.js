@@ -1,21 +1,28 @@
 import React from "react"
-import { graphql } from "gatsby"
+import rehypeReact from "rehype-react"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import styled, { css } from 'styled-components'
 
 import SEO from '../components/seo'
 
+import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
+import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
+import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
+
 import Layout from '../components/siteStructure/layout'
 
 import Paper from '../components/paperCraft/paper'
 import FrameBox from '../components/display/frameBox'
 import ToolInfo from '../components/display/toolInfo'
+import GithubLogo from '../components/paperCraft/constructions/logos/github'
+import LiveLogo from '../components/paperCraft/constructions/logos/live'
 
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       frontmatter {
         slug
         title
@@ -35,12 +42,56 @@ export const pageQuery = graphql`
   }
 `
 
+const renderAst = new rehypeReact({
+  passNode: true,
+  createElement: React.createElement,
+  components: {
+    iframe: iframeWrapper,
+    h2: sectionHeader,
+    h3: subSectionHeader
+    }
+}).Compiler
+
+const slugify = string => string.toLowerCase().split(" ").join("-")
+
+const addNumbersToHeaderProps = (ast, slug) => {
+
+  let h2Counter = 0
+  let h3Counter = 0
+
+  let h2path = ""
+  
+  const updatedList = ast.props.children.map(node => {
+
+    if (typeof node === "string") {
+      return node
+    } else {
+      if (node.props.node) {
+        switch(node.props.node.tagName) {
+          case "h2":
+            h2Counter++
+            h3Counter = 0
+            h2path = slugify(node.props.children[0])
+            return {...node, props: {...node.props, counter: h2Counter, path: slug + "#" + h2path}}
+          case "h3":
+            h3Counter++
+            return {...node, props: {...node.props, counter: h3Counter, path: slug + "#" + h2path + "-" + slugify(node.props.children[0])}}
+          default:
+            return node
+        }
+      } else {
+        return node
+      }
+    }
+  })
+  return {...ast, props: {...ast.props, children: updatedList }}
+}
 
 
 const BlogTemplate = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
-  const { hero, title, tagline, tech } = frontmatter
+  const { frontmatter, htmlAst } = markdownRemark
+  const { hero, title, tagline, tech, github, live } = frontmatter
   const techTerms = tech.split(",").map(string => string.trim())
 
   return (
@@ -59,9 +110,33 @@ const BlogTemplate = ({ data }) => {
           <Accent color="pink" shape="frame" />
           <Tagline>{tagline}</Tagline>
           <Tools>{techTerms.join(", ")}</Tools>
+
+          <LinksContainer>
+
+            <LinkWrapper>
+              <a target="blank" href={github}><GithubLogo width="80px" /></a>
+              <a target="blank" href={github}>
+                <CTAWrapper color="pink" shape="frame"> 
+                  <CTA>code</CTA>
+                </CTAWrapper>
+              </a>
+            </LinkWrapper>
+            
+            {live ?
+              <LinkWrapper>
+                <a target="blank" href={live}><LiveLogo width="80px" /></a>
+                <a target="blank" href={live}>
+                  <CTAWrapper color="pink" shape="frame"> 
+                    <CTA>live</CTA>
+                  </CTAWrapper>
+                </a>
+              </LinkWrapper>
+            : null}
+          </LinksContainer>
+
         </HeaderContent>
         
-        <MainContent dangerouslySetInnerHTML={{ __html: html }} /> 
+        <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent> 
 
       </Content>        
     </Layout>
@@ -76,7 +151,7 @@ const Content = styled.div`
 `
 
 const Hero = styled(Img)`
-  opacity: 0.6;
+  opacity: 0.5;
   height: 80vh;
 
   @media (min-width: 768px) {
@@ -90,7 +165,7 @@ const Bar = styled(Paper)`
   position: relative;
   top: -1px;
   left: -5%;
-  margin: 0 0 16px 0;
+  margin: 0 0 8vh 0;
 
   @media (min-width: 768px) {
   }
@@ -108,7 +183,6 @@ const LogoContainer = styled.div`
     transform: translateX(-50%);
     z-index: 3;
 
-    width: calc(85vw - 250px);
   }
 `
 
@@ -119,25 +193,27 @@ const PlacedTool = styled(ToolInfo)`
 
 const HeaderContent = styled(FrameBox)`
 
-  max-width: 90vw;
-
   position: absolute;
-  top: 70vh;
+  top: 10vh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   z-index: 2;
+  
+  max-width: 95vw;
 
   @media (min-width: 768px) {
+    top: 50vh;
+    transform: translate(-50%, -50%);
   }
 `
 
 const headerContentInner = css`
 
-  padding: 32px 16px;
-  margin: 16px;
+  padding: 40px 16px;
+  margin: 18px;
   
   @media (min-width: 768px) {
-    padding: 7vh 4vw;
+    padding: 7vh 4vw 5vh 4vw;
     margin: 20px;
   }
 `
@@ -175,6 +251,7 @@ const Tools = styled.div`
   max-width: 300px;
   font-size: 18px;
   font-style: italic;
+  margin: 0 0 16px 0;
 
   @media (min-width: 768px) {
     max-width: 300px;
@@ -182,16 +259,63 @@ const Tools = styled.div`
   }
 `
 
+const LinksContainer = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`
+
+const LinkWrapper = styled.div`
+
+  margin: 0 0 32px 0; 
+  width: fit-content;
+  position: relative;
+  max-width: 30vw;
+
+  @media (min-width: 768px) {
+    max-width: none;
+  }
+`
+
+const CTAWrapper = styled(Paper)`
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 2;
+  margin: 8px 0;
+`
+
+const CTA = styled.span`
+  font-family: "Vollkorn";
+  color: var(--background-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 3px 8px 1px 8px;
+`
 
 
 
+const MainContent = styled.div`
+  margin: 0 auto;
+  width: 700px;
 
+  & p {
+    font-size: 20px;
+    margin: 0 auto 0.8rem auto;
+    line-height: 1.6rem;
+    width: 96%;
+  }
 
-
-
-
-
-
-
-
-const MainContent = styled.div``
+  @media (min-width: 768px) {
+    & p {
+      width: 64ch;
+    }
+  }
+`

@@ -114,6 +114,7 @@ const BlogTemplate = ({ data }) => {
 const BlogContent = styled.section`
 
   width: 100%;
+  margin: 60px 0 0 0;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
@@ -219,19 +220,18 @@ const MainContent = styled.article`
   margin: 2rem 0 0 0;
 
   & p {
-    font-size: 20px;
-    margin: 0 auto 0.8rem auto;
+    font-size: 19px;
+    margin: 0 0 0.8rem 0;
     line-height: 1.6rem;
-    width: 96%;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
     & p {
-      width: 66ch;
+      width: 64ch;
     }
   }
 
-  
 `
 
 export default BlogTemplate

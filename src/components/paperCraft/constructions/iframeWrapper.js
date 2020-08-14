@@ -8,9 +8,9 @@ const iframeWrapper = ({title, src, children}) => {
     return (
         <Spacer>
             <Container color="green" shape="frame" >
-                <iframe style={{width: "calc(100% - 36px)", height: "calc(100% - 36px)", margin: "0", borderRadius: "8px"}} src={src} title={title} frameBorder="no" scrolling="no" >
+                <Frame  src={src} title={title} frameBorder="no" scrolling="no" >
                     {children}
-                </iframe>
+                </Frame>
             </Container>
             
             <Title>{title}</Title>
@@ -30,6 +30,7 @@ const Spacer = styled.figure`
 
 const Title = styled.figcaption`
     font-style: italic;
+    margin: 4px 0 0 0;
 `
 
 const Container = styled(Paper)`
@@ -44,5 +45,21 @@ const Container = styled(Paper)`
     @media (min-width: 768px) {
         width: 120%;
     }
+
+`
+
+const Frame = styled.iframe`
+    
+    margin: 0;
+    border-radius: 8px;
+
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+
+    @media (min-width: 768px) {
+        width: calc(100% - 42px);
+        height: calc(100% - 42px);
+    }
+
 
 `

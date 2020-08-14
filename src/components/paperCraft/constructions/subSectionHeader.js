@@ -16,16 +16,17 @@ const subSectionHeader = ({ children, path }) => {
 
 
 const Link = styled.a`
-    scroll-margin-top: 104px;
+    scroll-margin-top: 32px;
 `
 
 const SubHeading = styled.h4`
-    font-size: 24px;
-    margin: 40px 0 16px 0;
-    text-align: center;
+    font-size: 28px;
+    margin: 40px 0 24px 0;
 
     @media (min-width: 768px) {
         font-size: 28px;
+        position: relative;
+        left: -0.5rem;
     }
 `
 
