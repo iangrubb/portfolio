@@ -23,16 +23,16 @@ const Container = styled(Paper)`
 `
 
 const StyledLink = styled(Link)`
-  margin: 0.3rem 0.6rem 0.2rem 0.6rem;
+  margin: 0.4rem 0.6rem 0.3rem 0.6rem;
   font-family: "Vollkorn";
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 1.4px;
 
   @media (min-width: 768px) {
-    margin: 0.4rem 0.6rem 0.3rem 0.6rem;
+    margin: 0.6rem 1rem 0.5rem 1rem;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 1.5px;
   }
 

@@ -152,7 +152,7 @@ const Content = styled.div`
 
 const Hero = styled(Img)`
   opacity: 0.5;
-  height: 80vh;
+  height: 50vh;
 
   @media (min-width: 768px) {
     
@@ -194,12 +194,12 @@ const PlacedTool = styled(ToolInfo)`
 const HeaderContent = styled(FrameBox)`
 
   position: relative;
-  top: -50vh;
+  top: -35vh;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 2;
 
-  margin: 0 0 -50vh 0;
+  margin: 0 0 -30vh 0;
   
   max-width: 95vw;
 
@@ -303,17 +303,21 @@ const CTA = styled.span`
 
 
 const MainContent = styled.div`
+
+  padding: 0 20px;
   margin: 0 auto;
-  width: 700px;
+  
 
   & p {
-    font-size: 20px;
-    margin: 0 auto 0.8rem auto;
+    font-size: 19px;
+    margin: 0 0 0.8rem 0;
     line-height: 1.6rem;
-    width: 96%;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
+    width: 700px;
+
     & p {
       width: 64ch;
     }

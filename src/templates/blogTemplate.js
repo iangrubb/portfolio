@@ -103,7 +103,7 @@ const BlogTemplate = ({ data }) => {
           <Bar color="purple" shape="frame" />
           <AttributionWrapper color="green" shape="frame">
             <Attribution target="blank" href={heroSource}>
-              Photo by {heroAuthor}
+              photo by {heroAuthor}
             </Attribution>
           </AttributionWrapper>
           
@@ -116,12 +116,6 @@ const BlogTemplate = ({ data }) => {
             <Abstract>{abstract}</Abstract>
           </HeaderContent>
           
-          
-
-
-
-
-
           <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
           
         </BlogContent>
@@ -170,7 +164,7 @@ const Attribution = styled.a`
 
   @media (min-width: 768px) {
   
-    font-size: 20px;
+    font-size: 18px;
     margin: 3px 8px 2px 8px;
   }
 
@@ -255,13 +249,13 @@ const Abstract = styled.p`
   position: relative;
   font-size: 20px;
   line-height: 1.7rem;
-  margin: 16px 0 0 0;
+  margin: 24px 0 0 0;
 
   @media (min-width: 768px) {
     max-width: 500px;
     font-size: 22px;
     line-height: 1.8rem;
-    margin: 8px 0 0 0;
+    margin: 24px 0 0 0;
   }
 `
 
@@ -272,9 +266,9 @@ const Abstract = styled.p`
 const MainContent = styled.article`
 
 
-  width: 100%;
   padding: 0 20px;
   margin: 2rem auto 0 auto;
+  
 
 
 
@@ -288,6 +282,7 @@ const MainContent = styled.article`
   @media (min-width: 768px) {
 
     padding: 0;
+    width: 700px;
 
     & p {
       width: 64ch;

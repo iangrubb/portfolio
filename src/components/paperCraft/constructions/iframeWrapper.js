@@ -53,8 +53,8 @@ const Frame = styled.iframe`
     margin: 0;
     border-radius: 8px;
 
-    width: calc(100% - 28px);
-    height: calc(100% - 28px);
+    width: calc(100% - 20px - 2vw);
+    height: calc(100% - 20px - 2vw);
 
     @media (min-width: 768px) {
         width: calc(100% - 42px);
