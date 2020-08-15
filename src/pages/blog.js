@@ -37,7 +37,7 @@ const BlogPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
  
   
     return (
-        <Layout>
+        <Layout location="blog">
             <SEO title="Blog" />
 
             {nodes.map(node => <BlogCard key={node.id} node={node} />)}

@@ -93,7 +93,7 @@ const BlogTemplate = ({ data }) => {
   const formatedDate = [month, fixedDay, year].join(" ")
 
   return (
-    <Layout>
+    <Layout location="blog">
 
         <SEO title="Blog" />
 
@@ -154,6 +154,11 @@ const AttributionWrapper = styled(Paper)`
   width: fit-content;
   height: fit-content;
   color: var(--background-color);
+
+  @media (min-width: 768px) {
+    top: calc(50vh - 50px);
+  }
+
 `
 
 const Attribution = styled.a`

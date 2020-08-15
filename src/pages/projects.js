@@ -49,7 +49,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
   const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerator Cards", "Space Bar", "Pokemon Fallout"]
 
     return (
-        <Layout snapDesktop >
+        <Layout snapDesktop location="projects">
           
             <SEO title="Projects" />
             {projectOrder.map(term => {

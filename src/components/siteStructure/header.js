@@ -4,12 +4,13 @@ import styled from 'styled-components'
 
 import Paper from '../paperCraft/paper'
 import NavLink from '../paperCraft/constructions/navLink'
+import CloseLogo from '../paperCraft/constructions/logos/close'
 
-const Header = () => {
+const Header = ({display, setDisplay}) => {
 
   
   return (
-  <Container >
+  <Container display={display}>
     <MainContent>
       <TopContent>
         <Link to="/">
@@ -29,17 +30,25 @@ const Header = () => {
         <NavLink path="/beef" text="About" />
       </Links>
     </MainContent>
-    {/* <BottomDivider color="green" shape="frame"/> */}
+    <Close clickHandler={()=>setDisplay(false)}/>
+    <BottomDivider color="green" shape="frame"/>
   </Container>
   )
 }
 
 const Container = styled.header`
 
+  position: relative;
 
   background: var(--background-color);
 
   width: 100%;
+
+  position: fixed;
+  z-index: 5;
+
+  transform: translateY(${props => props.display ? 0 : -100}%);
+  transition: transform 0.4s ease;
 
   display: flex;
   flex-direction: column;
@@ -47,8 +56,17 @@ const Container = styled.header`
   align-items: center;
 
   overflow: hidden;
+`
 
-  display: none;
+const Close = styled(CloseLogo)`
+  position: absolute;
+  top: 1vw;
+  right: 2vw;
+  width: 50px;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    width: 70px;
+  }
 `
 
 const MainContent = styled.div`
@@ -56,14 +74,11 @@ const MainContent = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin: 30px 0 0 0;
+  margin: 60px 0 0 0;
   
 
   @media (min-width: 768px) {
-    /* flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 900px; */
+    margin: 40px 0 0 0;
   }
 `
 
@@ -102,7 +117,6 @@ const Apple = styled(Paper)`
     width: 20px;
   }
 `
-
 
 const BottomDivider = styled(Paper)`
   width: 110%;

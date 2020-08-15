@@ -26,10 +26,10 @@ const determineHexColor = color => {
     }
 }
 
-const Paper = ({className, children, shape, color, proportional, noShadow}) => {
+const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler}) => {
     const shapeDatum = shapeData.find(s => s.name === shape)
     return (
-        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional} noShadow={noShadow}>
+        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
             {proportional ?
             <Spacer>
                 <ProportionalBody shape={shape} color={determineHexColor(color)} >

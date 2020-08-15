@@ -95,7 +95,7 @@ const BlogTemplate = ({ data }) => {
   const techTerms = tech.split(",").map(string => string.trim())
 
   return (
-    <Layout>
+    <Layout location="projects">
       <SEO title="Projects" />
       <Content>
         <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
