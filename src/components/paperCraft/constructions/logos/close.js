@@ -14,7 +14,7 @@ const CloseLogo = ({ className, width, clickHandler }) => {
 }
 
 const Element = styled(Paper)`
-    width: 75%;
+    width: 65%;
 `
 
 

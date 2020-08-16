@@ -271,17 +271,15 @@ const Abstract = styled.p`
 const MainContent = styled.article`
 
 
-  padding: 0 20px;
+  padding: 0 32px;
   margin: 2rem auto 0 auto;
   
-
-
-
   & p {
     font-size: 19px;
-    margin: 0 0 0.8rem 0;
+    margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
-    width: 100%;
+    width: 95%;
+    min-width: 280px;
   }
 
   @media (min-width: 768px) {

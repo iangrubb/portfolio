@@ -23,7 +23,7 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
         {minimal ? null : <Header display={display} setDisplay={setDisplay}/>}
         {minimal ? null :
           <InfoWrapper>
-            {location ?
+            {false ?
             <LocationWrapper color="green" shape="frame">
               <Location>
                 {location}
@@ -70,7 +70,7 @@ const InfoWrapper = styled.div`
 `
 
 const Location = styled.h3`
-  margin: 4px 24px 3px 12px;
+  margin: 5px 24px 4px 12px;
   font-weight: 900;
   letter-spacing: 1px;
   color: var(--background-color);

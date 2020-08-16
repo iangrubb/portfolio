@@ -18,6 +18,7 @@ const Header = ({display, setDisplay}) => {
             Ian Grubb
           </Name>
         </Link>
+        <Accent color="pink" shape="frame" />
         <Title>
           Full Stack Developer
         </Title>
@@ -31,7 +32,7 @@ const Header = ({display, setDisplay}) => {
       </Links>
     </MainContent>
     <Close clickHandler={()=>setDisplay(false)}/>
-    <BottomDivider color="green" shape="frame"/>
+    <BottomDivider color="purple" shape="frame"/>
   </Container>
   )
 }
@@ -56,6 +57,16 @@ const Container = styled.header`
   align-items: center;
 
   overflow: hidden;
+`
+
+const Accent = styled(Paper)`
+  height: 6px;
+  width: 120px;
+  margin: 0 0 16px 8px;
+  @media (min-width: 768px) {
+    width: 180px;
+    height: 8px;
+  }
 `
 
 const Close = styled(CloseLogo)`
@@ -86,7 +97,6 @@ const TopContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100px;
   margin: 0 30px;
 `
 
@@ -104,7 +114,7 @@ const Title = styled.h3`
 `
 
 const Links = styled.nav`
-  margin: 16px 30px;
+  margin: 32px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
