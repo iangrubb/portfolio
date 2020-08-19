@@ -57,8 +57,8 @@ const Frame = styled.iframe`
     height: calc(100% - 20px - 2vw);
 
     @media (min-width: 768px) {
-        width: calc(100% - 42px);
-        height: calc(100% - 42px);
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
     }
 
 

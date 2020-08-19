@@ -93,7 +93,7 @@ const BlogTemplate = ({ data }) => {
   const formatedDate = [month, fixedDay, year].join(" ")
 
   return (
-    <Layout location="blog">
+    <Layout >
 
         <SEO title="Blog" />
 

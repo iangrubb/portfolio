@@ -20,7 +20,7 @@ const Header = ({display, setDisplay}) => {
         </Link>
         <Accent color="pink" shape="frame" />
         <Title>
-          Full Stack Developer
+          Full-Stack Developer
         </Title>
       </TopContent>
       <Links> 
@@ -28,7 +28,7 @@ const Header = ({display, setDisplay}) => {
         <Apple color="pink" shape="apple" proportional/>
         <NavLink path="/projects" text="Projects" />
         <Apple color="pink" shape="apple" proportional/>
-        <NavLink path="/beef" text="About" />
+        <NavLink path="/about" text="About" />
       </Links>
     </MainContent>
     <Close clickHandler={()=>setDisplay(false)}/>
@@ -107,10 +107,13 @@ const Name = styled.h1`
 
 const Title = styled.h3`
   font-family: "Lato";
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
   margin: 0;
   white-space: nowrap;
+  @media (min-width: 768px) {
+    font-size: 38px;
+  }
 `
 
 const Links = styled.nav`

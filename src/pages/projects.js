@@ -46,10 +46,10 @@ export const query = graphql`
 
 const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 
-  const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerator Cards", "Space Bar", "Pokemon Fallout"]
+  const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerators", "Space Bar", "Pokemon Fallout"]
 
     return (
-        <Layout snapDesktop location="projects">
+        <Layout snapDesktop location="Projects">
           
             <SEO title="Projects" />
             {projectOrder.map(term => {

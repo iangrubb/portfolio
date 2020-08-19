@@ -21,6 +21,15 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
       <Page snapDesktop={snapDesktop} snapMobile={snapMobile} >
         <Shapes />
         {minimal ? null : <Header display={display} setDisplay={setDisplay}/>}
+
+        {location ?
+          <IndexHeader snapUp={location === "Projects"}>
+            <IndexTitle>{location}</IndexTitle>
+            <Accent color="pink" shape="frame" />
+          </IndexHeader>
+        : null}
+
+
         {minimal ? null :
           <InfoWrapper>
             {false ?
@@ -45,10 +54,10 @@ const Page = styled.div`
 
   scroll-snap-type: y ${props => props.snapMobile ? "mandatory" : "proximity"};
   height: 100vh;
+  
   overflow-x: hidden;
   overflow-y: scroll;
 
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,6 +99,46 @@ const Hamburger = styled(HamburgerLogo)`
     width: 70px;
   }
 `
+
+const IndexHeader = styled.div`
+
+  width: 100vw;
+  ${props => props.snapUp ? "scroll-snap-align: end;" : null}
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+`
+
+const IndexTitle = styled.h1`
+  margin: 64px 0 8px 0;
+  font-size: 56px;
+  @media (min-width: 768px) {
+    margin: 104px 0 8px 0;
+  }
+`
+
+const Accent = styled(Paper)`
+  height: 6px;
+  width: 120px;
+  margin: 0 0 16px 0;
+  @media (min-width: 768px) {
+    width: 180px;
+    height: 8px;
+    margin: 0 0 32px 0;
+  }
+`
+
+
+
+
+
+
+
+
 
 
 Layout.propTypes = {

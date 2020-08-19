@@ -95,7 +95,7 @@ const BlogTemplate = ({ data }) => {
   const techTerms = tech.split(",").map(string => string.trim())
 
   return (
-    <Layout location="projects">
+    <Layout >
       <SEO title="Projects" />
       <Content>
         <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
@@ -219,7 +219,7 @@ const headerContentInner = css`
 `
 
 const Title = styled.h2`
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0;
   font-size: 42px;
 
   @media (min-width: 768px) {
@@ -232,6 +232,7 @@ const Accent = styled(Paper)`
   width: 120px;
   margin: 0 0 16px 8px;
   @media (min-width: 768px) {
+    margin: 0 0 32px 8px;
     width: 180px;
     height: 8px;
   }
