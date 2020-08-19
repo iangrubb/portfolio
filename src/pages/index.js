@@ -185,7 +185,7 @@ const Eses = styled.div`
   max-width: 100px;
 
   @media (min-width: 768px) {
-    max-width: 140px;
+    max-width: 150px;
   }
 `
 
@@ -206,15 +206,14 @@ const Coral = styled(Paper)`
   grid-area: coral;
   place-self: start end;
   
-  margin: 4px 0 0 0;
+  margin: 0 20px 0 0;
   width: 80%;
   max-width: 90px;
 
   @media (min-width: 768px) {
-    max-width: 110px;
-    margin: 6px 0 0 0;
+    max-width: 100px;
+    margin: 0 30px 0 0;
   }
-
 
 `
 
@@ -224,7 +223,7 @@ const Diamonds = styled.div`
   place-self: start start;
   position: relative;
 
-
+  margin: 16px 0 0 -10px;
   
   width: 120px;
   height: 80px;
