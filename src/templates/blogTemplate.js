@@ -155,21 +155,17 @@ const AttributionWrapper = styled(Paper)`
   height: fit-content;
   color: var(--background-color);
 
-  @media (min-width: 768px) {
-    top: calc(50vh - 50px);
-  }
-
 `
 
 const Attribution = styled.a`
 
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   margin: 1px 6px 0 6px;
 
   @media (min-width: 768px) {
   
-    font-size: 18px;
+    font-size: 16px;
     margin: 3px 8px 2px 8px;
   }
 
@@ -273,6 +269,10 @@ const MainContent = styled.article`
 
   padding: 0 32px;
   margin: 2rem auto 0 auto;
+
+  & p a {
+    font-weight: 700;
+  }
   
   & p {
     font-size: 19px;

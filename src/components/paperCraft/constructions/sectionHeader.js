@@ -37,11 +37,11 @@ const HeadingWrapper = styled.div`
 `
 
 const Heading = styled.h3`
-    font-size: 32px;
+    font-size: 30px;
     margin: 8px 0;
     
     @media (min-width: 768px) {
-        font-size: 38px;
+        font-size: 32px;
     }
 `
 

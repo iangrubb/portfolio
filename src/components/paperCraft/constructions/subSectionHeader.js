@@ -20,7 +20,7 @@ const Link = styled.a`
 `
 
 const SubHeading = styled.h4`
-    font-size: 28px;
+    font-size: 26px;
     margin: 40px 0 24px 0;
 
     @media (min-width: 768px) {
