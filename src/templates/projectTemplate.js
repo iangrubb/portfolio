@@ -10,6 +10,7 @@ import SEO from '../components/seo'
 import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
+import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
 
 import Layout from '../components/siteStructure/layout'
 
@@ -48,13 +49,17 @@ const renderAst = new rehypeReact({
   components: {
     iframe: iframeWrapper,
     h2: sectionHeader,
-    h3: subSectionHeader
+    h3: subSectionHeader,
+    p: ImageWrapper
     }
 }).Compiler
 
 const slugify = string => string.toLowerCase().split(" ").join("-")
 
 const addNumbersToHeaderProps = (ast, slug) => {
+
+
+  
 
   let h2Counter = 0
   let h3Counter = 0
@@ -201,7 +206,7 @@ const HeaderContent = styled(FrameBox)`
 
   margin: 0 0 -30vh 0;
   
-  max-width: 95vw;
+  max-width: 700px;
 
   @media (min-width: 768px) {
   }

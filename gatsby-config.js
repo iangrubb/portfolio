@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Ian Grubb`,
+    title: `Ian Grubb | Full Stack Developer`,
     description: `A developer portfolio and blog.`,
-    author: `@iangrubb`,
+    author: `Ian Grubb`,
   },
   plugins: [
     {
@@ -44,7 +44,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 970,
+              maxWidth: 970
             },
           }
         ]

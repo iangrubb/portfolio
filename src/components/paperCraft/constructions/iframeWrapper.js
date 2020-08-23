@@ -7,7 +7,7 @@ import Paper from '../paper'
 const iframeWrapper = ({title, src, children}) => {
     return (
         <Spacer>
-            <Container color="green" shape="frame" >
+            <Container color="purple" shape="frame" >
                 <Frame  src={src} title={title} frameBorder="no" scrolling="no" >
                     {children}
                 </Frame>

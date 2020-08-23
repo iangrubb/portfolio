@@ -173,7 +173,7 @@ const Attribution = styled.a`
 
 const Bar = styled(Paper)`
   width: 110%;
-  height: 16px;
+  height: 12px;
   position: relative;
   top: -1px;
   left: -5%;
@@ -195,7 +195,7 @@ const HeaderContent = styled(FrameBox)`
 
   padding: 0 2vw;
   
-  max-width: 1000px;
+  max-width: 700px;
 
   @media (min-width: 768px) {
     top: -30vh;
@@ -206,11 +206,13 @@ const HeaderContent = styled(FrameBox)`
 const headerContentInner = css`
 
   padding: 40px 16px;
-  margin: 18px;
+  margin: 14px;
+
+  border-radius: 12px;
   
   @media (min-width: 768px) {
     padding: 7vh 4vw 5vh 4vw;
-    margin: 24px;
+    margin: 18px;
   }
 `
 

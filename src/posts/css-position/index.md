@@ -65,7 +65,7 @@ In this case, the absolute and fixed rectangles both have a top position of 10px
 
 ### Sticky Positioning
 
-Sticky is a relatively new kind of positioning, which functions as a kind of hybrid between relative and fixed. It doesn't have quite the same level of browser support, but it does offer a powerful effect that could previously be accomplished through JavaScript.
+Sticky is a relatively new kind of positioning, which functions as a kind of hybrid between relative and fixed. It doesn't have quite the same level of browser support, but it does offer a powerful effect that could only previously be accomplished through JavaScript.
 
 A sticky element scrolls into the user's viewport as though it has a relative position. But once it reaches the top of the viewport it temporarily behaves as though it has a fixed position. It only scrolls off of the screen once its parent starts to scroll off of the screen as well. Here's the effect in action: 
 
@@ -249,8 +249,8 @@ The CSS aspect of the character movement is actually pretty straightforward--it'
 
 Setting the width and height of an element using percentages is a simple way to make your elements more responsive. This approach works well most of the time, but has a significant limitation--it doesn't allow the responsive element to have a fixed aspect ratio. What you sometimes need is an element that's responsive to the width of its parent, but has a height that scales in some proportion with its width. There's actually a trick to get this to work, and it requires the use of positioned elements. Here's a basic setup (hover to change the width of the rectangle):
 
-<iframe height="265" data-preview="true" style="width: 100%;" scrolling="no" title="Responsive Aspect Ratio" src="https://codepen.io/iangrubb/embed/preview/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/iangrubb/pen/OJNPPWE'>Responsive Aspect Ratio</a> by Ian Grubb
+<iframe height="265" data-preview="true" style="width: 100%;" scrolling="no" title="Fixed Aspect Ratio" src="https://codepen.io/iangrubb/embed/preview/OJNPPWE?height=265&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/iangrubb/pen/OJNPPWE'>Fixed Aspect Ratio</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
