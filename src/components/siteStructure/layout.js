@@ -23,7 +23,7 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
         {minimal ? null : <Header display={display} setDisplay={setDisplay}/>}
 
         {location ?
-          <IndexHeader snapUp={location === "Projects"}>
+          <IndexHeader >
             <IndexTitle>{location}</IndexTitle>
             <Accent color="pink" shape="frame" />
           </IndexHeader>
@@ -52,7 +52,7 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
 const Page = styled.div`
   width: 100vw;
 
-  scroll-snap-type: y ${props => props.snapMobile ? "mandatory" : "proximity"};
+  /* scroll-snap-type: y ${props => props.snapMobile ? "mandatory" : "proximity"}; */
   height: 100vh;
   
   overflow-x: hidden;
@@ -63,7 +63,7 @@ const Page = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    scroll-snap-type: y ${props => props.snapDesktop ? "mandatory" : "proximity"};
+    /* scroll-snap-type: y ${props => props.snapDesktop ? "mandatory" : "proximity"}; */
   }
 
 `

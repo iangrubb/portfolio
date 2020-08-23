@@ -49,7 +49,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
   const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerators", "Space Bar", "Pokemon Fallout"]
 
     return (
-        <Layout snapDesktop location="Projects">
+        <Layout location="Projects">
           
             <SEO title="Projects" />
             {projectOrder.map(term => {
@@ -120,12 +120,12 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 const Post = styled.div`
 
   width: 100vw;
-  margin: 40px 0 0 0;
+  margin: 40px 0 40px 0;
   padding: 0 0 40px 0;
 
   @media (min-width: 768px) {
-    margin: 0;
-    padding: 10vh 0 30vh 0;
+    margin: 0 0 40px 0;
+    padding: 10vh 0 10vh 0;
     scroll-snap-align: start;
     position: relative;
   }
@@ -135,36 +135,39 @@ const Post = styled.div`
 const MainContent = styled(FrameBox)`
 
   margin: 0 auto;
-  max-width: 90vw;
+  max-width: 96vw;
 
   position: relative;
-  top: -80px;
+  top: -120px;
 
   @media (min-width: 768px) {
-    max-width: calc(80vw - 120px);
+
+    height: 400px;
+    /* max-width: 600px; */
     margin: 0;
     position: absolute;
-    top: auto;
-    bottom: 5vh;
-    left: 10vw;
+    top: 200px;
+    /* bottom: 5vh; */
+    left: 5vw;
     z-index: 2;
   }
 `
 
 const mainContentInner = css`
 
-  margin: 12px;
+  margin: 14px;
   padding: 32px 16px;
   
   @media (min-width: 768px) {
-    margin: 20px;
+    height: 100%;
+    margin: 18px;
     padding: 7vh 4vw;
   }
 `
 
 const Title = styled.h2`
   margin: 0 0 8px 0;
-  font-size: 42px;
+  font-size: 40px;
 
   @media (min-width: 768px) {
     font-size: 56px;
@@ -206,7 +209,7 @@ const Hero = styled(Img)`
   height: 250px;
   opacity: 0.5;
   @media (min-width: 768px) {
-    height: calc(60vh - 32px);
+    height: 600px;
   }
 `
 
@@ -220,7 +223,7 @@ const Bar = styled(Paper)`
 
   @media (min-width: 768px) {
     margin: 0;
-    height: 16px;
+    height: 14px;
   }
 `
 
@@ -231,7 +234,7 @@ const LogoContainer = styled.div`
     display: flex;
 
     position: absolute;
-    left: 5vw;
+    left: 8vw;
     top: calc(10vh + 8px);
     transform: translateY(-50%);
     z-index: 2;
@@ -241,7 +244,7 @@ const LogoContainer = styled.div`
 `
 
 const PlacedTool = styled(ToolInfo)`
-  width: 120px;
+  width: 100px;
   max-width: 10vw;
 `
 
@@ -252,28 +255,28 @@ const LinksContainer = styled.div`
   display: flex;
 
   position: relative;
-  top: -60px;
+  top: -100px;
 
   @media (min-width: 768px) {
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    margin: 0;
+
     position: absolute;
     top: auto;
     bottom: 5vh;
-    right: 5vw;
+    left: 8vw;
     z-index: 2;
-    width: 120px;
   }
 `
 
 const LinkWrapper = styled.div`
   width: fit-content;
   position: relative;
-  max-width: 30vw;
+  width: 80px;
+  margin: 0 8px;
 
   @media (min-width: 768px) {
-    margin: 0 0 64px 0;
-    max-width: none;
+    width: 100px;
   }
 `
 

@@ -11,6 +11,8 @@ import Layout from '../components/siteStructure/layout'
 import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
+import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
+
 import Paper from '../components/paperCraft/paper'
 import FrameBox from '../components/display/frameBox'
 
@@ -43,7 +45,8 @@ const renderAst = new rehypeReact({
   components: {
     iframe: iframeWrapper,
     h2: sectionHeader,
-    h3: subSectionHeader
+    h3: subSectionHeader,
+    p: ImageWrapper
     }
 }).Compiler
 

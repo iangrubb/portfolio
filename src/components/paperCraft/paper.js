@@ -26,10 +26,10 @@ const determineHexColor = color => {
     }
 }
 
-const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler}) => {
+const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler, fit}) => {
     const shapeDatum = shapeData.find(s => s.name === shape)
     return (
-        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
+        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} fit={fit} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
             {proportional ?
             <Spacer>
                 <ProportionalBody shape={shape} color={determineHexColor(color)} >
@@ -37,7 +37,7 @@ const Paper = ({className, children, shape, color, proportional, noShadow, click
                 </ProportionalBody>
             </Spacer>
             :
-            <StretchBody shape={shape} color={determineHexColor(color)}>{children}</StretchBody>
+            <StretchBody fit={fit} shape={shape} color={determineHexColor(color)}>{children}</StretchBody>
             }
         </Container>
     )
@@ -49,7 +49,7 @@ const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.proportional ? "auto" : `${props.height}px`};
     ${props => props.noShadow ? null : "filter: drop-shadow(1px 1px 1px #302d3877);"}
-    
+    ${props => props.fit ? "height: fit-content; width: fit-content" : null}
 `;
 
 const BodyBase = styled.div`
@@ -107,5 +107,6 @@ const Spacer = styled.div`
 
 const StretchBody = styled(BodyBase)`
     height: 100%;
+    ${props => props.fit ? "height: fit-content; width: fit-content" : null}
 `
 

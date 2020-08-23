@@ -38,8 +38,14 @@ const Title = styled.figcaption`
 `
 
 const Wrapper = styled(Paper)`
-    width: 140%;
+    max-width: 100vw;
+    width: 100%;
     height: fit-content;
+
+    @media (min-width: 768px) {
+        width: 120%;
+    }
+
 
 `
 
@@ -57,5 +63,6 @@ const Interior = styled.p`
     & * {
         border-radius: 8px;
     }
+    
 
 `
