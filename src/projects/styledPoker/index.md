@@ -13,8 +13,8 @@ This was my first attempt at making a tutorial to introduce some of the styling 
 ![Card Deck](card_deck.png)
 
 
-<iframe src="https://player.vimeo.com/video/450663778" title="Card Flip" vratio="61" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450663778" title="Card Flip" vratio="60" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-<iframe src="https://player.vimeo.com/video/450681643" title="Theme Change" vratio="61.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450681643" title="Theme Change" vratio="61" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-<iframe src="https://player.vimeo.com/video/450686583" title="Poker Gameplay" vratio="58" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450686583" title="Poker Gameplay" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

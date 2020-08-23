@@ -1,8 +1,9 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Paper from '../paper'
+import FrameBox from '../../display/frameBox'
 
 const iframeWrapper = (props) => {
 
@@ -10,7 +11,7 @@ const iframeWrapper = (props) => {
     console.log(vratio)
     return (
         <Spacer>
-            <Container color="purple" shape="frame">
+            <Container color="purple" innerCSS={innerCSS}>
                 <Prop vratio={vratio}>
                     <Frame  src={src} title={title} frameBorder="no" scrolling="no" >
                         {children}
@@ -38,7 +39,7 @@ const Title = styled.figcaption`
     margin: 4px 0 0 0;
 `
 
-const Container = styled(Paper)`
+const Container = styled(FrameBox)`
 
     height: fit-content;
     width: 100%;
@@ -48,12 +49,20 @@ const Container = styled(Paper)`
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
     @media (min-width: 768px) {
         width: 120%;
     }
 
 `
+
+const innerCSS = css`
+    width: calc(100% - 16px);
+    height: fit-content;
+    margin: 8px auto;
+`
+
 
 const Prop = styled.div`
     width: 100%;
@@ -72,12 +81,13 @@ const Frame = styled.iframe`
     top: 0;
     left: 0;
 
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
+    width: 100%;
+    height: 100%;
     
-    margin: 20px;
 
-    border-radius: 8px;
+    border-radius: 2px;
+
+    margin: 0;
     
     
     /* margin: 0;

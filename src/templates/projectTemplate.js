@@ -192,7 +192,7 @@ const LogoContainer = styled.div`
 `
 
 const PlacedTool = styled(ToolInfo)`
-  width: 120px;
+  width: 100px;
   max-width: 10vw;
 `
 
@@ -206,7 +206,7 @@ const HeaderContent = styled(FrameBox)`
 
   margin: 0 0 -30vh 0;
   
-  max-width: 700px;
+  max-width: 92vw;
 
   @media (min-width: 768px) {
   }
@@ -215,13 +215,15 @@ const HeaderContent = styled(FrameBox)`
 const headerContentInner = css`
 
   padding: 40px 16px;
-  margin: 14px;
+  margin: 10px;
 
-  border-radius: 12px;
+  border-radius: 8px;
   
   @media (min-width: 768px) {
     padding: 7vh 4vw 5vh 4vw;
-    margin: 18px;
+    margin: 12px;
+
+  
   }
 `
 

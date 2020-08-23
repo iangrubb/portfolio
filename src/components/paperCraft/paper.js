@@ -26,18 +26,18 @@ const determineHexColor = color => {
     }
 }
 
-const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler, fit}) => {
+const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler, fit, bodyCSS}) => {
     const shapeDatum = shapeData.find(s => s.name === shape)
     return (
-        <Container className={className} width={shapeDatum.width} height={shapeDatum.height} fit={fit} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
+        <Container className={className} width={shapeDatum ? shapeDatum.width : 100} height={shapeDatum ? shapeDatum.height : 100} fit={fit} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
             {proportional ?
             <Spacer>
-                <ProportionalBody shape={shape} color={determineHexColor(color)} >
+                <ProportionalBody shape={shape} color={determineHexColor(color)} bodyCSS={bodyCSS} >
                     {children}
                 </ProportionalBody>
             </Spacer>
             :
-            <StretchBody fit={fit} shape={shape} color={determineHexColor(color)}>{children}</StretchBody>
+            <StretchBody fit={fit} shape={shape} color={determineHexColor(color)} bodyCSS={bodyCSS}>{children}</StretchBody>
             }
         </Container>
     )
@@ -60,8 +60,11 @@ const BodyBase = styled.div`
 
     width: 100%;
 
-    clip-path: url(#${props => props.shape});
-    shape-outside: url(#${props => props.shape});
+    ${props => props.shape ?
+    `clip-path: url(#${props.shape});`
+    : null}
+
+    
 
     background: repeating-linear-gradient(
         30deg,
@@ -96,7 +99,9 @@ const ProportionalBody = styled(BodyBase)`
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;    
+    right: 0;
+
+    ${props => props.bodyCSS ? props.bodyCSS : null}
 `
 
 const Spacer = styled.div`
@@ -108,5 +113,7 @@ const Spacer = styled.div`
 const StretchBody = styled(BodyBase)`
     height: 100%;
     ${props => props.fit ? "height: fit-content; width: fit-content" : null}
+
+    ${props => props.bodyCSS ? props.bodyCSS : null}
 `
 
