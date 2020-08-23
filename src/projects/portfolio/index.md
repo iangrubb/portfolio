@@ -2,13 +2,13 @@
 slug: "/projects/portfolio"
 title: "Portfolio"
 tech: "Gatsby, React, Styled Components, GraphQL, HTML, CSS, JS"
-hero: ./hero.png
+hero: ./hero-d.png
 tagline: "My virtual home on the web, featuring blog posts and project information."
 github: "https://github.com/iangrubb/portfolio"
 live: ""
 ---
 
-You've already seen this one! This is the central location for my thoughts on code and information about projects I've worked on. I wanted to design something fun and thematic, but without letting it get too busy or sacrificing usability. It's still something I'm happy to go back and tinker with, so any suggestions you might have are greatly appreciated!s
+You've already seen this one! This is the central location for my thoughts on code and information about projects I've worked on. I wanted to design something fun and thematic, but without letting it get too busy or sacrificing usability. It's still something I'm happy to go back and tinker with, so any suggestions you might have are greatly appreciated!
 
 When building my portfolio, I wanted to be able use React and the developer-friendly tooling that comes along with it. However, generating markup client-side has performance costs that aren't worth it for a site like this that consists of static content. I ended up getting speed and a developer-friendly environment by building the site with Gatsby, which renders quick-loading static pages from React components.
 

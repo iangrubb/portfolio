@@ -114,21 +114,22 @@ const IndexHeader = styled.div`
 `
 
 const IndexTitle = styled.h1`
-  margin: 64px 0 8px 0;
-  font-size: 56px;
+  margin: 32px 0 8px 0;
+  font-size: 36px;
   @media (min-width: 768px) {
-    margin: 104px 0 8px 0;
+    margin: 40px 0 8px 0;
+    font-size: 48px;
   }
 `
 
 const Accent = styled(Paper)`
   height: 6px;
-  width: 120px;
-  margin: 0 0 16px 0;
+  width: 100px;
+  margin: 0;
   @media (min-width: 768px) {
-    width: 180px;
+    width: 120px;
     height: 8px;
-    margin: 0 0 32px 0;
+    margin: 0 0 8px 0;
   }
 `
 

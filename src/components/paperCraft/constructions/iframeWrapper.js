@@ -75,7 +75,8 @@ const Prop = styled.div`
 
 const Frame = styled.iframe`
 
-    background: white;
+
+    /* padding: 8px; */
 
     position: absolute;
     top: 0;
@@ -88,6 +89,9 @@ const Frame = styled.iframe`
     border-radius: 2px;
 
     margin: 0;
+    padding: 4px;
+
+    background: white;
     
     
     /* margin: 0;

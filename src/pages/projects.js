@@ -120,7 +120,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 const Post = styled.div`
 
   width: 100vw;
-  margin: 40px 0 40px 0;
+  margin: 40px 0 -40px 0;
   padding: 0 0 40px 0;
 
   @media (min-width: 768px) {
@@ -155,12 +155,12 @@ const MainContent = styled(FrameBox)`
 
 const mainContentInner = css`
 
-  margin: 14px;
+  margin: 10px;
   padding: 32px 16px;
   
   @media (min-width: 768px) {
     height: 100%;
-    margin: 18px;
+    margin: 12px;
     padding: 7vh 4vw;
   }
 `
