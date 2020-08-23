@@ -46,28 +46,72 @@ const IndexPage = ({ data }) => {
         <NavLink path="/about" text="About" />       
       </Links>
       <Diamonds>
-        <Diamond color="green" shape="diamond" left={34} top={8} proportional/>
-        <Diamond color="green" shape="diamond" left={58} top={4} proportional/>
-        <Diamond color="green" shape="diamond" left={82} top={0} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={0} top={0} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={1} top={0} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={2} top={0} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={3} top={0} proportional/> */}
+        <Diamond color="green" shape="diamond" left={4} top={0} proportional/>
+        <Diamond color="green" shape="diamond" left={5} top={0} proportional/>
+        <Diamond color="green" shape="diamond" left={6} top={0} proportional/>
+        <Diamond color="green" shape="diamond" left={7} top={0} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={8} top={0} proportional/> */}
 
-        <Diamond color="green" shape="diamond" left={22} top={30} proportional/>
-        <Diamond color="green" shape="diamond" left={46} top={26} proportional/>
-        <Diamond color="green" shape="diamond" left={70} top={22} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={0} top={1} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={1} top={1} proportional/> */}
+        <Diamond color="green" shape="diamond" left={2} top={1} proportional/>
+        <Diamond color="green" shape="diamond" left={3} top={1} proportional/>
+        <Diamond color="green" shape="diamond" left={4} top={1} proportional/>
+        <Diamond color="green" shape="diamond" left={5} top={1} proportional/>
+        <Diamond color="green" shape="diamond" left={6} top={1} proportional/>
+        <Diamond color="green" shape="diamond" left={7} top={1} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={8} top={1} proportional/> */}
 
-        <Diamond color="green" shape="diamond" left={34} top={48} proportional/>
-        <Diamond color="green" shape="diamond" left={58} top={44} proportional/>
-        <Diamond color="green" shape="diamond" left={82} top={40} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={0} top={2} proportional/> */}
+        <Diamond color="green" shape="diamond" left={1} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={2} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={3} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={4} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={5} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={6} top={2} proportional/>
+        <Diamond color="green" shape="diamond" left={7} top={2} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={8} top={2} proportional/> */}
 
-        <Diamond color="green" shape="diamond" left={22} top={70} proportional/>
-        <Diamond color="green" shape="diamond" left={46} top={66} proportional/>
-        <Diamond color="green" shape="diamond" left={70} top={62} proportional/>
+        <Diamond color="green" shape="diamond" left={0} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={1} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={2} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={3} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={4} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={5} top={3} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={6} top={3} proportional/>
+        <Diamond color="green" shape="diamond" left={7} top={3} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={8} top={3} proportional/> */}
 
-        <Diamond color="green" shape="diamond" left={34} top={88} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={0} top={4} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={1} top={4} proportional/> */}
+        <Diamond color="green" shape="diamond" left={2} top={4} proportional/>
+        <Diamond color="green" shape="diamond" left={3} top={4} proportional/>
+        <Diamond color="green" shape="diamond" left={4} top={4} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={5} top={4} proportional/>
+        <Diamond color="green" shape="diamond" left={6} top={4} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={7} top={4} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={8} top={4} proportional/> */}
+
+        {/* <Diamond color="green" shape="diamond" left={0} top={5} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={1} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={2} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={3} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={4} top={5} proportional/> */}
+        {/* <Diamond color="green" shape="diamond" left={5} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={6} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={7} top={5} proportional/>
+        <Diamond color="green" shape="diamond" left={8} top={5} proportional/> */}
+
+        
 
 
       </Diamonds>
 
-      <Coral color="pink" shape="coral" proportional/>
+      {/* <Coral color="pink" shape="coral" proportional/> */}
      
     </LandingContent>
 
@@ -81,7 +125,7 @@ const LandingContent = styled.div`
   width: 100%;
   height: 100vh;
   grid-template-columns: 1fr 30% 30% 1fr;
-  grid-template-rows: 1fr auto 30px auto 60px auto 50px 15px auto 1fr;
+  grid-template-rows: 1fr auto 30px auto 60px auto 50px 30px auto 1fr;
 
   grid-template-areas:
     ". . . ."
@@ -92,7 +136,7 @@ const LandingContent = styled.div`
     "blurb blurb blurb blurb"
     "links links links links"
     ". . . ."
-    ". coral diamonds ."
+    ". diamonds diamonds ."
     ". . . ."
   ;
 
@@ -153,9 +197,13 @@ const Links = styled.div`
 `
 
 const Apple = styled(Paper)`
-  width: 16px;
+  width: 18px;
   @media (min-width: 340px) {
-    width: 24px;
+    width: 22px;
+  }
+
+  @media (min-width: 768px) {
+    width: 26px;
   }
 `
 
@@ -163,7 +211,7 @@ const Seaweed = styled(Paper)`
   grid-area: seaweed;
   place-self: end start;
   
-  width: 70%;
+  width: 80%;
   max-width: 100px;
 
   @media (min-width: 768px) {
@@ -179,10 +227,10 @@ const Eses = styled.div`
   
   position: relative;
 
-  width: 80%;
+  width: 100%;
   height: 80%;
 
-  max-width: 100px;
+  max-width: 120px;
 
   @media (min-width: 768px) {
     max-width: 150px;
@@ -202,46 +250,39 @@ const Es = styled(Paper)`
   }
 `
 
-const Coral = styled(Paper)`
-  grid-area: coral;
-  place-self: start end;
-  
-  margin: 0 20px 0 0;
-  width: 80%;
-  max-width: 90px;
-
-  @media (min-width: 768px) {
-    max-width: 100px;
-    margin: 0 30px 0 0;
-  }
-
-`
 
 
 const Diamonds = styled.div`
   grid-area: diamonds;
-  place-self: start start;
+  place-self: start center;
   position: relative;
-
-  margin: 16px 0 0 -10px;
   
-  width: 120px;
+  width: 180px;
   height: 80px;
 
   @media (min-width: 768px) {
-    height: 100px;
-    width: 140px;
+    width: 240px;
+    height: 110px;
   }
 `
 
+const width = 10
+
+const height = 16
+
 const Diamond = styled(Paper)`
-  width: 14%;
+  width: ${width}%;
   position: absolute;
-  left: ${props => -10 + ( props.left * 1)}%;
-  top: ${props => 0 + ( props.top * 0.6)}%;
+
+
+  
+  left: ${props => (props.left + (props.top % 2 === 0 ? 0 : 0.5) )  * ( width + 1 )}%;
+  top: ${props => -props.left + ( props.top * ( height + 1 ))}%;
+
+
   @media (min-width: 768px) {
-    width: 15%;
-    top: ${props => props.top * 0.7}%;
+    /* width: 15%;
+    top: ${props => props.top * 0.7}%; */
   }
 `
 
