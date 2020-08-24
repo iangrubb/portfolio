@@ -10,6 +10,8 @@ live: ""
 
 This project was part of a lecture introducing some of the options for styling a React app. It covers the basics of using Styled Components and React Transition Group. I've found these libraries to have pretty gentile learning curves. You can do a lot with just their basic features, but they have some pretty powerful advanced features as well. They also work well together.
 
+<iframe src="https://player.vimeo.com/video/450948531" vratio="58" title="Team Builder Features" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 I start by going over how to define styled components, pass them props, and use those props to determine styles. There are examples of how this can be useful for toggling styles based on differences in data (setting a gradient based on pokemon type) and based on changes in UI state (translating a selected element to indicate that it's selected).
 
 I also demonstrate a straightforward way to set up a togglable dark/light mode. Although you can do this using the ThemeProvider provided by Styled Components, my preference for most simpler apps is just to use a combination of CSS variables and createGlobalStyle. This approach isn't significantly weaker, and I find it leads to much more readable code in your styled components.

@@ -22,11 +22,11 @@ The game itself is a mash-up between Scrabble and an old-school dungeon crawler.
 
 Players arrive at the site and are required to enter a username. Their data is stored in a temporary session, but since we're not keeping track of records over time there's not a more sophisticated log-in system. Once they've submitted their names, players can attempt to join the next game. I wanted to get a very basic matchmaking system up and running, so currently there's only a single queue for games and no ability to select who you play with. Once four players are ready to play, there's short count down and then the game begins.
 
-<iframe src="https://player.vimeo.com/video/450868861" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450868861" title="Match Making" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 In the game, players can move around the maze to reveal new locations. The hallways and placed tiles can't move, so once a player sees them they remain on the player's map. If a player returns to an area they were in before, they may discover that new tiles have been placed there while they were gone. Players can also see other players, but only when they're in their direct line of sight.
 
-<iframe src="https://player.vimeo.com/video/450868994" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450868994" title="Movement and Field of View" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 To place letters, players stand on the location they want the letter to go and select the letter from their hand. Letters can't be placed on top of each other and must be placed so that they can form a word with previously placed letters. Words are automatically submitted when letters fill up a row or column. When a submission succeeds, its letters get locked in and score points for the player. When a submission fails, its letters go back to the players hands.
 
@@ -34,11 +34,11 @@ Players start the game with a hand of seven letter tiles. After placing a word, 
 
 Once a word is successfully submitted, all players are notified about the submission. Notifications let players know what word was submitted, who submitted it, and how many points it scored. The notification also updates the running total point counts of all players.
 
-<iframe src="https://player.vimeo.com/video/450869028" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450869028" title="Letter Placement and Notifications" vratio="57" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 A game ends when a player gets to 150 points or the four minute timer elapses. At the end of the game, players are ranked by their total scores. Refreshing the page automatically redirects players back to the lobby, where they can queue up for the next game.
 
-<iframe src="https://player.vimeo.com/video/450869061" vratio="57"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450869061" title="Game Ending" vratio="57"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 
 ## Development

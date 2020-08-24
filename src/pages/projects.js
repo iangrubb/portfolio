@@ -223,7 +223,7 @@ const Bar = styled(Paper)`
 
   @media (min-width: 768px) {
     margin: 0;
-    height: 14px;
+    height: 12px;
   }
 `
 

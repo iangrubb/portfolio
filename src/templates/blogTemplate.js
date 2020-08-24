@@ -194,7 +194,7 @@ const HeaderContent = styled(FrameBox)`
   transform: translate(-50%, 0);
   z-index: 2;
 
-  margin: 0 0 -40vh 0;
+  margin: 0 0 -40vh 0;s
 
   padding: 0 2vw;
   
@@ -209,13 +209,13 @@ const HeaderContent = styled(FrameBox)`
 const headerContentInner = css`
 
   padding: 40px 16px;
-  margin: 14px;
+  margin: 8px;
 
-  border-radius: 12px;
+  /* border-radius: 8px; */
   
   @media (min-width: 768px) {
     padding: 7vh 4vw 5vh 4vw;
-    margin: 18px;
+    margin: 12px;
   }
 `
 

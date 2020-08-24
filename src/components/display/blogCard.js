@@ -68,14 +68,14 @@ const Hero = styled(Img)`
 
 const Bar = styled(Paper)`
   width: 110vw;
-  height: 12px;
+  height: 8px;
   position: relative;
   top: ${props => props.top ? '1px' : '-1px'};
   margin: 0;
 
   @media (min-width: 768px) {
     margin: 0;
-    height: 16px;
+    height: 12px;
   }
 `
 
@@ -90,11 +90,11 @@ const MainContent = styled(FrameBox)`
 
 const mainContentInner = css`
 
-  margin: 16px;
+  margin: 12px;
   padding: 32px 24px;
   
   @media (min-width: 768px) {
-    margin: 20px;
+    margin: 12px;
     padding: 7vh 4vw;
   }
 `

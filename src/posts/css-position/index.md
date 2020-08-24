@@ -18,7 +18,7 @@ We'll begin with the basics by looking at the different ways of positioning HTML
 
 ### Static Positioning
 
-You won't see static position mentioned that often in CSS files, since it's the default for all HTML elements. Statically positioned elements participate in the normal flow of an HTML document. This means that block elements will stack on top of each other and inline elements will sit next to each other on a line and wrap to the next line as necessary. Elements with flexbox or grid parents will be positioned according to their parent's attributes. Any element set to float will shift in the desired direction.
+HTML elements are statically positioned by default. Statically positioned elements participate in the normal flow of an HTML document. This means that block elements will stack on top of each other and inline elements will sit next to each other on a line and wrap to the next line as necessary.
 
 These are sensible defaults--they provide a minimal viable layout that's at least somewhat usable and responsive. We can use non-static positioning to make exceptions to these defaults, modifying how an element interacts with the normal flow or even removing it from the flow entirely. Doing so is risky, since the defaults are what they are for good reason. But when done carefully, modifications to the normal document flow can significantly enhance a site.
 

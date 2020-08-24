@@ -18,6 +18,7 @@ Each turn, every pokemon the player owns can be assigned an order. Pokemon can f
 
 Players manage the health, hunger, and loyalty of their pokemon. Health is required to successfully capture new pokemon and loyalty leads to stronger offspring. Nourishment is necessary for health and loyalty, but there's not always enough food to go around.
 
+<iframe src="https://player.vimeo.com/video/450948454" title="Catching and Breeding Pokemon" vratio="50" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 ## Development
 

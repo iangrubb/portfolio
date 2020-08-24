@@ -53,7 +53,7 @@ const IndexPage = ({ data }) => {
         <Diamond color="green" shape="diamond" left={4} top={0} proportional/>
         <Diamond color="green" shape="diamond" left={5} top={0} proportional/>
         <Diamond color="green" shape="diamond" left={6} top={0} proportional/>
-        <Diamond color="green" shape="diamond" left={7} top={0} proportional/>
+        {/* <Diamond color="green" shape="diamond" left={7} top={0} proportional/> */}
         {/* <Diamond color="green" shape="diamond" left={8} top={0} proportional/> */}
 
         {/* <Diamond color="green" shape="diamond" left={0} top={1} proportional/> */}
@@ -281,8 +281,6 @@ const Diamond = styled(Paper)`
 
 
   @media (min-width: 768px) {
-    /* width: 15%;
-    top: ${props => props.top * 0.7}%; */
   }
 `
 
