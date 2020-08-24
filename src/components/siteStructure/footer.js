@@ -14,7 +14,7 @@ const Footer = ({snapDown}) => {
           {/* <Spacer color="green" shape="frame"/> */}
 
           <ContactInfo>
-            <ContactHeading color="pink" shape="rectangle">
+            <ContactHeading color="pink" shape="rectangle" fit>
               <ContactText>contact</ContactText>
             </ContactHeading>
             <EmailWrapper color="purple" shape="frame">
@@ -24,7 +24,8 @@ const Footer = ({snapDown}) => {
 
 
           <ContactInfo>
-            <ContactHeading color="pink" shape="rectangle">
+
+            <ContactHeading color="pink" shape="rectangle" fit>
               <ContactText>social</ContactText>
             </ContactHeading>
 
@@ -42,7 +43,7 @@ const Footer = ({snapDown}) => {
 
 
           <BuildInfo>
-            <Copywrite color="pink" shape="rectangle">
+            <Copywrite color="pink" shape="rectangle" fit>
               <CopyText>
                 © {new Date().getFullYear()}
               </CopyText>

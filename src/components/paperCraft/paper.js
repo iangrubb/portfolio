@@ -48,7 +48,7 @@ export default Paper
 const Container = styled.div`
     width: ${props => props.width}px;
     height: ${props => props.proportional ? "auto" : `${props.height}px`};
-    ${props => props.noShadow ? null : "filter: drop-shadow(1px 1px 1px #302d3877);"}
+    /* ${props => props.noShadow ? null : "filter: drop-shadow(1px 1px 1px #302d3877);"} */
     ${props => props.fit ? "height: fit-content; width: fit-content" : null}
 `;
 

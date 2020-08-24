@@ -123,11 +123,15 @@ const Post = styled.div`
   margin: 40px 0 -40px 0;
   padding: 0 0 40px 0;
 
+  position: relative;
+  z-index: 1;
+
+
   @media (min-width: 768px) {
     margin: 0 0 40px 0;
     padding: 10vh 0 10vh 0;
     scroll-snap-align: start;
-    position: relative;
+    
   }
 
 `

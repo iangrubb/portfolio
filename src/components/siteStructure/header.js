@@ -46,10 +46,11 @@ const Container = styled.header`
   width: 100%;
 
   position: fixed;
-  z-index: 5;
 
   transform: translateY(${props => props.display ? 0 : -100}%);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, z-index 0.1s;
+  z-index: ${props => props.display ? 5 : 4};
+  /* Firefox made me do this, and I hate it */
 
   display: flex;
   flex-direction: column;

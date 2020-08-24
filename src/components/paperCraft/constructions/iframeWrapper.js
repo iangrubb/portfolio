@@ -8,7 +8,6 @@ import FrameBox from '../../display/frameBox'
 const iframeWrapper = (props) => {
 
     const {title, src, children, vratio} = props
-    console.log(vratio)
     return (
         <Spacer>
             <Container color="purple" innerCSS={innerCSS}>

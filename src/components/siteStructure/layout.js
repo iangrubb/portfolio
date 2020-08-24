@@ -56,11 +56,12 @@ const Page = styled.div`
   height: 100vh;
   
   overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
 
   @media (min-width: 768px) {
     /* scroll-snap-type: y ${props => props.snapDesktop ? "mandatory" : "proximity"}; */
@@ -103,18 +104,21 @@ const Hamburger = styled(HamburgerLogo)`
 const IndexHeader = styled.div`
 
   width: 100vw;
+  height: fit-content;
   ${props => props.snapUp ? "scroll-snap-align: end;" : null}
+
   
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
 
 `
 
 const IndexTitle = styled.h1`
-  margin: 32px 0 8px 0;
+  margin: 32px auto 8px auto;
+  text-align: center;
   font-size: 36px;
   @media (min-width: 768px) {
     margin: 40px 0 8px 0;
@@ -125,11 +129,11 @@ const IndexTitle = styled.h1`
 const Accent = styled(Paper)`
   height: 6px;
   width: 100px;
-  margin: 0;
+  margin: 0 auto;
   @media (min-width: 768px) {
     width: 120px;
     height: 8px;
-    margin: 0 0 8px 0;
+    margin: 0 auto 8px auto;
   }
 `
 

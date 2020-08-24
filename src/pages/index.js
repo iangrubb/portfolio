@@ -23,7 +23,6 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => {
-  console.log(data)
   return (
   <Layout minimal>
     <SEO title="Home" />

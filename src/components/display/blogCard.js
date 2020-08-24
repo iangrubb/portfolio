@@ -26,14 +26,16 @@ const BlogCard = ({ node }) => {
                 <Bar color="purple" shape="frame" />
             </HeroBackground>
 
-            <Link to={slug}>
-                <MainContent color="purple" innerCSS={mainContentInner}>        
-                    <Title>{title}</Title>
-                    <TitleBar color="pink" shape="frame" />
-                    <Date>{formatedDate}</Date>
-                    <Abstract>{abstract}</Abstract>
-                </MainContent>
-            </Link>
+            
+            <MainContent color="purple" innerCSS={mainContentInner}>  
+              <Link to={slug}>    
+                <Title>{title}</Title>
+                <TitleBar color="pink" shape="frame" />
+                <Date>{formatedDate}</Date>
+                <Abstract>{abstract}</Abstract>
+              </Link>  
+            </MainContent>
+            
 
         </Container>
     )
@@ -46,10 +48,12 @@ const Container = styled.div`
     @media (min-width: 768px) {
         margin: -250px 0 50px 0;
     }
+    
 `
 
 const HeroBackground = styled.div`
     position: relative;
+    z-index: -1;
     top: 150px;
     width: 110vw;
     height: 250px;
@@ -81,6 +85,7 @@ const Bar = styled(Paper)`
 
 
 const MainContent = styled(FrameBox)`
+
 
   margin: 0 auto;
   

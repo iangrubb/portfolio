@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Paper from '../paper'
 
 const subSectionHeader = ({ children, path }) => {
-    console.log(path)
     const navId = path.split("#")[1]
     return (
         <Link href={"#" + navId} id={navId}>
