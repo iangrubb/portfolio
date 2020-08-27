@@ -31,7 +31,7 @@ export default SocialLinks
 const Container = styled.div`
     width: 100%;
 
-    margin: 20px 0;
+    margin: 0;
 
     display: flex;
     justify-content: center;
@@ -39,20 +39,27 @@ const Container = styled.div`
 `
 
 const LogoLink = styled.a`
-  margin: 0 0.1rem;
-
-  
+  margin: 0 2px;
 `
 
 
 const PlacedLinkedInLogo = styled(LinkedInLogo)`
-  width: 80px;
+  width: 55px;
+  @media (min-height: 750px) {
+    width: 70px;
+  }
 `
 
 const PlacedGithubLogo = styled(GithubLogo)`
-  width: 80px;
+  width: 55px;
+  @media (min-height: 750px) {
+    width: 70px;
+  }
 `
 
 const PlacedMediumLogo = styled(MediumLogo)`
-  width: 80px;
+  width: 55px;
+  @media (min-height: 750px) {
+    width: 70px;
+  }
 `

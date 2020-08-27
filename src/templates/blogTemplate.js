@@ -98,33 +98,29 @@ const BlogTemplate = ({ data }) => {
   return (
     <>
 
-        <SEO title="Blog" />
+      <SEO title="Blog" />
 
-        <BlogContent>
+        {/* <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
+        <Bar color="purple" shape="frame" />
+        <AttributionWrapper color="green" shape="frame">
+          <Attribution target="blank" href={heroSource}>
+            photo by {heroAuthor}
+          </Attribution>
+        </AttributionWrapper> */}
+        
+{/* 
 
-          <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-          <Bar color="purple" shape="frame" />
-          <AttributionWrapper color="green" shape="frame">
-            <Attribution target="blank" href={heroSource}>
-              photo by {heroAuthor}
-            </Attribution>
-          </AttributionWrapper>
-          
+        <HeaderContent color="purple" innerCSS={headerContentInner}>
+          <Title>{title}</Title>
+          <TitleBar color="pink" shape="frame" />
+          <Date>{formatedDate}</Date>
+          <Abstract>{abstract}</Abstract>
+        </HeaderContent> */}
+        
+        <PWrap color="purple" innerCSS={headerContentInner} fit>
+          <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
+        </PWrap>
 
-
-          <HeaderContent color="purple" innerCSS={headerContentInner}>
-            <Title>{title}</Title>
-            <TitleBar color="pink" shape="frame" />
-            <Date>{formatedDate}</Date>
-            <Abstract>{abstract}</Abstract>
-          </HeaderContent>
-          
-          <PWrap color="purple" innerCSS={headerContentInner} fit>
-            <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
-          </PWrap>
-
-
-        </BlogContent>
     </>
 
   )
@@ -138,10 +134,6 @@ const PWrap = styled(FrameBox)`
 
 `
 
-const BlogContent = styled.section`
-  position: relative;
-  width: 100vw;
-`
 
 const Hero = styled(Img)`
   opacity: 0.5;

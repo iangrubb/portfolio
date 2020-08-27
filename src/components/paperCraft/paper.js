@@ -12,7 +12,7 @@ const determineHexColor = color => {
         case "yellow":
             return "#efbb00"
         case "green":
-            return "#6ba249"
+            return "#599e2e"
         case "blue":
             return "#45a7d0"
         case "purple":
@@ -20,7 +20,7 @@ const determineHexColor = color => {
         case "pink":
             return "#da2a48"
         case "tan":
-            return "#efd7c4"
+            return "#ead7c9"
         default:
             return "#333"
     }
@@ -31,7 +31,7 @@ const Paper = ({className, children, shape, color, proportional, noShadow, fit})
     const shapeDatum = shapeData.find(s => s.name === shape)
 
     const renderWithoutSvg = () => {
-        return <BasicPaper className={className} color={determineHexColor(color)} >{children}</BasicPaper>
+        return <BasicPaper className={className} color={determineHexColor(color)} noShadow={noShadow} >{children}</BasicPaper>
     }
 
     const renderProportional = () => {
@@ -41,7 +41,7 @@ const Paper = ({className, children, shape, color, proportional, noShadow, fit})
                     <ProportionalPaper color={determineHexColor(color)} shape={shape}>
                         {children}
                     </ProportionalPaper>
-                    <ShadowBody shape={shape} />
+                    {noShadow ? null :<ShadowBody shape={shape} />}
                 </Spacer>
             </PropContainer>
         )
@@ -53,7 +53,7 @@ const Paper = ({className, children, shape, color, proportional, noShadow, fit})
                 <StretchPaper color={determineHexColor(color)} shape={shape} fit={fit}>
                     {children}
                 </StretchPaper>
-                <ShadowBody shape={shape} />
+                {noShadow ? null :<ShadowBody shape={shape} />}
             </StretchContainer>
         )
     }
@@ -106,7 +106,7 @@ const BasicPaper = styled.div`
 
     ${paperGradient};
 
-    box-shadow: 2px 2px 0 var(--shadow);
+    box-shadow: ${props => props.noShadow ? "none" : "2px 2px 0 var(--shadow)"};
     border-radius: 4px;
 `
 
@@ -122,11 +122,13 @@ const Spacer = styled.div`
     width: 100%;
     padding-top: calc((${props => props.height / props.width}) * 100% );
     position: relative;
+    z-index: 1;
 `
 
 const StretchContainer = styled.div`
     position: relative;
-    
+    z-index: 1;
+
     width: ${props => props.width};
     height: ${props => props.height};
     ${props => props.fit ? "height: fit-content; width: fit-content" : null}
