@@ -2,13 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image'
 
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import Layout from "../components/siteStructure/layout"
 import SEO from "../components/seo"
 
 import Paper from "../components/paperCraft/paper"
 import NavLink from '../components/paperCraft/constructions/navLink'
+
+import Icon from '../components/paperCraft/constructions/logos/github'
+
+import FrameBox from '../components/display/frameBox'
 
 export const query = graphql`
   query {
@@ -22,10 +26,72 @@ export const query = graphql`
   }
 `
 
+
+const Box = styled.div`
+  width: 400px;
+  height: 400px;
+  background: var(--background-color);
+  border-radius: 8px;
+
+  margin: 50px;
+
+  padding: 60px;
+
+  box-shadow: 2px 2px 0 var(--shadow);
+
+`
+
+const I = styled(Icon)`
+  margin: 50px;
+`
+
+
+const Me = styled(Img)`
+  width: 90%;
+
+  clip-path: url(#hHex);
+
+
+  
+`
+
+const Frame = styled(Paper)`
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+
+  
+`
+
+
 const IndexPage = ({ data }) => {
+
   return (
-  <Layout minimal>
+  <>
     <SEO title="Home" />
+
+{/* 
+
+    <I/>
+    <Box>
+      <h1>Wow, an h1!</h1>
+      <h2>(and an h2)</h2>
+      <p>Here's a short paragraph, wrapped in a p tag. It goes on just long enough to fill up the space, so I can see how it looks. Just a bit longer now...</p>
+    </Box>
+
+    <Frame color="green" shape="hHex" >
+      <Me fluid={data.file.childImageSharp.fluid} />
+    </Frame> */}
+
+
+
+
+
+
+
+
+
+
 
     <LandingContent>
       <Eses>
@@ -39,9 +105,9 @@ const IndexPage = ({ data }) => {
       <Blurb>Full-Stack Developer</Blurb>
       <Links>
         <NavLink path="/blog" text="Blog" />
-        <Apple color="pink" shape="apple" proportional/>
+        {/* <Apple color="pink" shape="apple" proportional/> */}
         <NavLink path="/projects" text="Projects" />
-        <Apple color="pink" shape="apple" proportional/>
+        {/* <Apple color="pink" shape="apple" proportional/> */}
         <NavLink path="/about" text="About" />       
       </Links>
       <Diamonds>
@@ -114,14 +180,18 @@ const IndexPage = ({ data }) => {
      
     </LandingContent>
 
-  </Layout>
+  </>
 )}
+
 
 
 const LandingContent = styled.div`
 
+  
+
   display: grid;
-  width: 100%;
+  width: calc(100% - 300px);
+
   height: 100vh;
   grid-template-columns: 1fr 30% 30% 1fr;
   grid-template-rows: 1fr auto 30px auto 60px auto 50px 30px auto 1fr;
@@ -139,9 +209,11 @@ const LandingContent = styled.div`
     ". . . ."
   ;
 
+  /* display: none; */
+
   @media (min-width: 768px) {
     grid-template-columns: 1fr 300px 300px 1fr;
-    grid-template-rows: 1fr auto 50px auto 80px auto 100px 20px auto 1fr;
+    grid-template-rows: 1fr auto 50px auto 90px auto 120px 20px auto 1fr;
   }
 
 `
@@ -166,6 +238,11 @@ const Spacer = styled(Paper)`
   width: 40%;
   max-width: 140px;
   height: 30px;
+
+  @media (min-width: 768px) {
+    height: 40px;
+    max-width: 200px;
+  }
 `
 
 const Blurb = styled.p`
@@ -214,7 +291,7 @@ const Seaweed = styled(Paper)`
   max-width: 100px;
 
   @media (min-width: 768px) {
-    max-width: 120px;
+    max-width: 140px;
   }
 `
 
@@ -252,6 +329,7 @@ const Es = styled(Paper)`
 
 
 const Diamonds = styled.div`
+  display: none;
   grid-area: diamonds;
   place-self: start center;
   position: relative;

@@ -49,8 +49,7 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
   const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerators", "Space Bar", "Pokemon Fallout"]
 
     return (
-        <Layout location="Projects">
-          
+          <>
             <SEO title="Projects" />
             {projectOrder.map(term => {
               const node = nodes.find(n => n.frontmatter.title === term)
@@ -61,9 +60,13 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
               return (
                 <Post key={node.id}>
 
-                  <Bar color="purple" shape="frame" top/>
-                  <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-                  <Bar color="purple" shape="frame" />
+                  {/* <Bar color="purple" shape="frame" top/> */}
+                  <Wrap>
+                    <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
+                    <Screen />
+                  </Wrap>
+                  
+                  {/* <Bar color="purple" shape="frame" /> */}
 
                   <MainContent color="purple" innerCSS={mainContentInner}>
                     <Link to={slug}><Title>{title}</Title></Link>
@@ -112,9 +115,28 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
                 </Post>
               )
             })}
-        </Layout>
+          </>
     )
 }
+
+
+const Wrap = styled.div`
+  position: relative;
+`
+
+const Screen = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 2;
+
+  background: #3d3752aa;
+
+`
+
 
 
 const Post = styled.div`
@@ -159,12 +181,15 @@ const MainContent = styled(FrameBox)`
 
 const mainContentInner = css`
 
+
+  background: var(--background-color);
+
   margin: 10px;
   padding: 32px 16px;
   
   @media (min-width: 768px) {
     height: 100%;
-    margin: 12px;
+    margin: 0;
     padding: 7vh 4vw;
   }
 `
@@ -189,12 +214,14 @@ const Accent = styled(Paper)`
 `
 
 const Tagline = styled.p`
+
+
   margin: 0 0 16px 0;
   font-size: 20px;
   max-width: 300px;
   @media (min-width: 768px) {
     font-size: 24px;
-    max-width: 400px;
+    max-width: 600px;
   }
 `
 
@@ -204,14 +231,14 @@ const Tools = styled.div`
   font-style: italic;
 
   @media (min-width: 768px) {
-    max-width: 300px;
+    max-width: 500px;
     font-size: 18px;
   }
 `
-
 const Hero = styled(Img)`
   height: 250px;
-  opacity: 0.5;
+  opacity: 0.9;
+  background: #3d3752;
   @media (min-width: 768px) {
     height: 600px;
   }
@@ -303,9 +330,6 @@ const CTA = styled.span`
   letter-spacing: 1px;
   margin: 3px 8px 1px 8px;
 `
-
-
-
 
 
 export default ProjectsPage

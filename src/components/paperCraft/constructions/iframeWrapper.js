@@ -7,15 +7,25 @@ import FrameBox from '../../display/frameBox'
 
 const iframeWrapper = (props) => {
 
-    const {title, src, children, vratio} = props
+    const {title, src, children, vratio, height} = props
+
+    console.log(height)
     return (
         <Spacer>
             <Container color="purple" innerCSS={innerCSS}>
+
+                { height ? 
+                <Frame  src={src} title={title} height={height} frameBorder="no" scrolling="no" >
+                    {children}
+                </Frame>
+                :
                 <Prop vratio={vratio}>
-                    <Frame  src={src} title={title} frameBorder="no" scrolling="no" >
+                    <AspectFrame  src={src} title={title} frameBorder="no" scrolling="no" >
                         {children}
-                    </Frame>
+                    </AspectFrame>
                 </Prop>
+                }
+                
             </Container>
             
             <Title>{title}</Title>
@@ -42,7 +52,9 @@ const Container = styled(FrameBox)`
 
     height: fit-content;
     width: 100%;
-    max-width: 100vw;
+    max-width: 96vw;
+
+    
 
 
     display: flex;
@@ -73,6 +85,13 @@ const Prop = styled.div`
 `
 
 const Frame = styled.iframe`
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+`
+
+const AspectFrame = styled.iframe`
 
 
     /* padding: 8px; */

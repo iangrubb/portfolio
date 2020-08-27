@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import shapeData from './shapeData'
 
 const determineHexColor = color => {
@@ -12,104 +12,163 @@ const determineHexColor = color => {
         case "yellow":
             return "#efbb00"
         case "green":
-            return "#64b732"
+            return "#6ba249"
         case "blue":
             return "#45a7d0"
         case "purple":
-            return "#3d3752"
+            return "#342f44"
         case "pink":
-            return "#ea4964"
+            return "#da2a48"
         case "tan":
-            return "#efdfd2"
+            return "#efd7c4"
         default:
             return "#333"
     }
 }
 
-const Paper = ({className, children, shape, color, proportional, noShadow, clickHandler, fit, bodyCSS}) => {
+const Paper = ({className, children, shape, color, proportional, noShadow, fit}) => {
+
     const shapeDatum = shapeData.find(s => s.name === shape)
-    return (
-        <Container className={className} width={shapeDatum ? shapeDatum.width : 100} height={shapeDatum ? shapeDatum.height : 100} fit={fit} proportional={proportional} noShadow={noShadow} onClick={clickHandler}>
-            {proportional ?
-            <Spacer>
-                <ProportionalBody shape={shape} color={determineHexColor(color)} bodyCSS={bodyCSS} >
+
+    const renderWithoutSvg = () => {
+        return <BasicPaper className={className} color={determineHexColor(color)} >{children}</BasicPaper>
+    }
+
+    const renderProportional = () => {
+        return (
+            <PropContainer className={className} width={shapeDatum.width}>
+                <Spacer width={shapeDatum.width} height={shapeDatum.height}>
+                    <ProportionalPaper color={determineHexColor(color)} shape={shape}>
+                        {children}
+                    </ProportionalPaper>
+                    <ShadowBody shape={shape} />
+                </Spacer>
+            </PropContainer>
+        )
+    }
+
+    const renderStretch = () => {
+        return (
+            <StretchContainer className={className} width={shapeDatum.width} height={shapeDatum.height} fit={fit}>
+                <StretchPaper color={determineHexColor(color)} shape={shape} fit={fit}>
                     {children}
-                </ProportionalBody>
-            </Spacer>
-            :
-            <StretchBody fit={fit} shape={shape} color={determineHexColor(color)} bodyCSS={bodyCSS}>{children}</StretchBody>
-            }
-        </Container>
-    )
+                </StretchPaper>
+                <ShadowBody shape={shape} />
+            </StretchContainer>
+        )
+    }
+
+    const determineRenderStyle = () => {
+        if (!shapeDatum) {
+            return renderWithoutSvg()
+        } else if (proportional) {
+            return renderProportional()
+        } else {
+            return renderStretch()
+        }
+    }
+
+    return ( determineRenderStyle() )
 }
 
 export default Paper
 
-const Container = styled.div`
-    width: ${props => props.width}px;
-    height: ${props => props.proportional ? "auto" : `${props.height}px`};
-    /* ${props => props.noShadow ? null : "filter: drop-shadow(1px 1px 1px #302d3877);"} */
-    ${props => props.fit ? "height: fit-content; width: fit-content" : null}
-`;
 
-const BodyBase = styled.div`
+const paperGradient = css`
+    background: 
+        repeating-linear-gradient(
+        10deg,
+        rgba(200, 200, 200, 0.05),
+        rgba(175, 175, 175, 0.05) 20px,
+        rgba(200, 200, 200, 0.05) 40px
+        ),
+        repeating-linear-gradient(
+        -10deg,
+        rgba(200, 200, 200, 0.05),
+        rgba(175, 175, 175, 0.05) 20px,
+        rgba(200, 200, 200, 0.05) 40px
+        ),
+        repeating-linear-gradient(
+        rgba(160, 160, 160, 0.08),
+        rgba(120, 120, 120, 0.08) 2px,
+        rgba(180, 180, 180, 0.08) 6px,
+        rgba(120, 120, 120, 0.08) 11px,
+        rgba(160, 160, 160, 0.08) 14px,
+        rgba(120, 120, 120, 0.08) 22px,
+        rgba(160, 160, 160, 0.08) 25px
+        ),
+        ${props => props.color};
+`
+
+const BasicPaper = styled.div`
+    width: fit-content;
+    height: fit-content;
+
+    ${paperGradient};
+
+    box-shadow: 2px 2px 0 var(--shadow);
+    border-radius: 4px;
+`
+
+const PropContainer = styled.div`
+
+    width: ${props => props.width}px;
+
+    clip-path: url(#${props => props.shape});
+
+`
+
+const Spacer = styled.div`
+    width: 100%;
+    padding-top: calc((${props => props.height / props.width}) * 100% );
+    position: relative;
+`
+
+const StretchContainer = styled.div`
+    position: relative;
+    
+    width: ${props => props.width};
+    height: ${props => props.height};
+    ${props => props.fit ? "height: fit-content; width: fit-content" : null}
+`
+
+const ShadowBody = styled.div`
+    background: var(--shadow);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    clip-path: url(#${props => props.shape});
+`
+
+const NestedPaper = styled.div`
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    width: 100%;
+    clip-path: url(#${props => props.shape});
 
-    ${props => props.shape ?
-    `clip-path: url(#${props.shape});`
-    : null}
-
-    
-
-    background: repeating-linear-gradient(
-        30deg,
-        rgba(200, 200, 200, 0.06),
-        rgba(175, 175, 175, 0.06) 20px,
-        rgba(200, 200, 200, 0.06) 40px
-        ),
-        repeating-linear-gradient(
-        -30deg,
-        rgba(200, 200, 200, 0.06),
-        rgba(175, 175, 175, 0.06) 20px,
-        rgba(200, 200, 200, 0.06) 40px
-        ),
-        repeating-linear-gradient(
-        rgba(160, 160, 160, 0.13),
-        rgba(120, 120, 120, 0.13) 2px,
-        rgba(180, 180, 180, 0.13) 6px,
-        rgba(120, 120, 120, 0.13) 11px,
-        rgba(160, 160, 160, 0.13) 14px,
-        rgba(120, 120, 120, 0.13) 22px,
-        rgba(160, 160, 160, 0.13) 25px
-        ),
-        ${props => props.color};
+    ${paperGradient};
+        
 `
 
-const ProportionalBody = styled(BodyBase)`
+const ProportionalPaper = styled(NestedPaper)`
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
-    ${props => props.bodyCSS ? props.bodyCSS : null}
 `
 
-const Spacer = styled.div`
+
+const StretchPaper = styled(NestedPaper)`
     width: 100%;
-    padding-top: 100%;
-    position: relative;
-`
-
-const StretchBody = styled(BodyBase)`
     height: 100%;
     ${props => props.fit ? "height: fit-content; width: fit-content" : null}
 
-    ${props => props.bodyCSS ? props.bodyCSS : null}
 `
 

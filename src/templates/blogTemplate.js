@@ -96,7 +96,7 @@ const BlogTemplate = ({ data }) => {
   const formatedDate = [month, fixedDay, year].join(" ")
 
   return (
-    <Layout >
+    <>
 
         <SEO title="Blog" />
 
@@ -119,24 +119,35 @@ const BlogTemplate = ({ data }) => {
             <Abstract>{abstract}</Abstract>
           </HeaderContent>
           
-          <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
-          
+          <PWrap color="purple" innerCSS={headerContentInner} fit>
+            <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
+          </PWrap>
+
+
         </BlogContent>
-    </Layout>
+    </>
 
   )
 }
 
+
+const PWrap = styled(FrameBox)`
+  margin: 0 auto;
+  
+
+
+`
+
 const BlogContent = styled.section`
   position: relative;
-
+  width: 100vw;
 `
 
 const Hero = styled(Img)`
   opacity: 0.5;
   height: 50vh;
 
-  width: 100vw;
+  width: 100%;
 
   margin: 0;
 
@@ -194,9 +205,8 @@ const HeaderContent = styled(FrameBox)`
   transform: translate(-50%, 0);
   z-index: 2;
 
-  margin: 0 0 -40vh 0;s
+  margin: 0 0 -40vh 0;
 
-  padding: 0 2vw;
   
   max-width: 700px;
 
@@ -214,7 +224,7 @@ const headerContentInner = css`
   /* border-radius: 8px; */
   
   @media (min-width: 768px) {
-    padding: 7vh 4vw 5vh 4vw;
+    padding: 60px;
     margin: 12px;
   }
 `
@@ -272,25 +282,35 @@ const Abstract = styled.p`
 const MainContent = styled.article`
 
 
-  padding: 0 32px;
-  margin: 2rem auto 0 auto;
+  padding: 0 20px;
+
+  /* margin: 2rem auto 0 auto; */
+
+  background: var(--background-color);
 
   & p a {
     font-weight: 700;
   }
   
   & p {
+    
     font-size: 19px;
     margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
-    width: 95%;
-    min-width: 280px;
+    width: 100%;
+    /* min-width: 280px; */
+
+    padding: 0 32px;
   }
 
   @media (min-width: 768px) {
 
     padding: 0;
     width: 700px;
+
+    margin: 12px;
+
+
 
     & p {
       width: 64ch;

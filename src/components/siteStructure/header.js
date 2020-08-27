@@ -49,7 +49,7 @@ const Container = styled.header`
 
   transform: translateY(${props => props.display ? 0 : -100}%);
   transition: transform 0.4s ease, z-index 0.1s;
-  z-index: ${props => props.display ? 5 : 4};
+  z-index: ${props => props.display ? 6 : 5};
   /* Firefox made me do this, and I hate it */
 
   display: flex;

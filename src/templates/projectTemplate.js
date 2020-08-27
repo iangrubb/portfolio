@@ -100,7 +100,7 @@ const BlogTemplate = ({ data }) => {
   const techTerms = tech.split(",").map(string => string.trim())
 
   return (
-    <Layout >
+    <>
       <SEO title="Projects" />
       <Content>
         <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
@@ -144,7 +144,7 @@ const BlogTemplate = ({ data }) => {
         <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent> 
 
       </Content>        
-    </Layout>
+    </>
   )
 }
 
@@ -220,7 +220,7 @@ const headerContentInner = css`
   border-radius: 8px;
   
   @media (min-width: 768px) {
-    padding: 7vh 4vw 5vh 4vw;
+    padding: 50px;
     margin: 12px;
 
   

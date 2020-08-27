@@ -7,7 +7,7 @@ import LogoFrame from '../logoFrame'
 
 const MediumLogo = ({className}) => {
     return (
-        <LogoFrame color="purple" className={className}>
+        <LogoFrame className={className} color="purple">
             <Element color="purple" shape="medium" proportional noShadow/>
         </LogoFrame>
     )

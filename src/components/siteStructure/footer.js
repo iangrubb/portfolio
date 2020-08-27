@@ -75,6 +75,8 @@ const Container = styled.footer`
   align-items: center;
 
 
+
+
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;

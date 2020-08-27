@@ -10,7 +10,7 @@ const Shapes = () => {
             <defs>
                 {shapeData.map(shape => (
                     <clipPath key={shape.name} id={shape.name} clipPathUnits="objectBoundingBox" transform={`scale(${1/shape.width} ${1/shape.height})`}>
-                        <path d={shape.path} />
+                        <path d={shape.path} filter="url(#f3)"/>
                     </clipPath>
                 ))}
             </defs>

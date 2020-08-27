@@ -9,7 +9,7 @@ import Paper from '../components/paperCraft/paper'
 import NavLink from '../components/paperCraft/constructions/navLink'
 
 const NotFoundPage = () => (
-  <Layout>
+  <>
     <SEO title="404: Not found" />
 
     <Container>
@@ -38,7 +38,7 @@ const NotFoundPage = () => (
 
     </Container>
 
-  </Layout>
+  </>
 )
 
 export default NotFoundPage

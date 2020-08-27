@@ -9,6 +9,7 @@ import Paper from '../paperCraft/paper'
 
 import Header from "./header"
 import Footer from "./footer"
+import SideBar from "./sideBar"
 import "./layout.css"
 
 import HamburgerLogo from '../paperCraft/constructions/logos/hamburger'
@@ -18,9 +19,17 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
   const [display, setDisplay] = useState(false) 
 
   return (
-      <Page snapDesktop={snapDesktop} snapMobile={snapMobile} >
+      <>
         <Shapes />
-        {minimal ? null : <Header display={display} setDisplay={setDisplay}/>}
+
+        <SideBar path={location.pathname} />
+
+        <MainContent>
+          {children}
+        </MainContent>
+
+
+        {/* {minimal ? null : <Header display={display} setDisplay={setDisplay}/>}
 
         {location ?
           <IndexHeader >
@@ -44,16 +53,39 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
           </InfoWrapper>
         }
         {children}
-        {minimal ? null : <Footer snapDown={snapMobile || snapDesktop}/>}
-      </Page>
+        {minimal ? null : <Footer snapDown={snapMobile || snapDesktop}/>} */}
+      </>
   )
 }
+
+
+
+
+const MainContent = styled.div`
+  width: calc(100% - 25%);
+  margin: 0 0 0 auto;
+
+  max-width: calc(100vw - 300px - 48px);
+
+  position: relative;
+  z-index: 1;
+
+  height: 200vh;
+
+  background: #aaaaaaaa;
+`
+
+
+
+
+
+
 
 const Page = styled.div`
   width: 100vw;
 
   /* scroll-snap-type: y ${props => props.snapMobile ? "mandatory" : "proximity"}; */
-  height: 100vh;
+  /* height: 100vh; */
   
   overflow-x: hidden;
   /* overflow-y: scroll; */

@@ -2,6 +2,8 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import SEO from "../components/seo"
+
 import Layout from '../components/siteStructure/layout'
 
 // import resume from '../documents/ian-grubb-resume.pdf'
@@ -26,11 +28,12 @@ export const query = graphql`
 const AboutPage = ({ data: {profile, resume } }) => {
     console.log(profile, resume)
     return (
-        <Layout location="About">
-            <a href={resume.publicURL} target="_blank">Resume</a>
+        <>
+          <SEO title="About" />
+            {/* <a href={resume.publicURL} target="_blank">Resume</a> */}
 
             
-        </Layout>
+        </>
     )
 }
 
