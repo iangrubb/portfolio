@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import Paper from '../paper'
 
-const sectionHeader = ({ children, counter, path }) => {
+const sectionHeader = ({ children, path }) => {
 
     const navId = path.split("#")[1]
 
@@ -23,15 +22,14 @@ const sectionHeader = ({ children, counter, path }) => {
 
 const HeadingWrapper = styled.div`
     
-    width: 100%;
-    height: fit-content;
-
-    margin: 64px 0 32px 0;
+    width: 700px;
+    max-width: 100%;
+    margin: 64px auto 32px auto;
     scroll-margin-top: 40px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
         position: relative;
-        left: -1rem;
+        left: -24px;
     }
 
 `

@@ -1,8 +1,10 @@
 
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import PropTypes from "prop-types"
 
 import styled, { createGlobalStyle } from 'styled-components'
+
+import { DisplayContext } from "../../context/displayContext"
 
 import Shapes from "../paperCraft/shapes"
 import Paper from '../paperCraft/paper'
@@ -32,18 +34,20 @@ const PreventScroll = createGlobalStyle`
 
 const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
 
-  const [defaultDisplay, setDefaultDisplay] = useState(true) 
-
+  const { defaultDisplay } = useContext(DisplayContext) 
+  
   return (
       <>
         <Shapes />
         <PreventScroll defaultDisplay={defaultDisplay} />
 
-        <SideBar path={location.pathname} defaultDisplay={defaultDisplay} setDefaultDisplay={setDefaultDisplay} />
+        <SideBar path={location.pathname} />
 
-        <MainContent hideNav={location.pathname === "/"} defaultDisplay={defaultDisplay} >
-          {children}
-        </MainContent>
+        <Spacer hideNav={location.pathname === "/"} defaultDisplay={defaultDisplay} >
+          <MainContent hideNav={location.pathname === "/"} defaultDisplay={defaultDisplay}>
+           {children}
+          </MainContent>
+        </Spacer>
 
       </>
   )
@@ -52,31 +56,47 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
 
 
 
-const MainContent = styled.div`
-
-  transition: width 0.3s ease;
-
+const Spacer = styled.div`
   margin: 0 0 0 auto;
 
   position: relative;
   z-index: 1;
 
-  
-  height: 200vh;
-  width: 100vw;
 
+  transition: width var(--desktop-duration) ease;
+  width: 100vw;
 
   @media (min-width: 900px) {
     width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
   }
 
   @media (min-width: 1200px) {
-    width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 375px)"};
+    margin: 0 75px 0 auto;
+    width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 450px)"};
   }
 
   @media (min-width: 1500px) {
-    width: ${props => props.hideNav || !props.defaultDisplay  ? "100vw" : "calc(100vw - 450px)"};
+    margin: 0 150px 0 auto;
+    width: ${props => props.hideNav || !props.defaultDisplay  ? "100vw" : "calc(100vw - 600px)"};
   }
+
+`
+
+const MainContent = styled.div`
+  width: 100%;
+  max-width: 1400px;
+
+  padding: 48px 32px;
+
+  margin: 0 auto;
+
+
+  transition: transition var(--desktop-duration) ease;
+
+  @media (min-width: 1850px) {
+    transform: ${props => props.hideNav || !props.defaultDisplay  ? "none" : "translateX(calc(( -100vw + 1850px ) / 2 ))"};
+  }
+
 
 `
 

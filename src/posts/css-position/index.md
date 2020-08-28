@@ -28,9 +28,11 @@ CSS provides a set of additional properties for making these adjustments: top, b
 
 Relative positioning keeps an element within the normal flow, but lets us to push it in some direction relative to where it would have been. Whatever space relative elements would have taken up still counts as occupied, so they still displace other elements. This makes relative positioning only a minor deviation from the normal flow.
 
+<iframe src="https://player.vimeo.com/video/450948531" h="366" w="640" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 Here's an example of how this works. We have five squares aligned by a flex parent, one of which has been given a class with relative positioning:
 
-<iframe height="310" style="width: 100%;" scrolling="no" title="Relative Positioning" src="https://codepen.io/iangrubb/embed/preview/yLemEEE?height=310&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe scrolling="no" title="Relative Positioning" src="https://codepen.io/iangrubb/embed/preview/yLemEEE?height=310&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/yLemEEE'>Relative Position</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

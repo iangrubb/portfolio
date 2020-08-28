@@ -6,9 +6,9 @@ html {
 
 :root {
   --text-color: #302d38;
-  --background-color: #eceae7;
-  --background-color-clear: #ddd4cbf1;
-  --tint: #48415293;
+  --background-color: #eee7e1;
+  --background-color-clear: #eee7e1d7;
+  --tint: #453d49cb;
   --shadow: #2a292e52;
 
   --highlight-color: #ee657c;
@@ -20,6 +20,10 @@ html {
   --full-screen: calc(100vw - 32px);
   --display-font: "Vollkorn", serif;
   --body-font: 'Lato', sans-serif;
+
+
+  --desktop-duration: 0.8s;
+  --mobile-duration: 0.4s;
 }
 
 

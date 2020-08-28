@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const GithubLogo = ({ className }) => {
     return (
         <LogoFrame className={className} color="purple" >
-            <Element color="purple" shape="github" proportional noShadow/>
+            <Element color="purple" shape="github" proportional />
         </LogoFrame>
     )
 }

@@ -1,20 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import rehypeReact from "rehype-react"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image'
+
+import { DisplayContext } from "../context/displayContext"
 
 import styled, { css } from 'styled-components'
 
 import SEO from '../components/seo'
 
-import Layout from '../components/siteStructure/layout'
 import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
 import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
 
 import Paper from '../components/paperCraft/paper'
-import FrameBox from '../components/display/frameBox'
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -95,57 +95,96 @@ const BlogTemplate = ({ data }) => {
   const fixedDay = day[0] === "0" ? day[1] + "," : day
   const formatedDate = [month, fixedDay, year].join(" ")
 
+
+  const { defaultDisplay } = useContext(DisplayContext);
+
   return (
     <>
 
       <SEO title="Blog" />
 
-        {/* <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-        <Bar color="purple" shape="frame" />
-        <AttributionWrapper color="green" shape="frame">
-          <Attribution target="blank" href={heroSource}>
-            photo by {heroAuthor}
-          </Attribution>
-        </AttributionWrapper> */}
-        
-{/* 
+      <HeroWrapper color="purple" defaultDisplay={defaultDisplay}>
+        <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
+        <HeroTint>
+          <HeaderInfo defaultDisplay={defaultDisplay} >
+            <Title>{title}</Title>
+            <TitleBar color="pink" shape="frame" />
+            <Date>{formatedDate}</Date>
+          </HeaderInfo> 
+          <AttributionWrapper color="green" shape="rectangle">
+            <Attribution target="_blank" href={heroSource}>
+              photo by {heroAuthor}
+            </Attribution>
+          </AttributionWrapper>
+        </HeroTint>
+      </HeroWrapper>
 
-        <HeaderContent color="purple" innerCSS={headerContentInner}>
-          <Title>{title}</Title>
-          <TitleBar color="pink" shape="frame" />
-          <Date>{formatedDate}</Date>
+
+      <AbstractSection defaultDisplay={defaultDisplay} >
+        <Spacer color="green" shape="spacer" proportional/>
+        <AbstractWrapper color="tan" noShadow>          
           <Abstract>{abstract}</Abstract>
-        </HeaderContent> */}
-        
-        <PWrap color="purple" innerCSS={headerContentInner} fit>
-          <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent>
-        </PWrap>
+        </AbstractWrapper>
+        <Spacer color="green" shape="spacer" proportional/>
+      </AbstractSection>
+      
 
+      <PostWrapper color="tan" defaultDisplay={defaultDisplay} noShadow>
+          <PostContent>
+            {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
+          </PostContent>
+      </PostWrapper>
     </>
 
   )
 }
 
 
-const PWrap = styled(FrameBox)`
-  margin: 0 auto;
-  
-
-
+const alignToDisplay = css`
+  @media (min-width: 900px) {
+    margin: 0;
+    transition: left var(--desktop-duration) ease, transform var(--desktop-duration) ease;
+    position: relative;
+    left: ${props => props.defaultDisplay ? "0" : "50%" };
+    transform: translateX(${props => props.defaultDisplay ? "0" : "-50%" });
+  }
 `
 
-
-const Hero = styled(Img)`
-  opacity: 0.5;
-  height: 50vh;
-
+const HeroWrapper = styled(Paper)`
   width: 100%;
+  max-width: 1000px;
+  height: 40vh;
+  padding: 8px;
+  margin: 0 0 16px 0;
 
-  margin: 0;
+  border-radius: 8px;
 
-  @media (min-width: 768px) {
-    
+  ${alignToDisplay}
+
+  position: relative;
+
+  @media (min-width: 900px) {
+
+    margin: 0 0 32px 0;
   }
+  
+`
+
+const HeroTint = styled.div`
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  border-radius: 8px;
+  background: var(--tint);
+
+  color: var(--background-color);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
 `
 
 const AttributionWrapper = styled(Paper)`
@@ -167,78 +206,40 @@ const Attribution = styled.a`
 
   font-weight: 700;
   font-size: 14px;
-  margin: 1px 6px 0 6px;
+  margin: 1px 10px 0 10px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
   
     font-size: 16px;
-    margin: 3px 8px 2px 8px;
+    margin: 3px 12px 2px 12px;
   }
 
 `
 
-const Bar = styled(Paper)`
-  width: 110%;
-  height: 12px;
-  position: relative;
-  top: -1px;
-  left: -5%;
-  margin: 0 0 8vh 0;
+const HeaderInfo = styled.div`
 
-  @media (min-width: 768px) {
-  }
+  width: fit-content;
+  ${alignToDisplay}
+
 `
-
-const HeaderContent = styled(FrameBox)`
-
-  position: relative;
-  top: -40vh;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 2;
-
-  margin: 0 0 -40vh 0;
-
-  
-  max-width: 700px;
-
-  @media (min-width: 768px) {
-    top: -30vh;
-    margin: 0 0 -30vh 0;
-  }
-`
-
-const headerContentInner = css`
-
-  padding: 40px 16px;
-  margin: 8px;
-
-  /* border-radius: 8px; */
-  
-  @media (min-width: 768px) {
-    padding: 60px;
-    margin: 12px;
-  }
-`
-
 
 const Title = styled.h2`
-  margin: 0 0 0.6rem 0;
+
+  margin: 0 0 4px 0;
   font-size: 36px;
 
   @media (min-width: 768px) {
-    margin: 1rem 0 0.6rem 0;
-    font-size: 46px;
+ 
+    font-size: 56px;
   }
 `
 
 const TitleBar = styled(Paper)`
-  height: 6px;
+  height: 8px;
   width: 120px;
   margin: 0 0 16px 8px;
   @media (min-width: 768px) {
     width: 180px;
-    height: 8px;
   }
 `
 
@@ -248,37 +249,103 @@ const Date = styled.time`
   font-size: 18px;
 
   @media (min-width: 768px) {
-    font-size: 20px;
+    font-size: 24px;
+    margin: 0 0 0 16px;
   }
 `
 
+const Hero = styled(Img)`
+
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+
+`
+
+
+
+
+
+const AbstractSection = styled.div`
+
+  width: 70%;
+  max-width: 600px;
+  min-width: 300px;
+
+  ${alignToDisplay}
+
+  @media (min-width: 900px) {
+    margin: 0 0 32px 0;
+  }
+
+  margin: 0 0 16px 0;
+
+`
+
+
+const Spacer = styled(Paper)`
+  width: 30%;
+  min-width: 100px;
+  max-width: 400px;
+  margin: 0 auto 8px auto;
+`
+
+
+const AbstractWrapper = styled(Paper)`
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+
+`
 
 const Abstract = styled.p`
-  position: relative;
-  font-size: 20px;
-  line-height: 1.7rem;
-  margin: 24px 0 0 0;
-
-  @media (min-width: 768px) {
-    max-width: 500px;
-    font-size: 22px;
-    line-height: 1.8rem;
-    margin: 24px 0 0 0;
-  }
+  background: var(--background-color);
+  border-radius: 6px;
+  padding: 24px 32px;
+  margin: 0;
+  font-size: 22px;
+  line-height: 32px;
+  width: 100%;  
+  font-style: italic;
 `
 
 
 
 
 
-const MainContent = styled.article`
 
 
-  padding: 0 20px;
+const PostWrapper = styled(Paper)`
 
-  /* margin: 2rem auto 0 auto; */
+  width: 100%;
+  max-width: 1000px;
+  
+  border-radius: 8px;
+
+  margin: 0 auto;
+
+  padding: 8px;
+
+  ${alignToDisplay}
+
+
+`
+
+const PostContent = styled.article`
+
+  width: 100%;
+  height: fit-content;
 
   background: var(--background-color);
+  border-radius: 6px;
+
+
+  padding: 48px 32px 32px 32px;
+  margin: 0;
+
 
   & p a {
     font-weight: 700;
@@ -286,29 +353,33 @@ const MainContent = styled.article`
   
   & p {
     
-    font-size: 19px;
+    font-size: 18px;
     margin: 0 auto 0.8rem auto;
     line-height: 1.6rem;
-    width: 100%;
-    /* min-width: 280px; */
 
-    padding: 0 32px;
+    width: 700px;
+    max-width: 100%;
+
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
 
-    padding: 0;
-    width: 700px;
-
-    margin: 12px;
-
-
+    padding: 64px 48px 32px 48px;
 
     & p {
-      width: 64ch;
+      font-size: 20px;
+      line-height: 28px;
+
     }
   }
 
 `
+
+
+
+
+
+
+
 
 export default BlogTemplate

@@ -11,7 +11,7 @@ const SideLink = ({path, name, active}) => {
             <Container color="purple">
                 <InnerWrapper>
                     <Heading>{name}</Heading>
-                    <LinkBar color="pink" />
+                    {/* <LinkBar color="pink" /> */}
                 </InnerWrapper>
                 <Pointer color="pink" shape="arrow" proportional active={active} />     
             </Container>
@@ -33,7 +33,7 @@ const LinkArea = styled(Link)`
 const Container = styled(Paper)`
 
     margin: 0 0 6px 10%;
-    height: 42px;
+    height: 40px;
 
     display: flex;
     flex-direction: column;
@@ -49,9 +49,9 @@ const Container = styled(Paper)`
     color: var(--background-color);
 
     @media (min-height: 750px) {
-        margin: 0 0 8px 0;
-        height: 60px;
-        width: 100%;
+        margin: 0 0 8px 5%;
+        height: 46px;
+        width: 90%;
     }
 
 `
@@ -67,7 +67,7 @@ const Heading = styled.h2`
     font-family: var(--display-font);
 
     @media (min-height: 750px) {
-        font-size: 30px;
+        font-size: 28px;
     }
 `
 

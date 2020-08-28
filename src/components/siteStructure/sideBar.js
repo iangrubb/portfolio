@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "gatsby"
 
 import styled from 'styled-components'
+
+import { DisplayContext } from "../../context/displayContext"
 
 import Paper from '../paperCraft/paper'
 
@@ -12,13 +14,15 @@ import GatsbyLogo from '../paperCraft/constructions/logos/gatsby'
 
 
 
-const SideBar = ({ path, defaultDisplay, setDefaultDisplay }) => {
+const SideBar = ({ path }) => {
+
+    const { defaultDisplay, toggleDefaultDisplay } = useContext(DisplayContext) 
 
     return (
         <Container hide={path === "/"} defaultDisplay={defaultDisplay}>
 
             <Main>
-                <Button onClick={()=>setDefaultDisplay(!defaultDisplay)} hide={path === "/"} defaultDisplay={defaultDisplay}>
+                <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
                     <Hamburger color="purple">
                         <HamburgerInner color="tan">
                             <HamburgerLine color="purple" noShadow/>
@@ -119,11 +123,12 @@ const Container = styled.div`
 
     
     
-    transition: transform 0.3s ease;
+    transition: transform var(--mobile-duration) ease;
 
     transform: translateX(${props => props.hide || props.defaultDisplay ? '-100%' : '0'});
 
     @media (min-width: 900px) {
+        transition-duration: var(--desktop-duration);
         justify-items: end;
         transform: translateX(${props => props.hide || !props.defaultDisplay ? '-100%' : '0'});
     }
@@ -138,7 +143,11 @@ const Main = styled.div`
     height: 100vh;
     max-height: 750px;
 
-    padding: 16px 16px 16px 32px;
+    padding: 16px;
+
+    @media (min-width: 900px) {
+        padding: 16px 16px 16px 32px;
+    }
     
 
     display: flex;
@@ -186,6 +195,8 @@ const Button = styled.button`
 
     position: relative;
 
+    transition: transform 0.1s ease, right var(--mobile-duration) ease, top var(--mobile-duration) ease;
+
     top: 0;
     right: ${props => props.defaultDisplay && !props.hide ? "calc(((-100vw + 300px ) / 2) - 76px)" : "0"};
 
@@ -195,6 +206,7 @@ const Button = styled.button`
     }
 
     @media (min-width: 900px) {
+        transition: transform 0.1s ease, right var(--desktop-duration) ease, top var(--desktop-duration) ease;
         right: ${props => !props.defaultDisplay && !props.hide ? -76 : 0}px;
     }
 
@@ -203,7 +215,7 @@ const Button = styled.button`
         right: ${props => !props.defaultDisplay && !props.hide ? -100 : 0}px;
     }
 
-    transition: transform 0.1s ease, right 0.3s ease, top 0.3s ease;
+    
 
     
 `

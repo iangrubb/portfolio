@@ -19,13 +19,16 @@ const Link = styled.a`
 `
 
 const SubHeading = styled.h4`
+
+    width: 700px;
+    max-width: 100%;
+    margin: 40px auto 24px auto;
     font-size: 26px;
-    margin: 40px 0 24px 0;
 
     @media (min-width: 768px) {
         font-size: 28px;
         position: relative;
-        left: -0.5rem;
+        left: -16px;
     }
 `
 
