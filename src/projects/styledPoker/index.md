@@ -1,5 +1,5 @@
 ---
-slug: "/projects/styled-poker"
+slug: "/portfolio/styled-poker"
 title: "Styled Poker"
 tech: "React, Styled Components, HTML, CSS, JS"
 hero: ./hero.png

@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import rehypeReact from "rehype-react"
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { graphql } from "gatsby"
+
+import { DisplayContext } from "../context/displayContext"
 
 import styled, { css } from 'styled-components'
 
@@ -12,13 +13,18 @@ import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
 import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
 
-import Layout from '../components/siteStructure/layout'
 
 import Paper from '../components/paperCraft/paper'
 import FrameBox from '../components/display/frameBox'
 import ToolInfo from '../components/display/toolInfo'
 import GithubLogo from '../components/paperCraft/constructions/logos/github'
 import LiveLogo from '../components/paperCraft/constructions/logos/live'
+
+
+import HeroDisplay from '../components/display/template/heroDisplay'
+import BodyContent from '../components/display/template/bodyContent'
+
+
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -59,8 +65,6 @@ const slugify = string => string.toLowerCase().split(" ").join("-")
 const addNumbersToHeaderProps = (ast, slug) => {
 
 
-  
-
   let h2Counter = 0
   let h3Counter = 0
 
@@ -94,187 +98,113 @@ const addNumbersToHeaderProps = (ast, slug) => {
 
 
 const BlogTemplate = ({ data }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+
+  const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
   const { hero, title, tagline, tech, github, live } = frontmatter
-  const techTerms = tech.split(",").map(string => string.trim())
+
+  const { defaultDisplay } = useContext(DisplayContext);
+
+  const techTerms = tech => tech.split(",").map(string => string.trim())
 
   return (
     <>
       <SEO title="Projects" />
-      <Content>
-        <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-        <Bar color="purple" shape="frame" />
+
+      <HeroDisplay {...{ defaultDisplay, title, hero }}>
+        <Tagline>{tagline}</Tagline>
+
+    
+        <Tools>{techTerms(tech).join(", ")}</Tools>
 
         <LogoContainer >
-          {techTerms.map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
+          {techTerms(tech).map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
         </LogoContainer> 
 
-        <HeaderContent color="purple" innerCSS={headerContentInner}>
-          <Title>{title}</Title>
-          <Accent color="pink" shape="frame" />
-          <Tagline>{tagline}</Tagline>
-          <Tools>{techTerms.join(", ")}</Tools>
 
-          <LinksContainer>
 
+        <LinksContainer>
+          <LinkWrapper>
+            <a target="blank" href={github}><GithubLogo width="70px" /></a>
+            <a target="blank" href={github}>
+              <CTAWrapper color="pink" shape="frame"> 
+                <CTA>code</CTA>
+              </CTAWrapper>
+            </a>
+          </LinkWrapper>
+          
+          {live ?
             <LinkWrapper>
-              <a target="blank" href={github}><GithubLogo width="80px" /></a>
-              <a target="blank" href={github}>
+              <a target="blank" href={live}><LiveLogo width="70px" /></a>
+              <a target="blank" href={live}>
                 <CTAWrapper color="pink" shape="frame"> 
-                  <CTA>code</CTA>
+                  <CTA>live</CTA>
                 </CTAWrapper>
               </a>
             </LinkWrapper>
-            
-            {live ?
-              <LinkWrapper>
-                <a target="blank" href={live}><LiveLogo width="80px" /></a>
-                <a target="blank" href={live}>
-                  <CTAWrapper color="pink" shape="frame"> 
-                    <CTA>live</CTA>
-                  </CTAWrapper>
-                </a>
-              </LinkWrapper>
-            : null}
-          </LinksContainer>
+          : null}
+        </LinksContainer>
 
-        </HeaderContent>
-        
-        <MainContent>{addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}</MainContent> 
 
-      </Content>        
+      </HeroDisplay>
+
+      <BodyContent defaultDisplay={defaultDisplay}>
+        {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
+      </BodyContent>
+   
     </>
   )
 }
 
 export default BlogTemplate
 
-const Content = styled.div`
-  width: 100%;
-  position: relative;
-`
 
-const Hero = styled(Img)`
-  opacity: 0.5;
-  height: 50vh;
+const Tagline = styled.p`
+  margin: 0 0 24px 0;
+  font-size: 22px;
+  max-width: 300px;
+  text-shadow: 1px 1px 0 #222;
 
-  @media (min-width: 768px) {
-    
+  @media (min-width: 900px) {
+    font-size: 24px;
+    font-style: italic;
+    max-width: 500px;
   }
 `
 
-const Bar = styled(Paper)`
-  width: 110%;
-  height: 12px;
-  position: relative;
-  top: -1px;
-  left: -5%;
-  margin: 0 0 8vh 0;
+const Tools = styled.div`
+  font-size: 20px;
+  text-shadow: 1px 1px 0 #222;
 
   @media (min-width: 768px) {
+    font-size: 22px;
+    max-width: 500px;
   }
 `
 
 const LogoContainer = styled.div`
   display: none;
+  margin: 0 0 16px 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     display: flex;
-
-    position: absolute;
-    left: 50%;
-    top: 5vh;
-    transform: translateX(-50%);
-    z-index: 3;
-
+    padding: 8px;
   }
 `
 
 const PlacedTool = styled(ToolInfo)`
-  width: 100px;
+  width: 55px;
   max-width: 10vw;
 `
 
-const HeaderContent = styled(FrameBox)`
 
-  position: relative;
-  top: -35vh;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 2;
-
-  margin: 0 0 -30vh 0;
-  
-  max-width: 92vw;
-
-  @media (min-width: 768px) {
-  }
-`
-
-const headerContentInner = css`
-
-  padding: 40px 16px;
-  margin: 10px;
-
-  border-radius: 8px;
-  
-  @media (min-width: 768px) {
-    padding: 50px;
-    margin: 12px;
-
-  
-  }
-`
-
-const Title = styled.h2`
-  margin: 0 0 16px 0;
-  font-size: 42px;
-
-  @media (min-width: 768px) {
-    font-size: 56px;
-  }
-`
-
-const Accent = styled(Paper)`
-  height: 6px;
-  width: 120px;
-  margin: 0 0 16px 8px;
-  @media (min-width: 768px) {
-    margin: 0 0 32px 8px;
-    width: 180px;
-    height: 8px;
-  }
-`
-
-const Tagline = styled.p`
-  margin: 0 0 16px 0;
-  font-size: 20px;
-  max-width: 300px;
-  @media (min-width: 768px) {
-    font-size: 24px;
-    max-width: 400px;
-  }
-`
-
-const Tools = styled.div`
-  max-width: 300px;
-  font-size: 18px;
-  font-style: italic;
-  margin: 0 0 16px 0;
-
-  @media (min-width: 768px) {
-    max-width: 300px;
-    font-size: 18px;
-  }
-`
 
 const LinksContainer = styled.div`
-  margin: 0 auto;
+  margin: 8px 0;
   display: flex;
-  justify-content: center;
-  @media (min-width: 768px) {
-    justify-content: flex-start;
+
+  @media (min-width: 900px) {
+  
   }
 `
 
@@ -283,16 +213,13 @@ const LinkWrapper = styled.div`
   margin: 0 0 32px 0; 
   width: fit-content;
   position: relative;
-  max-width: 30vw;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     max-width: none;
   }
 `
 
 const CTAWrapper = styled(Paper)`
-  width: fit-content;
-  height: fit-content;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -307,7 +234,21 @@ const CTA = styled.span`
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 1px;
-  margin: 3px 8px 1px 8px;
+  margin: 2px 6px 0 6px;
+`
+
+
+
+
+
+
+
+
+const Content = styled.div`
+  width: 100%;
+  position: relative;
+
+  top: 500px;
 `
 
 

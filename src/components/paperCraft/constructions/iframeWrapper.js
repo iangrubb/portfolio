@@ -69,7 +69,8 @@ const Frame = styled.iframe`
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 50vh;
+    height: 40vh;
+    min-height: 300px;
 `
 
 const Prop = styled.div`

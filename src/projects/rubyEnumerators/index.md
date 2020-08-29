@@ -1,5 +1,5 @@
 ---
-slug: "/projects/ruby-enumerators"
+slug: "/portfolio/ruby-enumerators"
 title: "Ruby Enumerators"
 tech: "React, Styled Components, HTML, CSS, JS"
 hero: ./hero.png

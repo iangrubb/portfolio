@@ -1,5 +1,5 @@
 ---
-slug: "/projects/space-bar"
+slug: "/portfolio/space-bar"
 title: "Space Bar"
 tech: "React, HTML, CSS, JS, Styled Components, Ruby, Rails"
 hero: ./hero.png

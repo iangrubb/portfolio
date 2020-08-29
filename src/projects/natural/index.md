@@ -1,5 +1,5 @@
 ---
-slug: "/projects/natural"
+slug: "/portfolio/natural"
 title: "Natural"
 tech: "React, Redux, Styled Components, HTML, CSS, JS, Ruby, Rails"
 hero: ./hero.png

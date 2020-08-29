@@ -1,5 +1,5 @@
 ---
-slug: "/projects/pokemon-fallout"
+slug: "/portfolio/pokemon-fallout"
 title: "Pokemon Fallout"
 tech: "Ruby, Rails, HTML, CSS, JS"
 hero: ./hero.png

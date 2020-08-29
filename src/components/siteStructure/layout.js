@@ -62,6 +62,7 @@ const Spacer = styled.div`
   position: relative;
   z-index: 1;
 
+  
 
   transition: width var(--desktop-duration) ease;
   width: 100vw;
@@ -85,6 +86,9 @@ const Spacer = styled.div`
 const MainContent = styled.div`
   width: 100%;
   max-width: 1400px;
+
+  min-height: 100vh;
+  
 
   padding: 48px 32px;
 

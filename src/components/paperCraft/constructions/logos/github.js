@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import Paper from "../../paper"
 import LogoFrame from '../logoFrame'
 
-const GithubLogo = ({ className }) => {
+const GithubLogo = ({ className, width }) => {
     return (
-        <LogoFrame className={className} color="purple" >
+        <LogoFrame className={className} width={width} color="purple" >
             <Element color="purple" shape="github" proportional />
         </LogoFrame>
     )

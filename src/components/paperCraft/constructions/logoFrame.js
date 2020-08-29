@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 import Paper from '../paper'
 
-const LogoFrame = ({ children, className, color }) => {
+const LogoFrame = ({ children, className, color, width }) => {
     return (
-        <Container className={className} color={color} shape="hHex" proportional >
+        <Container className={className} width={width} color={color} shape="hHex" proportional >
             <Interior color="tan" shape="hHex" proportional>
                 {children}
             </Interior>

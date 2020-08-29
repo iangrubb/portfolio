@@ -1,5 +1,5 @@
 ---
-slug: "/projects/word-maze"
+slug: "/portfolio/word-maze"
 title: "Word Maze"
 tech: "Elixir, Phoenix, HTML, CSS"
 hero: ./hero4.png

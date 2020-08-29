@@ -1,5 +1,5 @@
 ---
-slug: "/projects/pokemon-team-builder"
+slug: "/portfolio/pokemon-team-builder"
 title: "Pokemon Team Builder"
 tech: "React, Styled Components, HTML, CSS, JS"
 hero: ./hero.png

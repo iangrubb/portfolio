@@ -41,7 +41,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: {frontmatter: {slug: {regex: "/projects/"}}}
+          filter: {frontmatter: {slug: {regex: "/portfolio/"}}}
           limit: 1000
         ) {
           edges {

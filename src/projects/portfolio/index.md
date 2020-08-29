@@ -1,5 +1,5 @@
 ---
-slug: "/projects/portfolio"
+slug: "/portfolio/portfolio"
 title: "Portfolio"
 tech: "Gatsby, React, Styled Components, GraphQL, HTML, CSS, JS"
 hero: ./hero.png

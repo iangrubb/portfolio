@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import rehypeReact from "rehype-react"
 import { graphql } from "gatsby"
-import Img from 'gatsby-image'
 
 import { DisplayContext } from "../context/displayContext"
 
@@ -13,6 +12,12 @@ import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
 import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
 import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
 import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
+
+
+import alignToDisplay from '../components/display/template/alignToDisplay'
+import HeroDisplay from '../components/display/template/heroDisplay'
+import BodyContent from '../components/display/template/BodyContent'
+
 
 import Paper from '../components/paperCraft/paper'
 
@@ -103,150 +108,27 @@ const BlogTemplate = ({ data }) => {
 
       <SEO title="Blog" />
 
-      <HeroWrapper color="purple" defaultDisplay={defaultDisplay}>
-        <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-        <HeroTint>
-          <HeaderInfo defaultDisplay={defaultDisplay} >
-            <Title>{title}</Title>
-            <TitleBar color="pink" shape="frame" />
-            <Date>{formatedDate}</Date>
-          </HeaderInfo> 
-          <AttributionWrapper color="green" shape="rectangle">
-            <Attribution target="_blank" href={heroSource}>
-              photo by {heroAuthor}
-            </Attribution>
-          </AttributionWrapper>
-        </HeroTint>
-      </HeroWrapper>
+      <HeroDisplay {...{defaultDisplay, title, hero, heroAuthor, heroSource }}>
+        <Date>{formatedDate}</Date>
+        <Abstract>{abstract}</Abstract>
+      </HeroDisplay>
 
-
-      <AbstractSection defaultDisplay={defaultDisplay} >
-        <Spacer color="green" shape="spacer" proportional/>
-        <AbstractWrapper color="tan" noShadow>          
-          <Abstract>{abstract}</Abstract>
-        </AbstractWrapper>
-        <Spacer color="green" shape="spacer" proportional/>
-      </AbstractSection>
-      
-
-      <PostWrapper color="tan" defaultDisplay={defaultDisplay} noShadow>
-          <PostContent>
-            {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
-          </PostContent>
-      </PostWrapper>
+      <BodyContent defaultDisplay={defaultDisplay}>
+        {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
+      </BodyContent>
     </>
 
   )
 }
 
+export default BlogTemplate
 
-const alignToDisplay = css`
-  @media (min-width: 900px) {
-    margin: 0;
-    transition: left var(--desktop-duration) ease, transform var(--desktop-duration) ease;
-    position: relative;
-    left: ${props => props.defaultDisplay ? "0" : "50%" };
-    transform: translateX(${props => props.defaultDisplay ? "0" : "-50%" });
-  }
-`
-
-const HeroWrapper = styled(Paper)`
-  width: 100%;
-  max-width: 1000px;
-  height: 40vh;
-  padding: 8px;
-  margin: 0 0 16px 0;
-
-  border-radius: 8px;
-
-  ${alignToDisplay}
-
-  position: relative;
-
-  @media (min-width: 900px) {
-
-    margin: 0 0 32px 0;
-  }
-  
-`
-
-const HeroTint = styled.div`
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
-  border-radius: 8px;
-  background: var(--tint);
-
-  color: var(--background-color);
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-`
-
-const AttributionWrapper = styled(Paper)`
-
-  position: absolute;
-
-  top: 16px;
-  left: 16px;
-
-  z-index: 2;
-
-  width: fit-content;
-  height: fit-content;
-  color: var(--background-color);
-
-`
-
-const Attribution = styled.a`
-
-  font-weight: 700;
-  font-size: 14px;
-  margin: 1px 10px 0 10px;
-
-  @media (min-width: 900px) {
-  
-    font-size: 16px;
-    margin: 3px 12px 2px 12px;
-  }
-
-`
-
-const HeaderInfo = styled.div`
-
-  width: fit-content;
-  ${alignToDisplay}
-
-`
-
-const Title = styled.h2`
-
-  margin: 0 0 4px 0;
-  font-size: 36px;
-
-  @media (min-width: 768px) {
- 
-    font-size: 56px;
-  }
-`
-
-const TitleBar = styled(Paper)`
-  height: 8px;
-  width: 120px;
-  margin: 0 0 16px 8px;
-  @media (min-width: 768px) {
-    width: 180px;
-  }
-`
 
 const Date = styled.time`
   font-family: "Vollkorn";
   font-weight: 700;
   font-size: 18px;
+  text-shadow: 1px 1px 0 #222;
 
   @media (min-width: 768px) {
     font-size: 24px;
@@ -254,132 +136,16 @@ const Date = styled.time`
   }
 `
 
-const Hero = styled(Img)`
-
-  border-radius: 8px;
-  height: 100%;
-  width: 100%;
-
-  margin: 0;
-
-`
-
-
-
-
-
-const AbstractSection = styled.div`
-
-  width: 70%;
-  max-width: 600px;
-  min-width: 300px;
-
-  ${alignToDisplay}
-
-  @media (min-width: 900px) {
-    margin: 0 0 32px 0;
-  }
-
-  margin: 0 0 16px 0;
-
-`
-
-
-const Spacer = styled(Paper)`
-  width: 30%;
-  min-width: 100px;
-  max-width: 400px;
-  margin: 0 auto 8px auto;
-`
-
-
-const AbstractWrapper = styled(Paper)`
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  margin: 0 0 8px 0;
-
-`
-
 const Abstract = styled.p`
-  background: var(--background-color);
-  border-radius: 6px;
-  padding: 24px 32px;
-  margin: 0;
+  margin: 16px 0;
   font-size: 22px;
-  line-height: 32px;
+  max-width: 600px;
+  line-height: 28px;
   width: 100%;  
   font-style: italic;
+  text-shadow: 1px 1px 0 #222;
 `
 
 
 
 
-
-
-
-const PostWrapper = styled(Paper)`
-
-  width: 100%;
-  max-width: 1000px;
-  
-  border-radius: 8px;
-
-  margin: 0 auto;
-
-  padding: 8px;
-
-  ${alignToDisplay}
-
-
-`
-
-const PostContent = styled.article`
-
-  width: 100%;
-  height: fit-content;
-
-  background: var(--background-color);
-  border-radius: 6px;
-
-
-  padding: 48px 32px 32px 32px;
-  margin: 0;
-
-
-  & p a {
-    font-weight: 700;
-  }
-  
-  & p {
-    
-    font-size: 18px;
-    margin: 0 auto 0.8rem auto;
-    line-height: 1.6rem;
-
-    width: 700px;
-    max-width: 100%;
-
-  }
-
-  @media (min-width: 900px) {
-
-    padding: 64px 48px 32px 48px;
-
-    & p {
-      font-size: 20px;
-      line-height: 28px;
-
-    }
-  }
-
-`
-
-
-
-
-
-
-
-
-export default BlogTemplate
