@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled, { css } from 'styled-components'
 
-import Layout from '../components/siteStructure/layout'
 import SEO from "../components/seo"
 
 import Paper from '../components/paperCraft/paper'
@@ -45,6 +44,7 @@ export const query = graphql`
 
 
 const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
+
 
   const projectOrder = ["Word Maze", "Natural", "Portfolio", "Styled Poker", "Pokemon Team Builder", "Ruby Enumerators", "Space Bar", "Pokemon Fallout"]
 

@@ -17,7 +17,7 @@ Users can explore space to find planets, constellations, and other celestial obj
 
 Users can search for elements and zoom to them when selected. They can also keep track of their location and the location of elements in the space by using a mini-map. These UI elements can be toggled away at will to display more of the map.
 
-<iframe src="https://player.vimeo.com/video/450948485" title="Space Bar User Interface" vratio="51" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450948485" title="Space Bar User Interface" w="640" h="318" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 The application requires a log in in order to use, but users are automatically logged in when they return to the site. Users can save a record of their favorite celestial bodies to find again later.
 

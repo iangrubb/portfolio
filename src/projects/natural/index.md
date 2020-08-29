@@ -22,7 +22,7 @@ The core of the application is the proof construction interface. It works for an
 
 There are several quality of life features meant to help students explore proofs more effectively. The interface is styled to draw attention to the relevant parts of the proof and animations help make it apparent when and how a proof changes. When there are multiple possible goals, students can choose whichever order they prefer in tackling them. Students can also navigate forwards and backwards in proofs to explore different possible approaches.
 
-<iframe src="https://player.vimeo.com/video/450948418" title="Completing a Proof" vratio="56" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/450948418" title="Completing a Proof" w="640" h="345" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 Although the app can be used without a log in, users have the ability to make an account in order to save the proofs they submit and track their progress completing the application's built-in exercises.
 

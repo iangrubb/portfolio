@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
 import Paper from '../paper'
-import FrameBox from '../../display/frameBox'
 
 const ImageWrapper = (props) => {
 
@@ -12,7 +11,7 @@ const ImageWrapper = (props) => {
         <>
         {props.children[0].props && props.children[0].props.className === "gatsby-resp-image-wrapper" ?
             <Container>
-                <Wrapper color="purple" innerCSS={innerCSS}>
+                <Wrapper color="purple" >
                     <Interior {...props} />
                 </Wrapper>
                 <Title>{props.children[0].props.children[1].props.children[3].props.title}</Title>
@@ -30,31 +29,28 @@ const Container = styled.figure`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1.6rem 0;
+    margin: 32px 0;
 `
 
 const Title = styled.figcaption`
     font-style: italic;
-    margin: 4px 0 0 0;
+    margin: 12px 0 0 0;
 `
 
-const Wrapper = styled(FrameBox)`
-    max-width: 100vw;
+const Wrapper = styled(Paper)`
+    
     width: 100%;
     height: fit-content;
 
-    @media (min-width: 768px) {
-        width: 120%;
+    padding: 8px;
+
+    @media (min-width: 900px) {
+
     }
 
 `
 
 
-const innerCSS = css`
-    width: calc(100% - 16px);
-    height: fit-content;
-    margin: 8px auto;
-`
 
 
 const Interior = styled.p`

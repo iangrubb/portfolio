@@ -105,9 +105,7 @@ const IndexPage = ({ data }) => {
       <Blurb>Full-Stack Developer</Blurb>
       <Links>
         <NavLink path="/blog" text="Blog" />
-        {/* <Apple color="pink" shape="apple" proportional/> */}
-        <NavLink path="/projects" text="Projects" />
-        {/* <Apple color="pink" shape="apple" proportional/> */}
+        <NavLink path="/portfolio" text="Portfolio" />
         <NavLink path="/about" text="About" />       
       </Links>
       <Diamonds>
