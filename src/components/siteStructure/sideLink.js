@@ -53,10 +53,13 @@ const Container = styled(Paper)`
         width: 90%;
     }
 
+   
+
 `
 
 const InnerWrapper = styled.div`
     width: fit-content;
+    
 `
 
 const Heading = styled.h2`

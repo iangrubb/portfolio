@@ -2,7 +2,10 @@
 slug: "/blog/a-practical-guide-to-css-position"
 date: "2020-08-24"
 title: "A Practical Guide to CSS Position"
-abstract: "Developing an effective layout is one of the biggest CSS challenges. The position property is often essential to meeting this challenge. I'll show you how to use positioning effectively and provide examples of when you might use it in practice."
+abstract: "Improve your CSS layout skills by mastering the position property! I'll explain the basics and show how you might use positioning in practice.
+
+
+"
 hero: ./hero.jpg
 heroAuthor: "Halacious"
 heroSource: "https://unsplash.com/@halacious"

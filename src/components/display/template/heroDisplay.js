@@ -73,6 +73,9 @@ const HeroTint = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   padding: 24px 40px;
+  
+  border: 2px solid var(--background-color-secondary);
+
 `
 
 const AttributionWrapper = styled(Paper)`
@@ -116,6 +119,8 @@ const Title = styled.h2`
   margin: 0 0 4px 0;
   font-size: 36px;
 
+  text-shadow: var(--text-shadow);
+  
   max-width: 800px;
 
   @media (min-width: 768px) {

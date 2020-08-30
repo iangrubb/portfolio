@@ -16,6 +16,8 @@ import LearnLogo from '../components/paperCraft/constructions/logos/learn'
 
 import ToolInfo from '../components/display/toolInfo'
 
+import IndexPageCard from '../components/display/indexPageCard'
+
 
 export const query = graphql`
   {
@@ -57,26 +59,12 @@ const PortfolioPage = ({data: { allMarkdownRemark: { nodes }}}) => {
             const { title, hero, slug, tagline, tech, github, live } = node.frontmatter
             const techTerms = tech.split(",").map(string => string.trim())
 
-
             return (
               
-                <Card>
-                  <Spacer>
-                    <CardFace color="purple">
-
-                      <Wrap>
-                        <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
-
-                        <Link key={slug} to={slug}>
-                        <Screen>
-                          <Title>{title}</Title>
-                          <TitleBar color="pink" shape="frame" />
-                        </Screen>
-                        </Link>
-                      </Wrap>
-                    </CardFace>
-                  </Spacer>
-                </Card>
+                <IndexPageCard {...{hero, title, slug}}>
+                  <Tagline>{tagline}</Tagline>
+                  {/* <Tools>{techTerms.join(", ")}</Tools> */}
+                </IndexPageCard>
               
             )
           })} 
@@ -87,7 +75,7 @@ const PortfolioPage = ({data: { allMarkdownRemark: { nodes }}}) => {
 export default PortfolioPage
 
 
-const Container = styled(Link)`
+const Container = styled.div`
 
   width: 100%;
   height: 100%;
@@ -98,104 +86,26 @@ const Container = styled(Link)`
 `
 
 
-const Card = styled.div`
 
-  margin: 16px;
+const Tagline = styled.p`
 
-  width: calc(50% - (16px * 2));
-  min-width: 400px;
-  /* max-width: 100%; */
-  flex-grow: 1;
-
-`
-
-const Spacer = styled.div`
-  width: 100%;
-  height: 0;
-  padding-top: 70%;
-
-  position: relative;
-`
-
-const CardFace = styled(Paper)`
-  position: absolute;
-
-  top: 0;
-  height: 100%;
-  left: 0;
-  width: 100%;
-
-  padding: 8px;
-
-  border-radius: 8px;
-
-
-
-`
-
-
-
-
-
-const Wrap = styled.div`
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-`
-
-const Screen = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 2;
-
-  background: #2c2936e3;
-
-  background: var(--tint);
-
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 16px;
-
-
-  border-radius: 4px;
-
-
-`
-
-const Hero = styled(Img)`
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-`
-
-
-
-
-const Title = styled.h2`
   margin: 0 0 8px 0;
-  font-size: 32px;
+  font-style: italic;
+  
 
-  color: var(--background-color);
-  text-shadow: var(--text-shadow);
+  @media (min-width: 900px) {
 
-  @media (min-width: 768px) {
-    font-size: 40px;
   }
 `
 
-const TitleBar = styled(Paper)`
-  height: 8px;
-  width: 120px;
-  margin: 0 0 16px 8px;
-  @media (min-width: 768px) {
-    width: 180px;
+const Tools = styled.div`
+
+  font-size: 16px;
+
+
+  @media (min-width: 900px) {
+
   }
 `
+
+

@@ -8,16 +8,15 @@ html {
   --text-color: #302d38;
   --background-color: #e4dcd6;
   --background-color-clear: #e4dcd6d7;
-  --tint: #221f2cde;
+  --tint: #1d1b27b4;
   --shadow: #2a292e52;
 
-  --text-shadow: 2px 2px 0 #222;
+  --text-shadow: 2px 2px 0 rgb(48, 44, 61);
 
   --highlight-color: #ee657c;
 
   --background-color-secondary: #cfc2b6;
 
-  /* #f1ebe4 */
 
   --full-screen: calc(100vw - 32px);
   --display-font: "Vollkorn", serif;
