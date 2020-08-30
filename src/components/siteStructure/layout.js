@@ -52,7 +52,7 @@ const Layout = ({ children, location }) => {
             <TransitionGroup component={null}>
               <Transition
                 key={path}
-                timeout={{enter: 350, exit: 350}}
+                timeout={{enter: 500, exit: 500}}
               >
                 {transition_state => (
                   <PageWrapper path={path} defaultDisplay={defaultDisplay} transition_state={transition_state}>{children}</PageWrapper>   

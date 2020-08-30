@@ -128,7 +128,7 @@ const Container = styled.div`
     transform: translateX(${props => props.hide || props.defaultDisplay ? '-100%' : '0'});
 
     @media (min-width: 900px) {
-        transition-duration: var(--desktop-duration);
+        transition: transform var(--desktop-duration) ease;
         justify-items: end;
         transform: translateX(${props => props.hide || !props.defaultDisplay ? '-100%' : '0'});
     }
