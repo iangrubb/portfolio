@@ -28,6 +28,12 @@ module.exports = {
     },
     `gatsby-plugin-catch-links`,
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/siteStructure/layout`),
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         excerpt_separator: `<!-- end -->`,

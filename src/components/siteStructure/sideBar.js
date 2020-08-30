@@ -104,7 +104,7 @@ const Container = styled.div`
         width: 375px;
     }
 
-    @media (min-width: 1600px) {
+    @media (min-width: 1500px) {
         width: 450px;
     }
 

@@ -7,11 +7,10 @@ import Paper from '../paperCraft/paper'
 
 const SideLink = ({path, name, active}) => {
     return (
-        <LinkArea to={path} active={active}>
+        <LinkArea to={path} active={active ? "true" : "false"}>
             <Container color="purple">
                 <InnerWrapper>
                     <Heading>{name}</Heading>
-                    {/* <LinkBar color="pink" /> */}
                 </InnerWrapper>
                 <Pointer color="pink" shape="arrow" proportional active={active} />     
             </Container>
@@ -24,7 +23,7 @@ export default SideLink
 const LinkArea = styled(Link)`
     width: 100%;
     transition: right 0.2s ease;
-    transform: translateX(${props => props.active ? "10%" : "0"});
+    transform: translateX(${props => props.active === "true" ? "10%" : "0"});
 
     position: relative;
     right: ${props => props.active ? -10 : 0}%;
@@ -71,12 +70,6 @@ const Heading = styled.h2`
     }
 `
 
-const LinkBar = styled(Paper)`
-
-    margin: 2px 0 0 0;
-    width: 100%;
-    height: 4px;
-`
 
 const Pointer = styled(Paper)`
     position: absolute;

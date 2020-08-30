@@ -14,9 +14,8 @@ import subSectionHeader from '../components/paperCraft/constructions/subSectionH
 import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
 
 
-import alignToDisplay from '../components/display/template/alignToDisplay'
 import HeroDisplay from '../components/display/template/heroDisplay'
-import BodyContent from '../components/display/template/BodyContent'
+import BodyContent from '../components/display/template/bodyContent'
 
 
 import Paper from '../components/paperCraft/paper'

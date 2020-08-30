@@ -26,6 +26,7 @@ html {
   --mobile-duration: 0.4s;
 }
 
+ 
 
 body {
   margin: 0;
@@ -34,6 +35,11 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
 
 
   background-color: var(--background-color-secondary);
@@ -255,7 +261,10 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+
+
 }
+
 img {
   max-width: 100%;
   margin-left: 0;

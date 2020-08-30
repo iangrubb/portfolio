@@ -1,12 +1,12 @@
 import React from "react"
-import Layout from "./src/components/siteStructure/layout"
+// import Layout from "./src/components/siteStructure/layout"
 import DisplayContextProvider from "./src/context/displayContext"
 
 
-export const wrapPageElement = ({ element, props }) => {
+// export const wrapPageElement = ({ element, props }) => {
 
-    return <Layout {...props}>{element}</Layout>
-}
+//     return <Layout {...props}>{element}</Layout>
+// }
 
 
 export const wrapRootElement = ({ element }) => {

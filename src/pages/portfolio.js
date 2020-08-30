@@ -59,7 +59,7 @@ const PortfolioPage = ({data: { allMarkdownRemark: { nodes }}}) => {
 
 
             return (
-              <Link to={slug}><Title>{title}</Title></Link>
+              <Link key={slug} to={slug}><Title>{title}</Title></Link>
             )
           })} 
         </>

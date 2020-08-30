@@ -12,7 +12,6 @@ const NotFoundPage = () => (
 
     <Container>
 
-
       <Figure color="pink" shape="hHex">
         <Flex>
           <Number color="tan" shape="four" proportional />

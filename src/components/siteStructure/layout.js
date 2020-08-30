@@ -9,10 +9,12 @@ import { DisplayContext } from "../../context/displayContext"
 import Shapes from "../paperCraft/shapes"
 import Paper from '../paperCraft/paper'
 
+import PageWrapper from './pageWrapper'
 import SideBar from "./sideBar"
 import "./layout.css"
 
-import HamburgerLogo from '../paperCraft/constructions/logos/hamburger'
+
+import { Transition, TransitionGroup } from 'react-transition-group'
 
 
 const PreventScroll = createGlobalStyle`
@@ -32,20 +34,31 @@ const PreventScroll = createGlobalStyle`
 `
 
 
-const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
+const Layout = ({ children, location }) => {
 
-  const { defaultDisplay } = useContext(DisplayContext) 
+  const { defaultDisplay } = useContext(DisplayContext)
+
+  const path = location.pathname
   
   return (
       <>
         <Shapes />
         <PreventScroll defaultDisplay={defaultDisplay} />
 
-        <SideBar path={location.pathname} />
+        <SideBar path={path} />
 
-        <Spacer hideNav={location.pathname === "/"} defaultDisplay={defaultDisplay} >
-          <MainContent hideNav={location.pathname === "/"} defaultDisplay={defaultDisplay}>
-           {children}
+        <Spacer hideNav={path === "/"} defaultDisplay={defaultDisplay} >
+          <MainContent>
+            <TransitionGroup component={null}>
+              <Transition
+                key={path}
+                timeout={{enter: 350, exit: 350}}
+              >
+                {transition_state => (
+                  <PageWrapper path={path} defaultDisplay={defaultDisplay} transition_state={transition_state}>{children}</PageWrapper>   
+                )}
+              </Transition>
+            </TransitionGroup>
           </MainContent>
         </Spacer>
 
@@ -55,17 +68,19 @@ const Layout = ({ children, minimal, snapDesktop, snapMobile, location }) => {
 
 
 
-
 const Spacer = styled.div`
+
   margin: 0 0 0 auto;
 
   position: relative;
   z-index: 1;
 
+  transition: width var(--desktop-duration) ease;
   
 
-  transition: width var(--desktop-duration) ease;
-  width: 100vw;
+
+  min-height: calc(100vh - 96px);
+  
 
   @media (min-width: 900px) {
     width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
@@ -84,22 +99,14 @@ const Spacer = styled.div`
 `
 
 const MainContent = styled.div`
-  width: 100%;
-  max-width: 1400px;
 
-  min-height: 100vh;
+  position: relative;
   
+  width: calc(100% - 64px);
 
-  padding: 48px 32px;
+  margin: 48px 32px;
+  min-height: calc(100vh - 96px);
 
-  margin: 0 auto;
-
-
-  transition: transition var(--desktop-duration) ease;
-
-  @media (min-width: 1850px) {
-    transform: ${props => props.hideNav || !props.defaultDisplay  ? "none" : "translateX(calc(( -100vw + 1850px ) / 2 ))"};
-  }
 
 
 `

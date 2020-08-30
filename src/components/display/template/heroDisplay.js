@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 import styled from 'styled-components'
 
-import alignToDisplay from './alignToDisplay'
+import alignToDisplay from '../alignToDisplay'
 import Paper from '../../paperCraft/paper'
 
 const HeroDisplay = ({children, defaultDisplay, title, hero, heroAuthor, heroSource }) => {

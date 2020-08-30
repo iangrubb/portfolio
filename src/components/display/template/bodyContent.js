@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import alignToDisplay from './alignToDisplay'
+import alignToDisplay from '../alignToDisplay'
 
 import Paper from '../../paperCraft/paper'
 

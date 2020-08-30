@@ -12,8 +12,6 @@ import NavLink from '../components/paperCraft/constructions/navLink'
 
 import Icon from '../components/paperCraft/constructions/logos/github'
 
-import FrameBox from '../components/display/frameBox'
-
 export const query = graphql`
   query {
     file(relativePath: { eq: "profile.jpg" }) {
@@ -25,7 +23,6 @@ export const query = graphql`
     }
   }
 `
-
 
 const Box = styled.div`
   width: 400px;
@@ -186,11 +183,14 @@ const IndexPage = ({ data }) => {
 const LandingContent = styled.div`
 
   
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   display: grid;
   width: calc(100% - 300px);
 
-  height: 100vh;
   grid-template-columns: 1fr 30% 30% 1fr;
   grid-template-rows: 1fr auto 30px auto 60px auto 50px 30px auto 1fr;
 
