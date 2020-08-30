@@ -163,7 +163,7 @@ const Tagline = styled.p`
   margin: 0 0 24px 0;
   font-size: 22px;
   max-width: 300px;
-  text-shadow: 1px 1px 0 #222;
+  text-shadow: var(--text-shadow);
 
   @media (min-width: 900px) {
     font-size: 24px;
@@ -174,7 +174,7 @@ const Tagline = styled.p`
 
 const Tools = styled.div`
   font-size: 20px;
-  text-shadow: 1px 1px 0 #222;
+  text-shadow: var(--text-shadow);
 
   @media (min-width: 768px) {
     font-size: 22px;

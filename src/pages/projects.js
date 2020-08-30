@@ -60,13 +60,11 @@ const ProjectsPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
               return (
                 <Post key={node.id}>
 
-                  {/* <Bar color="purple" shape="frame" top/> */}
                   <Wrap>
                     <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
                     <Screen />
                   </Wrap>
                   
-                  {/* <Bar color="purple" shape="frame" /> */}
 
                   <MainContent color="purple" innerCSS={mainContentInner}>
                     <Link to={slug}><Title>{title}</Title></Link>

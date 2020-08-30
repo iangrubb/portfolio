@@ -8,8 +8,10 @@ html {
   --text-color: #302d38;
   --background-color: #e4dcd6;
   --background-color-clear: #e4dcd6d7;
-  --tint: #2c2936e3;
+  --tint: #221f2cde;
   --shadow: #2a292e52;
+
+  --text-shadow: 2px 2px 0 #222;
 
   --highlight-color: #ee657c;
 
