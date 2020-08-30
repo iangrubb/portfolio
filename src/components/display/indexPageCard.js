@@ -111,7 +111,7 @@ const Screen = styled.div`
 
   background: var(--tint);
 
-  border: 2px solid var(--background-color-secondary);
+  border: 2px solid #58545e;
 
 
   display: flex;
@@ -159,7 +159,7 @@ const TitleBar = styled(Paper)`
 const Shade = styled.div`
   background: #35303ade;
 
-  border-top: 2px solid var(--background-color-secondary);
+  border-top: 2px solid #58545e;
 
   position: relative;
   left: -16px;
@@ -178,4 +178,6 @@ const Shade = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  border-radius: 0 0 2px 2px;
 `

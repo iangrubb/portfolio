@@ -6,22 +6,23 @@ import styled from 'styled-components'
 import alignToDisplay from '../alignToDisplay'
 import Paper from '../../paperCraft/paper'
 
-const HeroDisplay = ({children, defaultDisplay, title, hero, heroAuthor, heroSource }) => {
+import ToolInfo from '../toolInfo'
+
+const HeroDisplay = ({children, defaultDisplay, title, hero, heroAuthor, heroSource, techTerms }) => {
 
     return (
         <Container color="purple" defaultDisplay={defaultDisplay}>
             <Hero imgStyle={{objectPosition: "top center"}} fluid={hero.childImageSharp.fluid} alt="hero" />
             <HeroTint>
                 <HeaderInfo defaultDisplay={defaultDisplay} >
-
-                    <Title>{title}</Title>
-
-                    <TitleBar color="pink" shape="frame" />
-
-                    {children}
-
+                  <Title>{title}</Title>
+                  <TitleBar color="pink" shape="frame" />
                 </HeaderInfo> 
-
+                <Shade>
+                  <Content defaultDisplay={defaultDisplay} >
+                  {children}
+                  </Content>
+                </Shade>
                 { heroAuthor && heroSource ?
                 <AttributionWrapper color="green" shape="rectangle">
                     <Attribution target="_blank" href={heroSource}>
@@ -30,6 +31,14 @@ const HeroDisplay = ({children, defaultDisplay, title, hero, heroAuthor, heroSou
                 </AttributionWrapper>
                 : null }
             </HeroTint>
+
+
+            {techTerms ?
+             <ToolOverlay>
+               {techTerms.map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
+             </ToolOverlay>
+            : null}
+
       </Container>
     )
 }
@@ -72,9 +81,9 @@ const HeroTint = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24px 40px;
+  /* padding: 24px 40px; */
   
-  border: 2px solid var(--background-color-secondary);
+  border: 2px solid #58545e;
 
 `
 
@@ -109,8 +118,11 @@ const Attribution = styled.a`
 
 const HeaderInfo = styled.div`
 
-  width: fit-content;
+  width: calc(100% + 80px);
+  max-width: 700px;
   ${alignToDisplay}
+
+  padding: 0 40px 16px 40px;
 
 `
 
@@ -121,9 +133,9 @@ const Title = styled.h2`
 
   text-shadow: var(--text-shadow);
   
-  max-width: 800px;
+  max-width: 600px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
  
     font-size: 56px;
   }
@@ -145,5 +157,75 @@ const Hero = styled(Img)`
   width: 100%;
 
   margin: 0;
+
+`
+
+const Shade = styled.div`
+  background: #35303ade;
+
+  border-top: 2px solid #58545e;
+
+
+  width: calc(100%);
+
+
+  margin: -16px 0 0 0;
+  
+  color: var(--background-color);
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  
+  border-radius: 0 0 4px 4px;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const Content = styled.div`
+
+  width: 100%;
+  max-width: 700px;
+  padding: 24px 48px;
+  ${alignToDisplay}
+
+`
+
+
+const ToolOverlay = styled.div`
+
+  display: none;
+
+  @media (min-width: 1200px) {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap-reverse;
+
+    max-height: 500px;
+
+    transform: translateY(-50%) scaleX(calc(6/7)) skewY(-27deg);
+
+  }
+
+
+`
+
+const PlacedTool = styled(ToolInfo)`
+
+  width: 80px;
+
+  transform: skewY(27deg)  scaleX(calc(7/6)) ;
+
+  @media (min-width: 1350px) {
+    width: 100px;
+  }
 
 `

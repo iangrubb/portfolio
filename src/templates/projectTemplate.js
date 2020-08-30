@@ -111,17 +111,11 @@ const BlogTemplate = ({ data }) => {
     <>
       <SEO title="Projects" />
 
-      <HeroDisplay {...{ defaultDisplay, title, hero }}>
+      <HeroDisplay {...{ defaultDisplay, title, hero }} techTerms={techTerms(tech)}>
+
         <Tagline>{tagline}</Tagline>
 
-    
         <Tools>{techTerms(tech).join(", ")}</Tools>
-
-        <LogoContainer >
-          {techTerms(tech).map((term, i) => <PlacedTool key={i} number={i} tool={term} />)}
-        </LogoContainer> 
-
-
 
         <LinksContainer>
           <LinkWrapper>
@@ -145,8 +139,14 @@ const BlogTemplate = ({ data }) => {
           : null}
         </LinksContainer>
 
-
       </HeroDisplay>
+
+      
+        
+
+
+
+        
 
       <BodyContent defaultDisplay={defaultDisplay}>
         {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
@@ -160,10 +160,9 @@ export default BlogTemplate
 
 
 const Tagline = styled.p`
-  margin: 0 0 24px 0;
+  margin: 0 0 8px 0;
   font-size: 22px;
   max-width: 300px;
-  text-shadow: var(--text-shadow);
 
   @media (min-width: 900px) {
     font-size: 24px;
@@ -173,12 +172,10 @@ const Tagline = styled.p`
 `
 
 const Tools = styled.div`
-  font-size: 20px;
-  text-shadow: var(--text-shadow);
+  font-size: 16px;
 
   @media (min-width: 768px) {
-    font-size: 22px;
-    max-width: 500px;
+    font-size: 18px;
   }
 `
 
@@ -237,44 +234,3 @@ const CTA = styled.span`
   margin: 2px 6px 0 6px;
 `
 
-
-
-
-
-
-
-
-const Content = styled.div`
-  width: 100%;
-  position: relative;
-
-  top: 500px;
-`
-
-
-
-const MainContent = styled.div`
-
-  padding: 0 20px;
-  margin: 0 auto;
-
-  & p a {
-    font-weight: 700;
-  }
-  
-
-  & p {
-    font-size: 19px;
-    margin: 0 0 0.8rem 0;
-    line-height: 1.6rem;
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    width: 700px;
-
-    & p {
-      width: 64ch;
-    }
-  }
-`

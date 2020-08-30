@@ -127,11 +127,9 @@ const Date = styled.time`
   font-family: "Vollkorn";
   font-weight: 700;
   font-size: 18px;
-  text-shadow: var(--text-shadow);
 
   @media (min-width: 768px) {
     font-size: 24px;
-    margin: 0 0 0 16px;
   }
 `
 
@@ -142,7 +140,6 @@ const Abstract = styled.p`
   line-height: 28px;
   width: 100%;  
   font-style: italic;
-  text-shadow: var(--text-shadow);
 `
 
 
