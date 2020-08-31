@@ -8,7 +8,7 @@ github: "https://github.com/iangrubb/ruby-enumerator-flash-cards"
 live: "https://ruby-enumerators.netlify.app"
 ---
 
-A little project designed to organize and display a bit of information about some Ruby's enumerator methods. These are very useful methods, but there are a lot of them and it can be difficult to remember which ones to use in which situations. To help make this easier, I put information on the methods and examples of their use on flashcards.
+A little project designed to organize and display a bit of information about some of Ruby's enumerator methods. These are very useful methods, but there are a lot of them and it can be difficult to remember which ones to use in which situations. To help make this easier, I put information on the methods and examples of their use on flashcards.
 
 Ironically, no Ruby was used in the creation of this project. I saw this as an opportunity to get some practice at front-end animation techniques. This was the first project where I experimented with using React Transition Group together with Styled Components.
 

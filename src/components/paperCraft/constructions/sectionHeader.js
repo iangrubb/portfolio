@@ -29,7 +29,7 @@ const HeadingWrapper = styled.div`
 
     @media (min-width: 900px) {
         position: relative;
-        left: -24px;
+        left: -16px;
     }
 
 `

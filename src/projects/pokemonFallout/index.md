@@ -8,7 +8,7 @@ github: "https://github.com/cstatro/poke-fallout-frontend"
 live: "https://pokemon-fallout.netlify.app/"
 ---
 
-This is a project developed with [Colin Tatro](https://github.com/cstatro) while we were students at Flatiron School. The initial concept was to make some sort of Tamagotchi-inspired app. While thinking about art assets, I remembered a [site](https://pokemon.alexonsager.net/) that made weird Pokemon fusions, which I figured we could scrape and use. That led to the question of what kind of environment would create these fusions, and from there the project took on a life of its own.
+This is a project developed with [Colin Tatro](https://github.com/cstatro) while we were students at Flatiron School. The initial concept was to make some sort of Tamagotchi-inspired app. While thinking about art assets, I remembered a [site](https://pokemon.alexonsager.net/) that made weird Pokemon fusions, which I figured we could scrape and use. That raised question of what kind of environment would create these fusions, and from there the project started to take on a life of its own.
 
 ## Functionality
 

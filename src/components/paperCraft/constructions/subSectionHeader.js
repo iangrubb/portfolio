@@ -28,7 +28,7 @@ const SubHeading = styled.h4`
     @media (min-width: 768px) {
         font-size: 28px;
         position: relative;
-        left: -16px;
+        left: -8px;
     }
 `
 
