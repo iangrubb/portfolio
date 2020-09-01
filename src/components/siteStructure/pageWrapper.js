@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React from 'react'
 
 import styled from 'styled-components'
 
@@ -46,11 +46,11 @@ const determineAnimation = stage => {
   }
   
 const Container = styled.div`
-top: 0;
-left: 0;
+/* top: 0;
+left: 0; */
 
-transition: transform 0.5s ease;
-${props => determineAnimation(props.transition_state)}
+/* transition: transform 1s ease;
+${props => determineAnimation(props.transition_state)} */
 
 
 `
@@ -61,6 +61,8 @@ const Align = styled.div`
   width: 100%;
   max-width: 1000px;
   min-height: calc(100vh - 96px);
+
+  background: lightblue;  
 
 
 `

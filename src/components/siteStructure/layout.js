@@ -45,55 +45,60 @@ const Layout = ({ children, location }) => {
         <Shapes />
         <PreventScroll defaultDisplay={defaultDisplay} />
 
-        <SideBar path={path} />
+        { path === "/" ?
+          <FullPage>{children}</FullPage> :
+          <FullPage>
+            <SideBar path={path} />
+            <Spacer defaultDisplay={defaultDisplay} >
+              <MainContent>
+                {children}     
+              </MainContent>
+            </Spacer>
+          </FullPage>
 
-        <Spacer hideNav={path === "/"} defaultDisplay={defaultDisplay} >
-          <MainContent>
-            <TransitionGroup component={null}>
-              <Transition
-                key={path}
-                timeout={{enter: 500, exit: 500}}
-              >
-                {transition_state => (
-                  <PageWrapper path={path} defaultDisplay={defaultDisplay} transition_state={transition_state}>{children}</PageWrapper>   
-                )}
-              </Transition>
-            </TransitionGroup>
-          </MainContent>
-        </Spacer>
-
+        }
       </>
   )
 }
 
 
+const FullPage = styled.div`
+  width: 100vw;
+  height: calc(100vh - 96px);
+
+`
 
 const Spacer = styled.div`
-
-  margin: 0 0 0 auto;
 
   position: relative;
   z-index: 1;
 
-  transition: width var(--desktop-duration) ease;
-  
-
+  transition: width var(--desktop-duration) ease, transform var(--desktop-duration) ease;
+    
 
   min-height: calc(100vh - 96px);
+
+  max-width: 1200px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
   
 
   @media (min-width: 900px) {
-    width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
+    width: ${props => !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
+    transform: ${props => !props.defaultDisplay ? "0" : "translateX(calc(-50% + 150px))"};
   }
 
   @media (min-width: 1200px) {
-    margin: 0 75px 0 auto;
-    width: ${props => props.hideNav || !props.defaultDisplay ? "100vw" : "calc(100vw - 450px)"};
+    width: ${props => !props.defaultDisplay ? "100vw" : "calc(100vw - 450px)"};
+    transform: ${props => !props.defaultDisplay ? "0" : "translateX(calc(-50% + 150px))"};
+
   }
 
   @media (min-width: 1500px) {
-    margin: 0 150px 0 auto;
-    width: ${props => props.hideNav || !props.defaultDisplay  ? "100vw" : "calc(100vw - 600px)"};
+    width: ${props => !props.defaultDisplay  ? "100vw" : "calc(100vw - 600px)"};
+    transform: ${props => !props.defaultDisplay ? "0" : "translateX(calc(-50% + 150px))"};
   }
 
 `
@@ -101,6 +106,7 @@ const Spacer = styled.div`
 const MainContent = styled.div`
 
   position: relative;
+
   
   width: calc(100% - 64px);
 

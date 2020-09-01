@@ -109,7 +109,7 @@ const Container = styled.div`
     }
 
 
-    display: grid;
+    display: ${props => props.hide ? "none" : "grid"};
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 1fr;
     grid-template-areas:

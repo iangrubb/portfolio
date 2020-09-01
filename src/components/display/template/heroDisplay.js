@@ -118,7 +118,7 @@ const Attribution = styled.a`
 
 const HeaderInfo = styled.div`
 
-  width: calc(100% + 80px);
+  width: 100%;
   max-width: 700px;
   ${alignToDisplay}
 
@@ -133,7 +133,6 @@ const Title = styled.h2`
 
   text-shadow: var(--text-shadow);
   
-  max-width: 600px;
 
   @media (min-width: 900px) {
  
