@@ -8,15 +8,13 @@ import styled, { css } from 'styled-components'
 
 import SEO from '../components/seo'
 
-import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
-import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
-import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
-import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
+import iframeWrapper from '../components/display/markdown/iframeWrapper'
+import sectionHeader from '../components/display/markdown/sectionHeader'
+import subSectionHeader from '../components/display/markdown/subSectionHeader'
+import ImageWrapper from '../components/display/markdown/imageWrapper'
 
 
 import Paper from '../components/paperCraft/paper'
-import FrameBox from '../components/display/frameBox'
-import ToolInfo from '../components/display/toolInfo'
 import GithubLogo from '../components/paperCraft/constructions/logos/github'
 import LiveLogo from '../components/paperCraft/constructions/logos/live'
 
@@ -119,7 +117,7 @@ const BlogTemplate = ({ data }) => {
 
         <LinksContainer>
           <LinkWrapper>
-            <a target="blank" href={github}><GithubLogo width="70px" /></a>
+            <a target="blank" href={github}><GithubLogo width="100%" /></a>
             <a target="blank" href={github}>
               <CTAWrapper color="pink" shape="frame"> 
                 <CTA>code</CTA>
@@ -129,7 +127,7 @@ const BlogTemplate = ({ data }) => {
           
           {live ?
             <LinkWrapper>
-              <a target="blank" href={live}><LiveLogo width="70px" /></a>
+              <a target="blank" href={live}><LiveLogo width="100%" /></a>
               <a target="blank" href={live}>
                 <CTAWrapper color="pink" shape="frame"> 
                   <CTA>live</CTA>
@@ -160,59 +158,52 @@ export default BlogTemplate
 
 
 const Tagline = styled.p`
-  margin: 0 0 8px 0;
-  font-size: 22px;
+  margin: 0 0 16px 0;
+  font-style: italic;
+  font-size: 20px;
   max-width: 300px;
+
+  @media (min-width: 500px) {
+    font-size: 22px;
+  }
 
   @media (min-width: 900px) {
     font-size: 24px;
-    font-style: italic;
+    
     max-width: 500px;
   }
 `
 
 const Tools = styled.div`
-  font-size: 16px;
+  font-size: 15px;
 
-  @media (min-width: 768px) {
-    font-size: 18px;
+  @media (min-width: 500px) {
+    font-size: 17px;
   }
-`
-
-const LogoContainer = styled.div`
-  display: none;
-  margin: 0 0 16px 0;
 
   @media (min-width: 900px) {
-    display: flex;
-    padding: 8px;
+    font-size: 19px;
+    
+    max-width: 500px;
   }
-`
 
-const PlacedTool = styled(ToolInfo)`
-  width: 55px;
-  max-width: 10vw;
 `
-
 
 
 const LinksContainer = styled.div`
   margin: 8px 0;
   display: flex;
-
-  @media (min-width: 900px) {
-  
-  }
 `
 
 const LinkWrapper = styled.div`
 
-  margin: 0 0 32px 0; 
-  width: fit-content;
+  margin: 0 8px 32px 0; 
+  width: 60px;
   position: relative;
 
-  @media (min-width: 900px) {
-    max-width: none;
+
+  @media (min-width: 500px) {
+    width: 70px;
   }
 `
 
@@ -223,14 +214,20 @@ const CTAWrapper = styled(Paper)`
   transform: translate(-50%, -20%);
   z-index: 2;
   margin: 8px 0;
+  @media (min-width: 500px) {
+    width: 70px;
+  }
 `
 
 const CTA = styled.span`
   font-family: "Vollkorn";
   color: var(--background-color);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 1px;
-  margin: 2px 6px 0 6px;
+  margin: 2px 4px 0 4px;
+  @media (min-width: 500px) {
+    font-size: 20px;
+  }
 `
 

@@ -8,10 +8,10 @@ import styled, { css } from 'styled-components'
 
 import SEO from '../components/seo'
 
-import iframeWrapper from '../components/paperCraft/constructions/iframeWrapper'
-import sectionHeader from '../components/paperCraft/constructions/sectionHeader'
-import subSectionHeader from '../components/paperCraft/constructions/subSectionHeader'
-import ImageWrapper from '../components/paperCraft/constructions/imageWrapper'
+import iframeWrapper from '../components/display/markdown/iframeWrapper'
+import sectionHeader from '../components/display/markdown/sectionHeader'
+import subSectionHeader from '../components/display/markdown/subSectionHeader'
+import ImageWrapper from '../components/display/markdown/imageWrapper'
 
 
 import HeroDisplay from '../components/display/template/heroDisplay'
@@ -128,18 +128,28 @@ const Date = styled.time`
   font-weight: 700;
   font-size: 18px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     font-size: 24px;
   }
 `
 
 const Abstract = styled.p`
   margin: 16px 0;
-  font-size: 22px;
+  font-size: 18px;
   max-width: 600px;
   line-height: 28px;
   width: 100%;  
   font-style: italic;
+
+  @media (min-width: 500px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 22px;
+  }
+
+  
 `
 
 

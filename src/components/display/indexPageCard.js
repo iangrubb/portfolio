@@ -42,12 +42,13 @@ export default IndexPageCard
 
 const Card = styled.div`
 
-  margin: 16px;
+  margin: 16px 4px; 
 
   width: 100%;
   
 
   @media (min-width: 900px) {
+    margin: 16px;
     width: calc(${props => props.defaultDisplay ? 100 : 50}% - 32px);
   }
 
@@ -65,7 +66,11 @@ const Card = styled.div`
 const Spacer = styled.div`
   width: 100%;
   height: 0;
-  padding-top: calc( 600px - 30% ) ;
+  padding-top: calc( 500px - 30% ) ;
+
+  @media (min-width: 500px) {
+    padding-top: calc( 600px - 30% ) ;
+  }
 
   position: relative;
 `
@@ -78,11 +83,9 @@ const CardFace = styled(Paper)`
   left: 0;
   width: 100%;
 
-  padding: 8px;
+  padding: 6px;
 
   border-radius: 8px;
-
-
 
 `
 
@@ -136,21 +139,23 @@ const Hero = styled(Img)`
 
 const Title = styled.h2`
   margin: 0 0 8px 0;
-  font-size: 32px;
+  font-size: 36px;
 
   color: var(--background-color);
   text-shadow: var(--text-shadow);
 
-  @media (min-width: 768px) {
-    font-size: 40px;
+  @media (min-width: 500px) {
+    font-size: 42px;
   }
+
+
 `
 
 const TitleBar = styled(Paper)`
   height: 8px;
   width: 120px;
   margin: 0 0 16px 8px;
-  @media (min-width: 768px) {
+  @media (min-width: 500px) {
     width: 180px;
   }
 `
@@ -166,13 +171,13 @@ const Shade = styled.div`
   top: 16px;
 
   width: calc(100% + 32px);
-  height: 35%;
+  height: fit-content;
   margin: -16px 0 0 0;
-  padding: 24px;
+  padding: 16px;
 
   color: var(--background-color);
-  font-size: 20px;
-  letter-spacing: 0.4px;
+  font-size: 18px;
+  letter-spacing: 0px;
   
 
   display: flex;
@@ -180,4 +185,15 @@ const Shade = styled.div`
   justify-content: center;
 
   border-radius: 0 0 2px 2px;
+
+
+  @media (min-width: 500px) {
+    font-size: 20px;
+    letter-spacing: 0.4px;
+  }
+
+  @media (min-width: 900px) {
+    height: 35%;
+    padding: 24px;
+  }
 `

@@ -22,13 +22,13 @@ export default BodyContent
 const Wrapper = styled(Paper)`
 
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   
   border-radius: 8px;
 
   margin: 0 auto;
 
-  padding: 8px;
+  padding: 6px;
 
   ${alignToDisplay}
 
@@ -42,8 +42,7 @@ const Content = styled.article`
   background: var(--background-color);
   border-radius: 6px;
 
-
-  padding: 48px 32px 32px 32px;
+  padding: 32px 20px;
   margin: 0;
 
 
@@ -53,13 +52,22 @@ const Content = styled.article`
   
   & p {
     
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 24px;
     margin: 0 auto 0.8rem auto;
-    line-height: 1.6rem;
+    
 
     width: 700px;
     max-width: 100%;
 
+  }
+
+  @media (min-width: 500px) {
+    padding: 48px 32px 32px 32px;
+    & p { 
+      font-size: 18px;
+      line-height: 26px;
+    }
   }
 
   @media (min-width: 900px) {

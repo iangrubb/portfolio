@@ -18,60 +18,74 @@ const SideBar = ({ path }) => {
 
     const { defaultDisplay, toggleDefaultDisplay } = useContext(DisplayContext) 
 
+
+    const renderContents = () => (
+        <>
+            <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
+                <Hamburger color="purple">
+                    <HamburgerInner color="tan">
+                        <HamburgerLine color="purple" noShadow/>
+                        <HamburgerLine color="purple" noShadow/>
+                        <HamburgerLine color="purple" noShadow/>
+                    </HamburgerInner>
+                </Hamburger>
+            </Button>
+
+            <HeaderLink to="/">
+                <NameWrapper color="purple" shape="frame" fit>
+                    <Name>Ian Grubb</Name>
+                </NameWrapper>
+                <TitleWrapper color="pink" shape="frame" fit>
+                    <Title>Full Stack Developer</Title>
+                </TitleWrapper>
+            </HeaderLink>
+            
+            <Links>
+                <SideLink active={path.startsWith("/blog")} path="/blog" name="Blog"/>
+                <SideLink active={path.startsWith("/portfolio")} path="/portfolio" name="Portfolio" />
+                <SideLink active={path.startsWith("/about")} path="/about" name="About" />
+            </Links>
+
+            <Social>
+
+                <Spacer color="pink" shape="spacer" proportional />
+                
+                <SocialLinks />  
+
+                <EmailWrapper color="purple" shape="frame" fit>
+                    <Email href="mailto:hi@iangrubb.com">hi@iangrubb.com</Email>
+                </EmailWrapper>
+
+                <Spacer color="pink" shape="spacer" proportional />
+
+            </Social>
+
+
+
+            <GatsbyLink href="https://www.gatsbyjs.org" target="_blank" title="Gatsby JS">
+                <MadeWith color="purple" shape="frame" fit>
+                    <Text>built with Gatsby</Text>
+                    <CopyText> © {new Date().getFullYear()}</CopyText>
+                </MadeWith>
+                <PlacedGatsbyLogo />
+            </GatsbyLink>
+        </>
+    )
+
     return (
         <Container hide={path === "/"} defaultDisplay={defaultDisplay}>
 
-            <Main>
-                <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
-                    <Hamburger color="purple">
-                        <HamburgerInner color="tan">
-                            <HamburgerLine color="purple" noShadow/>
-                            <HamburgerLine color="purple" noShadow/>
-                            <HamburgerLine color="purple" noShadow/>
-                        </HamburgerInner>
-                    </Hamburger>
-                </Button>
+            <Screen defaultDisplay={defaultDisplay} onClick={toggleDefaultDisplay} />
 
-                <HeaderLink to="/">
-                    <NameWrapper color="purple" shape="frame" fit>
-                        <Name>Ian Grubb</Name>
-                    </NameWrapper>
-                    <TitleWrapper color="pink" shape="frame" fit>
-                        <Title>Full Stack Developer</Title>
-                    </TitleWrapper>
-                </HeaderLink>
-                
-                <Links>
-                    <SideLink active={path.startsWith("/blog")} path="/blog" name="Blog"/>
-                    <SideLink active={path.startsWith("/portfolio")} path="/portfolio" name="Portfolio" />
-                    <SideLink active={path.startsWith("/about")} path="/about" name="About" />
-                </Links>
+            <DesktopMain>
+                {renderContents()}
+            </DesktopMain>
 
-                <Social>
-
-                    <Spacer color="pink" shape="spacer" proportional />
-                    
-                    <SocialLinks />  
-
-                    <EmailWrapper color="purple" shape="frame" fit>
-                        <Email href="mailto:hi@iangrubb.com">hi@iangrubb.com</Email>
-                    </EmailWrapper>
-
-                    <Spacer color="pink" shape="spacer" proportional />
-
-                </Social>
-
-
-
-                <GatsbyLink href="https://www.gatsbyjs.org" target="_blank" title="Gatsby JS">
-                    <MadeWith color="purple" shape="frame" fit>
-                        <Text>built with Gatsby</Text>
-                        <CopyText> © {new Date().getFullYear()}</CopyText>
-                    </MadeWith>
-                    <PlacedGatsbyLogo />
-                </GatsbyLink>
-
-            </Main>
+            <MobileMain color="tan">
+                <MobileBackground>
+                    {renderContents()}
+                </MobileBackground>
+            </MobileMain>
             
                  
         </Container>
@@ -84,19 +98,18 @@ export default SideBar
 
 const Container = styled.div`
 
-    background: #55555555;
-
     position: fixed;
+    
+    z-index: 2;
+
     top: 0;
     left: 0;
-    z-index: 2;
 
     
     height: 100vh;
     width: 100vw;
 
     @media (min-width: 900px) {
-        background: none;
         width: 300px;
     }
 
@@ -109,7 +122,11 @@ const Container = styled.div`
     }
 
 
-    display: ${props => props.hide ? "none" : "grid"};
+   
+    display: grid;
+
+    transform: translateX(${props => props.defaultDisplay ? '-100%' : '0'});
+    
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 1fr;
     grid-template-areas:
@@ -121,21 +138,44 @@ const Container = styled.div`
     justify-items: center;
 
 
-    
-    
-    transition: transform var(--mobile-duration) ease;
-
-    transform: translateX(${props => props.hide || props.defaultDisplay ? '-100%' : '0'});
-
     @media (min-width: 900px) {
+        display: ${props => props.hide ? "none" : "grid"};
+        
         transition: transform var(--desktop-duration) ease;
         justify-items: end;
-        transform: translateX(${props => props.hide || !props.defaultDisplay ? '-100%' : '0'});
+        transform: translateX(${props => !props.defaultDisplay ? '-100%' : '0'});
     }
 
 `
 
-const Main = styled.div`
+
+const Screen = styled.div`
+
+    display: ${props => props.defaultDisplay ? "none" : "block"};
+
+    background: var(--tint);
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+
+    @media ( min-width: 900px) {
+        display: none;
+    }
+
+`
+
+const DesktopMain = styled.div`
+
+    display: none;
+
+    position: relative;
+    z-index: 3;
 
     grid-area: main;
 
@@ -146,9 +186,45 @@ const Main = styled.div`
     padding: 16px;
 
     @media (min-width: 900px) {
+        display: flex;
         padding: 16px 16px 16px 32px;
     }
     
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+`
+
+const MobileMain = styled(Paper)`
+
+    position: relative;
+    z-index: 3;
+
+    grid-area: main;
+
+    width: 300px;
+    height: calc(100vh - 32px);
+    max-height: 750px;
+
+    margin: 16px 0;
+
+    padding: 8px;
+
+    display: block;
+
+    @media (min-width: 900px) {
+        display: none;
+    }
+
+`
+
+const MobileBackground = styled.div`
+    background: var(--background-color);
+
+    padding: 16px;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -161,8 +237,8 @@ const Main = styled.div`
 
 const Button = styled.button`
 
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     margin: 8px 0 0 0;
 
     @media (min-height: 750px) {
@@ -195,9 +271,7 @@ const Button = styled.button`
 
     position: relative;
 
-    transition: transform 0.1s ease, right var(--mobile-duration) ease, top var(--mobile-duration) ease;
-
-    top: 0;
+    top: ${props => props.defaultDisplay ? "-24px" : "-4px"};
     right: ${props => props.defaultDisplay && !props.hide ? "calc(((-100vw + 300px ) / 2) - 76px)" : "0"};
 
     @media (min-height: 750px) {
@@ -206,6 +280,7 @@ const Button = styled.button`
     }
 
     @media (min-width: 900px) {
+        top: 0;
         transition: transform 0.1s ease, right var(--desktop-duration) ease, top var(--desktop-duration) ease;
         right: ${props => !props.defaultDisplay && !props.hide ? -76 : 0}px;
     }
@@ -223,6 +298,7 @@ const Button = styled.button`
 const Hamburger = styled(Paper)`
     width: 100%;
     height: 100%;
+
 
     display: flex;
     justify-content: center;

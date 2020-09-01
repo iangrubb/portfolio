@@ -7,29 +7,34 @@ import Paper from '../paperCraft/paper'
 
 const SideLink = ({path, name, active}) => {
     return (
-        <LinkArea to={path} active={active ? "true" : "false"}>
+        <LinkArea active={active ? "true" : "false"}>
+            <Link to={path}>
             <Container color="purple">
                 <InnerWrapper>
                     <Heading>{name}</Heading>
-                </InnerWrapper>
-                <Pointer color="pink" shape="arrow" proportional active={active} />     
+                </InnerWrapper> 
             </Container>
+            </Link>
+            <Pointer color="pink" shape="arrow" proportional active={active} />    
         </LinkArea>
     )
 }
 
 export default SideLink
 
-const LinkArea = styled(Link)`
+const LinkArea = styled.div`
     width: 100%;
-    transition: right 0.2s ease;
-    transform: translateX(${props => props.active === "true" ? "10%" : "0"});
+    transition: transform 0.2s ease;
+    transform: translateX(${props => props.active === "true" ? "10px" : "0"});
+
 
     position: relative;
-    right: ${props => props.active ? -10 : 0}%;
 `
 
 const Container = styled(Paper)`
+
+    position: relative;
+    z-index: 1;
 
     margin: 0 0 6px 10%;
     height: 40px;
@@ -79,12 +84,13 @@ const Pointer = styled(Paper)`
     left: 0;
     top: 50%;
     z-index: -1;
-    transform: translate(${props => props.active ? "-40" : "0"}px, -50%);
+    transform: translate(${props => props.active ? "-15" : "20"}px, -50%);
     transition: transform 0.2s ease;
 
     width: 24px;
 
     @media (min-height: 750px) {
+        transform: translate(${props => props.active ? "-25" : "10"}px, -50%);
         width: 30px;
     }
 

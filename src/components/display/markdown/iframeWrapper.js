@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import Paper from '../paper'
+import Paper from '../../paperCraft/paper'
 
 const iframeWrapper = ({title, src, children, w, h}) => {
 
@@ -38,14 +38,23 @@ const Spacer = styled.figure`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 32px 0;
 
     width: 100%;
+
+    margin: 24px 0 12px 0;
+
+    @media (min-width: 900px) {
+        margin: 32px 0;
+    }
 `
 
 const Title = styled.figcaption`
     font-style: italic;
-    margin: 12px 0 0 0;
+    margin: 8px 0 0 0;
+
+    @media (min-width: 900px) {
+        margin: 12px 0 0 0;
+    }
 `
 
 const Container = styled(Paper)`
@@ -53,13 +62,17 @@ const Container = styled(Paper)`
     height: fit-content;
     width: 100%;
 
-    padding: 8px;
+    padding: 6px;
 
     border-radius: 8px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 900px) {
+        padding: 8px;
+    }
     
 
 `

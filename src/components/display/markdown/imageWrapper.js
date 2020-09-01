@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 import styled, { css } from 'styled-components'
 
-import Paper from '../paper'
+import Paper from '../../paperCraft/paper'
 
 const ImageWrapper = (props) => {
 
@@ -29,12 +29,21 @@ const Container = styled.figure`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 32px 0;
+    margin: 24px 0 12px 0;
+
+    @media (min-width: 900px) {
+        margin: 32px 0;
+    }
+    
 `
 
 const Title = styled.figcaption`
     font-style: italic;
-    margin: 12px 0 0 0;
+    margin: 8px 0 0 0;
+
+    @media (min-width: 900px) {
+        margin: 12px 0 0 0;
+    }
 `
 
 const Wrapper = styled(Paper)`
@@ -42,10 +51,10 @@ const Wrapper = styled(Paper)`
     width: 100%;
     height: fit-content;
 
-    padding: 8px;
+    padding: 6px;
 
     @media (min-width: 900px) {
-
+        padding: 8px;
     }
 
 `

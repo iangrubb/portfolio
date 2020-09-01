@@ -47,7 +47,7 @@ const BlogPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
         const formatedDate = [month, fixedDay, year].join(" ")
 
         return (
-          <IndexPageCard {...{hero, title, slug}}>
+          <IndexPageCard key={slug} {...{hero, title, slug}}>
             
             <Abstract>{abstract}</Abstract>
             {/* <Date>{formatedDate}</Date> */}

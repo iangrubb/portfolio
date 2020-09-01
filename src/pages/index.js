@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image'
 
@@ -11,6 +11,8 @@ import Paper from "../components/paperCraft/paper"
 import NavLink from '../components/paperCraft/constructions/navLink'
 
 import Icon from '../components/paperCraft/constructions/logos/github'
+
+import { DisplayContext } from "../context/displayContext"
 
 export const query = graphql`
   query {
@@ -63,34 +65,14 @@ const Frame = styled(Paper)`
 
 const IndexPage = ({ data }) => {
 
+  const { defaultDisplay } = useContext(DisplayContext)
+
   return (
   <>
     <SEO title="Home" />
 
-{/* 
 
-    <I/>
-    <Box>
-      <h1>Wow, an h1!</h1>
-      <h2>(and an h2)</h2>
-      <p>Here's a short paragraph, wrapped in a p tag. It goes on just long enough to fill up the space, so I can see how it looks. Just a bit longer now...</p>
-    </Box>
-
-    <Frame color="green" shape="hHex" >
-      <Me fluid={data.file.childImageSharp.fluid} />
-    </Frame> */}
-
-
-
-
-
-
-
-
-
-
-
-    <LandingContent>
+    <LandingContent defaultDisplay={defaultDisplay} >
       <Eses>
         <Es color="pink" shape="weirdS" width={28} right={41} bottom={-4} proportional/>
         <Es color="green" shape="weirdS" width={33} right={22} bottom={-2} proportional/>
@@ -105,73 +87,6 @@ const IndexPage = ({ data }) => {
         <NavLink path="/portfolio" text="Portfolio" />
         <NavLink path="/about" text="About" />       
       </Links>
-      <Diamonds>
-        {/* <Diamond color="green" shape="diamond" left={0} top={0} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={1} top={0} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={2} top={0} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={3} top={0} proportional/> */}
-        <Diamond color="green" shape="diamond" left={4} top={0} proportional/>
-        <Diamond color="green" shape="diamond" left={5} top={0} proportional/>
-        <Diamond color="green" shape="diamond" left={6} top={0} proportional/>
-        {/* <Diamond color="green" shape="diamond" left={7} top={0} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={8} top={0} proportional/> */}
-
-        {/* <Diamond color="green" shape="diamond" left={0} top={1} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={1} top={1} proportional/> */}
-        <Diamond color="green" shape="diamond" left={2} top={1} proportional/>
-        <Diamond color="green" shape="diamond" left={3} top={1} proportional/>
-        <Diamond color="green" shape="diamond" left={4} top={1} proportional/>
-        <Diamond color="green" shape="diamond" left={5} top={1} proportional/>
-        <Diamond color="green" shape="diamond" left={6} top={1} proportional/>
-        <Diamond color="green" shape="diamond" left={7} top={1} proportional/>
-        {/* <Diamond color="green" shape="diamond" left={8} top={1} proportional/> */}
-
-        {/* <Diamond color="green" shape="diamond" left={0} top={2} proportional/> */}
-        <Diamond color="green" shape="diamond" left={1} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={2} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={3} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={4} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={5} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={6} top={2} proportional/>
-        <Diamond color="green" shape="diamond" left={7} top={2} proportional/>
-        {/* <Diamond color="green" shape="diamond" left={8} top={2} proportional/> */}
-
-        <Diamond color="green" shape="diamond" left={0} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={1} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={2} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={3} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={4} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={5} top={3} proportional/>
-        {/* <Diamond color="green" shape="diamond" left={6} top={3} proportional/>
-        <Diamond color="green" shape="diamond" left={7} top={3} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={8} top={3} proportional/> */}
-
-        {/* <Diamond color="green" shape="diamond" left={0} top={4} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={1} top={4} proportional/> */}
-        <Diamond color="green" shape="diamond" left={2} top={4} proportional/>
-        <Diamond color="green" shape="diamond" left={3} top={4} proportional/>
-        <Diamond color="green" shape="diamond" left={4} top={4} proportional/>
-        {/* <Diamond color="green" shape="diamond" left={5} top={4} proportional/>
-        <Diamond color="green" shape="diamond" left={6} top={4} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={7} top={4} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={8} top={4} proportional/> */}
-
-        {/* <Diamond color="green" shape="diamond" left={0} top={5} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={1} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={2} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={3} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={4} top={5} proportional/> */}
-        {/* <Diamond color="green" shape="diamond" left={5} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={6} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={7} top={5} proportional/>
-        <Diamond color="green" shape="diamond" left={8} top={5} proportional/> */}
-
-        
-
-
-      </Diamonds>
-
-      {/* <Coral color="pink" shape="coral" proportional/> */}
      
     </LandingContent>
 
@@ -183,13 +98,15 @@ const IndexPage = ({ data }) => {
 const LandingContent = styled.div`
 
   
-  position: absolute;
+  position: fixed;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   display: grid;
-  width: calc(100% - 300px);
+
+  width: fit-content;
 
   grid-template-columns: 1fr 30% 30% 1fr;
   grid-template-rows: 1fr auto 30px auto 60px auto 50px 30px auto 1fr;
@@ -209,10 +126,12 @@ const LandingContent = styled.div`
 
   /* display: none; */
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
+    transform: translate(${props => props.defaultDisplay ? "calc(-150px - 50%)" : "-50%"} , -50%);
     grid-template-columns: 1fr 300px 300px 1fr;
     grid-template-rows: 1fr auto 50px auto 90px auto 120px 20px auto 1fr;
   }
+
 
 `
 
@@ -224,7 +143,7 @@ const Name = styled.h1`
   font-weight: 900;
   font-size: 60px;
   line-height: 50px;
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     font-size: 80px;
     margin: 0;
   }
@@ -237,7 +156,7 @@ const Spacer = styled(Paper)`
   max-width: 140px;
   height: 30px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     height: 40px;
     max-width: 200px;
   }
@@ -255,7 +174,7 @@ const Blurb = styled.p`
   font-size: 28px;
   line-height: 28px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     font-size: 42px;
     margin: 0;
   }
@@ -276,7 +195,7 @@ const Apple = styled(Paper)`
     width: 22px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     width: 26px;
   }
 `
@@ -288,7 +207,7 @@ const Seaweed = styled(Paper)`
   width: 80%;
   max-width: 100px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     max-width: 140px;
   }
 `
@@ -306,7 +225,7 @@ const Eses = styled.div`
 
   max-width: 120px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     max-width: 150px;
   }
 `
@@ -317,7 +236,7 @@ const Es = styled(Paper)`
   right: ${props => props.right}%;
   bottom: ${props => props.bottom}%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     width: ${props => `calc(${props.width} * 1.4)`};
     left: ${props => `calc(${props.left} * 1.4)`};
     top: ${props => `calc(${props.left}/8)`};
@@ -335,7 +254,7 @@ const Diamonds = styled.div`
   width: 180px;
   height: 80px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     width: 240px;
     height: 110px;
   }
@@ -355,7 +274,7 @@ const Diamond = styled(Paper)`
   top: ${props => -props.left + ( props.top * ( height + 1 ))}%;
 
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
   }
 `
 

@@ -51,7 +51,7 @@ const Container = styled(Paper)`
 
   height: 600px;
 
-  padding: 8px;
+  padding: 6px;
   margin: 0 0 12px 0;
 
   border-radius: 8px;
@@ -69,10 +69,10 @@ const Container = styled(Paper)`
 
 const HeroTint = styled.div`
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 8px;
-  right: 8px;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
   border-radius: 7px;
   background: var(--tint);
 
@@ -81,7 +81,6 @@ const HeroTint = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* padding: 24px 40px; */
   
   border: 2px solid #58545e;
 
@@ -122,21 +121,28 @@ const HeaderInfo = styled.div`
   max-width: 700px;
   ${alignToDisplay}
 
-  padding: 0 40px 16px 40px;
+  padding: 0 16px 16px 16px;
+
+  @media (min-width: 900px) {
+    padding: 0 40px 16px 40px;
+  }
 
 `
 
 const Title = styled.h2`
 
   margin: 0 0 4px 0;
-  font-size: 36px;
+  font-size: 32px;
 
   text-shadow: var(--text-shadow);
   
+  @media (min-width: 500px) {
+    font-size: 40px;
+  }
 
   @media (min-width: 900px) {
  
-    font-size: 56px;
+    font-size: 44px;
   }
 `
 
@@ -144,7 +150,7 @@ const TitleBar = styled(Paper)`
   height: 8px;
   width: 120px;
   margin: 0 0 16px 8px;
-  @media (min-width: 768px) {
+  @media (min-width: 500px) {
     width: 180px;
   }
 `
@@ -171,7 +177,6 @@ const Shade = styled.div`
   margin: -16px 0 0 0;
   
   color: var(--background-color);
-  font-size: 20px;
   letter-spacing: 0.4px;
   
   border-radius: 0 0 4px 4px;
@@ -180,14 +185,19 @@ const Shade = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 `
 
 const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
-  padding: 24px 48px;
+  padding: 24px;
   ${alignToDisplay}
+
+  @media (min-width: 900px) {
+    padding: 24px 48px;
+  }
 
 `
 

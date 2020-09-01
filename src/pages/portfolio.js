@@ -57,13 +57,10 @@ const PortfolioPage = ({data: { allMarkdownRemark: { nodes }}}) => {
           {projectOrder.map(term => {
             const node = nodes.find(n => n.frontmatter.title === term)
             const { title, hero, slug, tagline, tech, github, live } = node.frontmatter
-            const techTerms = tech.split(",").map(string => string.trim())
-
             return (
               
-                <IndexPageCard {...{hero, title, slug}}>
+                <IndexPageCard key={slug} {...{hero, title, slug}}>
                   <Tagline>{tagline}</Tagline>
-                  {/* <Tools>{techTerms.join(", ")}</Tools> */}
                 </IndexPageCard>
               
             )
@@ -80,12 +77,11 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 
+
   display: flex;
   flex-wrap: wrap;
 
 `
-
-
 
 const Tagline = styled.p`
 
@@ -93,19 +89,5 @@ const Tagline = styled.p`
   font-style: italic;
   
 
-  @media (min-width: 900px) {
-
-  }
 `
-
-const Tools = styled.div`
-
-  font-size: 16px;
-
-
-  @media (min-width: 900px) {
-
-  }
-`
-
 
