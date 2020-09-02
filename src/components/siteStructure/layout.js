@@ -7,14 +7,11 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { DisplayContext } from "../../context/displayContext"
 
 import Shapes from "../paperCraft/shapes"
-import Paper from '../paperCraft/paper'
 
 import PageWrapper from './pageWrapper'
 import SideBar from "./sideBar"
 import "./layout.css"
 
-
-import { Transition, TransitionGroup } from 'react-transition-group'
 
 
 const PreventScroll = createGlobalStyle`
@@ -69,8 +66,8 @@ const Spacer = styled.div`
   position: relative;
   z-index: 1;
 
-  transition: width var(--desktop-duration) ease, transform var(--desktop-duration) ease;
-    
+  transition: transform var(--desktop-duration) ease;
+
 
   min-height: calc(100vh - 96px);
 
@@ -104,36 +101,6 @@ const Spacer = styled.div`
 
 
 `
-
-const MainContent = styled.div`
-
-  position: relative;
-
- 
-
-  
-  width: calc(100% - 64px);
-
-  max-width: 1200px;
-
-  margin: 48px 32px;
-  min-height: calc(100vh - 96px);
-
-  @media (min-width: 900px) {
-    transition: left var(--desktop-duration) ease, transform var(--desktop-duration) ease;
-    left: 0;
-    ${props => props.defaultDisplay ? null : `
-      left: 50%;
-      transform: translateX(-50%);
-      
-    `}
-
-  }
-
-
-
-`
-
 
 
 Layout.propTypes = {

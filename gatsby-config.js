@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Ian Grubb | Full Stack Developer`,
-    description: `A developer portfolio and blog.`,
+    title: `Ian Grubb | Full-Stack Developer`,
+    description: `A developer portfolio and blog`,
     author: `Ian Grubb`,
+    siteUrl: "https://www.iangrubb.com"
   },
   plugins: [
     {
@@ -56,20 +57,20 @@ module.exports = {
         ]
       }
     },
-    // Configure this when ready
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ian Grubb Portfolio`,
+        short_name: `Ian Grubb`,
+        start_url: `/`,
+        background_color: `#e4dcd6`,
+        theme_color: `#302d38`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,

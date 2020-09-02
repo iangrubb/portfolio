@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import SEO from "../components/seo"
 
-import Layout from '../components/siteStructure/layout'
+import Paper from "../components/paperCraft/paper"
 
 // import resume from '../documents/ian-grubb-resume.pdf'
 
@@ -31,10 +31,28 @@ const AboutPage = ({ data: {profile, resume } }) => {
         <>
           <SEO title="About" />
             {/* <a href={resume.publicURL} target="_blank">Resume</a> */}
-
+          <Hex color="purple" shape="hHex" proportional noShadow>
+            <InnerHex color="tan" shape="hHex" proportional noShadow>
+              <Seaweed color="purple" shape="g" proportional noShadow />
+            </InnerHex>
+          </Hex>
             
         </>
     )
 }
 
 export default AboutPage
+
+const Hex = styled(Paper)`
+  width: 80px;
+
+`
+
+const InnerHex = styled(Paper)`
+  width: 85%;
+`
+
+const Seaweed = styled(Paper)`
+  width: 80%;
+  
+`

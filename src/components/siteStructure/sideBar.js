@@ -36,7 +36,7 @@ const SideBar = ({ path }) => {
                     <Name>Ian Grubb</Name>
                 </NameWrapper>
                 <TitleWrapper color="pink" shape="frame" fit>
-                    <Title>Full Stack Developer</Title>
+                    <Title>Full-Stack Developer</Title>
                 </TitleWrapper>
             </HeaderLink>
             
@@ -53,7 +53,7 @@ const SideBar = ({ path }) => {
                 <SocialLinks />  
 
                 <EmailWrapper color="purple" shape="frame" fit>
-                    <Email href="mailto:hi@iangrubb.com">hi@iangrubb.com</Email>
+                    <Email href="mailto:hi@iangrubb.com?subject=Reaching out...">hi@iangrubb.com</Email>
                 </EmailWrapper>
 
                 <Spacer color="pink" shape="spacer" proportional />
