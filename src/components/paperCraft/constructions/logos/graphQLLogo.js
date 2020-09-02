@@ -36,19 +36,19 @@ export default GraphQLLogo
 
 const Dot = styled(Paper)`
     position: absolute;
-    top: ${props => props.y}%;
-    left: ${props => props.x}%;
+    top: ${props => props.y * 1.3 - 15}%;
+    left: ${props => props.x * 1.3 - 15}%;
     transform: translate(-50%, -50%);
-    width: 12%;
+    width: 15%;
 `
 
 const Bar = styled(Paper)`
     position: absolute;
-    top: ${props => props.y}%;
-    left: ${props => props.x}%;
+    top: ${props => props.y * 1.3 - 15}%;
+    left: ${props => props.x * 1.3 - 15}%;
     transform-origin: center left;
     transform: translate(0, -50%) rotate(${props => props.angle}deg);
 
-    width: ${props => props.length}%;
-    height: 3%;
+    width: ${props => props.length * 1.25}%;
+    height: 5%;
 `

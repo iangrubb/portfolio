@@ -1,20 +1,8 @@
 import React from 'react'
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
-import styled, { css } from 'styled-components'
+import { graphql } from "gatsby"
+import styled from 'styled-components'
 
-import Layout from '../components/siteStructure/layout'
 import SEO from "../components/seo"
-
-import Paper from '../components/paperCraft/paper'
-
-import FrameBox from '../components/display/frameBox'
-
-import GithubLogo from '../components/paperCraft/constructions/logos/github'
-import LiveLogo from '../components/paperCraft/constructions/logos/live'
-import LearnLogo from '../components/paperCraft/constructions/logos/learn'
-
-import ToolInfo from '../components/display/toolInfo'
 
 import IndexPageCard from '../components/display/indexPageCard'
 
@@ -28,9 +16,6 @@ export const query = graphql`
           slug
           title
           tagline
-          tech
-          github
-          live
           hero {
             childImageSharp {
               fluid(maxWidth: 1000) {
@@ -56,7 +41,7 @@ const PortfolioPage = ({data: { allMarkdownRemark: { nodes }}}) => {
           <SEO title="Portfolio" />
           {projectOrder.map(term => {
             const node = nodes.find(n => n.frontmatter.title === term)
-            const { title, hero, slug, tagline, tech, github, live } = node.frontmatter
+            const { title, hero, slug, tagline } = node.frontmatter
             return (
               
                 <IndexPageCard key={slug} {...{hero, title, slug}}>

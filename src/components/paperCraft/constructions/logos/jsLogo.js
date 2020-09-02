@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const JSLogo = ({className}) => {
     return (
         <LogoFrame color="yellow" className={className}>
-            <Outer color="yellow" shape="HTML1" proportional noShadow>
+            <Outer color="yellow" shape="HTML1" proportional >
                 <Inner color="tan" shape="JS1" proportional noShadow/>
                 <Inner color="tan" shape="JS2" proportional noShadow/>
             </Outer>

@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const HTMLLogo = ({className}) => {
     return (
         <LogoFrame color="orange" className={className}>
-            <Outer color="orange" shape="HTML1" proportional noShadow>
+            <Outer color="orange" shape="HTML1" proportional>
                 <Inner color="tan" shape="HTML2" proportional noShadow/>
             </Outer>
         </LogoFrame>  
@@ -22,5 +22,7 @@ const Outer = styled(Paper)`
 `
 
 const Inner = styled(Paper)`
-    width: 100%
+    width: 100%;
+    position: relative;
+    top: 2px;
 `

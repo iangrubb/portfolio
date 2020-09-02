@@ -1,7 +1,6 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import Paper from '../../paperCraft/paper'
 

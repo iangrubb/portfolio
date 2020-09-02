@@ -2,8 +2,6 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import Paper from '../paperCraft/paper'
-
 import LinkedInLogo from '../paperCraft/constructions/logos/linkedIn'
 import GithubLogo from '../paperCraft/constructions/logos/github'
 import MediumLogo from '../paperCraft/constructions/logos/medium'

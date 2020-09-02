@@ -3,8 +3,6 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-import Paper from '../components/paperCraft/paper'
-
 import styled from 'styled-components'
 
 import IndexPageCard from '../components/display/indexPageCard'
@@ -42,15 +40,10 @@ const BlogPage = ({ data: { allMarkdownRemark: { nodes }}}) => {
 
         const { frontmatter } = node
         const { title, abstract, slug, hero } = frontmatter
-        const [month, day, year] = frontmatter.date.split(" ")
-        const fixedDay = day[0] === "0" ? day[1] + "," : day
-        const formatedDate = [month, fixedDay, year].join(" ")
 
         return (
           <IndexPageCard key={slug} {...{hero, title, slug}}>
-            
             <Abstract>{abstract}</Abstract>
-            {/* <Date>{formatedDate}</Date> */}
           </IndexPageCard>
         )
       })}
@@ -68,21 +61,6 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-`
-
-
-const Date = styled.p`
-  /* font-family: var(--display-font); */
-  /* font-weight: 700; */
-
-  margin: 0;
-
-  font-size: 18px;
-
-  @media (min-width: 900px) {
-
-
-}
 `
 
 const Abstract = styled.p`

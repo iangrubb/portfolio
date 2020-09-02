@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const PhoenixLogo = ({className}) => {
     return (
         <LogoFrame color="orange" className={className}>
-            <Element color="orange" shape="phoenix1" proportional noShadow/>
+            <Element color="orange" shape="phoenix1" proportional />
             <Element color="tan" shape="phoenix2" proportional noShadow/>
         </LogoFrame>  
     )
@@ -19,6 +19,6 @@ export default PhoenixLogo
 
 const Element = styled(Paper)`
     position: absolute;
-    width: 65%;
+    width: 80%;
 `
 

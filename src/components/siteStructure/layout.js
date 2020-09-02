@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
 import styled, { createGlobalStyle } from 'styled-components'
@@ -8,7 +8,6 @@ import { DisplayContext } from "../../context/displayContext"
 
 import Shapes from "../paperCraft/shapes"
 
-import PageWrapper from './pageWrapper'
 import SideBar from "./sideBar"
 import "./layout.css"
 
@@ -69,7 +68,7 @@ const Spacer = styled.div`
   transition: transform var(--desktop-duration) ease;
 
 
-  min-height: calc(100vh - 96px);
+  min-height: 100%;
 
   max-width: 1200px;
   
@@ -83,7 +82,6 @@ const Spacer = styled.div`
   
 
   @media (min-width: 900px) {
-
     padding: 48px 32px;
     width: ${props => !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
     transform: translateX( ${props => !props.defaultDisplay ? "-50%" : "calc(-50vw + 300px)"} );

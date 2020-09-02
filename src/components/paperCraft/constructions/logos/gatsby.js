@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const GatsbyLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Circle color="purple" shape="circle" proportional noShadow>
+            <Circle color="purple" shape="circle" proportional >
                 <Element color="tan" shape="gatsby1" proportional noShadow/>
                 <Element color="tan" shape="gatsby2" proportional noShadow/>
             </Circle>

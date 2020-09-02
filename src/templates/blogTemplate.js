@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import { DisplayContext } from "../context/displayContext"
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import SEO from '../components/seo'
 
@@ -18,7 +18,6 @@ import HeroDisplay from '../components/display/template/heroDisplay'
 import BodyContent from '../components/display/template/bodyContent'
 
 
-import Paper from '../components/paperCraft/paper'
 
 export const pageQuery = graphql`
   query($slug: String!) {

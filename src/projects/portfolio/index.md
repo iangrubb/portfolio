@@ -2,7 +2,7 @@
 slug: "/portfolio/portfolio"
 title: "Portfolio"
 tech: "Gatsby, React, Styled Components, GraphQL, HTML, CSS, JS"
-hero: ./hero.png
+hero: ./hero5.png
 tagline: "My virtual home on the web, featuring blog posts and project information."
 github: "https://github.com/iangrubb/portfolio"
 live: ""

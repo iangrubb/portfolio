@@ -8,14 +8,15 @@ import LogoFrame from '../logoFrame'
 const StyledComponentsLogo = ({className}) => {
     return (
         <LogoFrame color="pink" className={className}>
-            <Element color="pink" shape="SCarrow" proportional noShadow/>
-            <Logo color="pink" shape="SC" proportional noShadow/>
+            <Element color="pink" shape="SCarrow" proportional/>
+            <Logo color="pink" shape="SC" proportional/>
 
             {/* <Element color="pink" shape="SC1" proportional noShadow/>
             <Element color="pink" shape="SC2" proportional noShadow/>
             <Element color="pink" shape="SC3" proportional noShadow/>
             <Element color="pink" shape="SC4" proportional noShadow/> */}
-            <Element color="pink" shape="SCarrow2" proportional noShadow/>
+            <Element color="pink" shape="SCarrow2" proportional />
+            
         </LogoFrame>  
     )
 }
@@ -29,5 +30,5 @@ const Logo = styled(Paper)`
 
 const Element = styled(Paper)`
     position: absolute;
-    width: 70%;
+    width: 90%;
 `

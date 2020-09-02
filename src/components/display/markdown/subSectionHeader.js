@@ -2,8 +2,6 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import Paper from '../../paperCraft/paper'
-
 const subSectionHeader = ({ children, path }) => {
     const navId = path.split("#")[1]
     return (

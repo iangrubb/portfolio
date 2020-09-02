@@ -8,7 +8,7 @@ import LogoFrame from '../logoFrame'
 const ElixirLogo = ({className}) => {
     return (
         <LogoFrame color="purple" className={className}>
-            <Element color="purple" shape="elixirDrop" proportional noShadow/>
+            <Element color="purple" shape="elixirDrop" proportional/>
         </LogoFrame>  
     )
 }
@@ -18,5 +18,5 @@ export default ElixirLogo
 
 const Element = styled(Paper)`
     position: absolute;
-    width: 65%;
+    width: 80%;
 `

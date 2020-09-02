@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 import { DisplayContext } from "../context/displayContext"
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import SEO from '../components/seo'
 
@@ -117,8 +117,8 @@ const BlogTemplate = ({ data }) => {
 
         <LinksContainer>
           <LinkWrapper>
-            <a target="blank" href={github}><GithubLogo width="100%" /></a>
-            <a target="blank" href={github}>
+            <a target="blank" href={github} aria-label="Github Link"><GithubLogo width="100%" /></a>
+            <a target="blank" href={github} aria-label="Github Link">
               <CTAWrapper color="pink" shape="frame"> 
                 <CTA>code</CTA>
               </CTAWrapper>
@@ -127,8 +127,8 @@ const BlogTemplate = ({ data }) => {
           
           {live ?
             <LinkWrapper>
-              <a target="blank" href={live}><LiveLogo width="100%" /></a>
-              <a target="blank" href={live}>
+              <a target="blank" href={live} aria-label="Live Site"><LiveLogo width="100%" /></a>
+              <a target="blank" href={live} aria-label="Live Site">
                 <CTAWrapper color="pink" shape="frame"> 
                   <CTA>live</CTA>
                 </CTAWrapper>
