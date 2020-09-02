@@ -63,7 +63,7 @@ const Frame = styled(Paper)`
 `
 
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
 
   const { defaultDisplay } = useContext(DisplayContext)
 
@@ -81,12 +81,14 @@ const IndexPage = ({ data }) => {
       <Seaweed color="green" shape="seaweed" proportional/>
       <Name>Ian Grubb</Name>
       <Spacer color="pink" shape="spacer" />
-      <Blurb>Full-Stack Developer</Blurb>
+      <Title>Full-Stack Developer</Title>
       <Links>
         <NavLink path="/blog" text="Blog" />
         <NavLink path="/portfolio" text="Portfolio" />
         <NavLink path="/about" text="About" />       
       </Links>
+      <Spiral color="green" shape="spiral" proportional />
+      <Scoop color="pink" shape="scoop" proportional />
      
     </LandingContent>
 
@@ -97,7 +99,6 @@ const IndexPage = ({ data }) => {
 
 const LandingContent = styled.div`
 
-  
   position: fixed;
 
   top: 50%;
@@ -106,30 +107,65 @@ const LandingContent = styled.div`
 
   display: grid;
 
-  width: fit-content;
+  width: 70%;
+  min-width: 320px;
 
-  grid-template-columns: 1fr 30% 30% 1fr;
-  grid-template-rows: 1fr auto 30px auto 60px auto 50px 30px auto 1fr;
+  grid-template-columns: 1fr 20% 20% 20% 20% 1fr;
+  grid-template-rows: 1fr auto 30px auto 50px auto auto 1fr;
 
   grid-template-areas:
-    ". . . ."
-    ". eses seaweed ."
-    ". . . ."
-    "name name name name"
-    "spacer spacer spacer spacer"
-    "blurb blurb blurb blurb"
-    "links links links links"
-    ". . . ."
-    ". diamonds diamonds ."
-    ". . . ."
+    ". . . . . ."
+    ". eses eses seaweed seaweed ."
+    ". . . . . ."
+    "name name name name name name"
+    "spacer spacer spacer spacer spacer spacer"
+    "blurb blurb blurb blurb blurb blurb"
+    "spiral spiral links links scoop scoop"
+    ". . . . . ."
   ;
 
-  /* display: none; */
+  @media (min-width: 500px) {
+
+    width: fit-content;
+
+    grid-template-rows: 1fr auto 30px auto 50px auto auto 20px auto 1fr;
+
+    grid-template-areas:
+      ". . . . . ."
+      ". eses eses seaweed seaweed ."
+      ". . . . . ."
+      "name name name name name name"
+      ". spacer spacer spacer spacer ."
+      ". blurb blurb blurb blurb ."
+      ". . links links . ."
+      ". . . . . ."
+      ". spiral spiral scoop scoop ."
+      ". . . . . ."
+    ;
+  }
 
   @media (min-width: 900px) {
+
+    width: fit-content;
+
+    grid-template-columns: 1fr 100px 200px 200px 100px 1fr;
+    grid-template-rows: 1fr auto 50px auto 90px auto 120px auto 1fr;
+
+    grid-template-areas:
+      ". . . . . ."
+      ". eses eses seaweed seaweed ."
+      ". . . . . ."
+      "name name name name name name"
+      ". spacer spacer spacer spacer ."
+      ". blurb blurb blurb blurb ."
+      ". . links links . ."
+      ". spiral spiral scoop scoop ."
+      ". . . . . ."
+    ;
+
+
     transform: translate(${props => props.defaultDisplay ? "calc(-150px - 50%)" : "-50%"} , -50%);
-    grid-template-columns: 1fr 300px 300px 1fr;
-    grid-template-rows: 1fr auto 50px auto 90px auto 120px 20px auto 1fr;
+    
   }
 
 
@@ -154,7 +190,7 @@ const Spacer = styled(Paper)`
   place-self: center;
   width: 40%;
   max-width: 140px;
-  height: 30px;
+  height: 40px;
 
   @media (min-width: 900px) {
     height: 40px;
@@ -162,19 +198,21 @@ const Spacer = styled(Paper)`
   }
 `
 
-const Blurb = styled.p`
+const Title = styled.p`
   grid-area: blurb;
 
   max-width: 400px;
-  margin: 8px 32px 16px 32px;
+  margin: 0 4px 16px 4px;
   place-self: center;
   text-align: center;
 
   font-family: "Lato";
+
   font-size: 28px;
-  line-height: 28px;
+  line-height: 32px;
 
   @media (min-width: 900px) {
+    width: fit-content;
     font-size: 42px;
     margin: 0;
   }
@@ -186,29 +224,67 @@ const Links = styled.div`
   place-self: center;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
 `
 
-const Apple = styled(Paper)`
-  width: 18px;
-  @media (min-width: 340px) {
-    width: 22px;
+
+const Spiral = styled(Paper)`
+  grid-area: spiral;
+  place-self: center center;
+  
+  width: 70%;
+
+  @media (min-width: 500px) {
+    max-width: 90px;
+    place-self: center end;
+    margin: 8px 16px 0 0;
   }
 
   @media (min-width: 900px) {
-    width: 26px;
+    max-width: 100px;
+    margin: 0 16px 0 0;
   }
+
+`
+
+const Scoop = styled(Paper)`
+  grid-area: scoop;
+  
+  place-self: start center;
+  margin: 16px 0 0 0;
+
+  width: 60%;
+
+  @media (min-width: 500px) {
+    max-width: 80px;
+    margin: 0 0 0 16px;
+    place-self: start start;
+  }
+
+  @media (min-width: 900px) {
+    max-width: 100px;
+    margin: 8px 0 0 16px;
+
+  }
+
+  
 `
 
 const Seaweed = styled(Paper)`
   grid-area: seaweed;
   place-self: end start;
   
-  width: 80%;
-  max-width: 100px;
+  width: 90%;
+  max-width: 130px;
 
   @media (min-width: 900px) {
-    max-width: 140px;
+    max-width: 170px;
   }
 `
 
@@ -223,10 +299,10 @@ const Eses = styled.div`
   width: 100%;
   height: 80%;
 
-  max-width: 120px;
+  max-width: 150px;
 
   @media (min-width: 900px) {
-    max-width: 150px;
+    max-width: 190px;
   }
 `
 
@@ -245,38 +321,6 @@ const Es = styled(Paper)`
 
 
 
-const Diamonds = styled.div`
-  display: none;
-  grid-area: diamonds;
-  place-self: start center;
-  position: relative;
-  
-  width: 180px;
-  height: 80px;
-
-  @media (min-width: 900px) {
-    width: 240px;
-    height: 110px;
-  }
-`
-
-const width = 10
-
-const height = 16
-
-const Diamond = styled(Paper)`
-  width: ${width}%;
-  position: absolute;
-
-
-  
-  left: ${props => (props.left + (props.top % 2 === 0 ? 0 : 0.5) )  * ( width + 1 )}%;
-  top: ${props => -props.left + ( props.top * ( height + 1 ))}%;
-
-
-  @media (min-width: 900px) {
-  }
-`
 
 
 export default IndexPage

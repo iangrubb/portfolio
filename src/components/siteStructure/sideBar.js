@@ -21,6 +21,10 @@ const SideBar = ({ path }) => {
 
     const renderContents = () => (
         <>
+            <Spiral color="green" shape="spiral" proportional />
+            <Star color="green" shape="star" proportional />
+            <Comb color="green" shape="comb" proportional />
+
             <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
                 <Hamburger color="purple">
                     <HamburgerInner color="tan">
@@ -38,8 +42,9 @@ const SideBar = ({ path }) => {
                 <TitleWrapper color="pink" shape="frame" fit>
                     <Title>Full-Stack Developer</Title>
                 </TitleWrapper>
+                
             </HeaderLink>
-            
+
             <Links>
                 <SideLink active={path.startsWith("/blog")} path="/blog" name="Blog"/>
                 <SideLink active={path.startsWith("/portfolio")} path="/portfolio" name="Portfolio" />
@@ -96,6 +101,47 @@ const SideBar = ({ path }) => {
 
 export default SideBar
 
+
+const Spiral = styled(Paper)`
+    width: 20%;
+    position: absolute;
+    top: 20px;
+    left: 42%;
+
+    @media (min-height: 750px) {
+        width: 24%;
+        top: 24px;
+        left: 40%;
+    }
+`
+
+const Star = styled(Paper)`
+    width: 12%;
+    position: absolute;
+    top: 32px;
+    left: 28%;
+
+    @media (min-height: 750px) {
+        width: 14%;
+        top: 52px;
+        left: 22%;
+    }
+    
+`
+
+const Comb = styled(Paper)`
+    width: 24%;
+    position: absolute;
+    bottom: 12px;
+    left: 35%;
+
+    @media (min-height: 750px) {
+        width: 32%;
+        bottom: 20px;
+    }
+`
+
+
 const Container = styled.div`
 
     position: fixed;
@@ -120,7 +166,6 @@ const Container = styled.div`
     @media (min-width: 1500px) {
         width: 450px;
     }
-
 
    
     display: grid;
@@ -187,12 +232,13 @@ const DesktopMain = styled.div`
 
     @media (min-width: 900px) {
         display: flex;
-        padding: 16px 16px 16px 32px;
+        padding: 16px 16px calc(16px + 60px) 32px;
     }
     
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
 
 `
 
@@ -222,7 +268,7 @@ const MobileMain = styled(Paper)`
 const MobileBackground = styled.div`
     background: var(--background-color);
 
-    padding: 16px;
+    padding: 16px 16px calc(16px + 20px) 16px;
     width: 100%;
     height: 100%;
 
@@ -231,6 +277,9 @@ const MobileBackground = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    @media (min-height: 750px) {
+        padding: 16px 16px calc(16px + 40px) 16px;
+    }
 `
 
 
@@ -328,7 +377,10 @@ const HeaderLink = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
 `
+
 
 
 const NameWrapper = styled(Paper)`
@@ -349,6 +401,7 @@ const Name = styled.h1`
 `
 
 const TitleWrapper = styled(Paper)`
+
 `
 
 const Title = styled.h2`
@@ -376,7 +429,7 @@ const Links = styled.div`
 
 
 
-const Social= styled.div`
+const Social = styled.div`
     margin: 0;
 
     display: flex;

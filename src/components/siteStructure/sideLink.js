@@ -37,7 +37,7 @@ const Container = styled(Paper)`
     z-index: 1;
 
     margin: 0 0 6px 10%;
-    height: 40px;
+    height: 36px;
 
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@ const Container = styled(Paper)`
 
     @media (min-height: 750px) {
         margin: 0 0 8px 5%;
-        height: 46px;
+        height: 40px;
         width: 90%;
     }
 
@@ -69,12 +69,12 @@ const InnerWrapper = styled.div`
 
 const Heading = styled.h2`
     margin: 0;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     font-family: var(--display-font);
 
     @media (min-height: 750px) {
-        font-size: 28px;
+        font-size: 24px;
     }
 `
 

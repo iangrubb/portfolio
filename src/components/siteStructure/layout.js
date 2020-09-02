@@ -42,6 +42,7 @@ const Layout = ({ children, location }) => {
         <PreventScroll defaultDisplay={defaultDisplay} />
 
           <FullPage>
+            
             <SideBar path={path} />
             <Spacer defaultDisplay={defaultDisplay} >
                 {children}     
@@ -54,9 +55,20 @@ const Layout = ({ children, location }) => {
 
 
 const FullPage = styled.div`
-  
   width: 100vw;
   height: 100vh;
+`
+
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: flex;
+  
 `
 
 const Spacer = styled.div`

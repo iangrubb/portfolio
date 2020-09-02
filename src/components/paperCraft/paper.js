@@ -12,7 +12,7 @@ const determineHexColor = color => {
         case "yellow":
             return "#d6a20e"
         case "green":
-            return "#5b9a33"
+            return "#649c3a"
         case "blue":
             return "#45a7d0"
         case "purple":
@@ -89,13 +89,13 @@ const paperGradient = css`
         rgba(200, 200, 200, 0.05) 40px
         ),
         repeating-linear-gradient(
-        rgba(160, 160, 160, 0.08),
-        rgba(120, 120, 120, 0.08) 2px,
-        rgba(180, 180, 180, 0.08) 6px,
-        rgba(120, 120, 120, 0.08) 11px,
-        rgba(160, 160, 160, 0.08) 14px,
-        rgba(120, 120, 120, 0.08) 22px,
-        rgba(160, 160, 160, 0.08) 25px
+        rgba(160, 160, 160, 0.12),
+        rgba(120, 120, 120, 0.12) 2px,
+        rgba(180, 180, 180, 0.12) 6px,
+        rgba(120, 120, 120, 0.12) 11px,
+        rgba(160, 160, 160, 0.12) 14px,
+        rgba(120, 120, 120, 0.12) 22px,
+        rgba(160, 160, 160, 0.12) 25px
         ),
         ${props => props.color};
 `

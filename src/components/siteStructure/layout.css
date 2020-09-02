@@ -7,7 +7,7 @@ html {
 :root {
   --text-color: #302d38;
   --background-color: #e4dcd6;
-  --background-color-clear: #e4dcd6d7;
+  --background-color-clear: #e4dcd6ab;
   --tint: #1d1b27cb;
   --shadow: #2a292e52;
 
@@ -15,7 +15,7 @@ html {
 
   --highlight-color: #ee657c;
 
-  --background-color-secondary: #cfc2b6;
+  --background-color-secondary: #ccbbad;
 
   --full-screen: calc(100vw - 32px);
   --display-font: "Vollkorn", serif;

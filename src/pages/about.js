@@ -31,11 +31,11 @@ const AboutPage = ({ data: {profile, resume } }) => {
         <>
           <SEO title="About" />
             {/* <a href={resume.publicURL} target="_blank">Resume</a> */}
-          <Hex color="purple" shape="hHex" proportional noShadow>
+          {/* <Hex color="purple" shape="hHex" proportional noShadow>
             <InnerHex color="tan" shape="hHex" proportional noShadow>
               <Seaweed color="purple" shape="g" proportional noShadow />
             </InnerHex>
-          </Hex>
+          </Hex> */}
             
         </>
     )
