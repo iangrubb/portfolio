@@ -59,20 +59,7 @@ const FullPage = styled.div`
   height: 100vh;
 `
 
-
-const Background = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  display: flex;
-  
-`
-
 const Spacer = styled.div`
-
 
   position: relative;
   z-index: 1;
@@ -82,8 +69,7 @@ const Spacer = styled.div`
 
   min-height: 100%;
 
-  max-width: 1200px;
-  
+  max-width: 1000px;
 
   left: 50%;
 

@@ -1,16 +1,12 @@
 import React, { useContext } from "react"
 import { graphql } from "gatsby"
-import Img from 'gatsby-image'
 
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
-import Layout from "../components/siteStructure/layout"
 import SEO from "../components/seo"
 
 import Paper from "../components/paperCraft/paper"
 import NavLink from '../components/paperCraft/constructions/navLink'
-
-import Icon from '../components/paperCraft/constructions/logos/github'
 
 import { DisplayContext } from "../context/displayContext"
 
@@ -25,43 +21,6 @@ export const query = graphql`
     }
   }
 `
-
-const Box = styled.div`
-  width: 400px;
-  height: 400px;
-  background: var(--background-color);
-  border-radius: 8px;
-
-  margin: 50px;
-
-  padding: 60px;
-
-  box-shadow: 2px 2px 0 var(--shadow);
-
-`
-
-const I = styled(Icon)`
-  margin: 50px;
-`
-
-
-const Me = styled(Img)`
-  width: 90%;
-
-  clip-path: url(#hHex);
-
-
-  
-`
-
-const Frame = styled(Paper)`
-  width: 300px;
-  height: 300px;
-  margin: 50px;
-
-  
-`
-
 
 const IndexPage = () => {
 
@@ -81,7 +40,7 @@ const IndexPage = () => {
       <Seaweed color="green" shape="seaweed" proportional/>
       <Name>Ian Grubb</Name>
       <Spacer color="pink" shape="spacer" />
-      <Title>Full-Stack Developer</Title>
+      <Title>Full Stack Developer</Title>
       <Links>
         <NavLink path="/blog" text="Blog" />
         <NavLink path="/portfolio" text="Portfolio" />

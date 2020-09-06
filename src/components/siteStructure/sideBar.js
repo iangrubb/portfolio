@@ -21,9 +21,6 @@ const SideBar = ({ path }) => {
 
     const renderContents = () => (
         <>
-            <Spiral color="green" shape="spiral" proportional />
-            <Star color="green" shape="star" proportional />
-            <Comb color="green" shape="comb" proportional />
 
             <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
                 <Hamburger color="purple">
@@ -40,10 +37,16 @@ const SideBar = ({ path }) => {
                     <Name>Ian Grubb</Name>
                 </NameWrapper>
                 <TitleWrapper color="pink" shape="frame" fit>
-                    <Title>Full-Stack Developer</Title>
+                    <Title>Full Stack Developer</Title>
                 </TitleWrapper>
                 
             </HeaderLink>
+
+            <Stars>
+                <Star color="green" shape="star" left={25} proportional />
+                <Star color="green" shape="star" left={45} proportional />
+                <Star color="green" shape="star" left={65} proportional />
+            </Stars>
 
             <Links>
                 <SideLink active={path.startsWith("/blog")} path="/blog" name="Blog"/>
@@ -102,43 +105,20 @@ const SideBar = ({ path }) => {
 export default SideBar
 
 
-const Spiral = styled(Paper)`
-    width: 20%;
-    position: absolute;
-    top: 20px;
-    left: 42%;
-
-    @media (min-height: 750px) {
-        width: 24%;
-        top: 24px;
-        left: 40%;
-    }
-`
-
 const Star = styled(Paper)`
     width: 12%;
-    position: absolute;
-    top: 32px;
-    left: 28%;
 
     @media (min-height: 750px) {
-        width: 14%;
-        top: 52px;
-        left: 22%;
+        width: 16%;
     }
     
 `
 
-const Comb = styled(Paper)`
-    width: 24%;
-    position: absolute;
-    bottom: 12px;
-    left: 35%;
-
-    @media (min-height: 750px) {
-        width: 32%;
-        bottom: 20px;
-    }
+const Stars = styled.div`
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
 `
 
 
@@ -192,7 +172,6 @@ const Container = styled.div`
     }
 
 `
-
 
 const Screen = styled.div`
 
@@ -324,8 +303,8 @@ const Button = styled.button`
     right: ${props => props.defaultDisplay && !props.hide ? "calc(((-100vw + 300px ) / 2) - 76px)" : "0"};
 
     @media (min-height: 750px) {
-        top: ${props => props.defaultDisplay ? "calc( (-100vh + 750px) / 2)" : "0"};
-        right: ${props => props.defaultDisplay && !props.hide ? "calc(((-100vw + 300px ) / 2) - 100px)" : "0"};
+        top: ${props => props.defaultDisplay ? "calc( (-100vh + 700px) / 2)" : "0"};
+        right: ${props => props.defaultDisplay && !props.hide ? "calc(((-100vw + 320px ) / 2) - 100px)" : "0"};
     }
 
     @media (min-width: 900px) {
