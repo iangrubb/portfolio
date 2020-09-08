@@ -55,9 +55,27 @@ const AboutPage = ({ data: {profile, resume } }) => {
 
           <DetailsWrapper color="tan" area="about" thin>
             <Details>
+
               <About>
-                Text
+                I'm passionate about writing clean, elegant, and readable code. My interests extend across the full stack, from domain modeling and system design to UI development and browser-based animation. I'm always looking to choose the right tool for the job, so I'm always excited to learn about new languages, frameworks, and approaches.
               </About>
+                
+              <About>
+                I started programming in the Spring of 2019 and I attended Flatiron School that Summer to build up my web development skills. Since then I've been working at Flatiron School as a Software Engineering Coach. I'm currently looking for a junior role at a company where I can make big contributions and grow as a developer.
+              </About>
+
+              <About>
+                Before programming, I was a graduate student (and then briefly an adjunct professor) in the philosophy department at NYU. Over time, I realized that I wanted work that's testable and that address concrete challenges. This eventually lead me to programming. I've had a smooth transition, in part because philosophy and programming place a shared emphasis on problem solving through conceptual abstraction.
+              </About>
+
+              <About>
+                As a philosophy student, I had the opportunity to study a fair amount of formal logic, which has been beneficial to my current work. This background prepared me to understand data structures and recognize when they can be used while building applications. It also prepared me for the conceptual challenges involved in domain modeling and querying information in SQL databases.
+              </About>
+
+              <About>
+                Although I'm moving out of teaching as a profession, I still value mentoring others and writing about code. Teaching helps me learn, and crafting clear explanations helps to deepen my own understanding. Beyond that, I see mutual information sharing as crucial to a healthy developer community. There's so much to learn when it comes to modern web development, so someone who has mastered one topic may have only a rudimentary understanding of another. Sharing these areas of expertise makes use more well-rounded developers.
+              </About>
+
             </Details>
           </DetailsWrapper>
 
@@ -161,8 +179,6 @@ const PageGrid = styled.div`
 `
 
 
-
-
 const GreetingWrapper = styled(Paper)`
   grid-area: greeting;
   padding: 8px;
@@ -179,7 +195,7 @@ const Greeting = styled.div`
   width: 100%;
   height: 100%;
   
-  background: #312D37;
+  background: #312d37a6;
 
   padding: 16px;
 
@@ -187,6 +203,8 @@ const Greeting = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  border: 2px solid #58545e;
   
 `
 
@@ -336,8 +354,10 @@ const Skills = styled.p`
 `
 
 const About = styled.p`
-
-  margin: 0;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 12px auto;
+  max-width: 62ch;
 `
 
 const List = styled.ul`
