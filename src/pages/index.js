@@ -121,9 +121,6 @@ const LandingContent = styled.div`
       ". spiral spiral scoop scoop ."
       ". . . . . ."
     ;
-
-
-    transform: translate(${props => props.defaultDisplay ? "calc(-150px - 50%)" : "-50%"} , -50%);
     
   }
 

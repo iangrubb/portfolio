@@ -1,5 +1,5 @@
 
-import React, { useContext } from "react"
+import React, { useState, useLayoutEffect, useContext } from "react"
 import PropTypes from "prop-types"
 
 import styled, { createGlobalStyle } from 'styled-components'
@@ -34,7 +34,25 @@ const Layout = ({ children, location }) => {
 
   const { defaultDisplay } = useContext(DisplayContext)
 
-  const path = location.pathname
+  const [layoutStatus, setLayoutStatus] = useState({current: {path: location.pathname, defaultDisplay: true}, previous: {path: null, defaultDisplay: null}})
+
+
+  useLayoutEffect(()=>{
+
+    if (layoutStatus.current.path !== location.pathname || layoutStatus.current.defaultDisplay !== defaultDisplay) {
+
+      setLayoutStatus( {current: {path: location.pathname, defaultDisplay } , previous: {...layoutStatus.current}} )
+
+    }
+
+  }, [layoutStatus, location.pathname, defaultDisplay])
+
+  console.log(layoutStatus)
+
+  const path = layoutStatus.current.path
+
+  const snap = (layoutStatus.current.path === "/" || layoutStatus.previous.path === "/") && layoutStatus.current.defaultDisplay === layoutStatus.previous.defaultDisplay
+
   
   return (
       <>
@@ -44,7 +62,7 @@ const Layout = ({ children, location }) => {
           <FullPage>
             
             <SideBar path={path} />
-            <Spacer defaultDisplay={defaultDisplay} >
+            <Spacer defaultDisplay={defaultDisplay} landing={path === "/"} snap={snap} >
                 {children}     
             </Spacer>
           </FullPage>
@@ -64,7 +82,7 @@ const Spacer = styled.div`
   position: relative;
   z-index: 1;
 
-  transition: transform var(--desktop-duration) ease;
+  transition: ${props => props.snap ? "none" : "transform var(--desktop-duration) ease"};
 
 
   min-height: 100%;
@@ -82,17 +100,17 @@ const Spacer = styled.div`
   @media (min-width: 900px) {
     padding: 48px 32px;
     width: ${props => !props.defaultDisplay ? "100vw" : "calc(100vw - 300px)"};
-    transform: translateX( ${props => !props.defaultDisplay ? "-50%" : "calc(-50vw + 300px)"} );
+    transform: translateX( ${props => !props.defaultDisplay || props.landing ? "-50%" : "calc(-50vw + 300px)"} );
   }
 
   @media (min-width: 1200px) {
     width: ${props => !props.defaultDisplay ? "100vw" : "calc(100vw - 450px)"};
-    transform: translateX( ${props => !props.defaultDisplay ? "-50%" : "calc(-50vw + 375px)"} );
+    transform: translateX( ${props => !props.defaultDisplay || props.landing ? "-50%" : "calc(-50vw + 375px)"} );
   }
 
   @media (min-width: 1500px) {
     width: ${props => !props.defaultDisplay  ? "100vw" : "calc(100vw - 600px)"};
-    transform: translateX( ${props => !props.defaultDisplay ? "-50%" : "calc(-50vw + 450px)"} );
+    transform: translateX( ${props => !props.defaultDisplay || props.landing ? "-50%" : "calc(-50vw + 450px)"} );
   }
 
 
