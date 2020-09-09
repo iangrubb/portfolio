@@ -116,7 +116,7 @@ const BlogTemplate = ({ data }) => {
 
   return (
     <>
-      <SEO title="Portfolio" slug={slug} description={`${title} | ${tagline}`} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
+      <SEO title={title} isProject slug={slug} description={tagline} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
 
       <HeroDisplay {...{ defaultDisplay, title, hero }} techTerms={techTerms(tech)}>
 

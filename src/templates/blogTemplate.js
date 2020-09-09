@@ -113,7 +113,7 @@ const BlogTemplate = ({ data }) => {
   return (
     <>
 
-      <SEO title="Blog" slug={slug} isBlogPost description={`${title} | ${abstract}`} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
+      <SEO title={title} slug={slug} isBlogPost description={abstract} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
 
       <HeroDisplay {...{defaultDisplay, title, hero, heroAuthor, heroSource }}>
         <Date>{formatedDate}</Date>

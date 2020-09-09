@@ -40,7 +40,7 @@ const AboutPage = ({ data: {profile, resume } }) => {
 
         
           <ProfileWrapper color="purple" defaultDisplay={defaultDisplay} >
-            <ProfilePicture imgStyle={{objectPosition: "top center"}}  fluid={profile.childImageSharp.fluid} />
+            <ProfilePicture imgStyle={{objectPosition: "top center"}}  fluid={profile.childImageSharp.fluid} alt="Ian Grubb"/>
           </ProfileWrapper>
 
           <DetailsWrapper color="purple" area="greeting" fill>

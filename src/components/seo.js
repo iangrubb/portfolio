@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title, isBlogPost, slug, image }) {
+function SEO({ description, lang, meta, title, isBlogPost, isProject, slug, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,11 +42,12 @@ function SEO({ description, lang, meta, title, isBlogPost, slug, image }) {
   const pageUrl = `${site.siteMetadata.siteUrl}${determineUrlExtension(slug, title)}`
 
   return (
+    <>
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={ isBlogPost || isProject ? ( isBlogPost ? "Blog" : "Portfolio") : title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
         {
@@ -117,6 +118,7 @@ function SEO({ description, lang, meta, title, isBlogPost, slug, image }) {
       )
       .concat(meta)}
     />
+    </>
   )
 }
 
