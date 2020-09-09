@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Ian Grubb | Full-Stack Developer`,
-    description: `A developer portfolio and blog`,
+    title: `Ian Grubb | Full Stack Developer`,
+    description: `A portfolio and blog for Ian Grubb, a full stack developer based in Brooklyn, NY.`,
     author: `Ian Grubb`,
     siteUrl: "https://www.iangrubb.com"
   },
@@ -80,6 +80,12 @@ module.exports = {
         google: {
           families: ['Vollkorn:400,400i,700,900', 'Lato:400, 400i, 700']
         }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID || "none"
       }
     }
   ]

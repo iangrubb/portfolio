@@ -35,6 +35,15 @@ export const pageQuery = graphql`
             }
           }
         }
+        thumbnail: hero {
+          childImageSharp {
+            resize(width: 1000, height: 500) {
+              src
+              height
+              width
+            }
+          }
+        }
         heroSource
         heroAuthor
       }
@@ -92,7 +101,7 @@ const BlogTemplate = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
 
-  const { hero, title, abstract, heroSource, heroAuthor } = frontmatter
+  const { hero, title, abstract, heroSource, heroAuthor, slug, thumbnail } = frontmatter
 
   const [month, day, year] = frontmatter.date.split(" ")
   const fixedDay = day[0] === "0" ? day[1] + "," : day
@@ -104,7 +113,7 @@ const BlogTemplate = ({ data }) => {
   return (
     <>
 
-      <SEO title="Blog" />
+      <SEO title="Blog" slug={slug} isBlogPost description={`${title} | ${abstract}`} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
 
       <HeroDisplay {...{defaultDisplay, title, hero, heroAuthor, heroSource }}>
         <Date>{formatedDate}</Date>

@@ -1,6 +1,6 @@
 ---
 slug: "/blog/a-guide-to-css-position"
-date: "2020-08-24"
+date: "2020-09-06"
 title: "A Guide to CSS Position"
 abstract: "The CSS position property is an essential tool for building modern layouts. I'll explain the basics, share some tips, and show how you might use CSS position in practice."
 hero: ./hero.jpg

@@ -70,7 +70,7 @@ const AboutPage = ({ data: {profile, resume } }) => {
               </About>
 
               <About>
-                Although I'm moving out of teaching as a profession, I still value mentoring others and writing about code. Teaching helps me learn and deepen my own understanding. Beyond that, I see mutual information sharing as crucial to a healthy developer community. There's so much to learn in modern web development, and sharing our different areas of expertise makes us all more well-rounded developers.
+                Although I'm moving out of teaching as a profession, I still value mentoring others and teaching about code. Teaching helps me learn and deepen my own understanding. Beyond that, I see mutual information sharing as crucial to a healthy developer community. There's so much to learn in modern web development, and sharing our areas of expertise makes us all more well-rounded developers.
               </About>
 
             </Details>
@@ -160,7 +160,7 @@ const twoColumn = css`
   width: 100%;
   
   grid-template-columns: 1fr 280px;
-  grid-template-rows: auto 120px auto auto auto auto;
+  grid-template-rows: auto 80px auto auto auto auto;
   grid-template-areas:
     "greeting picture"
     "about picture"
@@ -300,7 +300,7 @@ const HeadingContainer = styled.div`
   justify-content: center;
 
   @media (min-width: 900px) {
-    padding: 8px 0 8px 32px;
+    padding: 32px 0 32px 32px;
   }
 
 
@@ -362,7 +362,7 @@ const About = styled.p`
   line-height: 24px;
 
   
-  margin: 4px 3px 4px 1px;
+  margin: 16px 3px 16px 1px;
 
   
 

@@ -42,6 +42,15 @@ export const pageQuery = graphql`
             }
           }
         }
+        thumbnail: hero {
+          childImageSharp {
+            resize(width: 1000, height: 500) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
   }
@@ -99,7 +108,7 @@ const BlogTemplate = ({ data }) => {
 
   const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
-  const { hero, title, tagline, tech, github, live } = frontmatter
+  const { hero, title, tagline, tech, github, live, slug, thumbnail } = frontmatter
 
   const { defaultDisplay } = useContext(DisplayContext);
 
@@ -107,7 +116,7 @@ const BlogTemplate = ({ data }) => {
 
   return (
     <>
-      <SEO title="Projects" />
+      <SEO title="Portfolio" slug={slug} description={`${title} | ${tagline}`} image={thumbnail ? thumbnail.childImageSharp.resize : null}/>
 
       <HeroDisplay {...{ defaultDisplay, title, hero }} techTerms={techTerms(tech)}>
 
