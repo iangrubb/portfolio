@@ -55,10 +55,10 @@ const renderAst = new rehypeReact({
   passNode: true,
   createElement: React.createElement,
   components: {
-    // iframe: iframeWrapper,
-    // h2: sectionHeader,
-    // h3: subSectionHeader,
-    // p: ImageWrapper
+    iframe: iframeWrapper,
+    h2: sectionHeader,
+    h3: subSectionHeader,
+    p: ImageWrapper
     }
 }).Compiler
 
@@ -121,9 +121,7 @@ const BlogTemplate = ({ data }) => {
       </HeroDisplay>
 
       <BodyContent defaultDisplay={defaultDisplay}>
-        {renderAst(htmlAst)}
-        {/* {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)} */}
-
+        {addNumbersToHeaderProps(renderAst(htmlAst), frontmatter.slug)}
       </BodyContent>
     </>
 
