@@ -20,7 +20,7 @@ const determineHexColor = color => {
         case "pink":
             return "#da2a48"
         case "tan":
-            return "#d4c0b1"
+            return "#d4bcaa"
         default:
             return "#333"
     }

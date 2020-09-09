@@ -38,50 +38,52 @@ const AboutPage = ({ data: {profile, resume } }) => {
 
         <PageGrid defaultDisplay={defaultDisplay}>
 
-          <GreetingWrapper color="purple">
-            <Greeting defaultDisplay={defaultDisplay}>
-              <MainGreeting>Hi, I'm Ian!</MainGreeting>
-              <SubGreeting>I'm a full stack developer based in Brooklyn, NY</SubGreeting>  
-              
-            </Greeting>    
-          </GreetingWrapper>
-          
-
+        
           <ProfileWrapper color="purple" defaultDisplay={defaultDisplay} >
             <ProfilePicture imgStyle={{objectPosition: "top center"}}  fluid={profile.childImageSharp.fluid} />
-          </ProfileWrapper>  
+          </ProfileWrapper>
+
+          <DetailsWrapper color="purple" area="greeting" fill>
+            <HeadingContainer>
+              <MainHeading>Hi, I'm Ian!</MainHeading>
+              <Bar color="pink" shape="frame"/>
+            </HeadingContainer>   
+          </DetailsWrapper>
 
           
-
-          <DetailsWrapper color="tan" area="about" thin>
+          <DetailsWrapper color="tan" area="about">
             <Details>
-
               <About>
-                I'm passionate about writing clean, elegant, and readable code. My interests extend across the full stack, from domain modeling and system design to UI development and browser-based animation. I'm always looking to choose the right tool for the job, so I'm always excited to learn about new languages, frameworks, and approaches.
+                I'm a full stack web developer based in Brooklyn, NY. I'm passionate about writing clean, elegant, and readable code. My interests extend across the full stack, from domain modeling and systems design to UI development and browser-based animation. I'm always looking to choose the right tool for the job, so I'm always excited to learn about new languages, frameworks, and approaches.
               </About>
                 
               <About>
-                I started programming in the Spring of 2019 and I attended Flatiron School that Summer to build up my web development skills. Since then I've been working at Flatiron School as a Software Engineering Coach. I'm currently looking for a junior role at a company where I can make big contributions and grow as a developer.
+                I started programming in Spring 2019 and I attended Flatiron School that Summer to build up my web development skills. Since then I've been working at Flatiron School as a Software Engineering Coach. I'm currently looking for a junior role at a company where I can make big contributions and grow as a developer.
               </About>
 
               <About>
-                Before programming, I was a graduate student (and then briefly an adjunct professor) in the philosophy department at NYU. Over time, I realized that I wanted work that's testable and that address concrete challenges. This eventually lead me to programming. I've had a smooth transition, in part because philosophy and programming place a shared emphasis on problem solving through conceptual abstraction.
+                Before programming, I was a graduate student (and then briefly an adjunct professor) in the philosophy department at NYU. Over time, I realized that I wanted work that's testable and that addresses more concrete challenges. This eventually lead me to programming. I've had a smooth transition, in part because philosophy and programming both involve creative problem solving through the application of conceptual abstractions.
               </About>
 
               <About>
-                As a philosophy student, I had the opportunity to study a fair amount of formal logic, which has been beneficial to my current work. This background prepared me to understand data structures and recognize when they can be used while building applications. It also prepared me for the conceptual challenges involved in domain modeling and querying information in SQL databases.
+                As a philosophy student, I had the opportunity to study a fair amount of formal logic, which has been beneficial to my current work. This background prepared me to understand data structures and recognize when they can be used while building applications. It also prepared me for the challenges involved in domain modeling and querying information in SQL databases.
               </About>
 
               <About>
-                Although I'm moving out of teaching as a profession, I still value mentoring others and writing about code. Teaching helps me learn, and crafting clear explanations helps to deepen my own understanding. Beyond that, I see mutual information sharing as crucial to a healthy developer community. There's so much to learn when it comes to modern web development, so someone who has mastered one topic may have only a rudimentary understanding of another. Sharing these areas of expertise makes use more well-rounded developers.
+                Although I'm moving out of teaching as a profession, I still value mentoring others and writing about code. Teaching helps me learn and deepen my own understanding. Beyond that, I see mutual information sharing as crucial to a healthy developer community. There's so much to learn in modern web development, and sharing our different areas of expertise makes us all more well-rounded developers.
               </About>
 
             </Details>
           </DetailsWrapper>
 
-          <ResumeWrapper color="pink" shape="frame" fit>
-            <ResumeLink href={resume.publicURL} target="_blank">Resume</ResumeLink>
-          </ResumeWrapper>
+          <DetailsWrapper color="tan" area="resume" fit>
+            <Details>
+            <ResumeWrapper color="pink" shape="frame">
+              <ResumeLink href={resume.publicURL} target="_blank">Resume</ResumeLink>
+            </ResumeWrapper>
+            </Details>
+          </DetailsWrapper> 
+          
 
           <DetailsWrapper color="tan" area="skills">
             <Details>
@@ -96,9 +98,9 @@ const AboutPage = ({ data: {profile, resume } }) => {
               <Heading>Work</Heading>
               <Bar color="pink" shape="frame"/>
               <List>
-                <li><b>Flatiron School</b>, New York, NY <br/> Software Engineering Coach <br/> <i>November 2019 - Present</i> </li>
-                <li><b>New York University</b>, New York, NY <br/> Adjucnt Professor <br/> <i>September 2018 - May 2019</i> </li>
-                <li><b>New York University</b>, New York, NY <br/> Graduate Student Instructor <br/> <i>September 2012 - May 2018</i> </li>
+                <li><b>Flatiron School</b><br/> New York, NY <br/> Software Engineering Coach <br/> <i>November 2019 - Present</i> </li>
+                <li><b>New York University</b><br/> New York, NY <br/> Adjucnt Professor <br/> <i>September 2018 - May 2019</i> </li>
+                <li><b>New York University</b><br/> New York, NY <br/> Graduate Student Instructor <br/> <i>September 2012 - May 2018</i> </li>
               </List>
             </Details>
           </DetailsWrapper>           
@@ -108,9 +110,9 @@ const AboutPage = ({ data: {profile, resume } }) => {
               <Heading>Education</Heading>
               <Bar color="pink" shape="frame"/>
               <List>
-                <li><b>Flatiron School</b>, 2019<br/>Software Engineering</li>
-                <li><b>New York University</b>, 2010 - 2018<br/>PhD, Philosophy</li>
-                <li><b>UC Berkeley</b>, 2006 - 2010<br/>BA, Philosophy</li>
+                <li><b>Flatiron School</b><br/> 2019<br/>Software Engineering</li>
+                <li><b>New York University</b><br/> 2010 - 2018<br/>PhD, Philosophy</li>
+                <li><b>UC Berkeley</b><br/> 2006 - 2010<br/>BA, Philosophy</li>
               </List>
             </Details>
           </DetailsWrapper> 
@@ -139,32 +141,33 @@ const styleToggle = (small, big) => css`
 
 const oneColumn = css`
   margin: 32px auto;
-  width: 90%;
+  width: 96%;
   min-width: 300px;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto auto auto auto auto auto;
+  grid-template-columns: 1fr 240px;
+  grid-template-rows: auto auto auto auto auto auto;
   grid-template-areas:
-    "greeting"
-    "picture"
-    "about"
-    "resume"
-    "skills"
-    "employment"
-    "education"
+    "greeting picture"
+    "about about"
+    "resume resume"
+    "skills skills"
+    "employment employment"
+    "education education"
   ;
 `
 
 const twoColumn = css`
   margin: 0;
-  width: calc(100% - 24px);
-  grid-template-columns: 30% 20% 1fr 200px;
-  grid-template-rows: 200px auto auto auto auto;
+  width: 100%;
+  
+  grid-template-columns: 1fr 280px;
+  grid-template-rows: 160px 160px auto auto auto auto;
   grid-template-areas:
-    "greeting greeting greeting picture"
-    "about about about about"
-    "resume resume resume resume"
-    "skills skills skills skills"
-    "employment employment education education"
+    "greeting picture"
+    "about picture"
+    "about resume"
+    "about skills"
+    "about employment"
+    "about education"
   ;
 `
 
@@ -172,78 +175,38 @@ const twoColumn = css`
 const PageGrid = styled.div`
   
   display: grid;
-  gap: 8px;
+  gap: 16px;
+
+  
 
   ${styleToggle(oneColumn, twoColumn)}
 
-`
-
-
-const GreetingWrapper = styled(Paper)`
-  grid-area: greeting;
-  padding: 8px;
-
-  place-self: end center;
-
-  width: 100%;
-
-  height: 100%;
-
-`
-
-const Greeting = styled.div`
-  width: 100%;
-  height: 100%;
-  
-  background: #312d37a6;
-
-  padding: 16px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  border: 2px solid #58545e;
-  
-`
-
-const MainGreeting = styled.h2`
-  color: var(--background-color);
-  text-shadow: var(--text-shadow);
-  text-align: center;
-  margin: 0 0 4px 0;
-  font-size: 40px;
-  width: fit-content;
-
-  @media (min-width: 500px) {
-    font-size: 56px;
+  @media (max-width: 500px) {
+    margin: 32px auto;
+    width: 96%;
+    min-width: 300px;
+    grid-template-columns: 100%;
+    grid-template-rows: 160px 360px auto auto auto auto auto;
+    grid-template-areas:
+      "greeting"
+      "picture"
+      "about"
+      "resume"
+      "skills"
+      "employment"
+      "education"
+    ;
   }
+
 `
 
-const SubGreeting = styled.h3`
-  color: var(--background-color);
-  text-shadow: var(--text-shadow);
-  font-size: 24px;
 
-  margin: 0;
-  
-  width: fit-content;
-
-  text-align: center;
-
-  @media (min-width: 500px) {
-    font-size: 32px;
-  }
-`
 
 
 const ResumeWrapper = styled(Paper)`
-  grid-area: resume;
   place-self: center center;
   color: var(--background-color);
-  margin: 48px 0 16px 0;
-
+  margin: 0 auto;
 `
 
 const ResumeLink = styled.a`
@@ -255,13 +218,11 @@ const ResumeLink = styled.a`
 `
 
 
-
-
 const ProfileWrapper = styled(Paper)`
 
   grid-area: picture;
 
-  ${styleToggle(`max-width: 280px; max-height: 280px`, `max-width: 100%; max-height: 100%;`)}
+  /* ${styleToggle(`max-width: 280px; max-height: 280px`, `max-width: 100%; max-height: 100%;`)} */
 
   width: 100%;
   height: 100%;
@@ -275,6 +236,7 @@ const ProfileWrapper = styled(Paper)`
 const ProfilePicture = styled(Img)`
   width: 100%;
   height: 100%;
+
 `
 
 
@@ -289,12 +251,12 @@ const DetailsWrapper = styled(Paper)`
   grid-area: ${props => props.area};
 
   width: 100%;
-  max-width: ${({thin}) => thin ? "800px" : "100%"};
-  height: fit-content;
+  height: ${props => props.fill ? "100%" : "fit-content"};
 
   margin: 0 auto;
   
   border-radius: 8px;
+  
 
 
   padding: 6px;
@@ -322,23 +284,58 @@ const Details = styled.article`
 
 `
 
-const Heading = styled.h3`
-  margin: 0 0 8px 0;
-  font-size: 28px;
 
-  @media (min-width: 500px) {
-    margin: 0 0 8px 8px;
+const HeadingContainer = styled.div`
+
+  background: #383444c2;
+
+  border-radius: 6px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 8px 0 8px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (min-width: 900px) {
+    padding: 8px 0 8px 32px;
   }
+
+
+`
+
+const MainHeading = styled.h2`
+  margin: 0 0 4px 0;
+  font-size: 48px;
+  color: var(--background-color);
+  @media (min-width: 900px) {
+    max-width: 90%;
+  }
+
 `
 
 
+
+
+
+
+
+
+
+
+const Heading = styled.h3`
+  margin: 0 0 8px 0;
+  font-size: 28px;
+`
 
 const Bar = styled(Paper)`
   height: 8px;
   width: 120px;
   margin: 0 0 16px 0;
   @media (min-width: 500px) {
-    margin: 0 0 16px 8px;
     width: 180px;
   }
 `
@@ -349,17 +346,29 @@ const Skills = styled.p`
   margin: 0;
 
   @media (min-width: 500px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `
 
 const About = styled.p`
   font-size: 18px;
-  line-height: 23px;
-  margin: 12px auto;
-  max-width: 62ch;
+  line-height: 24px;
+
+  
+  margin: 4px 3px 4px 1px;
+
+  
+
+  @media (min-width: 500px) {
+    font-size: 20px;
+    line-height: 28px;
+    margin: 24px 2% 24px 4%;
+    max-width: 94%;
+  }
+
 `
 
 const List = styled.ul`
-  margin: 0 0 0 20px;
+  margin: 0 0 0 8px;
+  font-size: 16px;
 `
