@@ -47,8 +47,6 @@ const Layout = ({ children, location }) => {
 
   }, [layoutStatus, location.pathname, defaultDisplay])
 
-  console.log(layoutStatus)
-
   const path = layoutStatus.current.path
 
   const snap = (layoutStatus.current.path === "/" || layoutStatus.previous.path === "/") && layoutStatus.current.defaultDisplay === layoutStatus.previous.defaultDisplay

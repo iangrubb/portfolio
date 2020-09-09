@@ -8,7 +8,7 @@ heroAuthor: "Halacious"
 heroSource: "https://unsplash.com/@halacious"
 ---
 
-An effective layout is crucial to a success of a website. A layout needs to orchestrate the interactions of different kinds of content and work on different screen sizes. It should be immediately intelligible to the user, conveying an sense of what the site does. It should be visually interesting and invite the user in.
+An effective layout is crucial to a success of a website. A layout needs to orchestrate the interactions of different kinds of content and work on different screen sizes. It should be immediately intelligible to the user, conveying a sense of what the site does. It should be visually interesting and invite the user in.
 
 Given the importance of layouts, it makes sense that CSS provides many tools for arranging HTML elements. I'll be looking at one of them: the position property. Position is a powerful tool, but not always the most intuitive. It can create some impressive effects, but it's also easy to misuse. There's so much that I wish I had known when I was getting started with CSS, and I'm going to try to share as much as I can. Let's get started!
 

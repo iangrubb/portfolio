@@ -186,14 +186,18 @@ const Shade = styled.div`
 
   border-radius: 0 0 2px 2px;
 
+  line-height: 22px;
+
 
   @media (min-width: 500px) {
     font-size: 20px;
     letter-spacing: 0.4px;
+    line-height: 23px;
   }
 
   @media (min-width: 900px) {
     height: 35%;
     padding: 24px;
+    
   }
 `

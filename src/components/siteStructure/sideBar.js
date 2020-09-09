@@ -21,7 +21,6 @@ const SideBar = ({ path }) => {
 
     const renderContents = () => (
         <>
-
             <Button onClick={toggleDefaultDisplay} hide={path === "/"} defaultDisplay={defaultDisplay}>
                 <Hamburger color="purple">
                     <HamburgerInner color="tan">
@@ -148,7 +147,7 @@ const Container = styled.div`
     }
 
    
-    display: grid;
+    display: ${props => props.hide ? "none" : "grid"};
 
     transform: translateX(${props => props.defaultDisplay ? '-100%' : '0'});
     
@@ -164,8 +163,6 @@ const Container = styled.div`
 
 
     @media (min-width: 900px) {
-        display: ${props => props.hide ? "none" : "grid"};
-        
         transition: transform var(--desktop-duration) ease;
         justify-items: end;
         transform: translateX(${props => !props.defaultDisplay ? '-100%' : '0'});

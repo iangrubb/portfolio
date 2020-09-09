@@ -46,7 +46,7 @@ const AboutPage = ({ data: {profile, resume } }) => {
           <DetailsWrapper color="purple" area="greeting" fill>
             <HeadingContainer>
               <MainHeading>Hi, I'm Ian!</MainHeading>
-              <Bar color="pink" shape="frame"/>
+              <SubHeading>I'm a full stack web developer based in Brooklyn, NY.</SubHeading>
             </HeadingContainer>   
           </DetailsWrapper>
 
@@ -54,7 +54,7 @@ const AboutPage = ({ data: {profile, resume } }) => {
           <DetailsWrapper color="tan" area="about">
             <Details>
               <About>
-                I'm a full stack web developer based in Brooklyn, NY. I'm passionate about writing clean, elegant, and readable code. My interests extend across the full stack, from domain modeling and systems design to UI development and browser-based animation. I'm always looking to choose the right tool for the job, so I'm always excited to learn about new languages, frameworks, and approaches.
+                I'm passionate about writing clean, elegant, and readable code. My interests extend across the full stack, from domain modeling and systems design to UI development and browser-based animation. I'm always looking to choose the right tool for the job, so I'm always excited to learn about new languages, frameworks, and approaches.
               </About>
                 
               <About>
@@ -160,7 +160,7 @@ const twoColumn = css`
   width: 100%;
   
   grid-template-columns: 1fr 280px;
-  grid-template-rows: 160px 160px auto auto auto auto;
+  grid-template-rows: auto 120px auto auto auto auto;
   grid-template-areas:
     "greeting picture"
     "about picture"
@@ -186,7 +186,7 @@ const PageGrid = styled.div`
     width: 96%;
     min-width: 300px;
     grid-template-columns: 100%;
-    grid-template-rows: 160px 360px auto auto auto auto auto;
+    grid-template-rows: auto 360px auto auto auto auto auto;
     grid-template-areas:
       "greeting"
       "picture"
@@ -222,7 +222,6 @@ const ProfileWrapper = styled(Paper)`
 
   grid-area: picture;
 
-  /* ${styleToggle(`max-width: 280px; max-height: 280px`, `max-width: 100%; max-height: 100%;`)} */
 
   width: 100%;
   height: 100%;
@@ -298,7 +297,7 @@ const HeadingContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 
   @media (min-width: 900px) {
     padding: 8px 0 8px 32px;
@@ -308,8 +307,9 @@ const HeadingContainer = styled.div`
 `
 
 const MainHeading = styled.h2`
-  margin: 0 0 4px 0;
-  font-size: 48px;
+  padding: 8px 0 0 0;
+  margin: 0 0 8px 0;
+  font-size: 42px;
   color: var(--background-color);
   @media (min-width: 900px) {
     max-width: 90%;
@@ -317,6 +317,13 @@ const MainHeading = styled.h2`
 
 `
 
+const SubHeading = styled.h3`
+  margin: 0;
+  color: var(--background-color);
+  @media (min-width: 900px) {
+    max-width: 90%;
+  }
+`
 
 
 
