@@ -2,15 +2,13 @@
 slug: "/blog/a-guide-to-css-position"
 date: "2020-09-06"
 title: "A Guide to CSS Position"
-abstract: "The CSS position property is an essential tool for building modern layouts. I'll explain the basics, share some tips, and show how you might use CSS position in practice."
+abstract: "The CSS position property is an essential tool for building website layouts. I'll explain the basics, share some tips, and show how you might use CSS position in practice."
 hero: ./hero.jpg
 heroAuthor: "Halacious"
 heroSource: "https://unsplash.com/@halacious"
 ---
 
-An effective layout is crucial to a success of a website. A layout needs to orchestrate the interactions of different kinds of content and work on different screen sizes. It should be immediately intelligible to the user, conveying a sense of what the site does. It should be visually interesting and invite the user in.
-
-Given the importance of layouts, it makes sense that CSS provides many tools for arranging HTML elements. I'll be looking at one of them: the position property. Position is a powerful tool, but not always the most intuitive. It can create some impressive effects, but it's also easy to misuse. There's so much that I wish I had known when I was getting started with CSS, and I'm going to try to share as much as I can. Let's get started!
+Building layouts is an important but challenging aspect of front-end development. Given this, it's no surprise that CSS has a lot of layout-building tools to choose from. I'll be talking about one of them here: the position property. This is a powerful tool that can create some impressive effects, but it's also easily misunderstood and misused. There's so much that I wish I had known when I was first learning CSS, and I'm going to try to share as much as I can. Let's get started!
 
 ## Ways to Position with CSS
 
@@ -26,7 +24,7 @@ CSS provides a set of additional properties for making these adjustments: top, b
 
 ### Relative Position
 
-Relative positioning keeps an element within the normal flow, but lets us push it in some direction relative to where it would have been. Whatever space relative elements would have taken up still counts as occupied, so they still displace other elements. This makes relative positioning only a minor deviation from the normal flow.
+Relative positioning keeps an element within the normal flow, but allows us to push it in some direction relative to where it would have been. Whatever space relative elements would have taken up still counts as occupied, so they still displace other elements. This makes relative positioning only a minor deviation from the normal flow.
 
 Here's an example of how this works. We have five squares aligned by a flex parent. The purple square has relative positioning, at top value of 15px, a left value of -10px, and a z-index of -1:
 
@@ -53,7 +51,7 @@ If you assign a value to the top property, it fixes the top of the element the s
 
 ### Absolute Position
 
-Like fixed position, absolute position takes an element out of the normal flow and gives us control over where to place it. The difference is that instead of positioning in relation to the viewport, it allows for positioning in relation to one of its ancestors in the HTML tree.
+Like fixed position, absolute position takes an element out of the normal flow and gives us control over its placement. The difference is that instead of positioning in relation to the viewport, it allows for positioning in relation to one of its ancestors in the HTML tree.
 
 The rules determining which ancestor gets used are a bit tricky. If an absolutely positioned element has at least one ancestor with a non-static position, then it will be positioned in relation to the *nearest* such ancestor above it in the tree. Otherwise, it will be placed in relation to the body of the document.
 
@@ -68,7 +66,7 @@ The absolute element is positioned in relation to the body of the document, whic
 
 ### Sticky Position
 
-Sticky is a relatively new kind of positioning, which works as a kind of hybrid between relative and fixed. It doesn't have quite the same level of [browser support](https://caniuse.com/#search=sticky) as the others, but it does offer a powerful effect that could only previously be accomplished through JavaScript.
+Sticky is a relatively new kind of positioning, which works as a kind of hybrid between relative and fixed. It offers a powerful effect that could only previously be accomplished through JavaScript.
 
 A sticky element scrolls into the user's viewport as though it has a relative position. But once it reaches the edge of the viewport it temporarily behaves as though it has a fixed position. It only scrolls off of the screen once its parent starts to scroll off of the screen as well. Here's the effect in action: 
 
@@ -85,9 +83,7 @@ Using positioned elements effectively can be a challenge. Let's look at a few te
 
 ### Positioning in Relation to a Parent
 
-Suppose you want to place a child element at a certain location on top of its parent, so that it remains in that location no matter how the parent element adjusts in size and shape due to its place in the document. There's a combination of position assignments that allows you to do this.
-
-First, make the child position absolute and give it whatever top, bottom, left, or right attributes you need. Second, make the parent position relative. This illustrates the difference between a static and a relative parent:
+Suppose you want to place a child element at a certain location on top of its parent, so that it remains in that location no matter how the parent element adjusts in size and shape due to its place in the document. There's a combination of position assignments that allows you to do this. First, make the child position absolute and give it whatever top, bottom, left, or right attributes you need. Second, make the parent position relative. This illustrates the difference between a static and a relative parent:
 
 <iframe height="265" style="width: 100%;" scrolling="no" title="Absolute Child, Relative Parent" src="https://codepen.io/iangrubb/embed/preview/jOWoGKX?height=265&theme-id=light&default-tab=css,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/jOWoGKX'>Absolute Child, Relative Parent</a> by Ian Grubb
@@ -98,7 +94,7 @@ Relative positioning achieves two goals in this case. Obviously it allows the ch
 
 ### Centering Elements
 
-When you have an absolutely positioned child, you sometimes want it perfectly centered within its parent. The trick to doing this depends on the fact that percentage unit work differently in different contexts. In the context of properties like top, the percentage unit depends on the size of the parent of the element we're styling. But in the context of a translation, the percentage unit depends on the size of the element itself.
+When you have an absolutely positioned child, you sometimes want it perfectly centered within its parent. The trick to getting this working depends on the fact that percentage unit work differently in different contexts. In the context of properties like top, the percentage unit depends on the size of the parent of the element we're styling. But in the context of a translation, the percentage unit depends on the size of the element itself.
 
 This means you can center an element within its parent by determining its location in *both* ways at once. Here are the stages in the process:
 
@@ -139,14 +135,14 @@ The trick is to apply a scroll-margin to the top of each heading that you use as
 
 The next technique helps control how elements overlap when you use the z-index property. Here's a fact that's surprising to a lot of people who haven't dealt with it before: you can't always force one non-static element above another just by setting the z-index values of the elements. The reason is that z-index values don't get compared across the whole document, only across a specific *stacking context*.
 
-This actually gets pretty complicated, so lets just start with an example. Below, we have a single bar with z-index 2 and two pairs of elements. For each pair, the larger square has a z-index of 1 and the smaller square has a z-index of 3. I've set the squares to move past the bar when hovered over. We'd expect that for each pair, the large square would go under the bar and while the small square would go over. But that's not the behavior we actually get:
+This actually gets pretty complicated, so let' just start with an example. Below, we have a single bar with z-index 2 and two pairs of elements. For each pair, the larger square has a z-index of 1 and the smaller square has a z-index of 3. I've set the squares to move past the bar when hovered over. We'd expect that for each pair, the large square would go under the bar and while the small square would go over. But that's not the behavior we actually get:
 
 <iframe height="358" style="width: 100%;" scrolling="no" title="Working With Stacking Contexts" src="https://codepen.io/iangrubb/embed/preview/QWyeXaz?height=358&theme-id=light&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/iangrubb/pen/QWyeXaz'>Working With Stacking Contexts</a> by Ian Grubb
   (<a href='https://codepen.io/iangrubb'>@iangrubb</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Ok, so what's going on? The key difference here is HTML structure. In the first example, the large square contains the smaller square as a child. This ensures that when the hover translation causes the large square to move, the small square moves along with it. But because there's a z-index on the large square, it creates a new stacking context. This means that anything above the large square will automatically be above any of its children (even the small square with a z-index of 3).
+Ok, so what's going on? The key difference between the two sides is HTML structure. In the first example, the large square contains the smaller square as a child. This ensures that when the hover translation causes the large square to move, the small square moves along with it. But because there's a z-index on the large square, it creates a new stacking context. This means that anything above the large square will automatically be above any of its children (even the small square with a z-index of 3).
 
 This is a surprising and potentially frustrating rule. But the rule can also be quite valuable, since its good to have safeguards against an element showing up where it shouldn't be if given the wrong z-index. We just need to know how to work around the rule when we want certain kinds of behavior.
 
