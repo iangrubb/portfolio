@@ -74,13 +74,19 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Vollkorn:400,400i,700,900', 'Lato:400, 400i, 700']
+    //     }
+    //   }
+    // },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-typography`,
       options: {
-        google: {
-          families: ['Vollkorn:400,400i,700,900', 'Lato:400, 400i, 700']
-        }
-      }
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
