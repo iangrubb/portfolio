@@ -57,13 +57,12 @@ const Layout = ({ children, location }) => {
         <Shapes />
         <PreventScroll defaultDisplay={defaultDisplay} />
 
-          <FullPage>
-            
-            <SideBar path={path} />
-            <Spacer defaultDisplay={defaultDisplay} landing={path === "/"} snap={snap} >
-                {children}     
-            </Spacer>
-          </FullPage>
+        <FullPage>   
+          <SideBar path={path} />
+          <Spacer defaultDisplay={defaultDisplay} landing={path === "/"} snap={snap} >
+              {children}     
+          </Spacer>
+        </FullPage>
 
       </>
   )
@@ -72,7 +71,6 @@ const Layout = ({ children, location }) => {
 
 const FullPage = styled.div`
   width: 100vw;
-  height: 100vh;
 `
 
 const Spacer = styled.div`
@@ -83,7 +81,7 @@ const Spacer = styled.div`
   transition: ${props => props.snap ? "none" : "transform var(--desktop-duration) ease"};
 
 
-  min-height: 100%;
+  min-height: 100vh;
 
   max-width: 1000px;
 
