@@ -99,7 +99,7 @@ const AboutPage = ({ data: {profile, resume } }) => {
               <Bar color="pink" shape="frame"/>
               <List>
                 <li><b>Flatiron School</b><br/> New York, NY <br/> Software Engineering Coach <br/> <i>November 2019 - Present</i> </li>
-                <li><b>New York University</b><br/> New York, NY <br/> Adjucnt Professor <br/> <i>September 2018 - May 2019</i> </li>
+                <li><b>New York University</b><br/> New York, NY <br/> Adjunct Professor <br/> <i>September 2018 - May 2019</i> </li>
                 <li><b>New York University</b><br/> New York, NY <br/> Graduate Student Instructor <br/> <i>September 2012 - May 2018</i> </li>
               </List>
             </Details>
