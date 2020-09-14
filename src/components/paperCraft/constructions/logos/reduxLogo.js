@@ -19,6 +19,6 @@ export default ReactLogo
 
 const Orbit = styled(Paper)`
     position: absolute;
-    width: 80%;
+    width: 72%;
     transform: rotate(${props => props.angle}deg);
 `
