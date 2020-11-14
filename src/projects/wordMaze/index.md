@@ -5,7 +5,6 @@ tech: "Elixir, Phoenix, HTML, CSS"
 hero: ./hero4.png
 tagline: "A real-time multiplayer game that mashes up Scrabble with an old-school dungeon crawler."
 github: "https://github.com/iangrubb/word_maze"
-live: "http://word-maze.gigalixirapp.com/games"
 ---
 
 I've been learning Elixir and Phoenix to help broaden my capabilities as a programmer. Elixir is a functional language built on Erlang, with makes it a strong language for dealing with concurrent processes. Phoenix is a web framework built on Elixir that's designed to take advantage of this strength.
